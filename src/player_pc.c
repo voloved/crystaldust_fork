@@ -112,6 +112,20 @@ static const struct MenuAction sMenuActions_ItemPc[] = {
     { gText_Cancel, Task_PlayerPcCancel }
 };
 
+static const struct ItemSlot sNewGamePCItems[] =
+{
+    { ITEM_POTION, 1 },
+    {ITEM_CLEANSE_TAG, 1},
+    {ITEM_POKE_DOLL, 1},
+    {ITEM_LEAF_STONE, 1},
+	{ITEM_FIRE_STONE, 1},
+	{ITEM_WATER_STONE, 1},
+	{ITEM_THUNDER_STONE, 1},
+	{ITEM_SUN_STONE, 1},
+	{ITEM_MOON_STONE, 1},
+    { ITEM_NONE, 0 }
+};
+
 const struct MenuAction gMenuActions_MailSubmenu[] = {
     { gText_Read, Task_PlayerPcReadMail },
     { gText_MoveToBag, Task_PlayerPcMoveMailToBag },
@@ -149,9 +163,14 @@ static const struct WindowTemplate sWindowTemplate_ItemStorageSubmenu = {
     .baseBlock = 0x008
 };
 
+// Macro below is likely a fakematch, equivalent to sNewGamePCItems[i].quantity
+#define GET_QUANTITY(i) ((u16)((u16 *)sNewGamePCItems + 1)[i * 2])
 void NewGameInitPCItems(void)
 {
-    ClearItemSlots(gSaveBlock1Ptr->pcItems, ARRAY_COUNT(gSaveBlock1Ptr->pcItems));
+    u8 i = 0;
+    ClearItemSlots(gSaveBlock1Ptr->pcItems, PC_ITEMS_COUNT);
+    for(; sNewGamePCItems[i].itemId != ITEM_NONE && GET_QUANTITY(i) &&
+        AddPCItem(sNewGamePCItems[i].itemId, GET_QUANTITY(i)) == TRUE; i++);
 }
 #undef GET_QUANTITY
 
