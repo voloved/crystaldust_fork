@@ -919,8 +919,21 @@ script NewBarkTown_ProfessorElmsLab_EventScript_HealingMachine {
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
-    msgbox("“OBSERVATIONS ON {POKEMON}\n"
-           "EVOLUTION”, it says on the screen…", MSGBOX_SIGN)
+    msgbox("Show Type Effectiveness\n"
+            "in battle?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES)
+        {
+            msgbox("Type effectiveness will\n"
+                   "be displayed")
+            setflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
+        }
+        else
+        {
+            msgbox("Type effectiveness will\n"
+                   "not be displayed")
+            clearflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
+        }
+    closemessage
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_TrashCan {
