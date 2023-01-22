@@ -30,6 +30,10 @@ SecretBase_EventScript_CheckEntrance::
 	compare VAR_RESULT, TRUE
 	goto_if_eq SecretBase_EventScript_AlreadyHasSecretBase
 	checkpartymove MOVE_SECRET_POWER
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_lt SecretBase_EventScript_EventScript_CheckEntranceCont
+	setvar VAR_RESULT, 0
+SecretBase_EventScript_EventScript_CheckEntranceCont::
 	setfieldeffectargument 0, VAR_RESULT
 	buffermovename 1, MOVE_SECRET_POWER
 	compare VAR_0x8007, SECRET_BASE_RED_CAVE

@@ -33,6 +33,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
+#include "item.h"
 
 EWRAM_DATA bool8 gRunToggleBtnSet = FALSE;
 
@@ -1349,6 +1350,8 @@ bool8 PartyHasMonWithHeadbutt(void)
         if (MonKnowsMove(&gPlayerParty[i], MOVE_HEADBUTT))
             return TRUE;
     }
+    if (CheckBagHasItem(ITEM_HM03_SURF ,1))
+        return TRUE;
     return FALSE;
 }
 
@@ -1366,6 +1369,8 @@ bool8 PartyHasMonWithSurf(void)
                 return TRUE;
         }
     }
+    if (CheckBagHasItem(ITEM_HM03_SURF ,1))
+        return TRUE;
     return FALSE;
 }
 
@@ -1380,6 +1385,8 @@ bool8 PartyHasMonWithWhirlpool(void)
         if (MonKnowsMove(&gPlayerParty[i], MOVE_WHIRLPOOL))
             return TRUE;
     }
+    if (CheckBagHasItem(ITEM_HM08_WHIRLPOOL ,1))
+        return TRUE;
     return FALSE;
 }
 
