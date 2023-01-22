@@ -610,10 +610,6 @@ static void DoMoveRelearnerMain(void)
 
             if (var == 0)
             {
-                sMoveRelearnerStruct->state = MENU_STATE_CHOOSE_SETUP_STATE;
-            }
-            else if (var == MENU_B_PRESSED || var == 1)
-            {
                 // What's the point? It gets set to MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT, anyway.
                 if (sMoveRelearnerMenuSate.showContestInfo == FALSE)
                 {
@@ -625,6 +621,11 @@ static void DoMoveRelearnerMain(void)
                 }
                 sMoveRelearnerStruct->state = MENU_STATE_PRINT_TRYING_TO_LEARN_PROMPT;
             }
+            else if (var == MENU_B_PRESSED || var == 1)
+            {
+                sMoveRelearnerStruct->state = MENU_STATE_CHOOSE_SETUP_STATE;
+            }
+
         }
         break;
     case MENU_STATE_CHOOSE_SETUP_STATE:
