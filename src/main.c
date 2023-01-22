@@ -81,6 +81,7 @@ static void ReadKeys(void);
 void InitIntrHandlers(void);
 static void WaitForVBlank(void);
 void EnableVCountIntrAtLine150(void);
+extern void CB2_FlashNotDetectedScreen(void);
 
 #if RELEASE_ID
 void DecryptIntrMain(void)
@@ -128,9 +129,8 @@ void AgbMain()
     AGBPrintInit();
 #endif
 
-    // How about we allow the player to actually see an error instead of a white screen on boot?
-    /*if (gFlashMemoryPresent != TRUE)
-        SetMainCallback2(NULL);*/
+    if (gFlashMemoryPresent != TRUE)
+        SetMainCallback2(CB2_FlashNotDetectedScreen);
 
     gLinkTransferringData = FALSE;
     gUnknown_03000000 = 0xFC0;

@@ -102,6 +102,7 @@ static void BattleIntroDrawTrainersOrMonsSprites(void);
 static void BattleIntroDrawPartySummaryScreens(void);
 static void BattleIntroPrintTrainerWantsToBattle(void);
 static void BattleIntroPrintWildMonAttacked(void);
+static void BattleIntroQuickRun(void);
 static void BattleIntroPrintOpponentSendsOut(void);
 static void BattleIntroPrintPlayerSendsOut(void);
 static void BattleIntroOpponent1SendsOutMonAnimation(void);
@@ -3545,8 +3546,19 @@ static void BattleIntroPrintWildMonAttacked(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
+        gBattleMainFunc = BattleIntroQuickRun;
         PrepareStringBattle(STRINGID_INTROMSG, 0);
+    }
+}
+
+static void BattleIntroQuickRun(void)
+{
+    if (gBattleControllerExecFlags == 0)
+    {
+        if (JOY_HELD(DPAD_RIGHT))
+            gBattleMainFunc = HandleEndTurn_RanFromBattle;
+        else
+            gBattleMainFunc = BattleIntroPrintPlayerSendsOut;
     }
 }
 
@@ -5079,6 +5091,8 @@ static void HandleEndTurn_MonFled(void)
 
 static void HandleEndTurn_FinishBattle(void)
 {
+    gBattleMons[B_SIDE_OPPONENT].species = SPECIES_NONE;  // So the "Choose a Pkmn message doesn't include the last mon battled outside of battle."
+    *(gBattleStruct->monToSwitchIntoId + B_SIDE_OPPONENT) = SPECIES_NONE;  // Should already be none at the end of a battle, but better to be explicit
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
