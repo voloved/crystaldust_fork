@@ -101,6 +101,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->daylightSavingTime = FALSE;
     gSaveBlock2Ptr->twentyFourHourClock = FALSE;
+    gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_L_EQUALS_A;
 }
 
 static void ClearPokedexFlags(void)
