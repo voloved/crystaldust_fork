@@ -1254,6 +1254,10 @@
 	.macro swapbugcatchingcontestmon
 	.byte 0xfa
 	.endm
+
+	.macro 	ballthrowend
+	.byte 0xfb
+	.endm
 	
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

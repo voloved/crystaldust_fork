@@ -138,6 +138,8 @@ static const struct CaptureStar sCaptureStars[] =
 };
 
 #define TAG_BALL_PARTICLES(x)     (55020 + BALLGFX_##x)
+#define BALL_SHAKE_BUTTON_MULT    11  // 10 * (BALL_SHAKE_BUTTON_MULT - 10)  is the amount we multiply 
+// our catch odds with each time the B button is successfully pressed
 
 static const struct CompressedSpriteSheet sBallParticleSpriteSheets[BALLGFX_COUNT] =
 {
@@ -1251,12 +1253,18 @@ static void SpriteCB_Ball_Wobble(struct Sprite *sprite)
 
 static void SpriteCB_Ball_Wobble_Step(struct Sprite *sprite)
 {
-    s8 shakes;
+    s8 shakes = SHAKES(sprite->sState) + 1;
     u16 frame;
+    if(JOY_NEW(B_BUTTON) && (STATE(sprite->sState) != BALL_WAIT_NEXT_SHAKE)){  //  IF new B button pressed when the ball is shaking
+        gBallShakesBData.ballShakesArray |= (1 << ((2 * shakes) - 1));
+    }
 
     switch (STATE(sprite->sState))
     {
     case BALL_ROLL_1: 
+        if(gBallShakesBData.ballShakesArray >> 6 != shakes && !JOY_HELD(B_BUTTON)){  // At the beginning of the shake, check to make sure B isn't being held to discourage spamming B.
+            gBallShakesBData.ballShakesArray |= (1 << ((shakes - 1) * 2));
+        }
         // Rolling effect: every frame in the rotation, the sprite shifts 176/256 of a pixel. 
         if (gBattleSpritesDataPtr->animationData->ballSubpx > 255)
         {
@@ -1349,6 +1357,14 @@ static void SpriteCB_Ball_Wobble_Step(struct Sprite *sprite)
     case BALL_NEXT_MOVE:
         SHAKE_INC(sprite->sState);
         shakes = SHAKES(sprite->sState);
+        gBallShakesBData.ballShakesArray &= 0x3F;  //b0011.1111 to clear the ball count bits
+        gBallShakesBData.ballShakesArray |= (shakes << 6);
+        // If the B button wasn't held at the beginning and a new B button was pressed when the ball was shaking, increase the odds
+        if (((gBallShakesBData.ballShakesArray >> ((shakes - 1) * 2)) & 0x03) == 0x03){
+            gBallShakesBData.odds = (BALL_SHAKE_BUTTON_MULT * gBallShakesBData.odds) / 10;
+        }
+        gBallShakesBData.shakes += CalcNextShakeFromOdds(gBallShakesBData.odds);
+        gBattleSpritesDataPtr->animationData->ballThrowCaseId = gBallShakesBData.shakes;
         if (shakes == gBattleSpritesDataPtr->animationData->ballThrowCaseId)
         {
             sprite->affineAnimPaused = TRUE;

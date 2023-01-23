@@ -330,6 +330,7 @@ static void Cmd_finishturn(void);
 static void Cmd_trainerslideout(void);
 static void Cmd_setcaughtbugcatchingcontestmon(void);
 static void Cmd_swapbugcatchingcontestmon(void);
+static void Cmd_ballthrowend(void);
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -584,6 +585,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_trainerslideout,                         //0xF8
     Cmd_setcaughtbugcatchingcontestmon,          //0xF9
     Cmd_swapbugcatchingcontestmon,               //0xFA
+    Cmd_ballthrowend                             //0xFB
 };
 
 struct StatFractions
@@ -9787,6 +9789,7 @@ static void Cmd_removelightscreenreflect(void) // brick break
 static void Cmd_handleballthrow(void)
 {
     u8 ballMultiplier = 0;
+    gBallShakesBData.ballShakesArray = 0;
 
     if (gBattleControllerExecFlags)
         return;
@@ -9802,7 +9805,8 @@ static void Cmd_handleballthrow(void)
     }
     else if (gBattleTypeFlags & BATTLE_TYPE_DUDE_TUTORIAL)
     {
-        BtlController_EmitBallThrowAnim(0, BALL_3_SHAKES_SUCCESS);
+        gBallShakesBData.shakes = CalcNextShakeFromOdds(gBallShakesBData.odds);
+        BtlController_EmitBallThrowAnim(0, gBallShakesBData.shakes);
         MarkBattlerForControllerExec(gActiveBattler);
         gBattlescriptCurrInstr = BattleScript_WallyBallThrow;
     }
@@ -9996,77 +10000,11 @@ static void Cmd_handleballthrow(void)
                     gBattleResults.catchAttempts[ball - BALL_ULTRA]++;
             }
         }
-
-        if (odds > 254) // mon caught
-        {
-            BtlController_EmitBallThrowAnim(0, BALL_3_SHAKES_SUCCESS);
-            MarkBattlerForControllerExec(gActiveBattler);
-            gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-            SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &ball);
-
-            if (ball == BALL_FRIEND)
-            {
-                u8 friendship = 200;
-                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_FRIENDSHIP, &friendship);
-            }
-
-            if (CalculatePlayerPartyCount() == PARTY_SIZE)
-                gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-            else
-                gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-        }
-        else // mon may be caught, calculate shakes
-        {
-            u8 shakes;
-
-#if DEBUG
-            if (gCatchDebugStatus == 1)
-            {
-                shakes = BALL_3_SHAKES_SUCCESS;
-            }
-            else if (gCatchDebugStatus == 2)
-            {
-                shakes = BALL_NO_SHAKES;
-            }
-            else
-#endif
-            if (ball == BALL_MASTER)
-            {
-                shakes = BALL_3_SHAKES_SUCCESS;
-            }
-            else
-            {
-                odds = Sqrt(Sqrt(16711680 / odds));
-                odds = 1048560 / odds;
-
-                for (shakes = 0; shakes < BALL_3_SHAKES_SUCCESS && Random() < odds; shakes++);
-            }
-
-            BtlController_EmitBallThrowAnim(0, shakes);
-            MarkBattlerForControllerExec(gActiveBattler);
-
-            if (shakes == BALL_3_SHAKES_SUCCESS) // mon caught, copy of the code above
-            {
-                gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
-                SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &ball);
-
-                if (ball == BALL_FRIEND)
-                {
-                    u8 friendship = 200;
-                    SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_FRIENDSHIP, &friendship);
-                }
-
-                if (CalculatePlayerPartyCount() == PARTY_SIZE)
-                    gBattleCommunication[MULTISTRING_CHOOSER] = 0;
-                else
-                    gBattleCommunication[MULTISTRING_CHOOSER] = 1;
-            }
-            else // not caught
-            {
-                gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
-                gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
-            }
-        }
+        gBallShakesBData.odds = odds;
+        gBallShakesBData.shakes = CalcNextShakeFromOdds(gBallShakesBData.odds);
+        BtlController_EmitBallThrowAnim(0, gBallShakesBData.shakes);
+        MarkBattlerForControllerExec(gActiveBattler);
+        gBattlescriptCurrInstr = BattleScript_BallThrowEnd;
     }
 }
 
@@ -10384,4 +10322,48 @@ static void Cmd_swapbugcatchingcontestmon(void)
             gBattlescriptCurrInstr++;
         break;
     }
+}
+
+static void Cmd_ballthrowend(void)
+{
+    u8 shakes = gBallShakesBData.shakes;
+    u16 ball = ITEM_ID_TO_BALL_ID(gLastUsedItem);
+    if (shakes == BALL_3_SHAKES_SUCCESS)
+    {
+        gBattlescriptCurrInstr = BattleScript_SuccessBallThrow;
+        SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_POKEBALL, &ball);
+
+        if (ball == BALL_FRIEND)
+        {
+            u8 friendship = 200;
+            SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerTarget]], MON_DATA_FRIENDSHIP, &friendship);
+        }
+
+        if (CalculatePlayerPartyCount() == PARTY_SIZE)
+            gBattleCommunication[MULTISTRING_CHOOSER] = 0;
+        else
+            gBattleCommunication[MULTISTRING_CHOOSER] = 1;
+    }
+    else // not caught
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = shakes;
+        gBattlescriptCurrInstr = BattleScript_ShakeBallThrow;
+    }
+    gBallShakesBData.odds = 0;
+    gBallShakesBData.ballShakesArray = 0;
+    gBallShakesBData.shakes = 0;
+}
+
+bool8 CalcNextShakeFromOdds(u32 odds)
+{
+    u16 ball = ITEM_ID_TO_BALL_ID(gLastUsedItem);
+#if DEBUG
+    if (gCatchDebugStatus == 1)
+        return TRUE;
+#endif
+    if (odds > 254 || ball == ITEM_MASTER_BALL || gBattleTypeFlags & BATTLE_TYPE_DUDE_TUTORIAL) // mon caught
+        return TRUE;
+    odds = Sqrt(Sqrt(16711680 / odds));
+    odds = 1048560 / odds;
+    return Random() < odds;
 }

@@ -60,6 +60,9 @@ BattleScript_BallThrow::
 	printstring STRINGID_PLAYERUSEDITEM
 	handleballthrow
 
+BattleScript_BallThrowEnd::
+	ballthrowend
+
 BattleScript_BallThrowByDude::
 	printstring STRINGID_DUDEUSEDITEM
 	handleballthrow
