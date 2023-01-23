@@ -5,17 +5,10 @@ Common_EventScript_PkmnCenterNurse::
     specialvar VAR_RESULT, CountPlayerTrainerStars
     compare VAR_RESULT, 4
     goto_if_eq EventScript_PkmnCenterNurse_GoldCard
-	gettime
-	compare VAR_0x8002, TIME_MORNING
-	call_if_eq EventScript_PkmnCenterNurse_IntroMorning
-	compare VAR_0x8002, TIME_DAY
-	call_if_eq EventScript_PkmnCenterNurse_IntroDay
-	compare VAR_0x8002, TIME_NIGHT
-	call_if_eq EventScript_PkmnCenterNurse_IntroNight
     @ fallthrough
 Common_EventScript_PkmnCenterNurse_Common::
     waitmessage
-    goto_if_eq EventScript_PkmnCenterNurse_HealPkmn
+    goto EventScript_PkmnCenterNurse_HealPkmn
     end
 
 EventScript_PkmnCenterNurse_IntroMorning:
