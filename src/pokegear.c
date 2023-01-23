@@ -35,6 +35,7 @@
 #include "constants/map_types.h"
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
+#include "wallclock.h"
 
 #define WIN_DIALOG 0
 #define WIN_HELP 1
@@ -1095,6 +1096,12 @@ static void Task_ClockCard(u8 taskId)
         PlaySE(SE_SELECT);
         gSaveBlock2Ptr->twentyFourHourClock = !gSaveBlock2Ptr->twentyFourHourClock;
         shouldForceUpdate = TRUE;
+    }
+
+        if (JOY_NEW(R_BUTTON))
+    {
+        SetMainCallback2(CB2_StartWallClock);
+        gMain.savedCallback = CB2_InitPokegear;
     }
 
     // only change day of week when clock gets an update
