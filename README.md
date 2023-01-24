@@ -36,7 +36,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Holding L is now turbo A](https://github.com/pret/pokeemerald/wiki/Make-L-Button-Be-Turbo-A-When-L=A-Option-Is-Set)
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
-- Made Poké Doll cause [no trainers to see you](https://github.com/pret/pokeemerald/wiki/Toggle-Trainer-Sight). You can still go up and talk with them.
+- [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
 - [Added type color that shows battle effectiveness and added ability to toggle this feature in the option menu.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
 - [Remove the extra save confirmation](https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation) [Credit: FieryMewtwo] 
 - [Increase Text Speed Beyond Fast](https://www.pokecommunity.com/showpost.php?p=10400198) [Credit: ellabrella]
@@ -47,4 +47,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Wrong Save File Error Message](https://www.pokecommunity.com/showpost.php?p=10449518) [Credit: Anon822]
 - [Let a Pokémon forget any move they know](https://www.pokecommunity.com/showpost.php?p=10182839&postcount=119) [Credit: Lunos]
 - [Changed Someone's PC to Lanette's PC from the Start of the Game](https://github.com/pret/pokeemerald/wiki/Change-Someone%27s-PC-to-Lanette%27s-PC-from-the-Start-of-the-Game)
+- [Make Daycare Faster at Leveling Pokémon](https://github.com/pret/pokeemerald/wiki/Make-Daycare-Faster-at-Leveling-Pok%C3%A9mon)
+- [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
+- [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
