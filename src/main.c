@@ -125,15 +125,19 @@ void AgbMain()
 
     gSoftResetDisabled = FALSE;
 
-#ifndef NDEBUG
-    AGBPrintInit();
-#endif
-
     if (gFlashMemoryPresent != TRUE)
         SetMainCallback2(CB2_FlashNotDetectedScreen);
 
     gLinkTransferringData = FALSE;
     gUnknown_03000000 = 0xFC0;
+
+#ifndef NDEBUG
+#if (LOG_HANDLER == LOG_HANDLER_MGBA_PRINT)
+    (void) MgbaOpen();
+#elif (LOG_HANDLER == LOG_HANDLER_AGB_PRINT)
+    AGBPrintfInit();
+#endif
+#endif
 
     for (;;)
     {
