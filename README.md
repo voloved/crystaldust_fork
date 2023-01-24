@@ -27,13 +27,16 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Button Press to Skip Copyright Screen](https://github.com/pret/pokeemerald/wiki/Button-Press-to-Skip-Copyright-Screen)
 - [Pressing B as the ball shakes raises catching odds.](https://github.com/pret/pokeemerald/wiki/Raise-Odds-of-Catching-a-Pokemon-by-Pressing-B-When-the-Ball-Shakes)
 - R is now Turbo B most of the time in the overworld and battles.
+- [Added Physical Special Split](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
+- Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon,
 - [Can now quickly run from a battle by holding Right while the wild Pokémon's name appears.](https://github.com/pret/pokeemerald/wiki/Quickly-Run-from-a-Battle-by-Holding-Right-While-the-Wild-Pok%C3%A9mon's-Name-Appears)
 - [Make Pokémon that Require a Fateful Encounter to be Legal to Always Be Set to Legal](https://github.com/pret/pokeemerald/wiki/Make-Pokemon-that-Require-a-Fateful-Encounter-to-be-Legal-to-Always-Be-Set-to-Legal)
 - [Use Fly and Flash for Any Compatible Pokémon](https://www.pokecommunity.com/showpost.php?p=10420068) [Credit: ScyrousFX]
 - [Allow player to Change Direction Better While Moving](https://www.pokecommunity.com/showpost.php?p=10402610)  [Credit: cbt]
 - [Made Move Pokémon as first PSS option](https://www.pokecommunity.com/showpost.php?p=10065761) [Credit: AsparagusEduardo]
 - [Holding L is now turbo A](https://github.com/pret/pokeemerald/wiki/Make-L-Button-Be-Turbo-A-When-L=A-Option-Is-Set)
+- [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
 - [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
