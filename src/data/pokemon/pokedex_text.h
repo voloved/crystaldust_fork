@@ -2328,7 +2328,7 @@ const u8 gWeavilePokedexText[] = _(
 
 const u8 gMagnezonePokedexText[] = _(
     "As it zooms through the sky, this\n"
-    "PokÃ©mon seems to be receiving signals\n"
+    "POKéMON seems to be receiving signals\n"
     "of unknown origin, while transmitting its\n"
     "own signals of unknown purpose.");
 
@@ -2347,7 +2347,7 @@ const u8 gRhyperiorPokedexText[] = _(
 const u8 gTangrowthPokedexText[] = _(
     "It ensnares prey by extending arms made\n"
     "of vines. Even if one of its arms is eaten,\n"
-    "it's fine. The PokÃ©mon regenerates quickly\n"
+    "it's fine. The POKéMON regenerates quickly\n"
     "and will go right back to normal.");
 
 const u8 gElectivirePokedexText[] = _(
@@ -2360,7 +2360,7 @@ const u8 gMagmortarPokedexText[] = _(
     "According to what is known, a single pair\n"
     "of male and female Magmortar lives in\n"
     "one volcano. From its arm, it launches\n"
-    "fireballs hotter than 3,600ÂºF.");
+    "fireballs hotter than 3,600F.");
 
 const u8 gTogekissPokedexText[] = _(
     "As everyone knows, it visits peaceful\n"
@@ -2369,7 +2369,7 @@ const u8 gTogekissPokedexText[] = _(
     "where there is strife.");
 
 const u8 gYanmegaPokedexText[] = _(
-    "This six-legged PokÃ©mon is easily capable\n"
+    "This six-legged POKéMON is easily capable\n"
     "of transporting an adult in flight. It is\n"
     "adept at biting apart foes while flying\n"
     "by at high speed.");
@@ -2383,12 +2383,12 @@ const u8 gGliscorPokedexText[] = _(
 const u8 gMamoswinePokedexText[] = _(
     "A frozen Mamoswine was dug from ice\n"
     "dating back 10,000 years. It woke up to\n"
-    "much amazement. This PokÃ©mon has been\n"
+    "much amazement. This POKéMON has been\n"
     "around for a long, long, long time.");
 
 const u8 gPorygonZPokedexText[] = _(
     "In order to create a more advanced\n"
-    "PokÃ©mon, an additional program was\n"
+    "POKéMON, an additional program was\n"
     "installed, but apparently it contained a\n"
     "defect that made it move oddly.");
 
@@ -2405,7 +2405,7 @@ const u8 gProbopassPokedexText[] = _(
     "three directions.");
 
 const u8 gDusknoirPokedexText[] = _(
-    "This feared PokÃ©mon is said to travel to\n"
+    "This feared POKéMON is said to travel to\n"
     "worlds unknown. Some even believe that\n"
     "it takes lost spirits into its pliant body\n"
     "and guides them home.");
