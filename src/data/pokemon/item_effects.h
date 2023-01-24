@@ -320,6 +320,14 @@ const u8 gItemEffect_DeepSeaTooth[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+const u8 gItemEffect_Everstone[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
+const u8 gItemEffect_Nevermeltice[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 gItemEffect_CheriBerry[6] = {
     [3] = ITEM3_PARALYSIS,
 };
