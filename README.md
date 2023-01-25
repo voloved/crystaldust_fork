@@ -54,3 +54,15 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
+- More Wild Pokémon Added:
+  - **Route 29:** Teddiursa
+  - **Route 30:** Scyther
+  - **Route 32:** Mareep, Mantine
+  - **Route 33:** Elekid, Magby, Rhyhorn
+  - **Route 34:** Misdravous. Stantler
+  - **Route 35:** Stantler, Phanphy, Remeraid
+  - **Route 37:** Eevee
+  - **Route 38:** Hitmontop
+  - **Route 46:** Wobbuffet
+  - **Route 46:** Skarmory
+  - **Ice Path B1:** More Sneasels
