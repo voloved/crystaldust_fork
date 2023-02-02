@@ -2797,7 +2797,7 @@ void SpriteCb_OpponentMonFromBall(struct Sprite *sprite)
     }
 }
 
-// This callback is frequently overwritten by SpriteCB_TrainerSpawn
+// This callback is frequently overwritten by SpriteCB_TrainerSlideIn
 void SpriteCB_BattleSpriteStartSlideLeft(struct Sprite *sprite)
 {
     sprite->callback = SpriteCB_BattleSpriteSlideLeft;
