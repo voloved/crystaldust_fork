@@ -1816,9 +1816,9 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
         .letterSpacing = 0,
         .lineSpacing = 0,
         .speed = 0,
-        .fgColor = 11,
+        .fgColor = 7,
         .bgColor = 14,
-        .shadowColor = 11,
+        .shadowColor = 15,
     },
 };
 
