@@ -55,6 +55,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
+- [Fix AI's Switch In Battle](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa

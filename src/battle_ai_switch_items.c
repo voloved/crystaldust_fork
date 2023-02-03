@@ -626,7 +626,7 @@ static void ModulateByTypeEffectiveness(u8 atkType, u8 defType1, u8 defType2, u8
 u8 GetMostSuitableMonToSwitchInto(void)
 {
     u8 opposingBattler;
-    u8 bestDmg; // Note : should be changed to u32 for obvious reasons.
+    u32 bestDmg = 255;
     u8 bestMonId;
     u8 battlerIn1, battlerIn2;
     s32 firstId;
@@ -635,6 +635,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     s32 i, j;
     u8 invalidMons;
     u16 move;
+    bool8 checkedAllMonForSEMoves = FALSE;  // We have checked all Pokemon in the party for if they have a super effective move
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -701,7 +702,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
                 u8 typeDmg = 10;
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type1, type1, type2, &typeDmg);
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type2, type1, type2, &typeDmg);
-                if (bestDmg < typeDmg)
+                if (bestDmg > typeDmg)
                 {
                     bestDmg = typeDmg;
                     bestMonId = i;
@@ -723,10 +724,15 @@ u8 GetMostSuitableMonToSwitchInto(void)
                     break;
             }
 
-            if (i != MAX_MON_MOVES)
+            if (i != MAX_MON_MOVES || (checkedAllMonForSEMoves && bestDmg <= TYPE_MUL_NOT_EFFECTIVE))
                 return bestMonId; // Has both the typing and at least one super effective move.
 
             invalidMons |= gBitTable[bestMonId]; // Sorry buddy, we want something better.
+            if (invalidMons == 0x3F && !checkedAllMonForSEMoves)  // If we already checked all for a super effective move, then use the one with the best typing
+            {
+                invalidMons = 0;
+                checkedAllMonForSEMoves = TRUE;
+            }
         }
         else
         {
