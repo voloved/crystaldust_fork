@@ -2,63 +2,75 @@ Std_ObtainItem::
 	textcolor MSG_COLOR_SYS
 	additem VAR_0x8000, VAR_0x8001
 	copyvar VAR_0x8007, VAR_RESULT
+	compare VAR_0x8007, 0
+	call_if_eq EventScript_TryAddItemToPCObtain
 	call EventScript_ObtainItemMessage
-	copyvar VAR_TEXT_COLOR, VAR_TEXT_COLOR_BACKUP
+	return
+
+EventScript_TryAddItemToPCObtain::
+	checkitemtype VAR_0x8000 @ Don't add if it's a key item
+	compare VAR_RESULT, POCKET_KEY_ITEMS
+	goto_if_eq EventScript_TryAddItemToPCObtainContinue
+	addpcitem VAR_0x8000, VAR_0x8001
+	compare VAR_RESULT, 0
+	call_if_eq EventScript_TryAddItemToPCObtainContinue
+	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
+EventScript_TryAddItemToPCObtainContinue::
 	return
 
 EventScript_ObtainItemMessage::
 	bufferitemnameplural 1, VAR_0x8000, VAR_0x8001
 	checkitemtype VAR_0x8000
 	call EventScript_BufferPocketNameAndTryFanfare
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_ObtainedItem
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_ObtainedItem
 	compare VAR_0x8007, 0
 	call_if_eq EventScript_NoRoomForItem
 	return
 
 EventScript_BufferPocketNameAndTryFanfare::
 	switch VAR_RESULT
-	case POCKET_ITEMS, EventScript_BufferItemsPocket
-	case POCKET_KEY_ITEMS, EventScript_BufferKeyItemsPocket
+	case POCKET_ITEMS,      EventScript_BufferItemsPocket
+	case POCKET_KEY_ITEMS,  EventScript_BufferKeyItemsPocket
 	case POCKET_POKE_BALLS, EventScript_BufferPokeballsPocket
-	case POCKET_TM_HM, EventScript_BufferTMHMsPocket
-	case POCKET_BERRIES, EventScript_BufferBerriesPocket
+	case POCKET_TM_HM,      EventScript_BufferTMHMsPocket
+	case POCKET_BERRIES,    EventScript_BufferBerriesPocket
 	end
 
 EventScript_BufferItemsPocket::
 	bufferstdstring 2, STDSTRING_ITEMS
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_BufferKeyItemsPocket::
 	bufferstdstring 2, STDSTRING_KEYITEMS
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_BufferPokeballsPocket::
 	bufferstdstring 2, STDSTRING_POKEBALLS
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_BufferTMHMsPocket::
 	bufferstdstring 2, STDSTRING_TMHMS
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedTMHM
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_PlayFanfareObtainedTMHM
 	return
 
 EventScript_BufferBerriesPocket::
 	bufferstdstring 2, STDSTRING_BERRIES
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PlayFanfareObtainedItem
+	compare VAR_0x8007, 0
+	call_if_ne EventScript_PlayFanfareObtainedItem
 	return
 
 EventScript_ObtainedItem::
 	message gText_ObtainedTheItem
 	waitfanfare
-	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	call EventScript_PutItemMsg
 	setvar VAR_RESULT, 1
 	return
 
@@ -108,19 +120,41 @@ Std_FindItem::
 	copyvar VAR_0x8005, VAR_0x8001
 	checkitemspace VAR_0x8000, VAR_0x8001
 	copyvar VAR_0x8007, VAR_RESULT
+	compare VAR_0x8007, 0
+	call_if_eq EventScript_CheckPCSpace
 	bufferitemnameplural 1, VAR_0x8000, VAR_0x8001
 	checkitemtype VAR_0x8000
 	call EventScript_BufferPocketNameAndTryFanfare
-	compare VAR_0x8007, 1
-	call_if_eq EventScript_PickUpItem
 	compare VAR_0x8007, 0
-	call_if_eq EventScript_NoRoomToPickUpItem
+	call_if_ne EventScript_PickUpItem
+	call EventScript_NoRoomToPickUpItem
 	release
+	return
+
+EventScript_CheckPCSpace::
+	checkitemtype VAR_0x8004 @ Don't add if it's a key item
+	compare VAR_RESULT, POCKET_KEY_ITEMS
+	goto_if_eq EventScript_CheckPCSpaceContinue
+	pyramid_inchallenge
+	copyvar VAR_0x8004, VAR_0x8000  @ pyramid_inchallenge modifies VAR_0x8004
+	compare VAR_RESULT, TRUE
+	goto_if_eq EventScript_CheckPCSpaceContinue
+	checkpcspace VAR_0x8004, VAR_0x8005
+	compare VAR_RESULT, FALSE
+	call_if_eq EventScript_CheckPCSpaceContinue
+	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
+EventScript_CheckPCSpaceContinue::
 	return
 
 EventScript_PickUpItem::
 	removeobject VAR_LAST_TALKED
+	compare VAR_0x8007, 2
+	goto_if_eq EventScript_PickUpItemPCAdd
 	additem VAR_0x8004, VAR_0x8005
+	goto EventScript_PickUpItemContinueAdd
+EventScript_PickUpItemPCAdd::
+	addpcitem VAR_0x8004, VAR_0x8005
+EventScript_PickUpItemContinueAdd::
 	specialvar VAR_RESULT, BufferTMHMMoveName
 	copyvar VAR_0x8008, VAR_RESULT
 	compare VAR_0x8008, 1
@@ -133,7 +167,7 @@ EventScript_PickUpItem::
 	pyramid_inchallenge
 	compare VAR_RESULT, 1
 	goto_if_eq EventScript_PutBattlePyramidItemInBag
-	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	call EventScript_PutItemMsg
 	return
 
 EventScript_PutBattlePyramidItemInBag::
@@ -197,14 +231,26 @@ EventScript_HiddenItemScript::
 	waitse
 	additem VAR_0x8005
 	copyvar VAR_0x8007, VAR_RESULT
+	compare VAR_0x8007, FALSE
+	call_if_eq EventScript_TryAddItemToPCHidden
 	bufferitemnameplural 1, VAR_0x8005, 1
 	checkitemtype VAR_0x8005
 	call EventScript_BufferPocketNameAndTryFanfare
-	compare VAR_0x8007, 1
-	goto_if_eq EventScript_PickUpHiddenItem
 	compare VAR_0x8007, 0
-	goto_if_eq EventScript_NoRoomForHiddenItem
+	goto_if_ne EventScript_PickUpHiddenItem
+	goto EventScript_NoRoomForHiddenItem
 	end
+
+EventScript_TryAddItemToPCHidden::
+	checkitemtype VAR_0x8005 @ Don't add if it's a key item
+	compare VAR_RESULT, POCKET_KEY_ITEMS
+	goto_if_eq EventScript_TryAddHiddenItemToPCContinue
+	addpcitem VAR_0x8004, VAR_0x8005
+	compare VAR_RESULT, FALSE
+	call_if_eq EventScript_TryAddHiddenItemToPCContinue
+	setvar VAR_0x8007, 2  @ (0= full, 1= in pocket, 2=in PC) 
+EventScript_TryAddHiddenItemToPCContinue::
+	return
 
 EventScript_PickUpHiddenItem::
 	copyvar VAR_0x8008, VAR_0x8004
@@ -232,15 +278,25 @@ EventScript_PutHiddenItemInPocket::
 	waitfanfare
 	bufferitemnameplural 1, VAR_0x8004, 1
 	copyvar VAR_0x8004, VAR_0x8008
-	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	call EventScript_PutItemMsg
 	special TryPutTreasureInvestigatorsOnAir
 	special SetHiddenItemFlag
 	releaseall
 	end
 
+EventScript_PutItemMsg::
+	compare VAR_0x8007, 2
+	goto_if_eq EventScript_PutItemPCMsg
+	msgbox gText_PutItemInPocket, MSGBOX_DEFAULT
+	goto EventScript_PutItemContinueMsg
+EventScript_PutItemPCMsg::
+	msgbox gText_PutItemInPC, MSGBOX_DEFAULT
+EventScript_PutItemContinueMsg::
+	return
+
 EventScript_NoRoomForHiddenItem::
 	msgbox gText_PlayerFoundOneItem, MSGBOX_DEFAULT
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	msgbox gText_TooBadBagAndPCAreFull, MSGBOX_DEFAULT
 	setvar VAR_RESULT, 0
 	releaseall
 	end
