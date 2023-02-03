@@ -18,6 +18,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 
 - [Allowed All Pokémon to Evolve Without Trading](https://github.com/pret/pokeemerald/wiki/Allow-All-Pokemon-to-Evolve-Without-Trading)
 - [Using HMs Without Any Pokémon in your Party Knowing Them Possible](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
+- [Item Automatically Goes to PC if Bag is Full](https://github.com/pret/pokeemerald/wiki/Item-Automatically-Goes-to-PC-if-Bag-is-Full)
 - [Show Species That You're Battling in the Party Menu](https://github.com/pret/pokeemerald/wiki/Show-Species-That-You're-Switching-For-in-the-Party-Menu)
 - [Trainers No Longer Spin to Face You Right As You Pass Them](https://github.com/pret/pokeemerald/wiki/Trainers-No-Longer-Spin-to-Face-You-Right-As-You-Pass-Them)
 - [Pressing B Will Toggle Running](https://github.com/pret/pokeemerald/wiki/Push-B-to-Toggle-Running-Shoes)
@@ -53,6 +54,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Make Daycare Faster at Leveling Pokémon](https://github.com/pret/pokeemerald/wiki/Make-Daycare-Faster-at-Leveling-Pok%C3%A9mon)
 - [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
+- [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa
