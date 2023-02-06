@@ -1283,22 +1283,22 @@
 #define FLAG_TREE_VIOLET_1                                          0x4C7
 #define FLAG_TREE_VIRIDIAN_1                                        0x4C8
 #define FLAG_TREE_VIRIDIAN_2                                        0x4C9
-#define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
-#define FLAG_UNUSED_0x4CB                                           0x4CB // Unused Flag
-#define FLAG_UNUSED_0x4CC                                           0x4CC // Unused Flag
-#define FLAG_UNUSED_0x4CD                                           0x4CD // Unused Flag
-#define FLAG_UNUSED_0x4CE                                           0x4CE // Unused Flag
-#define FLAG_UNUSED_0x4CF                                           0x4CF // Unused Flag
-#define FLAG_UNUSED_0x4D0                                           0x4D0 // Unused Flag
-#define FLAG_UNUSED_0x4D1                                           0x4D1 // Unused Flag
-#define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
-#define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
-#define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
-#define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
-#define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag
-#define FLAG_UNUSED_0x4D7                                           0x4D7 // Unused Flag
-#define FLAG_UNUSED_0x4D8                                           0x4D8 // Unused Flag
-#define FLAG_UNUSED_0x4D9                                           0x4D9 // Unused Flag
+#define FLAG_ROCK_BURNEDTOWER_1                                     0x4CA
+#define FLAG_ROCK_CIANWOOD_1                                        0x4CB
+#define FLAG_ROCK_CIANWOOD_2                                        0x4CC
+#define FLAG_ROCK_CIANWOOD_3                                        0x4CD
+#define FLAG_ROCK_CIANWOOD_4                                        0x4CE
+#define FLAG_ROCK_CIANWOOD_5                                        0x4CF
+#define FLAG_ROCK_CIANWOOD_6                                        0x4D0
+#define FLAG_ROCK_DARKCAVE_1                                        0x4D1
+#define FLAG_ROCK_DARKCAVE_2                                        0x4D2
+#define FLAG_ROCK_DARKCAVE_3                                        0x4D3
+#define FLAG_ROCK_DARKCAVE_4                                        0x4D4
+#define FLAG_ROCK_ICEPATH_1                                         0x4D5
+#define FLAG_ROCK_MTMOON_1                                          0x4D6
+#define FLAG_ROCK_ROUTE40_1                                         0x4D7
+#define FLAG_ROCK_ROUTE40_2                                         0x4D8
+#define FLAG_ROCK_ROUTE40_3                                         0x4D9
 #define FLAG_UNUSED_0x4DA                                           0x4DA // Unused Flag
 #define FLAG_UNUSED_0x4DB                                           0x4DB // Unused Flag
 #define FLAG_UNUSED_0x4DC                                           0x4DC // Unused Flag
