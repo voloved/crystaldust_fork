@@ -215,7 +215,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_12"
+      "flag": "FLAG_TREE_LAKEOFRAGE_1"
     },
     {
       "type": "original",
@@ -230,7 +230,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_13"
+      "flag": "FLAG_TREE_LAKEOFRAGE_2"
     },
     {
       "type": "original",
@@ -245,7 +245,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_14"
+      "flag": "FLAG_TREE_LAKEOFRAGE_3"
     },
     {
       "type": "original",
@@ -260,7 +260,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_15"
+      "flag": "FLAG_TREE_LAKEOFRAGE_4"
     },
     {
       "type": "original",
@@ -275,7 +275,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_16"
+      "flag": "FLAG_TREE_LAKEOFRAGE_5"
     },
     {
       "type": "clone",

@@ -105,7 +105,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_11"
+      "flag": "FLAG_TREE_VIRIDIAN_1"
     },
     {
       "type": "original",
@@ -120,7 +120,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EventScript_CutTree",
-      "flag": "FLAG_TEMP_15"
+      "flag": "FLAG_TREE_VIRIDIAN_2"
     }
   ],
   "warp_events": [
