@@ -127,7 +127,8 @@ Std_FindItem::
 	call EventScript_BufferPocketNameAndTryFanfare
 	compare VAR_0x8007, 0
 	call_if_ne EventScript_PickUpItem
-	call EventScript_NoRoomToPickUpItem
+	compare VAR_0x8007, 0
+	call_if_eq EventScript_NoRoomToPickUpItem
 	release
 	return
 
@@ -185,7 +186,7 @@ EventScript_FoundItem::
 
 EventScript_NoRoomToPickUpItem::
 	msgbox gText_ObtainedTheItem, MSGBOX_DEFAULT
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	msgbox gText_TooBadBagAndPCAreFull, MSGBOX_DEFAULT
 	setvar VAR_RESULT, 0
 	return
 
