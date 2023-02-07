@@ -19,6 +19,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allowed All Pokémon to Evolve Without Trading](https://github.com/pret/pokeemerald/wiki/Allow-All-Pokemon-to-Evolve-Without-Trading)
 - [Using HMs Without Any Pokémon in your Party Knowing Them Possible](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
 - [Item Automatically Goes to PC if Bag is Full](https://github.com/pret/pokeemerald/wiki/Item-Automatically-Goes-to-PC-if-Bag-is-Full)
+- [Trees and Rocks get perminently cut and smashed.](https://github.com/pret/pokeemerald/wiki/All-Trees-Permanently-Get-Cut)
 - [Show Species That You're Battling in the Party Menu](https://github.com/pret/pokeemerald/wiki/Show-Species-That-You're-Switching-For-in-the-Party-Menu)
 - [Trainers No Longer Spin to Face You Right As You Pass Them](https://github.com/pret/pokeemerald/wiki/Trainers-No-Longer-Spin-to-Face-You-Right-As-You-Pass-Them)
 - [Pressing B Will Toggle Running](https://github.com/pret/pokeemerald/wiki/Push-B-to-Toggle-Running-Shoes)
