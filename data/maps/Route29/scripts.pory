@@ -56,7 +56,7 @@ script Route29_EventScript_LedgeGirl{
 }
 
 script Route29_EventScript_FatMan{
-	msgbox("I wanted to take a break, so I\nsaved to record my progress.", MSGBOX_NPC)
+	msgbox("I wanted to run quickly from a\nwild battle, so I held {RIGHT_ARROW} while\lclicking through the “Wild\lPOKéMON Appeared” message.", MSGBOX_NPC)
 	end
 }
 
