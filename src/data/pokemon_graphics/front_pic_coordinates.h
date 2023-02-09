@@ -2072,11 +2072,12 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_GLISCOR]     = { .size = 0x86, .y_offset =  7, },
     [SPECIES_MAMOSWINE]   = { .size = 0x86, .y_offset =  4, },
     [SPECIES_PORYGON_Z]   = { .size = 0x78, .y_offset =  6, },
-    [SPECIES_GALLADE]     = { .size =0x56, .y_offset =  1, },
+    [SPECIES_GALLADE]     = { .size = 0x56, .y_offset =  1, },
     [SPECIES_PROBOPASS]   = { .size = 0x66, .y_offset =  4, },
     [SPECIES_DUSKNOIR]    = { .size = 0x87, .y_offset =  2, },
     [SPECIES_LEAFEON]     = { .size = 0x66, .y_offset =  9, },
     [SPECIES_GLACEON]     = { .size = 0x86, .y_offset = 10, },
+    [SPECIES_MISSINGNO]   = { .size = 0x56, .y_offset =  8, },
     [SPECIES_EGG] =
     {
         .size = 0x33,

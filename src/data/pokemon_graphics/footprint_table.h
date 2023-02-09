@@ -429,5 +429,6 @@ const u8 *const gMonFootprintTable[] =
     [SPECIES_DUSKNOIR] = gMonFootprint_Dusknoir,
     [SPECIES_LEAFEON] = gMonFootprint_Leafeon,
     [SPECIES_GLACEON] = gMonFootprint_Glaceon,
+    [SPECIES_MISSINGNO] = gMonFootprint_Missingno,
     [SPECIES_EGG] = gMonFootprint_Bulbasaur,
 };

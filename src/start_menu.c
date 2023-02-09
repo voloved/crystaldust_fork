@@ -1073,6 +1073,7 @@ static u8 SaveConfirmInputCallback(void)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0: // Yes
+        FlagClear(FLAG_MISSINGNO);
         switch (gSaveFileStatus)
         {
         case SAVE_STATUS_EMPTY:

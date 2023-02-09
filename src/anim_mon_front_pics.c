@@ -409,6 +409,7 @@ const u32 gMonFrontPic_Probopass[] = INCBIN_U32("graphics/pokemon/probopass/anim
 const u32 gMonFrontPic_Dusknoir[] = INCBIN_U32("graphics/pokemon/dusknoir/anim_front.4bpp.lz");
 const u32 gMonFrontPic_Leafeon[] = INCBIN_U32("graphics/pokemon/leafeon/anim_front.4bpp.lz");
 const u32 gMonFrontPic_Glaceon[] = INCBIN_U32("graphics/pokemon/glaceon/anim_front.4bpp.lz");
+const u32 gMonFrontPic_Missingno[] = INCBIN_U32("graphics/pokemon/missingno/anim_front.4bpp.lz");
 
 const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
 

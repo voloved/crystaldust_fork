@@ -9968,4 +9968,18 @@ const u32 gTMHMLearnsets[][2] =
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM06_TOXIC)
                                         | TMHM(TM03_WATER_PULSE)),
+
+
+    [SPECIES_MISSINGNO]   = TMHM_LEARNSET(TMHM(TM01_FOCUS_PUNCH)
+                                        | TMHM(TM03_WATER_PULSE)
+                                        | TMHM(TM06_TOXIC)
+                                        | TMHM(TM14_BLIZZARD)
+                                        | TMHM(TM25_THUNDER)
+                                        | TMHM(TM26_EARTHQUAKE)
+                                        | TMHM(TM29_PSYCHIC)
+                                        | TMHM(TM34_SHOCK_WAVE)
+                                        | TMHM(TM40_AERIAL_ACE)
+                                        | TMHM(TM44_REST)
+                                        | TMHM(HM01_CUT)
+                                        | TMHM(HM02_FLY)),
 };

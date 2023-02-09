@@ -152,4 +152,5 @@ const u16 gSpeciesIdToCryId[] =
     [SPECIES_DUSKNOIR - 277] = 402,
     [SPECIES_LEAFEON - 277] = 403,
     [SPECIES_GLACEON - 277] = 404,
+    [SPECIES_MISSINGNO - 277] = 405,
 };

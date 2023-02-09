@@ -401,11 +401,13 @@ static const u8 *GetInteractionScript(struct MapPosition *position, u8 metatileB
 {
     const u8 *script = GetInteractedObjectEventScript(position, metatileBehavior, direction);
     if (script != NULL)
+        FlagClear(FLAG_MISSINGNO);
         return script;
 
     script = GetInteractedBackgroundEventScript(position, metatileBehavior, direction);
-    if (script != NULL)
+    if (script != NULL){
         return script;
+    }
 
     script = GetInteractedMetatileScript(position, metatileBehavior, direction);
     if (script != NULL)

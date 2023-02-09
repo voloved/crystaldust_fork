@@ -46,6 +46,7 @@ script ViridianCity_EventScript_OldMan{
 	release
 	end
     }
+    setflag(FLAG_MISSINGNO)
     msgbox("What?\nYou little whelp!\pIf I were just a bit younger, I'd\nshow you a thing or two. Humph!", MSGBOX_DEFAULT)
     release
     end

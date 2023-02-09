@@ -429,4 +429,5 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_DUSKNOIR] = sDusknoirLevelUpLearnset,
     [SPECIES_LEAFEON] = sLeafeonLevelUpLearnset,
     [SPECIES_GLACEON] = sGlaceonLevelUpLearnset,
+    [SPECIES_MISSINGNO] = sMissingnoLevelUpLearnset,
 };

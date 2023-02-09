@@ -530,6 +530,7 @@ const u16 gSpeciesToJohtoPokedexNum[] = // Assigns all species to the Johto Dex 
     SPECIES_TO_JOHTO(DUSKNOIR),
     SPECIES_TO_JOHTO(LEAFEON),
     SPECIES_TO_JOHTO(GLACEON),
+    SPECIES_TO_JOHTO(MISSINGNO),
 };
 
 const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the National Dex Index (Summary No. for National Dex)
@@ -962,6 +963,7 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
     SPECIES_TO_NATIONAL(DUSKNOIR),
     SPECIES_TO_NATIONAL(LEAFEON),
     SPECIES_TO_NATIONAL(GLACEON),
+    SPECIES_TO_NATIONAL(MISSINGNO),
 };
 
 const u16 gJohtoToNationalOrder[] = // Assigns Johto Dex Pokémon (Using National Dex Index)
@@ -1394,6 +1396,7 @@ const u16 gJohtoToNationalOrder[] = // Assigns Johto Dex Pokémon (Using Nationa
     JOHTO_TO_NATIONAL(DUSKNOIR),
     JOHTO_TO_NATIONAL(LEAFEON),
     JOHTO_TO_NATIONAL(GLACEON),
+    JOHTO_TO_NATIONAL(MISSINGNO),
 };
 
 const struct SpindaSpot gSpindaSpotGraphics[] =
@@ -1851,7 +1854,8 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_PROBOPASS - 1]     = ANIM_SWING_CONVEX_FAST,
     [SPECIES_DUSKNOIR - 1]      = ANIM_GLOW_BLACK,
     [SPECIES_LEAFEON - 1]       = ANIM_V_JUMPS_SMALL,
-    [SPECIES_GLACEON - 1]       = ANIM_V_STRETCH,    
+    [SPECIES_GLACEON - 1]       = ANIM_V_STRETCH, 
+    [SPECIES_MISSINGNO - 1]    = ANIM_TWIST,   
 };
 
 static const u8 sMonAnimationDelayTable[NUM_SPECIES - 1] =

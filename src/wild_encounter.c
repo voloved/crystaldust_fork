@@ -30,6 +30,7 @@
 #include "constants/songs.h"
 #include "constants/species.h"
 #include "constants/weather.h"
+#include "item.h"
 
 extern const u8 EventScript_RepelWoreOff[];
 
@@ -521,6 +522,13 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (species == SPECIES_UNOWN && !FlagGet(FLAG_MADE_UNOWN_APPEAR_IN_RUINS))
         return FALSE;
 
+    if (((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CINNABAR_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CINNABAR_ISLAND))
+    ||(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CIANWOOD_CITY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CIANWOOD_CITY)))
+    && FlagGet(FLAG_MISSINGNO)){
+        species = SPECIES_MISSINGNO;
+        GiveItems_Missingno();
+        FlagClear(FLAG_MISSINGNO);  // This is unnecissary, as it gets cleared at the wild encounter, but better to be explicit
+    }
     CreateWildMon(species, level, FALSE);
     return TRUE;
 }

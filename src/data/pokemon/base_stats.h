@@ -12853,5 +12853,29 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_THICK_FAT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
-    }
+    },
+
+    [SPECIES_MISSINGNO] =
+    {
+        .baseHP        = 33,
+        .baseAttack    = 136,
+        .baseDefense   = 50,
+        .baseSpeed     = 29,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 60,
+        .type1 = TYPE_FLYING,
+        .type2 = TYPE_NORMAL,
+        .catchRate = 45,
+        .expYield = 147,
+        .evYield_SpAttack  = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_UNDISCOVERED,
+        .eggGroup2 = EGG_GROUP_UNDISCOVERED,
+        .abilities = {ABILITY_LEVITATE, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_BLACK,
+        .noFlip = FALSE,
+    } 
 };

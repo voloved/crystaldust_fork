@@ -4715,6 +4715,12 @@ static const union AnimCmd sAnim_GLACEON_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_MISSINGNO_1[] =
+{
+    ANIMCMD_FRAME(0, 50),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_EGG_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -7025,6 +7031,11 @@ static const union AnimCmd *const sAnims_GLACEON[] ={
     sAnim_GLACEON_1,
 };
 
+static const union AnimCmd *const sAnims_MISSINGNO[] ={
+    sAnim_GeneralFrame0,
+    sAnim_MISSINGNO_1,
+};
+
 static const union AnimCmd *const sAnims_EGG[] ={
     sAnim_GeneralFrame0,
     sAnim_EGG_1,
@@ -7599,6 +7610,7 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(DUSKNOIR),
     ANIM_CMD(LEAFEON),
     ANIM_CMD(GLACEON),
+    ANIM_CMD(MISSINGNO),
     ANIM_CMD(EGG),
     ANIM_CMD(UNOWN_B),
     ANIM_CMD(UNOWN_C),

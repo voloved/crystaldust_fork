@@ -2421,3 +2421,8 @@ const u8 gGlaceonPokedexText[] = _(
     "at will. This enables it to freeze the\n"
     "moisture in the atmosphere, creating\n"
     "flurries of diamond dust.");
+
+const u8 gMissingnoPokedexText[] = _(
+    "An unsual POKéMON with unknown origins.\n"
+    "It has been found around islands through\n"
+    "odd means.");
