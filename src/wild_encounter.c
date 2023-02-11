@@ -525,9 +525,11 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CINNABAR_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CINNABAR_ISLAND))
     ||(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CIANWOOD_CITY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CIANWOOD_CITY)))
     && FlagGet(FLAG_MISSINGNO)){
-        species = SPECIES_MISSINGNO;
-        GiveItems_Missingno();
-        FlagClear(FLAG_MISSINGNO);  // This is unnecissary, as it gets cleared at the wild encounter, but better to be explicit
+        FlagClear(FLAG_MISSINGNO);
+        if (FlagGet(FLAG_MISSINGNO_SEEN)){
+            species = SPECIES_MISSINGNO;
+            GiveItems_Missingno();
+        }
     }
     CreateWildMon(species, level, FALSE);
     return TRUE;

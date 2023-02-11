@@ -1305,7 +1305,7 @@
 #define FLAG_RUNNING_SHOES_TOGGLE                                   0x4DD
 #define FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW                         0x4DE
 #define FLAG_MISSINGNO                                              0x4DF
-#define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
+#define FLAG_MISSINGNO_SEEN                                         0x4E0
 #define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
