@@ -39,7 +39,6 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Made Move Pokémon as first PSS option](https://www.pokecommunity.com/showpost.php?p=10065761) [Credit: AsparagusEduardo]
 - [Holding L is now turbo A](https://github.com/pret/pokeemerald/wiki/Make-L-Button-Be-Turbo-A-When-L=A-Option-Is-Set)
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
-- [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
 - [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
 - [Added type color that shows battle effectiveness and added ability to toggle this feature in the option menu.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
@@ -56,6 +55,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Gen 6 style Exp. Share](https://github.com/pret/pokeemerald/wiki/Gen-6-style-Exp.-Share---Alternative-Option)
 - [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
+- Made Lucky Egg triple EXP and a default PC item.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
 - [Fix AI's Switch In Battle](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
