@@ -3258,7 +3258,8 @@ static void Cmd_getexp(void)
 
             for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)
             {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
+                    || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
                     continue;
                 if (gBitTable[i] & sentIn)
                     viaSentIn++;
@@ -3273,7 +3274,7 @@ static void Cmd_getexp(void)
 
             calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
-            *exp = SAFE_DIV(calculatedExp / 2, viaSentIn);
+            *exp = SAFE_DIV(calculatedExp, viaSentIn);
             if (*exp == 0)
                 *exp = 1;
 
@@ -3302,6 +3303,12 @@ static void Cmd_getexp(void)
                 gBattleMoveDamage = 0; // used for exp
             }
             else if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_LEVEL) == MAX_LEVEL)
+            {
+                gBattleScripting.getexpState = 5;
+                gBattleMoveDamage = 0; // used for exp
+            }
+            else if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_SPECIES) == SPECIES_NONE 
+            || GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_IS_EGG))
             {
                 gBattleScripting.getexpState = 5;
                 gBattleMoveDamage = 0; // used for exp
@@ -3467,15 +3474,29 @@ static void Cmd_getexp(void)
             gBattleStruct->expGetterMonId++;
             if (gBattleStruct->expGetterMonId < PARTY_SIZE)
                 gBattleScripting.getexpState = 2; // loop again
-            else if (!gExpShareCheck && FlagGet(FLAG_EXP_SHARE)){
-                gExpShareCheck = TRUE;
-                gBattleStruct->expGetterMonId = 0;
-                PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gExpShareExp);
-                PrepareStringBattle(STRINGID_PKMNGAINEDEXPALL, gBattleStruct->expGetterBattlerId);
-                gBattleScripting.getexpState = 2; // loop again
+            else{
+                s32 totalMon = 0;
+                s32 viaSentIn = 0;
+                sentIn = gSentPokesToOpponent[(gBattlerFainted & 2) >> 1];
+                for (viaSentIn = 0, i = 0; i < PARTY_SIZE; i++)  // To see if every mon has seen battle
+                {
+                    if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE || GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG)
+                    || GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
+                        continue;
+				    totalMon++;
+                    if (gBitTable[i] & sentIn)
+                        viaSentIn++;
+                }
+                if (!gExpShareCheck && FlagGet(FLAG_EXP_SHARE) && totalMon>viaSentIn){
+                    gExpShareCheck = TRUE;
+                    gBattleStruct->expGetterMonId = 0;
+                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 5, gExpShareExp);
+                    PrepareStringBattle(STRINGID_PKMNGAINEDEXPALL, gBattleStruct->expGetterBattlerId);
+                    gBattleScripting.getexpState = 2; // loop again
+                }
+                else
+                    gBattleScripting.getexpState = 6; // we're done
             }
-            else
-                gBattleScripting.getexpState = 6; // we're done
         }
         break;
     case 6: // increment instruction
