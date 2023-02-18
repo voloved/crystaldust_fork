@@ -3263,16 +3263,21 @@ static void Cmd_getexp(void)
                     continue;
                 if (gBitTable[i] & sentIn)
                     viaSentIn++;
+            }
 
-                item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
+            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
+            for (i = 0; i < PARTY_SIZE; i++){  // Check any of the Pokemon are holding Lucky Egg
+                 item = GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM);
                 if (item == ITEM_ENIGMA_BERRY)
                     holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
                 else
                     holdEffect = ItemId_GetHoldEffect(item);
+                if (holdEffect == HOLD_EFFECT_LUCKY_EGG){
+                    calculatedExp = calculatedExp * 3;
+                    break;
+                }
             }
-
-            calculatedExp = gBaseStats[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level / 7;
 
             *exp = SAFE_DIV(calculatedExp, viaSentIn);
             if (*exp == 0)
@@ -3332,8 +3337,6 @@ static void Cmd_getexp(void)
                     else
                         gBattleMoveDamage = 0;
 
-                    if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
-                        gBattleMoveDamage = gBattleMoveDamage * 3;
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
 
