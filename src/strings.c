@@ -1803,6 +1803,7 @@ const u8 gText_ClearAllSaveData[] = _("Clear all save data areas?");
 const u8 gText_ClearingData[] = _("Clearing data…\nPlease wait.");
 const u8 gText_SetClock_WhatTime[] = _("What time is it?");
 const u8 gText_SetClock_Whoa[] = _("Whoa! {STR_VAR_1}?");
+const u8 gText_SetClock_IsCorrect[] = _("Is {STR_VAR_1} correct?");
 const u8 gText_SetClock_TimeNotSet[] = _("TIME NOT SET");
 const u8 gText_SetClock_TimeSet[] = _("TIME HAS BEEN SET");
 const u8 gText_SetClock_InTheMorning[] = _("in the morning");
@@ -2014,7 +2015,7 @@ const u8 gText_RocketRadio8[] = _("hear?{RADIO_PAUSE} We did it!");
 const u8 gText_RocketRadio9[] = _("{RADIO_PAUSE}Where is our boss?");
 const u8 gText_RocketRadio10[] = _("{RADIO_PAUSE}Is he listening?");
 
-const u8 gText_ClockCardHelp[] = _("{A_BUTTON}MODE  {B_BUTTON}EXIT");
+const u8 gText_ClockCardHelp[] = _("{R_BUTTON}RESET  {A_BUTTON}MODE  {B_BUTTON}EXIT");
 const u8 gText_MapCardHelp1[] = _("{DPAD_NONE}MOVE  {B_BUTTON}EXIT");
 const u8 gText_MapCardHelp2[] = _("{DPAD_NONE}MOVE  {A_BUTTON}GUIDE  {B_BUTTON}EXIT");
 const u8 gText_MapCardHelp3[] = _("{DPAD_NONE}MOVE  {A_BUTTON}SWITCH  {B_BUTTON}EXIT");

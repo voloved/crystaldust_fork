@@ -89,7 +89,7 @@ static EWRAM_DATA struct {
 
 void CB2_InitPokegear(void);
 static void VBlankCB(void);
-static void CB2_Pokegear(void);
+void CB2_Pokegear(void);
 static void Task_Pokegear1(u8 taskId);
 static void Task_Pokegear1_1(u8 taskId);
 static void Task_Pokegear2(u8 taskId);
@@ -653,7 +653,7 @@ static void VBlankCB(void)
     TransferPlttBuffer();
 }
 
-static void CB2_Pokegear(void)
+void CB2_Pokegear(void)
 {
     PhoneScriptContext_RunScript();
     RunTasks();

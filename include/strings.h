@@ -348,6 +348,7 @@ extern const u8 gText_MysteryEventsCantUse[];
 extern const u8 gText_SetClock_WokeMeUp[];
 extern const u8 gText_SetClock_WhatTime[];
 extern const u8 gText_SetClock_Whoa[];
+extern const u8 gText_SetClock_IsCorrect[];
 extern const u8 gText_SetClock_TimeNotSet[];
 extern const u8 gText_SetClock_TimeSet[];
 extern const u8 gText_SetClock_InTheMorning[];

@@ -373,7 +373,10 @@ static void Task_SetClock2(u8 taskId)
 
         ShowHelpBar(gText_UpDownPickAOk);
         FillWindowPixelBuffer(0, 0x11);
-        StringExpandPlaceholders(gStringVar4, gText_SetClock_Whoa);
+        if (gMain.savedCallback == CB2_InitPokegear)
+            StringExpandPlaceholders(gStringVar4, gText_SetClock_IsCorrect);
+        else
+            StringExpandPlaceholders(gStringVar4, gText_SetClock_Whoa);
         AddTextPrinterForMessage_IgnoreTextColor(1);
         gTasks[taskId].func = Task_SetClock3;
     }
@@ -487,6 +490,12 @@ static void Task_SetClock5(u8 taskId)
     {
         dest = WriteTimeString(dest, gTasks[taskId].tHours, gTasks[taskId].tMinutes, gSaveBlock2Ptr->twentyFourHourClock, FALSE);
         *dest++ = CHAR_SPACE;
+    }
+
+    if (gMain.savedCallback == CB2_InitPokegear){
+        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, 0);
+        gTasks[taskId].func = Task_SetClock7;
+        return;
     }
     
     if (string == NULL)
