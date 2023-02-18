@@ -342,7 +342,7 @@ EventScript_HeadbuttTree::
 	lockall
 	checkpartymove MOVE_HEADBUTT
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_EndHeadbutt
+	goto_if_eq EventScript_HeadbuttWithoutPokemon
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick 0, VAR_RESULT
 EventScript_HeadbuttTreeContinue::
@@ -356,8 +356,7 @@ EventScript_HeadbuttTreeContinue::
 	end
 
 EventScript_HeadbuttWithoutPokemon::
-@	checkitem HEADBUTT_TM_That_Doesnt_Exist_Yet, 1
-@	goto_if_eq VAR_RESULT, FALSE, EventScript_EndHeadbutt
+	goto_if_unset FLAG_SPOKE_WITH_HEADBUTT_TUTOR, EventScript_EndHeadbutt
 	setfieldeffectargument 0, 0
 	bufferpartymonnick 0, 0
 	goto EventScript_HeadbuttTreeContinue

@@ -41,6 +41,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
+#include "constants/items.h"
 
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
@@ -631,10 +632,10 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
 
 static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metatileBehavior, u8 direction)
 {
-    if (PartyHasMonWithHeadbutt() && MetatileBehavior_IsHeadbuttTree(metatileBehavior) == TRUE)
+    if ((PartyHasMonWithHeadbutt() || FlagGet(FLAG_SPOKE_WITH_HEADBUTT_TUTOR)) && MetatileBehavior_IsHeadbuttTree(metatileBehavior) == TRUE)
         return EventScript_HeadbuttTree;
 
-    if (FlagGet(FLAG_BADGE04_GET) == TRUE && PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
+    if (FlagGet(FLAG_BADGE04_GET) == TRUE && (PartyHasMonWithSurf() == TRUE || CheckBagHasItem(ITEM_HM03_SURF ,1)) && IsPlayerFacingSurfableFishableWater() == TRUE)
         return EventScript_UseSurf;
 
     if (MetatileBehavior_IsWaterfall(metatileBehavior) == TRUE)
@@ -647,7 +648,7 @@ static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metati
 
     if (MetatileBehavior_IsWhirlpool(metatileBehavior) == TRUE)
     {
-        if (FlagGet(FLAG_BADGE07_GET) == TRUE && PartyHasMonWithWhirlpool() == TRUE)
+        if (FlagGet(FLAG_BADGE07_GET) == TRUE && (PartyHasMonWithWhirlpool() == TRUE || CheckBagHasItem(ITEM_HM08_WHIRLPOOL ,1)))
             return EventScript_UseWhirlpool;
         else
             return EventScript_CannotUseWhirlpool;

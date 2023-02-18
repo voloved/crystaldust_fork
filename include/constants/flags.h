@@ -1307,7 +1307,7 @@
 #define FLAG_MISSINGNO                                              0x4DF
 #define FLAG_MISSINGNO_SEEN                                         0x4E0
 #define FLAG_EXP_SHARE                                              0x4E1
-#define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
+#define FLAG_SPOKE_WITH_HEADBUTT_TUTOR                              0x4E2
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
