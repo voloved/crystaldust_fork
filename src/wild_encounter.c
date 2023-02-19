@@ -522,11 +522,13 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (species == SPECIES_UNOWN && !FlagGet(FLAG_MADE_UNOWN_APPEAR_IN_RUINS))
         return FALSE;
 
-    if (((gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CINNABAR_ISLAND) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CINNABAR_ISLAND))
-    ||(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CIANWOOD_CITY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CIANWOOD_CITY)))
-    && FlagGet(FLAG_MISSINGNO)){
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(CINNABAR_ISLAND)
+        && gSaveBlock1Ptr->location.mapNum == MAP_NUM(CINNABAR_ISLAND)
+        && FlagGet(FLAG_MISSINGNO))
+    {
         FlagClear(FLAG_MISSINGNO);
-        if (FlagGet(FLAG_MISSINGNO_SEEN)){
+        if (!FlagGet(FLAG_MISSINGNO_SEEN)){
+            FlagSet(FLAG_MISSINGNO_SEEN);
             species = SPECIES_MISSINGNO;
             GiveItems_Missingno();
         }
