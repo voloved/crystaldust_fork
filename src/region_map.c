@@ -1306,6 +1306,9 @@ static u8 GetMapsecType(u16 mapSecId)
 
         if (flag != 0)
         {
+#if DEBUG
+            return MAPSECTYPE_VISITED;
+#endif
             mapSecStatus = MAPSECTYPE_NOT_VISITED;
             if (FlagGet(flag))
             {

@@ -42,6 +42,8 @@
 #include "constants/species.h"
 #include "constants/songs.h"
 #include "constants/vars.h"
+#include "region_map.h"
+#include "constants/region_map_sections.h"
 
 struct DebugMenuAction;
 
@@ -120,6 +122,7 @@ static void DebugMenu_ToggleForceShiny(u8 taskId);
 static void DebugMenu_ForcePartyEggsHatch(u8 taskId);
 static void DebugMenu_ForceEvolution(u8 taskId);
 static void DebugMenu_FlyMenu(u8 taskId);
+static void DebugMenu_FlyMenuSwitchRegion(u8 taskId);
 static void DebugMenu_SetRespawn(u8 taskId);
 static void DebugMenu_SetRespawn_ProcessInput(u8 taskId);
 static void DebugMenu_CreateDaycareEgg(u8 taskId);
@@ -182,6 +185,7 @@ static const u8 sText_EnableRadioCard[] = _("Enable radio card");
 static const u8 sText_DexCount[] = _("Count: {STR_VAR_1}");
 static const u8 sText_WildBattle[] = _("Start wild battle");
 static const u8 sText_FlyTo[] = _("Fly to…");
+static const u8 sText_FlyOther[] = _("Fly other region");
 static const u8 sText_SetRespawn[] = _("Set respawn");
 static const u8 sText_FlagStatus[] = _("Flag: {STR_VAR_1}\nStatus: {STR_VAR_2}");
 static const u8 sText_VarStatus[] = _("Var: {STR_VAR_1}\nValue: {STR_VAR_2}\nAddress: {STR_VAR_3}");
@@ -287,6 +291,7 @@ CREATE_BOUNCER(BattleActions, MainActions);
 static const struct DebugMenuAction sDebugMenu_PositionalActions[] = 
 {
     { sText_FlyTo, DebugMenu_FlyMenu, NULL },
+    { sText_FlyOther, DebugMenu_FlyMenuSwitchRegion, NULL },
     { sText_SetRespawn, DebugMenu_SetRespawn, NULL },
 };
 
@@ -1584,6 +1589,15 @@ static void DebugMenu_EnableRadioCard(u8 taskId)
 
 static void DebugMenu_FlyMenu(u8 taskId)
 {
+    SetMainCallback2(CB2_OpenFlyMap);
+}
+
+static void DebugMenu_FlyMenuSwitchRegion(u8 taskId)
+{
+    if(GetCurrentRegion() == REGION_JOHTO)
+        gMapHeader.regionMapSectionId = MAPSEC_PALLET_TOWN;
+    else if(GetCurrentRegion() == REGION_KANTO)
+        gMapHeader.regionMapSectionId = MAPSEC_NEW_BARK_TOWN;
     SetMainCallback2(CB2_OpenFlyMap);
 }
 
