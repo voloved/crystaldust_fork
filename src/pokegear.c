@@ -882,11 +882,11 @@ static void Task_Pokegear3(u8 taskId)
             PlaySE(SE_POKENAV_OFF);
             return;
         }
-        else if (JOY_NEW(START_BUTTON))
+        else if (JOY_NEW(L_BUTTON))
         {
             newCard = ChangeCardWithDelta(-1, sPokegearStruct.currentCard);
         }
-        else if (JOY_NEW(SELECT_BUTTON))
+        else if (JOY_NEW(R_BUTTON))
         {
             newCard = ChangeCardWithDelta(1, sPokegearStruct.currentCard);
         }
@@ -1098,7 +1098,7 @@ static void Task_ClockCard(u8 taskId)
         shouldForceUpdate = TRUE;
     }
 
-        if (JOY_NEW(R_BUTTON))
+        if (JOY_NEW(SELECT_BUTTON))
     {
         SetMainCallback2(CB2_StartWallClock);
         gMain.savedCallback = CB2_InitPokegear;

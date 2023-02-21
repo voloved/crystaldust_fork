@@ -31,7 +31,8 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - R is now Turbo B most of the time in the overworld and battles.
 - [Added Physical Special Split](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
-- Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon,
+- Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon
+- Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
 - [Can now quickly run from a battle by holding Right while the wild Pokémon's name appears.](https://github.com/pret/pokeemerald/wiki/Quickly-Run-from-a-Battle-by-Holding-Right-While-the-Wild-Pok%C3%A9mon's-Name-Appears)
 - [Make Pokémon that Require a Fateful Encounter to be Legal to Always Be Set to Legal](https://github.com/pret/pokeemerald/wiki/Make-Pokemon-that-Require-a-Fateful-Encounter-to-be-Legal-to-Always-Be-Set-to-Legal)
 - [Use Fly and Flash for Any Compatible Pokémon](https://www.pokecommunity.com/showpost.php?p=10420068) [Credit: ScyrousFX]
@@ -57,6 +58,9 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - Default Options are now fast text speed and L=A by default
 - Made Lucky Egg triple EXP and a default PC item. If anyone in the party holds it, it will treat as is they all are.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
+- Pokegear button mapping changed.
+- Houndoom can learn dig.
+- Fly to opposite region in debug menu.
 - [Fix AI's Switch In Battle](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - More Wild Pokémon Added:
