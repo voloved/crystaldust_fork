@@ -52,7 +52,7 @@
 #include "window.h"
 #include "constants/event_objects.h"
 #include "constants/text.h"
-#include "constants/pokemon.h"
+#include "constants/items.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(void);
@@ -1758,9 +1758,20 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
             break;
         }
     }
-    if (gSpecialVar_Result == PARTY_SIZE && PlayerHasMove(moveId)){
-            gSpecialVar_Result = 0;
-            gSpecialVar_0x8004 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
+    if (gSpecialVar_Result == PARTY_SIZE && (CheckBagHasItem(MoveToHM(moveId), 1) || moveId == MOVE_HEADBUTT)){
+        for (i = 0; i < PARTY_SIZE; i++)
+        {
+            u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+            if (!species)
+                break;
+            DebugPrintf("%d  %d", CanMonLearnTMHM(&gPlayerParty[i], MoveToHM(moveId) - ITEM_TM01), MoveToHM(moveId));
+            if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanMonLearnTMHM(&gPlayerParty[i], MoveToHM(moveId) - ITEM_TM01))
+            {
+                gSpecialVar_Result = i;
+                gSpecialVar_0x8004 = species;
+                break;
+            }
+        }
     }
     return FALSE;
 }
