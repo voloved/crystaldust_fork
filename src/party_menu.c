@@ -4696,6 +4696,49 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
     return FALSE;
 }
 
+bool8 PlayerHasMove(u16 move)
+{
+    switch (move)
+    {
+    case MOVE_SECRET_POWER:
+        return CheckBagHasItem(ITEM_TM43, 1);
+        break;
+    case MOVE_CUT:
+        return CheckBagHasItem(ITEM_HM01, 1);
+        break;
+    case MOVE_FLY:
+        return CheckBagHasItem(ITEM_HM02, 1);
+        break;
+    case MOVE_SURF:
+        return CheckBagHasItem(ITEM_HM03, 1);
+        break;
+    case MOVE_STRENGTH:
+        return CheckBagHasItem(ITEM_HM04, 1);
+        break;
+    case MOVE_FLASH:
+        return CheckBagHasItem(ITEM_HM05, 1);
+        break;
+    case MOVE_ROCK_SMASH:
+        return CheckBagHasItem(ITEM_HM06, 1);
+        break;
+    case MOVE_WATERFALL:
+        return CheckBagHasItem(ITEM_HM07, 1);
+        break;
+    case MOVE_WHIRLPOOL:
+        return CheckBagHasItem(ITEM_HM08, 1);
+        break;
+    case MOVE_DIVE:
+        return CheckBagHasItem(ITEM_HM09, 1);
+        break;
+    case MOVE_HEADBUTT:
+        return FlagGet(FLAG_SPOKE_WITH_HEADBUTT_TUTOR);
+        break;
+    default:
+        return FALSE;
+        break;
+    }
+}
+
 static void DisplayLearnMoveMessage(const u8 *str)
 {
     StringExpandPlaceholders(gStringVar4, str);

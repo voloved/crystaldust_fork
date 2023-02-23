@@ -1353,8 +1353,6 @@ bool8 PartyHasMonWithHeadbutt(void)
         if (MonKnowsMove(&gPlayerParty[i], MOVE_HEADBUTT))
             return TRUE;
     }
-    if (CheckBagHasItem(ITEM_HM03_SURF ,1))
-        return TRUE;
     return FALSE;
 }
 
@@ -1368,8 +1366,6 @@ bool8 PartyHasMonWithSurf(void)
         {
             if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
                 break;
-            if (MonKnowsMove(&gPlayerParty[i], MOVE_SURF))
-                return TRUE;
         }
     }
     if (CheckBagHasItem(ITEM_HM03_SURF ,1))
@@ -1385,8 +1381,6 @@ bool8 PartyHasMonWithWhirlpool(void)
     {
         if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
             break;
-        if (MonKnowsMove(&gPlayerParty[i], MOVE_WHIRLPOOL))
-            return TRUE;
     }
     if (CheckBagHasItem(ITEM_HM08_WHIRLPOOL ,1))
         return TRUE;

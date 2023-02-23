@@ -4,10 +4,9 @@ EventScript_CutTree::
 	goto_if_unset FLAG_BADGE02_GET, EventScript_CheckTreeCantCut
 	checkpartymove MOVE_CUT
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_CutWithoutPokemon
+	goto_if_eq EventScript_CheckTreeCantCut
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick 0, VAR_RESULT
-EventScript_CutTreeContinue::
 	buffermovename 1, MOVE_CUT
 	msgbox Text_WantToCut, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -17,15 +16,6 @@ EventScript_CutTreeContinue::
 	dofieldeffect FLDEFF_USE_CUT_ON_TREE
 	waitstate
 	goto EventScript_CutTreeDown
-	end
-
-EventScript_CutWithoutPokemon::
-	checkitem ITEM_HM01_CUT, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_CheckTreeCantCut
-	setfieldeffectargument 0, 0
-	bufferpartymonnick 0, 0
-	goto EventScript_CutTreeContinue
 	end
 
 @ Use cut from party menu
@@ -75,10 +65,9 @@ EventScript_RockSmash::
 	//goto_if_unset FLAG_BADGE03_GET, EventScript_CantSmashRock
 	checkpartymove MOVE_ROCK_SMASH
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_RockSmashWithoutPokemon
+	goto_if_eq EventScript_CantSmashRock
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick 0, VAR_RESULT
-EventScript_RockSmashContinue::
 	buffermovename 1, MOVE_ROCK_SMASH
 	msgbox Text_WantToSmash, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -88,15 +77,6 @@ EventScript_RockSmashContinue::
 	dofieldeffect FLDEFF_USE_ROCK_SMASH
 	waitstate
 	goto EventScript_SmashRock
-	end
-
-EventScript_RockSmashWithoutPokemon::
-	checkitem ITEM_HM06_ROCK_SMASH, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_CantSmashRock
-	setfieldeffectargument 0, 0
-	bufferpartymonnick 0, 0
-	goto EventScript_RockSmashContinue
 	end
 
 @ Use rock smash from party menu
@@ -150,9 +130,8 @@ EventScript_StrengthBoulder::
 	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
 	checkpartymove MOVE_STRENGTH
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_StrengthWithoutPokemon
+	goto_if_eq EventScript_CantStrength
 	setfieldeffectargument 0, VAR_RESULT
-EventScript_StrengthContinue::
 	msgbox Text_WantToStrength, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_CancelStrength
@@ -160,14 +139,6 @@ EventScript_StrengthContinue::
 	dofieldeffect FLDEFF_USE_STRENGTH
 	waitstate
 	goto EventScript_ActivateStrength
-	end
-
-EventScript_StrengthWithoutPokemon::
-	checkitem ITEM_HM04_STRENGTH, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_CantStrength
-	setfieldeffectargument 0, 0
-	goto EventScript_StrengthContinue
 	end
 
 EventScript_UseStrength::
@@ -220,25 +191,15 @@ EventScript_UseWaterfall::
 	lockall
 	checkpartymove MOVE_WATERFALL
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_WaterfallWithoutPokemon
+	goto_if_eq EventScript_CantWaterfall
 	bufferpartymonnick 0, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
-EventScript_WaterfallContinue::
 	msgbox Text_WantToWaterfall, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_EndWaterfall
 	msgbox Text_MonUsedWaterfall, MSGBOX_DEFAULT
 	dofieldeffect FLDEFF_USE_WATERFALL
 	goto EventScript_EndWaterfall
-
-EventScript_WaterfallWithoutPokemon::
-	checkitem ITEM_HM07_WATERFALL, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_CantWaterfall
-	bufferpartymonnick 0, 0
-	setfieldeffectargument 0, 0
-	goto EventScript_WaterfallContinue
-	end
 
 EventScript_CannotUseWaterfall::
 	lockall
@@ -342,10 +303,9 @@ EventScript_HeadbuttTree::
 	lockall
 	checkpartymove MOVE_HEADBUTT
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_HeadbuttWithoutPokemon
+	goto_if_eq EventScript_EndHeadbutt
 	setfieldeffectargument 0, VAR_RESULT
 	bufferpartymonnick 0, VAR_RESULT
-EventScript_HeadbuttTreeContinue::
 	buffermovename 1, MOVE_HEADBUTT
 	msgbox Text_WantToHeadbutt, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -353,13 +313,6 @@ EventScript_HeadbuttTreeContinue::
 	msgbox Text_MonUsedFieldMove, MSGBOX_DEFAULT
 	closemessage
 	goto EventScript_DoHeadbutt
-	end
-
-EventScript_HeadbuttWithoutPokemon::
-	goto_if_unset FLAG_SPOKE_WITH_HEADBUTT_TUTOR, EventScript_EndHeadbutt
-	setfieldeffectargument 0, 0
-	bufferpartymonnick 0, 0
-	goto EventScript_HeadbuttTreeContinue
 	end
 
 EventScript_UseHeadbutt::
@@ -397,22 +350,12 @@ EventScript_UseWhirlpool::
 	lockall
 	checkpartymove MOVE_WHIRLPOOL
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_WhirlpoolWithoutPokemon
+	goto_if_eq EventScript_CantWhirlpool
 	bufferpartymonnick 0, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
-EventScript_UseWhirlpoolContinue::
 	msgbox Text_WantToWhirlpool, MSGBOX_YESNO
 	compare VAR_RESULT, NO
 	goto_if_eq EventScript_EndWhirlpool
-
-EventScript_WhirlpoolWithoutPokemon::
-	checkitem ITEM_HM08_WHIRLPOOL, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_CantWhirlpool
-	bufferpartymonnick 0, 0
-	setfieldeffectargument 0, 0
-	goto EventScript_UseWhirlpoolContinue
-	end
 
 EventScript_UseWhirlpoolFromPartyMenu::
 	lockall

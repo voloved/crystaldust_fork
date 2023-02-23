@@ -1,10 +1,9 @@
 EventScript_UseSurf::
 	checkpartymove MOVE_SURF
 	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq EventScript_SurfWithoutPokemon
+	goto_if_eq EventScript_EndUseSurf
 	bufferpartymonnick 0, VAR_RESULT
 	setfieldeffectargument 0, VAR_RESULT
-EventScript_SurfContinue::
 	lockall
 	msgbox gText_WantToUseSurf, MSGBOX_YESNO
 	compare VAR_RESULT, NO
@@ -15,11 +14,4 @@ EventScript_ReleaseUseSurf::
 	releaseall
 EventScript_EndUseSurf::
 	end
-EventScript_SurfWithoutPokemon::
-	checkitem ITEM_HM03_SURF, 1
-	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_EndUseSurf
-	bufferpartymonnick 0, 0
-	setfieldeffectargument 0, 0
-	goto EventScript_SurfContinue
-	end
+
