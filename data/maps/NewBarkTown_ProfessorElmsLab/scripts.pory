@@ -60,7 +60,12 @@ script NewBarkTown_ProfessorElmsLab_EventScript_Elm {
                 special(IsPlayersMonOfSpeciesInParty)
                 if (!var(VAR_RESULT))
                 {
-                    goto(NewBarkTown_ProfessorElmsLab_EventScript_Elm_NoHatchedEggMon)
+                    setvar(VAR_0x8004, SPECIES_TOGEKISS)
+                    special(IsPlayersMonOfSpeciesInParty)
+                    if (!var(VAR_RESULT))
+                    {
+                        goto(NewBarkTown_ProfessorElmsLab_EventScript_Elm_NoHatchedEggMon)
+                    }
                 }
             }
             msgbox("ELM: {PLAYER}, you look great!")
