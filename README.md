@@ -17,7 +17,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 ## Quality-of-Life Additions:
 
 - [Allowed All Pokémon to Evolve Without Trading](https://github.com/pret/pokeemerald/wiki/Allow-All-Pokemon-to-Evolve-Without-Trading)
-- [Using HMs Without Any Pokémon in your Party Knowing Them Possible](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
+- [HMs Can Be Used if a Pokemon in the party can learn it.](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
 - [Item Automatically Goes to PC if Bag is Full](https://github.com/pret/pokeemerald/wiki/Item-Automatically-Goes-to-PC-if-Bag-is-Full)
 - [Trees and Rocks get perminently cut and smashed.](https://github.com/pret/pokeemerald/wiki/All-Trees-Permanently-Get-Cut)
 - [Show Species That You're Battling in the Party Menu](https://github.com/pret/pokeemerald/wiki/Show-Species-That-You're-Switching-For-in-the-Party-Menu)
@@ -62,6 +62,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - Houndoom can learn dig.
 - Fly to opposite region in debug menu.
 - [Fix AI's Switch In Battle](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
+- [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa

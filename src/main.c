@@ -290,7 +290,7 @@ static void ReadKeys(void)
     gMain.heldKeys = gMain.heldKeysRaw;
 
     // Remap L to A if the L=A option is enabled.
-    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A && gMain.callback2 != CB2_Pokegear)
     {
         if (JOY_NEW(L_BUTTON))
             gMain.newKeys |= A_BUTTON;
@@ -300,7 +300,7 @@ static void ReadKeys(void)
             gMain.newKeys ^= A_BUTTON;
         }
 #if !DEBUG
-        if(JOY_HELD(R_BUTTON) && (gMain.callback2 != CB2_Pokegear && gMain.callback2 != CB2_StartWallClock
+        if(JOY_HELD(R_BUTTON) && (gMain.callback2 != CB2_StartWallClock
         && gMain.callback2 != CB2_UnionRoomChatMain && gMain.callback2 != CB2_SlotMachine)){
             gMain.newKeys ^= B_BUTTON;
         }

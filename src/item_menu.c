@@ -285,10 +285,10 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_DUMMY
     },
     [BERRIES_POCKET] = {
-        ACTION_VIEW_TAG,
         ACTION_USE,
         ACTION_GIVE,
         ACTION_TOSS,
+        ACTION_VIEW_TAG,
         ACTION_CANCEL
     },
     [KEYITEMS_POCKET] = {
