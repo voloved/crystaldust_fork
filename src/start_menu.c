@@ -1048,7 +1048,7 @@ static u8 SaveConfirmSaveCallback(void)
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     RemoveStartMenuWindow();
     ShowSaveInfoWindow();
-    AddBagItem(12, 10);
+    //Debug item additions go hard. Ex: AddBagItem(12, 10); // 50 rare candies
 
     if (InBattlePyramid())
     {

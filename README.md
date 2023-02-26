@@ -65,7 +65,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - [Added Thief Ball](https://github.com/pret/pokeemerald/wiki/Add-Thief-Ball)
-  - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get one.
+  - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa
