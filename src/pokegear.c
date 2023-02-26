@@ -954,11 +954,11 @@ static void Task_SwapCards(u8 taskId)
     s16 *data = gTasks[taskId].data;
     u8 newCard = tNewCard;
 
-    if (JOY_NEW(START_BUTTON))
+    if (JOY_NEW(L_BUTTON))
     {
         newCard = ChangeCardWithDelta(-1, tNewCard);
     }
-    else if (JOY_NEW(SELECT_BUTTON))
+    else if (JOY_NEW(R_BUTTON))
     {
         newCard = ChangeCardWithDelta(1, tNewCard);
     }
