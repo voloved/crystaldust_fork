@@ -124,6 +124,7 @@ static const struct ItemSlot sNewGamePCItems[] =
 	{ ITEM_SUN_STONE, 1 },
 	{ ITEM_MOON_STONE, 1 },
     { ITEM_LUCKY_EGG, 1 },
+    { ITEM_THIEF_BALL, 5 },
     { ITEM_NONE, 0 }
 };
 

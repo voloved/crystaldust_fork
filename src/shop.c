@@ -1405,9 +1405,9 @@ static void Task_ReturnToItemListAfterItemPurchase(u8 taskId)
     if (JOY_NEW(A_BUTTON | B_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if (tItemId == ITEM_POKE_BALL && tItemCount > 9 && AddBagItem(ITEM_THIEF_BALL, 1) == TRUE)
+        if (tItemId == ITEM_POKE_BALL && tItemCount > 9 && AddBagItem(ITEM_LUXURY_BALL, 1) == TRUE)
         {
-            BuyMenuDisplayMessage(taskId, gText_ThrowInThiefBall, BuyMenuReturnToItemList);
+            BuyMenuDisplayMessage(taskId, gText_ThrowInLuxuryBall, BuyMenuReturnToItemList);
         }
         else
         {
