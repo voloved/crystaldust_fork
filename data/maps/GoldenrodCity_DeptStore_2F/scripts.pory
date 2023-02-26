@@ -28,7 +28,14 @@ script GoldenrodCity_DeptStore_2F_EventScript_LeftClerk {
     faceplayer
     message(gText_HowMayIHelpYou)
     waitmessage
-    pokemart(GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk)
+    if(flag(FLAG_BADGE06_GET))
+    {
+        pokemart(GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk_SixBadge)
+    }
+    else
+    {
+        pokemart(GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk)
+    }
     msgbox(gText_PleaseComeAgain)
     release
 }
@@ -44,6 +51,30 @@ GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk:
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_POKE_DOLL
 	.2byte ITEM_FAB_MAIL
+	.2byte ITEM_NONE
+`
+
+raw `
+.align 2
+GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk_SixBadge:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ESCAPE_ROPE
+	.2byte ITEM_REPEL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_FAB_MAIL
+    .2byte ITEM_THIEF_BALL
+    .2byte ITEM_CLEANSE_TAG
+	.2byte ITEM_POKE_DOLL
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_LUCKY_EGG
 	.2byte ITEM_NONE
 `
 
