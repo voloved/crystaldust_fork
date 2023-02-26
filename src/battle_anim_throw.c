@@ -80,7 +80,7 @@ static void PokeBallOpenParticleAnimation_Step2(struct Sprite *);
 static void DestroyBallOpenAnimationParticle(struct Sprite *);
 static void FanOutBallOpenParticles_Step1(struct Sprite *);
 static void RepeatBallOpenParticleAnimation_Step1(struct Sprite *);
-static void PremierBallOpenParticleAnimation_Step1(struct Sprite *);
+static void ThiefBallOpenParticleAnimation_Step1(struct Sprite *);
 static void LureBallParticle_Step(struct Sprite *sprite);
 static void MoonBallParticle_Step(struct Sprite *sprite);
 static void FriendBallParticle_Step(struct Sprite *sprite);
@@ -103,7 +103,7 @@ static void MasterBallOpenParticleAnimation(u8);
 static void DiveBallOpenParticleAnimation(u8);
 static void RepeatBallOpenParticleAnimation(u8);
 static void TimerBallOpenParticleAnimation(u8);
-static void PremierBallOpenParticleAnimation(u8);
+static void ThiefBallOpenParticleAnimation(u8);
 static void LevelBallOpenParticleAnimation(u8);
 static void LureBallOpenParticleAnimation(u8);
 static void MoonBallOpenParticleAnimation(u8);
@@ -154,7 +154,7 @@ static const struct CompressedSpriteSheet sBallParticleSpriteSheets[BALLGFX_COUN
     [BALLGFX_REPEAT]    = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(REPEAT)},
     [BALLGFX_TIMER]     = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(TIMER)},
     [BALLGFX_LUXURY]    = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(LUXURY)},
-    [BALLGFX_PREMIER]   = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(PREMIER)},
+    [BALLGFX_THIEF]     = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(THIEF)},
     [BALLGFX_LEVEL]     = {gBattleAnimSpriteGfx_Particles,           0x160, TAG_BALL_PARTICLES(LEVEL)},
     [BALLGFX_LURE]      = {gBattleAnimSpriteGfx_BallBubbleParticles,  0x80, TAG_BALL_PARTICLES(LURE)},
     [BALLGFX_MOON]      = {gBattleAnimSpriteGfx_BallMoonParticles,    0xC0, TAG_BALL_PARTICLES(MOON)},
@@ -178,7 +178,7 @@ static const struct CompressedSpritePalette sBallParticlePalettes[BALLGFX_COUNT]
     [BALLGFX_REPEAT]    = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(REPEAT)},
     [BALLGFX_TIMER]     = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(TIMER)},
     [BALLGFX_LUXURY]    = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(LUXURY)},
-    [BALLGFX_PREMIER]   = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(PREMIER)},
+    [BALLGFX_THIEF]     = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(THIEF)},
     [BALLGFX_LEVEL]     = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(LEVEL)},
     [BALLGFX_LURE]      = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(LURE)},
     [BALLGFX_MOON]      = {gBattleAnimSpritePal_CircleImpact, TAG_BALL_PARTICLES(MOON)},
@@ -218,7 +218,7 @@ static const union AnimCmd sAnim_NestBall[] =
     ANIMCMD_END,
 };
 
-static const union AnimCmd sAnim_LuxuryPremierBall[] =
+static const union AnimCmd sAnim_LuxuryThiefBall[] =
 {
     ANIMCMD_FRAME(6, 4),
     ANIMCMD_FRAME(7, 4),
@@ -237,7 +237,7 @@ static const union AnimCmd *const sAnims_BallParticles[] =
     sAnim_MasterBall,
     sAnim_NetDiveBall,
     sAnim_NestBall,
-    sAnim_LuxuryPremierBall,
+    sAnim_LuxuryThiefBall,
     sAnim_UltraRepeatTimerBall,
 };
 
@@ -254,7 +254,7 @@ static const u8 sBallParticleAnimNums[BALLGFX_COUNT] =
     [BALLGFX_REPEAT]    = 5,
     [BALLGFX_TIMER]     = 5,
     [BALLGFX_LUXURY]    = 4,
-    [BALLGFX_PREMIER]   = 4,
+    [BALLGFX_THIEF]   = 4,
     [BALLGFX_LEVEL]     = 0,
     [BALLGFX_LURE]      = 0,
     [BALLGFX_MOON]      = 0,
@@ -278,7 +278,7 @@ static const TaskFunc sBallParticleAnimationFuncs[BALLGFX_COUNT] =
     [BALLGFX_REPEAT]    = RepeatBallOpenParticleAnimation,
     [BALLGFX_TIMER]     = TimerBallOpenParticleAnimation,
     [BALLGFX_LUXURY]    = GreatBallOpenParticleAnimation,
-    [BALLGFX_PREMIER]   = PremierBallOpenParticleAnimation,
+    [BALLGFX_THIEF]   = ThiefBallOpenParticleAnimation,
     [BALLGFX_LEVEL]     = LevelBallOpenParticleAnimation,
     [BALLGFX_LURE]      = LureBallOpenParticleAnimation,
     [BALLGFX_MOON]      = MoonBallOpenParticleAnimation,
@@ -390,9 +390,9 @@ static const struct SpriteTemplate sBallParticleSpriteTemplates[BALLGFX_COUNT] =
         .affineAnims = gDummySpriteAffineAnimTable,
         .callback = SpriteCallbackDummy,
     },
-    [BALLGFX_PREMIER] = {
-        .tileTag = TAG_BALL_PARTICLES(PREMIER),
-        .paletteTag = TAG_BALL_PARTICLES(PREMIER),
+    [BALLGFX_THIEF] = {
+        .tileTag = TAG_BALL_PARTICLES(THIEF),
+        .paletteTag = TAG_BALL_PARTICLES(THIEF),
         .oam = &gOamData_AffineOff_ObjNormal_8x8,
         .anims = sAnims_BallParticles,
         .images = NULL,
@@ -486,7 +486,7 @@ const u16 gBallOpenFadeColors[] =
     [BALLGFX_REPEAT]    = RGB(31, 24, 16),
     [BALLGFX_TIMER]     = RGB(29, 30, 30),
     [BALLGFX_LUXURY]    = RGB(31, 17, 10),
-    [BALLGFX_PREMIER]   = RGB(31,  9, 10),
+    [BALLGFX_THIEF]     = RGB(31,  9, 10),
     [BALLGFX_LEVEL]     = RGB(31, 23, 23),
     [BALLGFX_LURE]      = RGB( 8, 16, 30),
     [BALLGFX_MOON]      = RGB(19, 28, 22),
@@ -852,8 +852,8 @@ u8 BallIdToGfxId(u16 ballItem)
         return BALLGFX_TIMER;
     case BALL_LUXURY:
         return BALLGFX_LUXURY;
-    case BALL_PREMIER:
-        return BALLGFX_PREMIER;
+    case BALL_THIEF:
+        return BALLGFX_THIEF;
     case BALL_LEVEL:
         return BALLGFX_LEVEL;
     case BALL_LURE:
@@ -2061,7 +2061,7 @@ static void MasterBallOpenParticleAnimation(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void PremierBallOpenParticleAnimation(u8 taskId)
+static void ThiefBallOpenParticleAnimation(u8 taskId)
 {
     u8 i;
     u8 x, y, priority, subpriority, ballId;
@@ -2080,7 +2080,7 @@ static void PremierBallOpenParticleAnimation(u8 taskId)
         {
             IncrBallParticleCount();
             StartSpriteAnim(&gSprites[spriteId], sBallParticleAnimNums[ballId]);
-            gSprites[spriteId].callback = PremierBallOpenParticleAnimation_Step1;
+            gSprites[spriteId].callback = ThiefBallOpenParticleAnimation_Step1;
             gSprites[spriteId].oam.priority = priority;
             gSprites[spriteId].data[0] = i * 32;
         }
@@ -2092,7 +2092,7 @@ static void PremierBallOpenParticleAnimation(u8 taskId)
     DestroyTask(taskId);
 }
 
-static void PremierBallOpenParticleAnimation_Step1(struct Sprite *sprite)
+static void ThiefBallOpenParticleAnimation_Step1(struct Sprite *sprite)
 {
     sprite->x2 = Sin(sprite->data[0], sprite->data[1]);
     sprite->y2 = Cos(sprite->data[0], Sin(sprite->data[0] & 0x3F, sprite->data[2]));

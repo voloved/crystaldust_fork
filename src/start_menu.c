@@ -1048,6 +1048,7 @@ static u8 SaveConfirmSaveCallback(void)
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     RemoveStartMenuWindow();
     ShowSaveInfoWindow();
+    AddBagItem(12, 10);
 
     if (InBattlePyramid())
     {

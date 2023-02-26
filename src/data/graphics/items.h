@@ -38,7 +38,7 @@ const u32 gItemIcon_TimerBall[] = INCBIN_U32("graphics/items/icons/timer_ball.4b
 const u32 gItemIcon_LuxuryBall[] = INCBIN_U32("graphics/items/icons/luxury_ball.4bpp.lz");
 const u32 gItemIconPalette_LuxuryBall[] = INCBIN_U32("graphics/items/icon_palettes/luxury_ball.gbapal.lz");
 
-const u32 gItemIcon_PremierBall[] = INCBIN_U32("graphics/items/icons/premier_ball.4bpp.lz");
+const u32 gItemIcon_ThiefBall[] = INCBIN_U32("graphics/items/icons/thief_ball.4bpp.lz");
 
 // Medicine
 

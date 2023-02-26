@@ -63,7 +63,7 @@ const struct CompressedSpriteSheet gBallSpriteSheets[BALLGFX_COUNT] =
     [BALLGFX_REPEAT]    = {gInterfaceGfx_RepeatBall,  384, TAG_BALL_GFX(REPEAT)},
     [BALLGFX_TIMER]     = {gInterfaceGfx_TimerBall,   384, TAG_BALL_GFX(TIMER)},
     [BALLGFX_LUXURY]    = {gInterfaceGfx_LuxuryBall,  384, TAG_BALL_GFX(LUXURY)},
-    [BALLGFX_PREMIER]   = {gInterfaceGfx_PremierBall, 384, TAG_BALL_GFX(PREMIER)},
+    [BALLGFX_THIEF]     = {gInterfaceGfx_ThiefBall,   384, TAG_BALL_GFX(THIEF)},
     [BALLGFX_LEVEL]     = {gInterfaceGfx_LevelBall,   384, TAG_BALL_GFX(LEVEL)},
     [BALLGFX_LURE]      = {gInterfaceGfx_LureBall,    384, TAG_BALL_GFX(LURE)},
     [BALLGFX_MOON]      = {gInterfaceGfx_MoonBall,    384, TAG_BALL_GFX(MOON)},
@@ -87,7 +87,7 @@ const struct CompressedSpritePalette gBallSpritePalettes[BALLGFX_COUNT] =
     [BALLGFX_REPEAT]    = {gInterfacePal_RepeatBall,  TAG_BALL_GFX(REPEAT)},
     [BALLGFX_TIMER]     = {gInterfacePal_TimerBall,   TAG_BALL_GFX(TIMER)},
     [BALLGFX_LUXURY]    = {gInterfacePal_LuxuryBall,  TAG_BALL_GFX(LUXURY)},
-    [BALLGFX_PREMIER]   = {gInterfacePal_PremierBall, TAG_BALL_GFX(PREMIER)},
+    [BALLGFX_THIEF]     = {gInterfacePal_ThiefBall, TAG_BALL_GFX(THIEF)},
     [BALLGFX_LEVEL]     = {gInterfacePal_LevelBall,   TAG_BALL_GFX(LEVEL)},
     [BALLGFX_LURE]      = {gInterfacePal_LureBall,    TAG_BALL_GFX(LURE)},
     [BALLGFX_MOON]      = {gInterfacePal_MoonBall,    TAG_BALL_GFX(MOON)},
@@ -313,8 +313,8 @@ const struct SpriteTemplate gBallSpriteTemplates[BALLGFX_COUNT] =
         .callback = SpriteCB_BallThrow,
     },
     {
-        .tileTag = TAG_BALL_GFX(PREMIER),
-        .paletteTag = TAG_BALL_GFX(PREMIER),
+        .tileTag = TAG_BALL_GFX(THIEF),
+        .paletteTag = TAG_BALL_GFX(THIEF),
         .oam = &sBallOamData,
         .anims = sBallAnimSequences,
         .images = NULL,
@@ -1344,7 +1344,7 @@ void LoadBallGfx(u8 gfxId)
     {
     case BALLGFX_DIVE:
     case BALLGFX_LUXURY:
-    case BALLGFX_PREMIER:
+    case BALLGFX_THIEF:
         break;
     default:
         var = GetSpriteTileStartByTag(gBallSpriteSheets[gfxId].tag);

@@ -178,6 +178,7 @@ EWRAM_DATA s32 gBattleMoveDamage = 0;
 EWRAM_DATA s32 gHpDealt = 0;
 EWRAM_DATA s32 gTakenDmg[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gLastUsedItem = 0;
+EWRAM_DATA u8 gUsingThiefBall = THIEF_BALL_NOT_USING;
 EWRAM_DATA struct BattleOddsModifierButtonPress gBallShakesBData = {0};
 EWRAM_DATA u8 gLastUsedAbility = 0;
 EWRAM_DATA u8 gBattlerAttacker = 0;
@@ -1935,6 +1936,51 @@ static void sub_8038538(struct Sprite *sprite)
     }
 }
 
+//VarSet(VAR_RIVAL_PKMN_STOLE, VarGet(VAR_RIVAL_PKMN_STOLE) | checkStolenPokemon(species));
+u16 checkStolenPokemon(u16 trainerNum, u16 speciesType){
+    u8 trainerClass = gTrainers[trainerNum].trainerClass;
+    u8 trainerPic   = gTrainers[trainerNum].trainerPic;
+    switch (trainerPic)
+    {
+    case TRAINER_PIC_RIVAL:
+        switch (speciesType)
+        {
+        case SPECIES_CHIKORITA:
+        case SPECIES_BAYLEEF:
+        case SPECIES_MEGANIUM:
+        case SPECIES_CYNDAQUIL:
+        case SPECIES_QUILAVA:
+        case SPECIES_TYPHLOSION:
+        case SPECIES_TOTODILE:
+        case SPECIES_CROCONAW:
+        case SPECIES_FERALIGATR:
+            return STOLE_STARTER;
+        case SPECIES_GASTLY:
+        case SPECIES_HAUNTER:
+        case SPECIES_GENGAR:
+            return STOLE_GASTLEY;
+        case SPECIES_ZUBAT:
+        case SPECIES_GOLBAT:
+        case SPECIES_CROBAT:
+            return STOLE_ZUBAT;
+        case SPECIES_MAGNEMITE:
+        case SPECIES_MAGNETON:
+        case SPECIES_MAGNEZONE:
+            return STOLE_MAGNEMITE;
+        case SPECIES_SNEASEL:
+        case SPECIES_WEAVILE:
+            return STOLE_SNEASEL;
+        case SPECIES_ABRA:
+        case SPECIES_KADABRA:
+        case SPECIES_ALAKAZAM:
+            return STOLE_ABRA;
+        default:
+            return 0;
+        }
+    }
+    return 0;
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
 {
     u32 nameHash = 0;
@@ -1942,6 +1988,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u8 fixedIV;
     s32 i, j;
     u8 monsCount;
+    u16 species_check;  
+    u32 fixedOTID;
+    u8 otGender;
+    u8 opponentClass = gTrainers[trainerNum].trainerClass;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1965,16 +2015,22 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             monsCount = gTrainers[trainerNum].partySize;
         }
 
+        fixedOTID = Random32();
+
         for (i = 0; i < monsCount; i++)
         {
-
-            if (gTrainers[trainerNum].doubleBattle == TRUE)
+            if (gTrainers[trainerNum].doubleBattle == TRUE){
                 personalityValue = 0x80;
-            else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE)
+                otGender = gSaveBlock2Ptr->playerGender;
+            }
+            else if (gTrainers[trainerNum].encounterMusic_gender & F_TRAINER_FEMALE){
                 personalityValue = 0x78; // Use personality more likely to result in a female Pokémon
-            else
-                personalityValue = 0x88; // Use personality more likely to result in a male Pokémon
-
+                otGender = FEMALE;
+            }
+            else{
+                personalityValue = 0x88; // Use personality more likely to result in a male Pokémon}
+                otGender = MALE;
+            }
             for (j = 0; gTrainers[trainerNum].trainerName[j] != EOS; j++)
                 nameHash += gTrainers[trainerNum].trainerName[j];
 
@@ -1983,25 +2039,31 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case 0:
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
-
+                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                    continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_PRESET, fixedOTID);
+                SetMonData(&party[i], MON_DATA_OT_GENDER, &otGender);
+                SetMonData(&party[i], MON_DATA_OT_NAME, gTrainers[trainerNum].trainerName);
                 break;
             }
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
-
+                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                    continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_PRESET, fixedOTID);
+                SetMonData(&party[i], MON_DATA_OT_GENDER, &otGender);
+                SetMonData(&party[i], MON_DATA_OT_NAME, gTrainers[trainerNum].trainerName);
 
                 for (j = 0; j < MAX_MON_MOVES; j++)
                 {
@@ -2013,13 +2075,16 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case F_TRAINER_PARTY_HELD_ITEM:
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
-
+                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                    continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_PRESET, fixedOTID);
+                SetMonData(&party[i], MON_DATA_OT_GENDER, &otGender);
+                SetMonData(&party[i], MON_DATA_OT_NAME, gTrainers[trainerNum].trainerName);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
                 break;
@@ -2027,13 +2092,16 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
-
+                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                    continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
 
                 personalityValue += nameHash << 8;
                 fixedIV = partyData[i].iv * MAX_PER_STAT_IVS / 255;
-                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_RANDOM_NO_SHINY, 0);
+                CreateMon(&party[i], partyData[i].species, partyData[i].lvl, fixedIV, TRUE, personalityValue, OT_ID_PRESET, fixedOTID);
+                SetMonData(&party[i], MON_DATA_OT_GENDER, &otGender);
+                SetMonData(&party[i], MON_DATA_OT_NAME, gTrainers[trainerNum].trainerName);
 
                 SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 

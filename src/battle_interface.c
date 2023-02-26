@@ -16,6 +16,7 @@
 #include "gpu_regs.h"
 #include "battle_message.h"
 #include "pokedex.h"
+#include "item.h"
 #include "palette.h"
 #include "international_string_util.h"
 #include "safari_zone.h"
@@ -24,6 +25,7 @@
 #include "constants/rgb.h"
 #include "data.h"
 #include "pokemon_summary_screen.h"
+#include "constants/items.h"
 
 struct TestingBar
 {
@@ -1950,7 +1952,16 @@ static void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 
     if (gBattleTypeFlags & BATTLE_TYPE_DUDE_TUTORIAL)
         return;
-    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER){
+        if (!CheckBagHasItem(ITEM_THIEF_BALL, 1))
+            return;
+        if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER |
+        BATTLE_TYPE_SECRET_BASE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED_LINK))
+            return;
+    }
+    
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_LINK | BATTLE_TYPE_EREADER_TRAINER |
+    BATTLE_TYPE_SECRET_BASE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED_LINK))
         return;
 
     battlerId = gSprites[healthboxSpriteId].hMain_Battler;

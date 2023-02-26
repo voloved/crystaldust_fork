@@ -655,6 +655,7 @@ extern s32 gBattleMoveDamage;
 extern s32 gHpDealt;
 extern s32 gTakenDmg[MAX_BATTLERS_COUNT];
 extern u16 gLastUsedItem;
+extern u8 gUsingThiefBall;
 extern struct BattleOddsModifierButtonPress gBallShakesBData;
 extern u8 gLastUsedAbility;
 extern u8 gBattlerAttacker;

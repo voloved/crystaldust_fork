@@ -22,7 +22,7 @@ enum
     BALLGFX_REPEAT,
     BALLGFX_TIMER,
     BALLGFX_LUXURY,
-    BALLGFX_PREMIER,
+    BALLGFX_THIEF,
     BALLGFX_LEVEL,
     BALLGFX_LURE,
     BALLGFX_MOON,
@@ -48,7 +48,7 @@ enum
     BALL_REPEAT,
     BALL_TIMER,
     BALL_LUXURY,
-    BALL_PREMIER,
+    BALL_THIEF,
     BALL_LEVEL,
     BALL_LURE,
     BALL_MOON,
@@ -60,7 +60,7 @@ enum
 };
 
 #define POKEBALL_COUNT BALLGFX_COUNT
-#define IS_ITEM_BALL(x) ((x) <= ITEM_PREMIER_BALL || ((x) >= ITEM_LEVEL_BALL && (x) <= ITEM_PARK_BALL))
+#define IS_ITEM_BALL(x) ((x) <= ITEM_THIEF_BALL || ((x) >= ITEM_LEVEL_BALL && (x) <= ITEM_PARK_BALL))
 #define ITEM_ID_TO_BALL_ID(x) (((x) >= ITEM_LEVEL_BALL && (x) <= ITEM_PARK_BALL) ? (((x) - ITEM_LEVEL_BALL) + BALL_LEVEL) : (x))
 
 extern const struct SpriteTemplate gBallSpriteTemplates[];

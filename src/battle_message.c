@@ -476,6 +476,8 @@ static const u8 sText_TheDudeUsedItem[] = _("The dude used\n{B_LAST_ITEM}!");
 static const u8 sText_Trainer1UsedItem[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nused {B_LAST_ITEM}!");
 static const u8 sText_TrainerBlockedBall[] = _("The TRAINER blocked the BALL!");
 static const u8 sText_DontBeAThief[] = _("Don't be a thief!");
+static const u8 sText_CantWithThief[] = _("Thief balls don't work in\nthis kind of battle!");
+static const u8 sText_TooManyWitnesses[] = _("There's too many\nwitnesses...");
 static const u8 sText_ItDodgedBall[] = _("It dodged the thrown BALL!\nThis POKéMON can't be caught!");
 static const u8 sText_YouMissedPkmn[] = _("You missed the POKéMON!");
 static const u8 sText_PkmnBrokeFree[] = _("Oh, no!\nThe POKéMON broke free!");
@@ -526,6 +528,7 @@ static const u8 sText_Trainer1WinText[];
 static const u8 sText_Trainer2WinText[];
 static const u8 sText_TwoInGameTrainersDefeated[];
 static const u8 sText_Trainer2LoseText[];
+static const u8 sText_GotchaPkmnCaughtNoBgm[];
 
 const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
 {
@@ -905,6 +908,10 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_PLAYERWHITEDOUT - 12] = sText_PlayerWhitedOut,
     [STRINGID_PLAYERGOTMONEYSENTTOMOM - 12] = sText_PlayerGotMoneySentToMom,
     [STRINGID_PKMNGAINEDEXPALL - 12] = sText_PkmnGainedEXPAll,
+    [STRINGID_CANTWITHTHIEF - 12] = sText_CantWithThief,
+    [STRINGID_TOOMANYWITNESSES - 12] = sText_TooManyWitnesses,
+    [STRINGID_GOTCHAPKMNCAUGHTNOBGM - 12] = sText_GotchaPkmnCaughtNoBgm,
+
 };
 
 const u16 gMissStringIds[] =
@@ -1404,6 +1411,7 @@ static const u8 sText_GlintAppearsInEye[] = _("A glint appears in\n{B_SCR_ACTIVE
 static const u8 sText_PkmnGettingIntoPosition[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is getting into\nposition!");
 static const u8 sText_PkmnBeganGrowlingDeeply[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} began growling deeply!");
 static const u8 sText_PkmnEagerForMore[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is eager for more!");
+static const u8 sText_GotchaPkmnCaughtNoBgm[] = _("Gotcha! {B_TRAINER1_CLASS}\n{B_TRAINER1_NAME}'s {B_OPPONENT_MON1_NAME} was caught!{WAIT_SE}{RESUME_MUSIC}\p");
 
 const u16 gBattlePalaceFlavorTextTable[] =
 {

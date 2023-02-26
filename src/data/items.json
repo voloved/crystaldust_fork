@@ -193,12 +193,12 @@
       "secondaryId": 10
     },
     {
-      "english": "PREMIER BALL",
-      "itemId": "ITEM_PREMIER_BALL",
-      "price": 200,
+      "english": "THIEF BALL",
+      "itemId": "ITEM_THIEF_BALL",
+      "price": 2000,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "A rare BALL that has been\\nspecially made to commemorate an\\nevent of some sort.",
+      "description_english": "A BALL that allows the\\nstealing of others' POKéMON.",
       "importance": 0,
       "exitsBagOnUse": 0,
       "pocket": "POCKET_POKE_BALLS",

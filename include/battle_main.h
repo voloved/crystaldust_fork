@@ -61,6 +61,14 @@ ballShakesArray: 76543210
 #define BOUNCE_MON          0x0
 #define BOUNCE_HEALTHBOX    0x1
 
+// Rival's Stolen Pokemon
+#define STOLE_STARTER      (1 << 0)
+#define STOLE_GASTLEY      (1 << 1)
+#define STOLE_ZUBAT        (1 << 2)
+#define STOLE_MAGNEMITE    (1 << 3)
+#define STOLE_SNEASEL      (1 << 4)
+#define STOLE_ABRA         (1 << 5)
+
 void CB2_InitBattle(void);
 void BattleMainCB2(void);
 void CB2_QuitRecordedBattle(void);
@@ -99,6 +107,7 @@ void RunBattleScriptCommands_PopCallbacksStack(void);
 void RunBattleScriptCommands(void);
 bool8 TryRunFromBattle(u8 battlerId);
 void SpecialStatusesClear(void);
+u16 checkStolenPokemon(u16 trainerNum, u16 speciesType);
 
 extern struct UnknownPokemonStruct4 gMultiPartnerParty[MULTI_PARTY_SIZE];
 

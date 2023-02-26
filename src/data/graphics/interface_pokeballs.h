@@ -31,8 +31,8 @@ const u32 gInterfacePal_TimerBall[] = INCBIN_U32("graphics/interface/ball/timer.
 const u32 gInterfaceGfx_LuxuryBall[] = INCBIN_U32("graphics/interface/ball/luxury.4bpp.lz");
 const u32 gInterfacePal_LuxuryBall[] = INCBIN_U32("graphics/interface/ball/luxury.gbapal.lz");
 
-const u32 gInterfaceGfx_PremierBall[] = INCBIN_U32("graphics/interface/ball/premier.4bpp.lz");
-const u32 gInterfacePal_PremierBall[] = INCBIN_U32("graphics/interface/ball/premier.gbapal.lz");
+const u32 gInterfaceGfx_ThiefBall[] = INCBIN_U32("graphics/interface/ball/thief.4bpp.lz");
+const u32 gInterfacePal_ThiefBall[] = INCBIN_U32("graphics/interface/ball/thief.gbapal.lz");
 
 const u32 gInterfaceGfx_HeavyBall[] = INCBIN_U32("graphics/interface/ball/heavy.4bpp.lz");
 const u32 gInterfacePal_HeavyBall[] = INCBIN_U32("graphics/interface/ball/heavy.gbapal.lz");

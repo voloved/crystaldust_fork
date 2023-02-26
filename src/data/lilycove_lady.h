@@ -285,7 +285,7 @@ static const u16 sQuizLadyPrizes[] =
     ITEM_STAR_PIECE,
     ITEM_RARE_CANDY,
     ITEM_RARE_CANDY,
-    ITEM_PREMIER_BALL
+    ITEM_THIEF_BALL
 };
 
 // Favor Lady data
@@ -377,7 +377,7 @@ static const u16 sFavorLadyAcceptedItems_Shiny[] =
     ITEM_SILVER_POWDER,
     ITEM_BRIGHT_POWDER,
     ITEM_LUXURY_BALL,
-    ITEM_PREMIER_BALL,
+    ITEM_THIEF_BALL,
     ITEM_NONE
 };
 
