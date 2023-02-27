@@ -1,14 +1,14 @@
 gText_NurseIntro_Morning::
 	.string "Good morning!\n"
-	.string "Welcome to our {POKEMON} CENTER.\p$"
+	.string "Welcome to our {POKEMON} CENTER.$"
 
 gText_NurseIntro_Day::
 	.string "Hello!\n"
-	.string "Welcome to our {POKEMON} CENTER.\p$"
+	.string "Welcome to our {POKEMON} CENTER.$"
 
 gText_NurseIntro_Night::
 	.string "Good evening! You're out late.\n"
-	.string "Welcome to our {POKEMON} CENTER.\p$"
+	.string "Welcome to our {POKEMON} CENTER.$"
 
 gText_NurseIntro_Common::
 	.string "We can heal your {POKEMON} to\n"
@@ -57,3 +57,6 @@ gText_ThankYouForWaiting::
 
 gText_WeHopeToSeeYouAgain2::
     .string "We hope to see you again!$"
+
+gText_IllTakeYourPkmn3::
+	.string "Let me heal your {POKEMON}.$"
