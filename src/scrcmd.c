@@ -1764,7 +1764,6 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
             u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
             if (!species)
                 break;
-            DebugPrintf("%d  %d", CanMonLearnTMHM(&gPlayerParty[i], MoveToHM(moveId) - ITEM_TM01), MoveToHM(moveId));
             if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanMonLearnTMHM(&gPlayerParty[i], MoveToHM(moveId) - ITEM_TM01))
             {
                 gSpecialVar_Result = i;
