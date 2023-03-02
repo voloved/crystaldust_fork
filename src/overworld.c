@@ -1081,13 +1081,16 @@ static bool8 CanLearnFlashInParty(void)
         if (!GetMonData(&gPlayerParty[i], MON_DATA_IS_EGG) && CanMonLearnTMHM(&gPlayerParty[i], ITEM_HM05 - ITEM_TM01))
             return TRUE;
     }
+    return FALSE;
 }
 
 void SetDefaultFlashLevel(void)
 {
+    if (CheckBagHasItem(ITEM_HM05_FLASH ,1) && CanLearnFlashInParty())
+        FlagSet(FLAG_SYS_USE_FLASH);
     if (!gMapHeader.cave)
         gSaveBlock1Ptr->flashLevel = 0;
-    else if (FlagGet(FLAG_SYS_USE_FLASH) || (CheckBagHasItem(ITEM_HM05_FLASH ,1) && CanLearnFlashInParty()))
+    else if (FlagGet(FLAG_SYS_USE_FLASH))
         gSaveBlock1Ptr->flashLevel = 1;
     else
         gSaveBlock1Ptr->flashLevel = gMaxFlashLevel - 1;
