@@ -137,6 +137,7 @@ static void DebugMenu_AddItem_ProcessInputCount(u8 taskId);
 static void DebugMenu_LottoNumber_ProcessInput(u8 taskId);
 static void DebugMenu_BattleTerrain_ProcessInput(u8 taskId);
 
+extern struct Evolution gEvolutionTable[][EVOS_PER_MON];
 extern bool8 gPaletteTintDisabled;
 extern bool8 gPaletteOverrideDisabled;
 extern u8 gCatchDebugStatus;
@@ -1573,8 +1574,13 @@ static void DebugMenu_ForcePartyEggsHatch(u8 taskId)
 
 static void DebugMenu_ForceEvolution(u8 taskId)
 {
+    s8 slotId = 0;
+    u16 species = GetMonData(&gPlayerParty[slotId], MON_DATA_SPECIES);
+    u16 evoSpecies = gEvolutionTable[species][0].targetSpecies;
+    if(evoSpecies == SPECIES_NONE)
+        evoSpecies = SPECIES_MEW;
     gCB2_AfterEvolution = CB2_ReturnToField;
-    BeginEvolutionScene(NULL, SPECIES_MEW, 1, gSpecialVar_0x8004);
+    BeginEvolutionScene(NULL, evoSpecies, 1, slotId);  // Evolves first mon in party
 }
 
 static void DebugMenu_EnableMapCard(u8 taskId)
