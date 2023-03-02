@@ -145,14 +145,31 @@ script Route25_BillsHouse_EventScript_BillsGrandpa{
     specialvar(VAR_RESULT, GetSelectedMonNicknameAndSpecies)
     if(var(VAR_RESULT) != VAR_0x8008)
     {
+        if(var(VAR_0x8008) == SPECIES_LICKITUNG)
+        {
+            setvar(VAR_0x8008, SPECIES_LICKILICKY)
+            specialvar(VAR_RESULT, GetSelectedMonNicknameAndSpecies)
+            if(var(VAR_RESULT) == VAR_0x8008)
+            {
+                goto(Route25_BillsHouse_EventScript_DoHave)
+            }
+        }
+        goto(Route25_BillsHouse_EventScript_DontHave)
+    }
+    goto(Route25_BillsHouse_EventScript_DoHave)
+}script(local) Route25_BillsHouse_EventScript_DontHave{
         msgbox("Hm?\pThat's not the {POKEMON} that I was\ntold about.", MSGBOX_DEFAULT)
         release
         end
-    }
+}script(local) Route25_BillsHouse_EventScript_DoHave{
     switch(var(VAR_0x8008))
     {
         case SPECIES_LICKITUNG:
             bufferspeciesname(2, SPECIES_LICKITUNG)
+            setvar(VAR_0x8009, ITEM_EVERSTONE)
+            setflag(FLAG_SHOWED_LICKITUNG_TO_BILLS_GRANDPA)
+        case SPECIES_LICKILICKY:
+            bufferspeciesname(2, SPECIES_LICKILICKY)
             setvar(VAR_0x8009, ITEM_EVERSTONE)
             setflag(FLAG_SHOWED_LICKITUNG_TO_BILLS_GRANDPA)
         case SPECIES_ODDISH:
