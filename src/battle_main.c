@@ -2059,7 +2059,6 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
     u16 species_check;  
     u32 fixedOTID;
     u8 otGender;
-    u8 opponentClass = gTrainers[trainerNum].trainerClass;
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
