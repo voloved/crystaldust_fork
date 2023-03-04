@@ -69,6 +69,13 @@ ballShakesArray: 76543210
 #define STOLE_SNEASEL      (1 << 4)
 #define STOLE_ABRA         (1 << 5)
 
+#define STOLE_RED_START       6
+#define STOLE_WILL_START      0
+#define STOLE_KOGA_START      5
+#define STOLE_BRUNO_START     10
+#define STOLE_KAREN_START     0
+#define STOLE_LANCE_START     5
+
 void CB2_InitBattle(void);
 void BattleMainCB2(void);
 void CB2_QuitRecordedBattle(void);
@@ -107,7 +114,7 @@ void RunBattleScriptCommands_PopCallbacksStack(void);
 void RunBattleScriptCommands(void);
 bool8 TryRunFromBattle(u8 battlerId);
 void SpecialStatusesClear(void);
-u16 checkStolenPokemon(u16 trainerNum, u16 speciesType);
+u16 checkStolenPokemon(u16 trainerNum, u16 speciesType, u16 partyIndex, bool8 set);
 
 extern struct UnknownPokemonStruct4 gMultiPartnerParty[MULTI_PARTY_SIZE];
 

@@ -10077,10 +10077,8 @@ static void Cmd_givecaughtmon(void)
 
     if (gUsingThiefBall == THIEF_BALL_CAUGHT)
     {
-        u16 stoleValue;
-        stoleValue = checkStolenPokemon(gTrainerBattleOpponent_A, gBattleMons[gBattlerTarget].species);
-        if (stoleValue != 0)
-            VarSet(VAR_RIVAL_PKMN_STOLE, VarGet(VAR_RIVAL_PKMN_STOLE) | stoleValue);
+        u16 partyIndex = gBattlerPartyIndexes[BATTLE_OPPOSITE(gBattlerAttacker)]; 
+        checkStolenPokemon(gTrainerBattleOpponent_A, gBattleMons[gBattlerTarget].species, partyIndex, TRUE);
         gBattleMons[gBattlerTarget].hp = 0;
         SetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattlerAttacker ^ BIT_SIDE]], MON_DATA_HP, &gBattleMons[gBattlerTarget].hp);
         gBattlerFainted = gBattlerTarget;

@@ -1936,10 +1936,10 @@ static void sub_8038538(struct Sprite *sprite)
     }
 }
 
-//VarSet(VAR_RIVAL_PKMN_STOLE, VarGet(VAR_RIVAL_PKMN_STOLE) | checkStolenPokemon(species));
-u16 checkStolenPokemon(u16 trainerNum, u16 speciesType){
-    u8 trainerClass = gTrainers[trainerNum].trainerClass;
+u16 checkStolenPokemon(u16 trainerNum, u16 speciesType, u16 partyIndex, bool8 set){
     u8 trainerPic   = gTrainers[trainerNum].trainerPic;
+    u8 varToCheck; // 1 = VAR_PKMN_STOLE_RIVAL; 2 = VAR_PKMN_STOLE_ELITE4_A; 3 = VAR_PKMN_STOLE_ELITE4_B
+    u16 monStolen = 0;
     switch (trainerPic)
     {
     case TRAINER_PIC_RIVAL:
@@ -1954,31 +1954,99 @@ u16 checkStolenPokemon(u16 trainerNum, u16 speciesType){
         case SPECIES_TOTODILE:
         case SPECIES_CROCONAW:
         case SPECIES_FERALIGATR:
-            return STOLE_STARTER;
+            monStolen = STOLE_STARTER;
+            break;
         case SPECIES_GASTLY:
         case SPECIES_HAUNTER:
         case SPECIES_GENGAR:
-            return STOLE_GASTLEY;
+            monStolen = STOLE_GASTLEY;
+            break;
         case SPECIES_ZUBAT:
         case SPECIES_GOLBAT:
         case SPECIES_CROBAT:
-            return STOLE_ZUBAT;
+            monStolen = STOLE_ZUBAT;
+            break;
         case SPECIES_MAGNEMITE:
         case SPECIES_MAGNETON:
         case SPECIES_MAGNEZONE:
-            return STOLE_MAGNEMITE;
+            monStolen = STOLE_MAGNEMITE;
+            break;
         case SPECIES_SNEASEL:
         case SPECIES_WEAVILE:
-            return STOLE_SNEASEL;
+            monStolen = STOLE_SNEASEL;
+            break;
         case SPECIES_ABRA:
         case SPECIES_KADABRA:
         case SPECIES_ALAKAZAM:
-            return STOLE_ABRA;
+            monStolen = STOLE_ABRA;
+            break;
+        }
+        varToCheck = 1;
+        break;
+    case TRAINER_PIC_RED: //There's a Red in the battle Tower with a Charmander. If you steal his Pikachu at Mt. Silver, that Charmander will be considered stoled too.
+        monStolen = (1 << (partyIndex + STOLE_RED_START));
+        varToCheck = 1;
+        break;
+    case TRAINER_PIC_ELITE_FOUR_WILL:
+        monStolen = (1 << (partyIndex + STOLE_WILL_START));
+        varToCheck = 2;
+        break;
+    case TRAINER_PIC_ELITE_FOUR_KOGA:
+        monStolen = (1 << (partyIndex + STOLE_KOGA_START));
+        varToCheck = 2;
+        break;
+    case TRAINER_PIC_ELITE_FOUR_BRUNO:
+        monStolen = (1 << (partyIndex + STOLE_BRUNO_START));
+        varToCheck = 2;
+        break;
+    case TRAINER_PIC_ELITE_FOUR_KAREN:
+        monStolen = (1 << (partyIndex + STOLE_KAREN_START));
+        varToCheck = 3;
+        break;
+    case TRAINER_PIC_CHAMPION_LANCE:
+        monStolen = (1 << (partyIndex + STOLE_LANCE_START));
+        varToCheck = 3;
+        break;
+    default:
+        monStolen = 0;
+        break;
+    }
+    if (set){  // Sets the variable on whether the pokemon was stolen.
+        if (monStolen != 0){
+            switch (varToCheck)
+            {
+            case 1:
+                VarSet(VAR_PKMN_STOLE_RIVAL, VarGet(VAR_PKMN_STOLE_RIVAL) | monStolen);
+                break;
+            case 2:
+                VarSet(VAR_PKMN_STOLE_ELITE4_A, VarGet(VAR_PKMN_STOLE_ELITE4_A) | monStolen);
+                break;
+            case 3:
+                VarSet(VAR_PKMN_STOLE_ELITE4_B, VarGet(VAR_PKMN_STOLE_ELITE4_B) | monStolen);
+                break;
+            default:
+                break;
+            }
+        }
+        return monStolen;
+    }
+    else{  // Used to return if the Pokemon was stolen
+        switch (varToCheck)
+        {
+        case 1:
+            return monStolen & VarGet(VAR_PKMN_STOLE_RIVAL);
+            break;
+        case 2:
+            return monStolen & VarGet(VAR_PKMN_STOLE_ELITE4_A);
+            break;
+        case 3:
+            return monStolen & VarGet(VAR_PKMN_STOLE_ELITE4_B);
+            break;
         default:
             return 0;
+            break;
         }
     }
-    return 0;
 }
 
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 firstTrainer)
@@ -2039,7 +2107,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case 0:
             {
                 const struct TrainerMonNoItemDefaultMoves *partyData = gTrainers[trainerNum].party.NoItemDefaultMoves;
-                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                if (checkStolenPokemon(trainerNum, partyData[i].species, i, FALSE))
                     continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2054,7 +2122,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case F_TRAINER_PARTY_CUSTOM_MOVESET:
             {
                 const struct TrainerMonNoItemCustomMoves *partyData = gTrainers[trainerNum].party.NoItemCustomMoves;
-                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                if (checkStolenPokemon(trainerNum, partyData[i].species, i, FALSE))
                     continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2075,7 +2143,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case F_TRAINER_PARTY_HELD_ITEM:
             {
                 const struct TrainerMonItemDefaultMoves *partyData = gTrainers[trainerNum].party.ItemDefaultMoves;
-                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                if (checkStolenPokemon(trainerNum, partyData[i].species, i, FALSE))
                     continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
@@ -2092,7 +2160,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum, bool8 fir
             case F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM:
             {
                 const struct TrainerMonItemCustomMoves *partyData = gTrainers[trainerNum].party.ItemCustomMoves;
-                if (checkStolenPokemon(trainerNum, partyData[i].species) & VarGet(VAR_RIVAL_PKMN_STOLE))
+                if (checkStolenPokemon(trainerNum, partyData[i].species, i, FALSE))
                     continue;
                 for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
                     nameHash += gSpeciesNames[partyData[i].species][j];
