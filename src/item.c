@@ -1017,15 +1017,16 @@ void ItemId_GetHoldEffectParam_Script()
 void GiveItems_Missingno(void)
 {
     u8 i;
-    static const u8 pockets[] = { ITEMS_POCKET, BALLS_POCKET, TMHM_POCKET, BERRIES_POCKET };
-    u8 itemSlot = 2;
+    static const u8 pockets[] = { ITEMS_POCKET, BALLS_POCKET, BERRIES_POCKET };
+    u8 itemSlot = 6;
     for (i = 0; i < ARRAY_COUNT(pockets); i++)
     {
         u16 itemId = ItemId_GetId(gBagPockets[pockets[i]].itemSlots[itemSlot - 1].itemId);
-        u16 quantity = gBagPockets[pockets[i]].itemSlots[itemSlot - 1].quantity;
-        if (GetBagItemQuantity(&quantity) != MAX_BAG_ITEM_CAPACITY)
+        u16 quantity = GetBagItemQuantity(&gBagPockets[pockets[i]].itemSlots[itemSlot - 1].quantity);
+        u16 maxQuantDiff = MAX_BAG_ITEM_CAPACITY - quantity;
+        if (maxQuantDiff > 0)
         {
-             AddBagItem(itemId, (MAX_BAG_ITEM_CAPACITY / 2) );
+             AddBagItem(itemId, maxQuantDiff);
         }
     }
 }
