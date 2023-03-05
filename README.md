@@ -29,7 +29,6 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Button Press to Skip Copyright Screen](https://github.com/pret/pokeemerald/wiki/Button-Press-to-Skip-Copyright-Screen)
 - [Pressing B as the ball shakes raises catching odds.](https://github.com/pret/pokeemerald/wiki/Raise-Odds-of-Catching-a-Pokemon-by-Pressing-B-When-the-Ball-Shakes)
 - R is now Turbo B most of the time in the overworld and battles.
-- [Added Physical Special Split](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
 - Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon
 - Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
@@ -42,7 +41,6 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
 - [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
-- [Added type color that shows battle effectiveness and added ability to toggle this feature in the option menu.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
 - [Remove the extra save confirmation](https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation) [Credit: FieryMewtwo] 
 - [Increase Text Speed Beyond Fast](https://www.pokecommunity.com/showpost.php?p=10400198) [Credit: ellabrella]
 - [Set L=A and fast scroll text as the default](https://www.pokecommunity.com/showpost.php?p=9967853&postcount=5) [Credit: Avara]
@@ -58,15 +56,21 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - Default Options are now fast text speed and L=A by default
 - Made Lucky Egg triple EXP and a default PC item. If anyone in the party holds it, it will treat as is they all are.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
-- Pokegear button mapping changed.
-- Houndoom can learn dig.
-- Fly to opposite region in debug menu.
-- [Fix AI's Switch In Battle](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
+- [Added Color to Show Type Effectiveness of a Move. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
+- [Option to Skip Copyright and Intro. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Option-to-Skip-Copyright-and-Intro)
+- [Added Physical Special Split. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
+- [Low Health Beeping Can Be Toggled Off. Able to toggle it on one of Prof. Elm's PCs.](https://www.pokecommunity.com/showpost.php?p=10246778&postcount=194)
+- [Added Difficulty Mode. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Add-Difficulty-Mode)
+- [Faster Pokémon Center Healing. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Speedy-Nurse-Joy)
+- [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - [Added Thief Ball](https://github.com/pret/pokeemerald/wiki/Add-Thief-Ball)
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
+- Pokegear button mapping changed.
+- Houndoom can learn dig.
+- Fly to opposite region in debug menu.
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa
   - **Route 30:** Scyther
