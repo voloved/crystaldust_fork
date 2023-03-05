@@ -26,7 +26,7 @@ mapscripts GoldenrodCity_PokemonCenter_1F_MapScripts {
         }
         setflag(FLAG_TEMP_2)
         setvar(VAR_0x8003, 1)
-        if(flag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER))
+        if(flag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER) || (!flag(FLAG_GS_BALL_EVENT_TRIGGERED) && flag(FLAG_IS_CHAMPION)))
         {
             setvar(VAR_0x8003, 0)
         }
@@ -392,6 +392,7 @@ script GoldenrodCity_PokemonCenter_1F_EventScript_GSBallTrigger {
     giveitem(ITEM_GS_BALL, 1)
     clearflag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER)
     setflag(FLAG_CAN_GIVE_GS_BALL_TO_KURT)
+    setflag(FLAG_GS_BALL_EVENT_TRIGGERED)
     msgbox("Please do come again!", MSGBOX_DEFAULT)
     closemessage
     applymovement(GS_BALL_TEALA, GoldenrodCity_PokemonCenter_1F_Movement_GSBallNurseToStairs)
