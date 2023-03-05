@@ -924,21 +924,176 @@ script NewBarkTown_ProfessorElmsLab_EventScript_HealingMachine {
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
-    msgbox("Show Type Effectiveness\n"
-            "in battle?", MSGBOX_YESNO)
-        if (var(VAR_RESULT) == YES)
-        {
-            msgbox("Type effectiveness will\n"
-                   "be displayed")
-            setflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
-        }
-        else
-        {
-            msgbox("Type effectiveness will\n"
-                   "not be displayed")
-            clearflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
-        }
-    closemessage
+    message("Prof. Elm's secret\ngame options.")
+    waitmessage
+    multichoice(14, 1, MULTI_ELM_PC_OPTIONS, FALSE)
+    waitmessage
+    switch(var(VAR_RESULT))
+    {
+        case 0:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect)
+        case 1:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro)
+        case 2:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit)
+        case 3:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_LowHealthBeep)
+        case 4:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_Difficulty)
+        case 5:
+        case MULTI_B_PRESSED:
+            closemessage
+    }
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect{
+    message("Show Type Effectiveness\n"
+             "in battle?")
+    waitmessage
+    if (flag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Type effectiveness will\n"
+					"be displayed")
+			setflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
+        case 1:
+			msgbox("Type effectiveness will\n"
+					"not be displayed")
+			clearflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+}
+
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
+    message("Skip intro on\n"
+            "start up?")
+    waitmessage
+    if (flag(FLAG_SKIP_INTRO))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Intro will\n"
+					"be skipped")
+			setflag(FLAG_SKIP_INTRO)
+        case 1:
+			msgbox("Intro will not\n"
+					"be skipped")
+			clearflag(FLAG_SKIP_INTRO)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit{
+    message("Revert move split to move type\n"
+            "rather than Gen 4 logic?")
+    waitmessage
+    if (flag(FLAG_MOVE_SPLIT_USE_ORIGINAL))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Move split set to\n"
+					"Gen 3 default.")
+			setflag(FLAG_MOVE_SPLIT_USE_ORIGINAL)
+        case 1:
+			msgbox("Move split set to\n"
+					"Gen 4 logic.")
+			clearflag(FLAG_MOVE_SPLIT_USE_ORIGINAL)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_LowHealthBeep{
+    message("Turn off low \n"
+            "health beep?")
+    waitmessage
+    if (flag(FLAG_NO_LOW_HEALTH_BEEP))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+            msgbox("Beeping at low health\n"
+                    "is turned off.")
+            setflag(FLAG_NO_LOW_HEALTH_BEEP)
+        case 1:
+            msgbox("Beeping at low health\n"
+                    "is turned on.")
+            clearflag(FLAG_NO_LOW_HEALTH_BEEP)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
+    message("Set difficulty.")
+    waitmessage
+    switch(var(VAR_DIFFICULTY))
+    {
+        case 0:
+            multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 1, FALSE)
+        case 1:
+            multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 2, FALSE)
+        case 2:
+            multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 1, FALSE)
+    }
+    switch(var(VAR_RESULT)) 
+    {
+        case 0:
+            msgbox("Easy difficulty\n"
+                    "is set.")
+            setvar(VAR_DIFFICULTY, 2)   
+        case 1:
+            msgbox("Normal difficulty\n"
+                    "is set.")
+            setvar(VAR_DIFFICULTY, 0)   
+        case 2:
+            msgbox("Hard difficulty\n"
+                    "is set.")
+            setvar(VAR_DIFFICULTY, 1)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_TrashCan {

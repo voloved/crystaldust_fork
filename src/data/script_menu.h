@@ -1074,6 +1074,23 @@ static const struct MenuAction MultichoiceList_GameCornerTutor[] =
     { gText_Cancel2 },
 };
 
+static const struct MenuAction MultichoiceList_ElmPCOptions[] =
+{
+    {(const u8[])_("SHOW EFFECTIVENESS")},
+    {(const u8[])_("SKIP INTRO")},
+    {(const u8[])_("USE GEN 3 MOVE SPLIT")},
+    {(const u8[])_("LOW HEALTH BEEP")},
+    {(const u8[])_("DIFFICULTY")},
+    {gText_Exit},
+};
+
+static const struct MenuAction MultichoiceList_TagChallenge[] =
+{
+    {(const u8[])_("EASY")},
+    {(const u8[])_("NORMAL")},
+    {(const u8[])_("HARD")},
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1239,6 +1256,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_DOME_AMBER_ROOT_CLAW]       = MULTICHOICE(MultichoiceList_DomeAmberRootClaw),
     [MULTI_HELIX_DOME_AMBER_ROOT_CLAW] = MULTICHOICE(MultichoiceList_HelixDomeAmberRootClaw),
     [MULTI_GAME_CORNER_TUTOR]          = MULTICHOICE(MultichoiceList_GameCornerTutor),
+    [MULTI_ELM_PC_OPTIONS]             = MULTICHOICE(MultichoiceList_ElmPCOptions),
+    [MULTI_ELM_PC_DIFFICULTY]          = MULTICHOICE(MultichoiceList_TagChallenge),
 };
 
 const u8 *const gStdStrings[] =

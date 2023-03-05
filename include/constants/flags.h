@@ -1308,9 +1308,9 @@
 #define FLAG_MISSINGNO_SEEN                                         0x4E0
 #define FLAG_EXP_SHARE                                              0x4E1
 #define FLAG_SPOKE_WITH_HEADBUTT_TUTOR                              0x4E2
-#define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
-#define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
-#define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
+#define FLAG_SKIP_INTRO                                             0x4E3
+#define FLAG_MOVE_SPLIT_USE_ORIGINAL                                0x4E4
+#define FLAG_NO_LOW_HEALTH_BEEP                                     0x4E5
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
 #define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
 #define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag

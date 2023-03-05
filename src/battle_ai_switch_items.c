@@ -9,6 +9,7 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/moves.h"
+#include "event_data.h"
 
 // this file's functions
 static bool8 HasSuperEffectiveMoveAgainstOpponents(bool8 noRng);
@@ -636,6 +637,7 @@ u8 GetMostSuitableMonToSwitchInto(void)
     u8 invalidMons;
     u16 move;
     bool8 checkedAllMonForSEMoves = FALSE;  // We have checked all Pokemon in the party for if they have a super effective move
+    bool8 easyDifficulty = VarGet(VAR_DIFFICULTY) == DIFFICULTY_EASY;
 
     if (*(gBattleStruct->monToSwitchIntoId + gActiveBattler) != PARTY_SIZE)
         return *(gBattleStruct->monToSwitchIntoId + gActiveBattler);
@@ -683,7 +685,10 @@ u8 GetMostSuitableMonToSwitchInto(void)
 
     while (invalidMons != 0x3F) // All mons are invalid.
     {
-        bestDmg = 0;
+        if (easyDifficulty)
+            bestDmg = 0;
+        else
+            bestDmg = 255;
         bestMonId = 6;
         // Find the mon whose type is the most suitable offensively.
         for (i = firstId; i < lastId; i++)
@@ -702,7 +707,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
                 u8 typeDmg = 10;
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type1, type1, type2, &typeDmg);
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type2, type1, type2, &typeDmg);
-                if (bestDmg > typeDmg)
+                if ((bestDmg > typeDmg && !easyDifficulty)
+                ||  (bestDmg < typeDmg &&  easyDifficulty))
                 {
                     bestDmg = typeDmg;
                     bestMonId = i;

@@ -129,6 +129,10 @@
 #define DEX_FLAGS_NO (ROUND_BITS_TO_BYTES(NUM_SPECIES))
 #define NUM_FLAG_BYTES (ROUND_BITS_TO_BYTES(FLAGS_COUNT))
 
+#define DIFFICULTY_NORMAL    0
+#define DIFFICULTY_HARD      1
+#define DIFFICULTY_EASY      2
+
 struct Coords8
 {
     s8 x;

@@ -25,6 +25,7 @@
 #include "constants/songs.h"
 #include "constants/rgb.h"
 #include "constants/battle_palace.h"
+#include "event_data.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_SE1;
 extern struct MusicPlayerInfo gMPlayInfo_SE2;
@@ -1070,6 +1071,9 @@ void HandleLowHpMusicChange(struct Pokemon *mon, u8 battlerId)
 {
     u16 hp = GetMonData(mon, MON_DATA_HP);
     u16 maxHP = GetMonData(mon, MON_DATA_MAX_HP);
+
+    if(FlagGet(FLAG_NO_LOW_HEALTH_BEEP))
+        return;
 
     if (GetHPBarLevel(hp, maxHP) == HP_BAR_RED)
     {

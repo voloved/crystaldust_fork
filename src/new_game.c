@@ -102,6 +102,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->daylightSavingTime = FALSE;
     gSaveBlock2Ptr->twentyFourHourClock = FALSE;
     gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_L_EQUALS_A;
+    FlagSet(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW);
 }
 
 static void ClearPokedexFlags(void)
@@ -165,6 +166,7 @@ static void SetDefaultRoomDecor(void)
 
 void NewGameInitData(void)
 {
+    bool8 typeEffectPrev = FlagGet(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW);
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
 
@@ -225,6 +227,7 @@ void NewGameInitData(void)
     ResetContestLinkResults();
     SetBuildNumber();
     SetDefaultRoomDecor();
+    typeEffectPrev ? FlagSet(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW) : FlagClear(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW);
 }
 
 static void ResetMiniGamesRecords(void)

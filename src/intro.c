@@ -27,6 +27,9 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/species.h"
+#include "main_menu.h"
+#include "event_data.h"
+#include "constants/flags.h"
 
 extern const struct CompressedSpriteSheet gBattleAnimPicTable[];
 extern const struct CompressedSpritePalette gBattleAnimPaletteTable[];
@@ -943,7 +946,7 @@ static u8 SetUpCopyrightScreen(void)
 
 void CB2_InitCopyrightScreenAfterBootup(void)
 {
-    if (!SetUpCopyrightScreen())
+    if ( gMain.state == 0)
     {
         SetSaveBlocksPointers(sub_815355C());
         ResetMenuAndMonGlobals();
@@ -954,6 +957,10 @@ void CB2_InitCopyrightScreenAfterBootup(void)
         SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
         InitHeap(gHeap, HEAP_SIZE);
     }
+    if (FlagGet(FLAG_SKIP_INTRO))
+        CB2_InitMainMenu();
+    else
+        SetUpCopyrightScreen();
 }
 
 void CB2_InitCopyrightScreenAfterTitleScreen(void)
