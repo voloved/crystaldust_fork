@@ -924,7 +924,7 @@ script NewBarkTown_ProfessorElmsLab_EventScript_HealingMachine {
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
-    message("Prof. Elm's secret\ngame options.")
+    message("Prof. Elm's secret game options.")
     waitmessage
     multichoice(14, 1, MULTI_ELM_PC_OPTIONS, FALSE)
     waitmessage
@@ -963,11 +963,11 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect{
     {
         case 0:
 			msgbox("Type effectiveness will\n"
-					"be displayed")
+					"be displayed.")
 			setflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
         case 1:
 			msgbox("Type effectiveness will\n"
-					"not be displayed")
+					"not be displayed.")
 			clearflag(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
@@ -977,8 +977,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect{
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
-    message("Skip intro on\n"
-            "start up?")
+    message("Skip intro on start up?")
     waitmessage
     if (flag(FLAG_SKIP_INTRO))
     {
@@ -991,12 +990,10 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
     switch (var(VAR_RESULT))
     {
         case 0:
-			msgbox("Intro will\n"
-					"be skipped")
+			msgbox("Intro will be skipped.")
 			setflag(FLAG_SKIP_INTRO)
         case 1:
-			msgbox("Intro will not\n"
-					"be skipped")
+			msgbox("Intro will not be skipped.")
 			clearflag(FLAG_SKIP_INTRO)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
@@ -1020,12 +1017,10 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit{
     switch (var(VAR_RESULT))
     {
         case 0:
-			msgbox("Move split set to\n"
-					"Gen 3 default.")
+			msgbox("Move split set to Gen 3 default.")
 			setflag(FLAG_MOVE_SPLIT_USE_ORIGINAL)
         case 1:
-			msgbox("Move split set to\n"
-					"Gen 4 logic.")
+			msgbox("Move split set to Gen 4 logic.")
 			clearflag(FLAG_MOVE_SPLIT_USE_ORIGINAL)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
@@ -1035,8 +1030,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit{
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_LowHealthBeep{
-    message("Turn off low \n"
-            "health beep?")
+    message("Turn off low health beep?")
     waitmessage
     if (flag(FLAG_NO_LOW_HEALTH_BEEP))
     {
@@ -1078,16 +1072,13 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
     switch(var(VAR_RESULT)) 
     {
         case 0:
-            msgbox("Easy difficulty\n"
-                    "is set.")
+            msgbox("Easy difficulty is set.")
             setvar(VAR_DIFFICULTY, 2)   
         case 1:
-            msgbox("Normal difficulty\n"
-                    "is set.")
+            msgbox("Normal difficulty is set.")
             setvar(VAR_DIFFICULTY, 0)   
         case 2:
-            msgbox("Hard difficulty\n"
-                    "is set.")
+            msgbox("Hard difficulty is set.")
             setvar(VAR_DIFFICULTY, 1)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
@@ -1097,8 +1088,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
-    message("Make Nurse Joy\n"
-             "even faster?")
+    message("Make Nurse Joy even faster?")
     waitmessage
     if (flag(FLAG_FASTER_NURSE_JOY))
     {
@@ -1111,12 +1101,10 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
     switch (var(VAR_RESULT))
     {
         case 0:
-			msgbox("Nurse Joy is now\n"
-					"even faster")
+			msgbox("Nurse Joy is now even faster.")
 			setflag(FLAG_FASTER_NURSE_JOY)
         case 1:
-			msgbox("Nurse Joy is at\n"
-					"her default")
+			msgbox("Nurse Joy is at her default.")
 			clearflag(FLAG_FASTER_NURSE_JOY)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
