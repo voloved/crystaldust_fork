@@ -973,6 +973,25 @@ void SetHiddenItemFlag(void)
     FlagSet(gSpecialVar_0x8004);
 }
 
+u8 GetNumberOfBadges(void)
+{
+    u16 badgeFlag;
+    u8 badgeCount = 0;
+    
+    // Johto Badges
+    for (badgeFlag = FLAG_BADGE01_GET; badgeFlag < FLAG_BADGE01_GET + NUM_BADGES; badgeFlag++){
+        if (FlagGet(badgeFlag))
+        badgeCount++;
+        }
+    // Kanto badges
+    for (badgeFlag = FLAG_BADGE09_GET; badgeFlag < FLAG_BADGE09_GET + NUM_BADGES; badgeFlag++){
+        if (FlagGet(badgeFlag))
+        badgeCount++;
+        }
+    gSpecialVar_Result = badgeCount;
+    return badgeCount;
+}
+
 u16 GetWeekCount(void)
 {
     u16 weekCount = gLocalTime.days / 7;

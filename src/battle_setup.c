@@ -1468,7 +1468,14 @@ u8 GetScaledLevel(u8 lvl)
     u8 badgeCount = 0;
     u8 levelScaling = 0;
     u32 i;
+    // Johto badges
     for (i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
+    {
+        if (FlagGet(i))
+            badgeCount++;
+    }
+    // Kanto badges
+    for (i = FLAG_BADGE09_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
     {
         if (FlagGet(i))
             badgeCount++;
