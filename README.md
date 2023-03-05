@@ -52,7 +52,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Changed Someone's PC to Lanette's PC from the Start of the Game](https://github.com/pret/pokeemerald/wiki/Change-Someone%27s-PC-to-Lanette%27s-PC-from-the-Start-of-the-Game)
 - [Make Daycare Faster at Leveling Pokémon](https://github.com/pret/pokeemerald/wiki/Make-Daycare-Faster-at-Leveling-Pok%C3%A9mon)
 - [Gen 6 style Exp. Share](https://github.com/pret/pokeemerald/wiki/Gen-6-style-Exp.-Share---Alternative-Option)
-- [Allowed Changing Clock in PokeGear by Pressing R](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
+- [Allowed Changing Clock in PokeGear by Pressing Select. Daily flags get reset when doing this as well.](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
 - Made Lucky Egg triple EXP and a default PC item. If anyone in the party holds it, it will treat as is they all are.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
@@ -68,9 +68,10 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Added Thief Ball](https://github.com/pret/pokeemerald/wiki/Add-Thief-Ball)
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
+- GS Ball event starts after beating the Elite Four.
 - Pokegear button mapping changed.
 - Houndoom can learn dig.
-- Fly to opposite region in debug menu.
+- Fly to opposite region, heal party, and evolve first Pokémon in party in debug menu.
 - More Wild Pokémon Added:
   - **Route 29:** Teddiursa
   - **Route 30:** Scyther

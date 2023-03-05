@@ -44,6 +44,7 @@
 #include "constants/vars.h"
 #include "region_map.h"
 #include "constants/region_map_sections.h"
+#include "script_pokemon_util.h"
 
 struct DebugMenuAction;
 
@@ -125,6 +126,7 @@ static void DebugMenu_FlyMenu(u8 taskId);
 static void DebugMenu_FlyMenuSwitchRegion(u8 taskId);
 static void DebugMenu_SetRespawn(u8 taskId);
 static void DebugMenu_SetRespawn_ProcessInput(u8 taskId);
+static void DebugMenu_HealParty(u8 taskId);
 static void DebugMenu_CreateDaycareEgg(u8 taskId);
 static void DebugMenu_PoisonAllMons(u8 taskId);
 static void DebugMenu_FillThePC(u8 taskId);
@@ -168,6 +170,7 @@ static const u8 sText_ToggleRunningShoes[] = _("Toggle running shoes");
 static const u8 sText_EnableResetRTC[] = _("Enable reset RTC (B+SEL+LEFT)");
 static const u8 sText_StartSurfing[] = _("Start surfing");
 static const u8 sText_TestBattleTransition[] = _("Test battle transition");
+static const u8 sText_HealParty[] = _("Heal party");
 static const u8 sText_CreateDaycareEgg[] = _("Create daycare egg");
 static const u8 sText_PoisonAllMons[] = _("Poison all Pokémon");
 static const u8 sText_FillThePC[] = _("Fill the PC");
@@ -269,6 +272,7 @@ CREATE_BOUNCER(PokegearActions, MainActions);
 
 static const struct DebugMenuAction sDebugMenu_PokemonActions[] =
 {
+    { sText_HealParty, DebugMenu_HealParty, NULL },
     { sText_CreateDaycareEgg, DebugMenu_CreateDaycareEgg, NULL },
     { sText_PoisonAllMons, DebugMenu_PoisonAllMons, NULL },
     { sText_ForcePartyEggsHatch, DebugMenu_ForcePartyEggsHatch, NULL },
@@ -1069,6 +1073,11 @@ static void DebugMenu_StartSurfing(u8 taskId)
 static void DebugMenu_TestBattleTransition(u8 taskId)
 {
     TestBattleTransition(VarGet(0x4000));
+}
+
+static void DebugMenu_HealParty(u8 taskId)
+{
+    HealPlayerParty();
 }
 
 static void DebugMenu_CreateDaycareEgg(u8 taskId)

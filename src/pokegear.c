@@ -1098,8 +1098,9 @@ static void Task_ClockCard(u8 taskId)
         shouldForceUpdate = TRUE;
     }
 
-        if (JOY_NEW(SELECT_BUTTON))
+    if (JOY_NEW(SELECT_BUTTON))
     {
+        ClearDailyFlags();  // Reset the daily flags when manually changing the time.
         SetMainCallback2(CB2_StartWallClock);
         gMain.savedCallback = CB2_InitPokegear;
     }

@@ -46,6 +46,11 @@ script IndigoPlateau_HallOfFame_EventScript_SetGameClearFlags {
     {
 	    setflag(FLAG_FORCED_CALL_MASTER_BALL) // for SS Ticket
     }
+    if(!flag(FLAG_GS_BALL_EVENT_TRIGGERED))
+    {
+        setflag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER)
+        setflag(FLAG_GS_BALL_EVENT_TRIGGERED)
+    }
 	setvar(VAR_SPROUT_TOWER_STATE, 1)
 	setflag(FLAG_HIDE_SPROUT_TOWER_3F_RIVAL)
 	special(UpdateTrainerFanClubGameClear)
