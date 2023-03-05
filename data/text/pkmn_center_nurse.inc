@@ -60,3 +60,7 @@ gText_WeHopeToSeeYouAgain2::
 
 gText_IllTakeYourPkmn3::
 	.string "Let me heal your {POKEMON}.$"
+
+gText_IllTakeYourPkmn4::
+	.string "Your {POKEMON} are fully healed.\n"
+    .string "We hope to see you again!$"

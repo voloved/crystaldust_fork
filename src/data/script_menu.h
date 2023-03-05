@@ -1081,7 +1081,7 @@ static const struct MenuAction MultichoiceList_ElmPCOptions[] =
     {(const u8[])_("USE GEN 3 MOVE SPLIT")},
     {(const u8[])_("LOW HEALTH BEEP")},
     {(const u8[])_("DIFFICULTY")},
-    {gText_Exit},
+    {(const u8[])_("FASTER NURSE JOY")},
 };
 
 static const struct MenuAction MultichoiceList_TagChallenge[] =

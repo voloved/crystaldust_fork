@@ -941,6 +941,7 @@ script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
         case 4:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_Difficulty)
         case 5:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
         case MULTI_B_PRESSED:
             closemessage
     }
@@ -974,7 +975,6 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect{
     waitmessage
     goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
 }
-
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
     message("Skip intro on\n"
@@ -1089,6 +1089,35 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
             msgbox("Hard difficulty\n"
                     "is set.")
             setvar(VAR_DIFFICULTY, 1)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
+    message("Make Nurse Joy\n"
+             "even faster?")
+    waitmessage
+    if (flag(FLAG_FASTER_NURSE_JOY))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Nurse Joy is now\n"
+					"even faster")
+			setflag(FLAG_FASTER_NURSE_JOY)
+        case 1:
+			msgbox("Nurse Joy is at\n"
+					"her default")
+			clearflag(FLAG_FASTER_NURSE_JOY)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
     }

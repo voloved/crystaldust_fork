@@ -30,9 +30,14 @@ EventScript_PkmnCenterNurse_Goodbye::
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
 EventScript_PkmnCenterNurse_HealPkmn::
     incrementgamestat GAME_STAT_USED_POKECENTER
+    goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_HealPkmn_Faster
     call EventScript_PkmnCenterNurse_IllTakeYourPkmn3
     waitmessage
     call EventScript_PkmnCenterNurse_TakeAndHealPkmn
+    goto EventScript_PkmnCenterNurse_HealPkmn_Cont
+EventScript_PkmnCenterNurse_HealPkmn_Faster::
+    special HealPlayerParty
+EventScript_PkmnCenterNurse_HealPkmn_Cont::
     goto_if_unset FLAG_POKERUS_EXPLAINED, EventScript_PkmnCenterNurse_CheckPokerus
     goto EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom
     end
@@ -75,11 +80,19 @@ EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom::
 EventScript_PkmnCenterNurse_ReturnPkmn::
     compare VAR_0x8004, 1
     goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
+    goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_ReturnPkmn_Faster
     message gText_WeHopeToSeeYouAgain
+    return
+EventScript_PkmnCenterNurse_ReturnPkmn_Faster::
+    message gText_IllTakeYourPkmn4
     return
 
 EventScript_PkmnCenterNurse_ReturnPkmn2::
+    goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_ReturnPkmn2_Faster
     message gText_WeHopeToSeeYouAgain2
+    return
+EventScript_PkmnCenterNurse_ReturnPkmn2_Faster::
+    message gText_IllTakeYourPkmn4
     return
 
 EventScript_PkmnCenterNurse_PlayerWaitingInUnionRoom::
