@@ -62,6 +62,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Low Health Beeping Can Be Toggled Off. Able to toggle it on one of Prof. Elm's PCs.](https://www.pokecommunity.com/showpost.php?p=10246778&postcount=194)
 - [Added Difficulty Mode. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Add-Difficulty-Mode)
 - [Faster Pokémon Center Healing. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Speedy-Nurse-Joy)
+- [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)

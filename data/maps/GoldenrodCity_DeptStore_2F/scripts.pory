@@ -28,7 +28,7 @@ script GoldenrodCity_DeptStore_2F_EventScript_LeftClerk {
     faceplayer
     message(gText_HowMayIHelpYou)
     waitmessage
-    special(GetNumberOfBadges)
+    callnative(CountBadges)
     if (var(VAR_RESULT) >= 6)
     {
         pokemart(GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk_SixBadge)
