@@ -1417,6 +1417,26 @@ const u8 gMoveDescription_PsychoBoost[] = _(
     "Allows a full-power attack,\n"
     "but sharply lowers SP. ATK.");
 
+const u8 gZenHeadbuttDescription[] = _(
+    "Hits with a strong head-\n"
+    "butt. May cause flinching.");
+
+const u8 gMoonblastDescription[] = _(
+    "Attacks with the power of\n"
+    "the moon. May lower Sp. Atk.");
+
+const u8 gPlayRoughDescription[] = _(
+    "Plays rough with the foe.\n"
+    "May lower Attack.");
+
+const u8 gDrainingKissDescription[] = _(
+    "An attack that absorbs over\n"
+    "half the damage inflicted.");
+
+const u8 gFairyWindDescription[] = _(
+    "Stirs up a fairy wind to\n"
+    "strike the foe.");
+
 // TODO: Reimplement after FR summary screen port
 /*const u8 gMoveDescription_Null[] = _(
     "");
@@ -3898,4 +3918,9 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_WATER_PULSE - 1] = gMoveDescription_WaterPulse,
     [MOVE_DOOM_DESIRE - 1] = gMoveDescription_DoomDesire,
     [MOVE_PSYCHO_BOOST - 1] = gMoveDescription_PsychoBoost,
+	[MOVE_ZEN_HEADBUTT - 1] = gZenHeadbuttDescription,
+    [MOVE_MOONBLAST - 1] = gMoonblastDescription,
+    [MOVE_PLAY_ROUGH - 1] = gPlayRoughDescription,
+    [MOVE_DRAINING_KISS - 1] = gDrainingKissDescription,
+    [MOVE_FAIRY_WIND - 1] = gFairyWindDescription,
 };

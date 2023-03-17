@@ -370,6 +370,11 @@ gBattleAnims_Moves::
 	.4byte Move_WATER_PULSE
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
+	.4byte Move_ZEN_HEADBUTT
+	.4byte Move_MOONBLAST
+	.4byte Move_PLAY_ROUGH
+	.4byte Move_DRAINING_KISS
+	.4byte Move_FAIRY_WIND
 	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
 
 	.align 2
@@ -1354,6 +1359,7 @@ Move_PSYCH_UP:
 	waitforvisualfinish
 	end
 
+Move_PLAY_ROUGH:
 Move_DIZZY_PUNCH:
 	loadspritegfx ANIM_TAG_DUCK
 	loadspritegfx ANIM_TAG_HANDS_AND_FEET
@@ -7521,6 +7527,7 @@ RazorWindSetUp:
 	playsewithpan SE_M_GUST2, SOUND_PAN_ATTACKER
 	goto RazorWindEnd
 
+Move_FAIRY_WIND:
 RazorWindUnleash:
 	loadspritegfx ANIM_TAG_AIR_WAVE_2
 	loadspritegfx ANIM_TAG_IMPACT
@@ -9644,6 +9651,91 @@ Move_SECRET_POWER:
 	jumpargeq 0, BATTLE_TERRAIN_CAVE,       Move_BITE
 	jumpargeq 0, BATTLE_TERRAIN_BUILDING,   Move_STRENGTH
 	goto Move_SLAM
+
+Move_ZEN_HEADBUTT:
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_WATER_IMPACT
+	monbg ANIM_ATTACKER
+	setalpha 12, 8
+	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 2, 0, 4, 0
+	waitforvisualfinish
+	createsprite gZenHeadbuttSpriteTemplate, 66, 1, 0
+	delay 18,
+	playsewithpan SE_M_MORNING_SUN, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2,
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	loadspritegfx ANIM_TAG_IMPACT
+	createsprite gBowMonSpriteTemplate, 2, 1, 0
+	playsewithpan SE_M_HEADBUTT, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	delay 2
+	createsprite gBowMonSpriteTemplate, 2, 1, 1
+	waitforvisualfinish
+	createvisualtask AnimTask_ShakeMonInPlace, 2, 5, 0, 2, 0, 4, 1
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 6, 1
+	createsprite gBowMonSpriteTemplate, 2, 1, 2
+	createsprite gAquaTailHitSpriteTemplate, 131, 4, 0, 0, 1, 1
+	playsewithpan SE_M_VITAL_THROW2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createsprite gSimplePaletteBlendSpriteTemplate, 2, 5, 1, 4, 4, 0, 0
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	delay 1
+	end
+
+Move_MOONBLAST:
+	loadspritegfx ANIM_TAG_SMALL_BUBBLES
+	loadspritegfx ANIM_TAG_MOON
+	loadspritegfx ANIM_TAG_GREEN_SPARKLE
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	setalpha 0, 16
+	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 0, 16, 0
+	waitforvisualfinish
+	createsprite gMoonSpriteTemplate, ANIM_ATTACKER, 2, 120, 56
+	createvisualtask AnimTask_AlphaFadeIn, 3, 0, 16, 16, 0, 1
+	panse_1B SE_M_BARRIER, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 0
+	delay 40
+	playsewithpan SE_M_STRING_SHOT, SOUND_PAN_ATTACKER
+	createsprite gMistBallSpriteTemplate, ANIM_ATTACKER, 5, 0, 0, 0, 0, 30, 0
+	delay 30
+	loopsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET, 5, 4
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 5, 0, 10, 0
+	delay 4
+	createvisualtask AnimTask_MoonlightEndFade, 2
+	waitforvisualfinish
+	blendoff
+	end
+
+Move_DRAINING_KISS:
+	loadspritegfx ANIM_TAG_ORBS
+	loadspritegfx ANIM_TAG_BLUE_STAR
+	loadspritegfx ANIM_TAG_IMPACT
+	loadspritegfx ANIM_TAG_RED_HEART
+	loopsewithpan SE_M_CHARM, SOUND_PAN_ATTACKER, 12, 3
+	createvisualtask AnimTask_SwayMon, 5, 0, 12, 4096, 4, ANIM_ATTACKER
+	delay 15
+	createsprite gRedHeartProjectileSpriteTemplate, ANIM_TARGET, 3, 20, -8
+	waitforvisualfinish
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_TARGET
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 160, -32
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -256, -40
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 128, -16
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, 416, -38
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -128, -22
+	createsprite gRedHeartBurstSpriteTemplate, ANIM_TARGET, 3, -384, -31
+	waitforvisualfinish
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	delay 5
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 5, 5, 1
+	waitforvisualfinish
+	delay 3
+	call AbsorbEffect
+	waitforvisualfinish
+	delay 15
+	call HealingEffect
+	waitforvisualfinish
+	end
 
 Move_TWISTER:
 	loadspritegfx ANIM_TAG_LEAF
