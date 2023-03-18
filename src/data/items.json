@@ -6578,7 +6578,7 @@
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 6,
       "description_english": "Use to heal party\\nReplenishes at POKéMON Centers.",
-      "importance": 0,
+      "importance": 2,
       "exitsBagOnUse": 0,
       "pocket": "POCKET_KEY_ITEMS",
       "type": 2,
