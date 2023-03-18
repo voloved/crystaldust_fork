@@ -110,21 +110,15 @@ script VioletCity_PokemonCenter_1F_EventScript_Aide {
                    "I have something else with me.\p"
                    "Your mom asked me to deliver these\n"
                    "when I saw you.")
-            
-            textcolor(MSG_COLOR_SYS)
-            playfanfare(MUS_OBTAIN_ITEM)
-            message("{PLAYER} received the\n"
-                    "RUNNING SHOES from the AIDE.")
-            waitmessage
-            waitfanfare
 
-            msgbox("{PLAYER} switched shoes with the\n"
-                   "RUNNING SHOES.")
-            setflag(FLAG_RECEIVED_RUNNING_SHOES)
+            textcolor(MSG_COLOR_SYS)
+            giveitem(ITEM_POKEVIAL, 1)
             
-            signmsg
-            msgbox("Press the B Button to run.\n"
-                   "There's almost always room to run!")
+            signmsg  
+            msgbox("You can heal your party using the\n"
+                   "PokéVial without needing to use a\l"
+                   "POKéMON Center! But it will run out\l"
+                   "and need replenishing at a Center!")
             normalmsg
             textcolor(MSG_COLOR_PREV)
 

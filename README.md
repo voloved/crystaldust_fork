@@ -56,12 +56,14 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - Default Options are now fast text speed and L=A by default
 - Made Lucky Egg triple EXP and a default PC item. If anyone in the party holds it, it will treat as is they all are.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
+- [Added PokéVial](https://github.com/pret/pokeemerald/wiki/Add-A-PokeVial-Item)
 - [Added Color to Show Type Effectiveness of a Move. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
 - [Option to Skip Copyright and Intro. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Option-to-Skip-Copyright-and-Intro)
 - [Added Physical Special Split. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
 - [Low Health Beeping Can Be Toggled Off. Able to toggle it on one of Prof. Elm's PCs.](https://www.pokecommunity.com/showpost.php?p=10246778&postcount=194)
 - [Added Difficulty Mode. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Add-Difficulty-Mode)
 - [Faster Pokémon Center Healing. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Speedy-Nurse-Joy)
+- [Add Move Relearning Into Party Menu](https://github.com/pret/pokeemerald/wiki/Add-Move-Relearning-Into-Party-Menu)
 - [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]

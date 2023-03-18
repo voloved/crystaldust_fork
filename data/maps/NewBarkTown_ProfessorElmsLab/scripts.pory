@@ -924,8 +924,15 @@ script NewBarkTown_ProfessorElmsLab_EventScript_HealingMachine {
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
-    message("Prof. Elm's secret game options.")
+    playse(SE_PC_ON)
+    message("{PLAYER} accessed Prof. Elm's PC\nfor secret game options.")
     waitmessage
+    waitbuttonpress
+    playse(SE_PC_LOGIN)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
+}
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
+    closemessage
     multichoice(14, 1, MULTI_ELM_PC_OPTIONS, FALSE)
     waitmessage
     switch(var(VAR_RESULT))
@@ -942,7 +949,10 @@ script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
             goto(NewBarkTown_ProfessorElmsLab_EventScript_Difficulty)
         case 5:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
+        case 6:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
         case MULTI_B_PRESSED:
+            playse(SE_PC_OFF)
             closemessage
     }
 }
@@ -973,7 +983,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_TypeEffect{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
@@ -999,7 +1009,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_SkipIntro{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit{
@@ -1026,7 +1036,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_MoveSplit{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_LowHealthBeep{
@@ -1054,7 +1064,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_LowHealthBeep{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
@@ -1084,7 +1094,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
@@ -1110,7 +1120,33 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
             msgbox("No changes occurred.")
     }
     waitmessage
-    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC)
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu{
+    message("Add option to relearn level-up\nmoves in party menu?")
+    waitmessage
+    if (flag(FLAG_RELEARN_IN_PARTY_MENU))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Relearn will be in\nthe party menu.")
+			setflag(FLAG_RELEARN_IN_PARTY_MENU)
+        case 1:
+			msgbox("Relearn will not be\nin the party menu.")
+			clearflag(FLAG_RELEARN_IN_PARTY_MENU)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 
 script NewBarkTown_ProfessorElmsLab_EventScript_TrashCan {

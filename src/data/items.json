@@ -6570,6 +6570,22 @@
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
+    },
+    {
+      "english": "POKéVIAL",
+      "itemId": "ITEM_POKEVIAL",
+      "price": 0,
+      "holdEffect": "HOLD_EFFECT_NONE",
+      "holdEffectParam": 6,
+      "description_english": "Use to heal party\\nReplenishes at POKéMON Centers.",
+      "importance": 0,
+      "exitsBagOnUse": 0,
+      "pocket": "POCKET_KEY_ITEMS",
+      "type": 2,
+      "fieldUseFunc": "ItemUseOutOfBattle_PokeVial",
+      "battleUsage": 0,
+      "battleUseFunc": "NULL",
+      "secondaryId": 0
     }
   ]
 }

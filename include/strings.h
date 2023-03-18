@@ -544,6 +544,7 @@ extern const u8 gText_Speed[];
 extern const u8 gText_Dash[];
 extern const u8 gText_Plus[];
 extern const u8 gText_Nickname[];
+extern const u8 gText_Relearn[];
 
 //pokedex text
 extern const u8 gText_CryOf[];
@@ -935,6 +936,8 @@ extern const u8 gText_ReturnToPC[];
 
 extern const u8 gText_ExpShareTurnOn[];
 extern const u8 gText_ExpShareTurnOff[];
+extern const u8 gText_PokeVial_Success[];
+extern const u8 gText_PokeVial_Failure[];
 extern const u8 gText_OaksAdvice[];
 extern const u8 gText_CantDismountBike[];
 extern const u8 gText_ItemFinderNothing[];

@@ -42,6 +42,7 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/songs.h"
+#include "script_pokemon_util.h"
 
 static void SetUpItemUseCallback(u8 taskId);
 static void FieldCB_UseItemOnField(void);
@@ -1160,6 +1161,30 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
             DisplayItemMessageOnField(taskId, gText_ExpShareTurnOff, Task_CloseCantUseKeyItemMessage);
         else
             DisplayItemMessage(taskId, 1, gText_ExpShareTurnOff, CloseItemMessage);
+    }
+}
+
+void ItemUseOutOfBattle_PokeVial(u8 taskId)
+{
+    u16 vialUsages = VarGet(VAR_POKEVIAL_USAGES);
+    u16 vialUsagesMax = ItemId_GetHoldEffectParam(ITEM_POKEVIAL);
+    if (vialUsages >= vialUsagesMax){
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_PokeVial_Failure, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_PokeVial_Failure, CloseItemMessage);
+
+    }
+    else{
+        PlaySE(SE_RG_POKE_JUMP_SUCCESS);
+        HealPlayerParty();
+        vialUsages++;
+        VarSet(VAR_POKEVIAL_USAGES, vialUsages);
+        ConvertIntToDecimalStringN(gStringVar1, vialUsagesMax - vialUsages, STR_CONV_MODE_LEFT_ALIGN, 2);
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, gText_PokeVial_Success, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, gText_PokeVial_Success, CloseItemMessage);
     }
 }
 

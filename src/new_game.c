@@ -228,6 +228,8 @@ void NewGameInitData(void)
     SetBuildNumber();
     SetDefaultRoomDecor();
     typeEffectPrev ? FlagSet(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW) : FlagClear(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW);
+    FlagSet(FLAG_RECEIVED_RUNNING_SHOES);  //Running is set at the beginning of the game now.
+    FlagSet(FLAG_SYS_B_DASH);
 }
 
 static void ResetMiniGamesRecords(void)

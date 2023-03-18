@@ -4149,6 +4149,8 @@ extern const u32 gItemIcon_RageCandyBar[];
 extern const u32 gItemIconPalette_RageCandyBar[];
 extern const u32 gItemIcon_SlowpokeTail[];
 extern const u32 gItemIconPalette_SlowpokeTail[];
+extern const u32 gItemIcon_PokeVial[];
+extern const u32 gItemIconPalette_PokeVial[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];

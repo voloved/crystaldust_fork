@@ -246,6 +246,8 @@ const u8 gText_ConfirmTossItems[] = _("Throw away {STR_VAR_2} of\nthis item?");
 const u8 gText_OaksAdvice[] = _("OAK: {PLAYER}!\nThis isn't the time to use that!{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareTurnOn[] = _("Turned on the Exp. Share.\pParty will now gain a portion\nof the Experience Points.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ExpShareTurnOff[] = _("Turned off the Exp. Share.\pParty will no longer gain a portion\nof any Experience Points.{PAUSE_UNTIL_PRESS}");
+const u8 gText_PokeVial_Success[] = _("PokéVial successfully healed party.\p{STR_VAR_1} more uses before needing\nto heal at a POKéMON Center.{PAUSE_UNTIL_PRESS}");
+const u8 gText_PokeVial_Failure[] = _("PokéVial is drained. Heal at a\nPOKéMON Center to replenish.{PAUSE_UNTIL_PRESS}");
 const u8 gText_CantDismountBike[] = _("You can't dismount your BIKE here.{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderNearby[] = _("Huh?\nThe ITEMFINDER's responding!\pThere's an item buried around here!{PAUSE_UNTIL_PRESS}");
 const u8 gText_ItemFinderOnTop[] = _("Oh!\nThe ITEMFINDER's shaking wildly!\pThere's an item buried underfoot!\p⋯ ⋯ ⋯ ⋯ ⋯ ⋯{PAUSE_UNTIL_PRESS}");
@@ -1866,6 +1868,7 @@ const u8 gText_Answer[] = _("ANSWER");
 const u8 gText_PokeBalls[] = _("POKé BALLS");
 const u8 gText_Berry[] = _("BERRY");
 const u8 gText_Berries[] = _("BERRIES");
+const u8 gText_Relearn[] = _("RELEARN");
 const u8 gText_Nickname[] = _("NICKNAME");
 
 // Day of week
