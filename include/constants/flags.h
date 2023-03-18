@@ -1317,7 +1317,7 @@
 #define FLAG_NO_LOW_HEALTH_BEEP                                     0x4E5
 #define FLAG_FASTER_NURSE_JOY                                       0x4E6
 #define FLAG_RELEARN_IN_PARTY_MENU                                  0x4E7
-#define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
+#define FLAG_PARTY_MOVES                                            0x4E8
 #define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
 #define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
 #define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
