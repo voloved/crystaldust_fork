@@ -118,6 +118,7 @@ u16 checkStolenPokemon(u16 trainerNum, u16 speciesType, u16 partyIndex, bool8 se
 u8 isMovePhysical(u16);
 u8 isMoveSpecial(u16);
 u8 isMoveStatus(u16);
+bool8 IsTrainerCantRunFrom(void);
 
 extern struct UnknownPokemonStruct4 gMultiPartnerParty[MULTI_PARTY_SIZE];
 

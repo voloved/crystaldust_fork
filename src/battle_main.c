@@ -4175,6 +4175,31 @@ u8 IsRunningFromBattleImpossible(void)
     return 0;
 }
 
+bool8 IsTrainerCantRunFrom(void){
+    u8 trainerClass;
+    if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL))
+        return 1;
+    trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
+    switch (trainerClass)
+    {
+    case TRAINER_CLASS_AQUA_LEADER:
+    case TRAINER_CLASS_MAGMA_LEADER:
+    case TRAINER_CLASS_TEAM_ROCKET:
+    case TRAINER_CLASS_TEAM_ROCKET_EXECUTIVE:
+    case TRAINER_CLASS_AQUA_ADMIN:
+    case TRAINER_CLASS_MAGMA_ADMIN:
+    case TRAINER_CLASS_LEADER:
+    case TRAINER_CLASS_CHAMPION:
+    case TRAINER_CLASS_PKMN_TRAINER_3: // Mt. Silver Red
+    case TRAINER_CLASS_RIVAL1:
+    case TRAINER_CLASS_RIVAL2:
+    case TRAINER_CLASS_ELITE_FOUR:
+        return 1;
+    default:
+        return 0;
+    }
+}
+
 void SwitchPartyOrder(u8 battler)
 {
     s32 i;
@@ -4437,8 +4462,20 @@ static void HandleTurnActionSelectionState(void)
                          && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
                          && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)
                 {
-                    BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
-                    gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
+                    if (!FlagGet(FLAG_ALLOW_RUNNING_FROM_TRAINER))
+                    {
+                        BattleScriptExecute(BattleScript_PrintCantRunFromTrainer);
+                        gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
+                    }
+                    else if (IsTrainerCantRunFrom())
+                    {
+                        BattleScriptExecute(BattleScript_PrintCantRunFromThisTrainer);
+                        gBattleCommunication[gActiveBattler] = STATE_BEFORE_ACTION_CHOSEN;
+                    }
+                    else
+                    {
+                        gBattleCommunication[gActiveBattler]++;
+                    }
                 }
                 else if (IsRunningFromBattleImpossible()
                          && gBattleBufferB[gActiveBattler][1] == B_ACTION_RUN)

@@ -338,6 +338,7 @@ static const u8 sText_PlayerBattledToDrawVsTwo[] = _("Player battled to a draw a
 static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} fled!");
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and\n{B_LINK_OPPONENT2_NAME} fled!");
 static const u8 sText_NoRunningFromTrainers[] = _("No! There's no running\nfrom a TRAINER battle!\p");
+static const u8 sText_NoRunningFromThisTrainer[] = _("No! There's no running from\nthis TRAINER battle!\p");
 static const u8 sText_CantEscape[] = _("Can't escape!\p");
 static const u8 sText_DontLeaveBirch[] = _("PROF. BIRCH: Don't leave me like this!\p");
 static const u8 sText_ButNothingHappened[] = _("But nothing happened!");
@@ -911,6 +912,7 @@ const u8 * const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_CANTWITHTHIEF - 12] = sText_CantWithThief,
     [STRINGID_TOOMANYWITNESSES - 12] = sText_TooManyWitnesses,
     [STRINGID_GOTCHAPKMNCAUGHTNOBGM - 12] = sText_GotchaPkmnCaughtNoBgm,
+    [STRINGID_NORUNNINGFROMTHISTRAINER - 12] = sText_NoRunningFromThisTrainer,
 
 };
 

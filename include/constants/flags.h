@@ -1318,8 +1318,8 @@
 #define FLAG_FASTER_NURSE_JOY                                       0x4E6
 #define FLAG_RELEARN_IN_PARTY_MENU                                  0x4E7
 #define FLAG_PARTY_MOVES                                            0x4E8
-#define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
-#define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
+#define FLAG_RAN_FROM_TRAINER                                       0x4E9
+#define FLAG_ALLOW_RUNNING_FROM_TRAINER                             0x4EA
 #define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
 #define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
 #define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag

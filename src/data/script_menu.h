@@ -1083,6 +1083,7 @@ static const struct MenuAction MultichoiceList_ElmPCOptions[] =
     {(const u8[])_("DIFFICULTY")},
     {(const u8[])_("FASTER NURSE JOY")},
     {(const u8[])_("RELEARN MOVES IN MENU")},
+    {(const u8[])_("ALLOW RUNNING FROM TRAINERS")},
 };
 
 static const struct MenuAction MultichoiceList_TagChallenge[] =
