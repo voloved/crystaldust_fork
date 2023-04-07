@@ -33,6 +33,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon
 - Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
 - [Can now quickly run from a battle by holding Right while the wild Pokémon's name appears.](https://github.com/pret/pokeemerald/wiki/Quickly-Run-from-a-Battle-by-Holding-Right-While-the-Wild-Pok%C3%A9mon's-Name-Appears)
+- [Pressing Start in a Battle Will Show the Description of the Move.](https://github.com/pret/pokeemerald/wiki/Add-Description-Submenu)
 - [Make Pokémon that Require a Fateful Encounter to be Legal to Always Be Set to Legal](https://github.com/pret/pokeemerald/wiki/Make-Pokemon-that-Require-a-Fateful-Encounter-to-be-Legal-to-Always-Be-Set-to-Legal)
 - [Use Fly and Flash for Any Compatible Pokémon](https://www.pokecommunity.com/showpost.php?p=10420068) [Credit: ScyrousFX]
 - [Allow player to Change Direction Better While Moving](https://www.pokecommunity.com/showpost.php?p=10402610)  [Credit: cbt]

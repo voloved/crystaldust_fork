@@ -5911,7 +5911,6 @@ static const u16 sPorygonZLevelUpLearnset[] = {
 };
 
 static const u16 sGalladeLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_SLASH),
     LEVEL_UP_MOVE( 1, MOVE_LEAF_BLADE),
     LEVEL_UP_MOVE( 1, MOVE_LEER),
@@ -5931,7 +5930,6 @@ static const u16 sGalladeLevelUpLearnset[] = {
 };
 
 static const u16 sProbopassLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_TRI_ATTACK),
     LEVEL_UP_MOVE( 1, MOVE_TRI_ATTACK),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_IRON_DEFENSE),
@@ -5974,7 +5972,6 @@ static const u16 sDusknoirLevelUpLearnset[] = {
 };
 
 static const u16 sLeafeonLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 0, MOVE_RAZOR_LEAF),
     LEVEL_UP_MOVE( 1, MOVE_RAZOR_LEAF),
     LEVEL_UP_MOVE( 1, MOVE_HELPING_HAND),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
