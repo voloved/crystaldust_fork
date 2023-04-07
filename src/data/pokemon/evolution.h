@@ -1,3 +1,6 @@
+const u16 gEeveelutions[NUM_EEVEELUTIONS] = { SPECIES_VAPOREON, SPECIES_JOLTEON, SPECIES_FLAREON, SPECIES_ESPEON,
+                                              SPECIES_UMBREON, SPECIES_LEAFEON, SPECIES_GLACEON };
+
 const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =
 {
     [SPECIES_BULBASAUR]  = {{EVO_LEVEL, 16, SPECIES_IVYSAUR}},
