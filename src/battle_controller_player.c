@@ -1616,38 +1616,32 @@ static void MoveSelectionDisplayMoveDescription(void)
     u16 move = moveInfo->moves[gMoveSelectionCursor[gActiveBattler]];
     u16 pwr = gBattleMoves[move].power;
     u16 acc = gBattleMoves[move].accuracy;
-    u16 priority = gBattleMoves[move].priority;
+    u16 pri = gBattleMoves[move].priority;
     u8 pwr_num[3], acc_num[3], pri_num[3], i;
-    u8 pwr_num_len, acc_num_len, pri_num_len;
-    u8 pwr_desc[7] = _(" PWR: ");
-    u8 acc_desc[10] = _("    ACC: ");
-    u8 pri_desc[10] = _("    PRI: ");
+    u8 pwr_desc[7] = _("PWR: ");
+    u8 acc_desc[7] = _("ACC: ");
+    u8 pri_desc[7] = _("PRI: ");
+    u8 pwr_start[] = _("{CLEAR_TO 0x03}");
+    u8 acc_start[] = _("{CLEAR_TO 0x38}");
+    u8 pri_start[] = _("{CLEAR_TO 0x6D}");
     LoadMessageBoxAndBorderGfx();
-    DrawStdWindowFrameBattleInfoSystem(27);
+    DrawStdWindowFrame(27, FALSE);
     if (pwr < 2)
         StringCopy(pwr_num, gText_BattleSwitchWhich5);
     else
         ConvertIntToDecimalStringN(pwr_num, pwr, STR_CONV_MODE_LEFT_ALIGN, 3);
-     if (acc < 2)
+    if (acc < 2)
         StringCopy(acc_num, gText_BattleSwitchWhich5);
     else
         ConvertIntToDecimalStringN(acc_num, acc, STR_CONV_MODE_LEFT_ALIGN, 3);
-    ConvertIntToDecimalStringN(pri_num, priority, STR_CONV_MODE_LEFT_ALIGN, 3);
-    pwr_num_len = StringLength(pwr_num);
-    acc_num_len = StringLength(acc_num);
-    pri_num_len = StringLength(pri_num);
-    StringCopy(gDisplayedStringBattle, pwr_desc);
+    ConvertIntToDecimalStringN(pri_num, pri, STR_CONV_MODE_LEFT_ALIGN, 3);
+    StringCopy(gDisplayedStringBattle, pwr_start);
+    StringAppend(gDisplayedStringBattle, pwr_desc);
     StringAppend(gDisplayedStringBattle, pwr_num);
-    for (i = pwr_num_len; i < 3; i++){
-        StringAppend(gDisplayedStringBattle, gText_Space2);
-        StringAppend(gDisplayedStringBattle, gText_Space2);
-    }
+    StringAppend(gDisplayedStringBattle, acc_start);
     StringAppend(gDisplayedStringBattle, acc_desc);
     StringAppend(gDisplayedStringBattle, acc_num);
-    for (i = acc_num_len; i < 3; i++){
-        StringAppend(gDisplayedStringBattle, gText_Space2);
-        StringAppend(gDisplayedStringBattle, gText_Space2);
-    }
+    StringAppend(gDisplayedStringBattle, pri_start);
     StringAppend(gDisplayedStringBattle, pri_desc);
     StringAppend(gDisplayedStringBattle, pri_num);
     StringAppend(gDisplayedStringBattle, gText_NewLine);

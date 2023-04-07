@@ -249,11 +249,6 @@ void DrawStdWindowFrame(u8 windowId, bool8 copyToVram)
         CopyWindowToVram(windowId, 3);
 }
 
-void DrawStdWindowFrameBattleInfoSystem(u8 windowId)
-{
-    CallWindowFunction(windowId, WindowFunc_DrawStandardFrame);
-}
-
 void ClearDialogWindowAndFrame(u8 windowId, bool8 copyToVram)
 {
     CallWindowFunction(windowId, WindowFunc_ClearDialogWindowAndFrame);
