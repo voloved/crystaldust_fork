@@ -44,6 +44,7 @@
 #include "wallclock.h"
 #include "m4a.h"
 #include "malloc.h"
+#include "clock.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 
@@ -904,6 +905,8 @@ static void Task_MainMenuCheckBattery(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_EFFECT_DARKEN | BLDCNT_TGT1_BG0 | BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG3 | BLDCNT_TGT1_OBJ | BLDCNT_TGT1_BD);
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 7);
+        if (RtcGetErrorStatus() & RTC_ERR_FLAG_MASK)
+            FastForwardTime(1, 24);
         gTasks[taskId].func = Task_DisplayMainMenu;
     }
 }

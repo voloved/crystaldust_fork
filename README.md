@@ -52,7 +52,8 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Changed Someone's PC to Lanette's PC from the Start of the Game](https://github.com/pret/pokeemerald/wiki/Change-Someone%27s-PC-to-Lanette%27s-PC-from-the-Start-of-the-Game)
 - [Make Daycare Faster at Leveling Pokémon](https://github.com/pret/pokeemerald/wiki/Make-Daycare-Faster-at-Leveling-Pok%C3%A9mon)
 - [Gen 6 style Exp. Share](https://github.com/pret/pokeemerald/wiki/Gen-6-style-Exp.-Share---Alternative-Option)
-- [Allowed Changing Clock in PokeGear by Pressing Select. Daily flags get reset when doing this as well.](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
+- [Loading the Game With No RTC Ages Iterates Daily Events by a Day.](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message#extra-update-daily-events-and-berries-still-grow-when-playing-without-a-rtc)
+- [Allowed Changing Clock in PokeGear by Pressing Select.Iterates Daily Events by a Day When Doing This as Well.](https://gitlab.com/devolov/crystaldust_fork/-/wikis/Allowed-Changing-Clock-in-PokeGear-by-Pressing-R)
 - Default Options are now fast text speed and L=A by default
 - Made Lucky Egg triple EXP and a default PC item. If anyone in the party holds it, it will treat as is they all are.
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)

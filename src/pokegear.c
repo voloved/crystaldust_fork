@@ -36,6 +36,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/songs.h"
 #include "wallclock.h"
+#include "clock.h"
 
 #define WIN_DIALOG 0
 #define WIN_HELP 1
@@ -1100,7 +1101,7 @@ static void Task_ClockCard(u8 taskId)
 
     if (JOY_NEW(SELECT_BUTTON))
     {
-        ClearDailyFlags();  // Reset the daily flags when manually changing the time.
+        FastForwardTime(1, 24);
         SetMainCallback2(CB2_StartWallClock);
         gMain.savedCallback = CB2_InitPokegear;
     }
