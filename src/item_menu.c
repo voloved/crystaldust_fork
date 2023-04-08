@@ -1621,7 +1621,7 @@ static void Task_ItemContext_SingleRow(u8 taskId)
 {
     if (!MenuHelpers_CallLinkSomething())
     {
-        s8 selection = Menu_ProcessInputNoWrap();
+        s16 selection = Menu_ProcessInputNoWrap();
         switch (selection)
         {
             case MENU_B_PRESSED:

@@ -6572,7 +6572,7 @@
       "secondaryId": 0
     },
     {
-      "english": "POKéVIAL",
+      "english": "POK\u00e9VIAL",
       "itemId": "ITEM_POKEVIAL",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",

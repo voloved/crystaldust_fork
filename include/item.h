@@ -81,5 +81,6 @@ ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
 void ItemId_GetHoldEffectParam_Script();
 void GiveItems_Missingno(void);
+void FillBagsTest(void);
 
 #endif // GUARD_ITEM_H

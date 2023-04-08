@@ -17,6 +17,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 ## Quality-of-Life Additions:
 
 - [Allowed All Pokémon to Evolve Without Trading](https://github.com/pret/pokeemerald/wiki/Allow-All-Pokemon-to-Evolve-Without-Trading)
+- [Item Pocket Can Hold 120 items](https://github.com/pret/pokeemerald/wiki/Make-the-Bag-Able-to-Hold-120-Items-Instead-of-30)
 - [HMs Can Be Used if a Pokemon in the party can learn it.](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
 - [Item Automatically Goes to PC if Bag is Full](https://github.com/pret/pokeemerald/wiki/Item-Automatically-Goes-to-PC-if-Bag-is-Full)
 - [Trees and Rocks get perminently cut and smashed.](https://github.com/pret/pokeemerald/wiki/All-Trees-Permanently-Get-Cut)

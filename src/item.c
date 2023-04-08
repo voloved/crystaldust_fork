@@ -802,7 +802,7 @@ bool8 AddPyramidBagItem(u16 itemId, u16 count)
     u8 *quantities = gSaveBlock2Ptr->frontier.pyramidBag.quantity[gSaveBlock2Ptr->frontier.lvlMode];
 
     u16 *newItems = Alloc(PYRAMID_BAG_ITEMS_COUNT * sizeof(u16));
-    u8 *newQuantities = Alloc(PYRAMID_BAG_ITEMS_COUNT * sizeof(u8));
+    u16 *newQuantities = Alloc(PYRAMID_BAG_ITEMS_COUNT * sizeof(u8));
 
     memcpy(newItems, items, PYRAMID_BAG_ITEMS_COUNT * sizeof(u16));
     memcpy(newQuantities, quantities, PYRAMID_BAG_ITEMS_COUNT * sizeof(u8));
@@ -1029,4 +1029,79 @@ void GiveItems_Missingno(void)
              AddBagItem(itemId, maxQuantDiff);
         }
     }
+}
+
+void FillBagsTest(void)
+{
+    u16 i;
+    //pokeballs
+    for(i = 1; i < 13; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //regular items starting with Potion
+    for(i = 13; i < 52; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //regular items starting with HP UP, skipping ??????????s
+    for(i = 63; i < 86; i++)
+    {
+        if(i == 72 || i == 82) //skipping random ??????????s
+        {
+            continue;
+        }
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //regular items starting with Sun Stone, skipping ??????????s
+    for(i = 93; i < 99; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //regular items starting with TinyMushroom, skipping ??????????s
+    for(i = 103; i < 112; i++)
+    {
+        if(i == 105) //skipping random ??????????
+        {
+            continue;
+        }
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //regular items starting with Orange Mail
+    for(i = 121; i < 133; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //hold items starting with Brightpowder
+    for(i = 179; i < 226; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //Contest Scarves (skipping a bunch of ??????????s)
+    for(i = 254; i < 259; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //RSE key items that get used in FRLG, starting with Coin Case
+    for(i = 260; i < 266; i++)
+    {
+        AddBagItem(i, 1);
+    }
+    //FRLG key items starting with Oak's Parcel
+    for(i = 349; i < 375; i++)
+    {
+        AddBagItem(i, 1);
+    }
+    //berries
+    for(i = 133; i < 176; i++)
+    {
+        AddBagItem(i, MAX_BERRY_CAPACITY);
+    }
+    //TMs and HMs
+    for(i = 289; i < 347; i++)
+    {
+        AddBagItem(i, MAX_BAG_ITEM_CAPACITY);
+    }
+    //Old Sea Map
+    AddBagItem(376, 1);
 }
