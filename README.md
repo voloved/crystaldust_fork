@@ -40,8 +40,9 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Made Move Pokémon as first PSS option](https://www.pokecommunity.com/showpost.php?p=10065761) [Credit: AsparagusEduardo]
 - [Holding L is now turbo A](https://github.com/pret/pokeemerald/wiki/Make-L-Button-Be-Turbo-A-When-L=A-Option-Is-Set)
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
-- [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
-- [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You)
+- [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#de-nerf-cleanse-tag)
+- [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#pokedoll-to-avoid-battles)
+ - [Cleanse Tag can now be a use item as well as being held.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#make-cleanse-tag-a-toggle-able-use-item)
 - [Remove the extra save confirmation](https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation) [Credit: FieryMewtwo] 
 - [Increase Text Speed Beyond Fast](https://www.pokecommunity.com/showpost.php?p=10400198) [Credit: ellabrella]
 - [Set L=A and fast scroll text as the default](https://www.pokecommunity.com/showpost.php?p=9967853&postcount=5) [Credit: Avara]
@@ -76,7 +77,6 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Added Thief Ball](https://github.com/pret/pokeemerald/wiki/Add-Thief-Ball)
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
-- Cleanse Tag can now be a use item as well as being held.
 - Able to get Evolutionary Stones, Thief Ball, Poke Doll, Cleanse Tag, and Lucky Egg in second floor of Goldenrod Dept Store after getting six badges.
 - Raiku and Entei no longer know roar when encountering them.
 - GS Ball event starts after beating the Elite Four.
