@@ -49,3 +49,6 @@ gText_TheDecorWasTransferredToThePC::
 
 gText_FruitBearingTreeBagFull:
 	.string "But the BAG is full…$"
+
+gText_FruitBearingTreeBagAndPCFull:
+	.string "But the BAG and PC are full…$"

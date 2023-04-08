@@ -1,4 +1,5 @@
 Std_ObtainItem::
+	setvar VAR_0x8007, 0
 	textcolor MSG_COLOR_SYS
 	additem VAR_0x8000, VAR_0x8001
 	copyvar VAR_0x8007, VAR_RESULT
@@ -136,10 +137,6 @@ EventScript_CheckPCSpace::
 	checkitemtype VAR_0x8004 @ Don't add if it's a key item
 	compare VAR_RESULT, POCKET_KEY_ITEMS
 	goto_if_eq EventScript_CheckPCSpaceContinue
-	pyramid_inchallenge
-	copyvar VAR_0x8004, VAR_0x8000  @ pyramid_inchallenge modifies VAR_0x8004
-	compare VAR_RESULT, TRUE
-	goto_if_eq EventScript_CheckPCSpaceContinue
 	checkpcspace VAR_0x8004, VAR_0x8005
 	compare VAR_RESULT, FALSE
 	call_if_eq EventScript_CheckPCSpaceContinue
@@ -204,17 +201,29 @@ EventScript_FruitTree::
 
 	checkitemspace VAR_0x8000, 1
 	compare VAR_RESULT, 1
-	call_if_eq FruitTree_TakeItemFromTree
+	goto_if_eq EventScript_FruitTree_HaveSpace
+	checkpcspace VAR_0x8000, 1
+	compare VAR_RESULT, 1
+	goto_if_eq EventScript_FruitTree_HaveSpace
+	goto EventScript_FruitTree_NoSpace
+EventScript_FruitTree_HaveSpace::	
+	call FruitTree_TakeItemFromTree
 	giveitem VAR_0x8000
-	compare VAR_RESULT, 0
-	goto_if_eq FruitTree_NotEnoughSpace
+	compare VAR_0x8007, 0
+	goto_if_eq EventScript_FruitTree_NoSpace
+	goto EventScript_FruitTree_ContSpace
+EventScript_FruitTree_NoSpace::
+	call FruitTree_NotEnoughSpace
+	goto EventScript_FruitTree_Cont
+EventScript_FruitTree_ContSpace::
 	addvar VAR_0x8004, FLAG_FRUIT_TREES_START - 1
 	special SetHiddenItemFlag
+EventScript_FruitTree_Cont::
 	releaseall
 	return
 
 FruitTree_NotEnoughSpace:
-	msgbox gText_FruitBearingTreeBagFull
+	msgbox gText_FruitBearingTreeBagAndPCFull
 	releaseall
 	return
 
