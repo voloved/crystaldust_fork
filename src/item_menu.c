@@ -54,7 +54,6 @@
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
-#define KEYITEMS_POCKET_NO_REG  5
 
 // The buffer for the bag item list needs to be large enough to hold the maximum
 // number of item slots that could fit in a single pocket, + 1 for Cancel.
@@ -328,13 +327,6 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_DUMMY,
         ACTION_DUMMY
     },
-    [KEYITEMS_POCKET_NO_REG] = {
-        ACTION_USE,
-        ACTION_CANCEL,
-        ACTION_DUMMY,
-        ACTION_DUMMY,
-        ACTION_DUMMY
-    }
 };
 
 static const u8 sContextMenuItems_CheckGiveTossCancel[] =
@@ -1591,8 +1583,8 @@ static void OpenContextMenu(u8 taskId)
             case KEYITEMS_POCKET:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 if ((IsUnregisterableKeyItem(gSpecialVar_ItemId))){
-                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG]) - 3;
-                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG], sizeof(sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG] - 3));
+                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Cancel);
+                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Cancel, sizeof(sContextMenuItems_Cancel));
                 }
                 else{
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 2;
@@ -1643,7 +1635,7 @@ static void Task_ItemContext_SingleRow(u8 taskId)
 {
     if (!MenuHelpers_CallLinkSomething())
     {
-        s16 selection = Menu_ProcessInputNoWrap();
+        s8 selection = Menu_ProcessInputNoWrap();
         switch (selection)
         {
             case MENU_B_PRESSED:

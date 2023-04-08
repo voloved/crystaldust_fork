@@ -1217,35 +1217,6 @@ s8 Menu_ProcessInputNoWrap(void)
     return MENU_NOTHING_CHOSEN;
 }
 
-s16 Menu_ProcessInputNoWrap2(void)
-{
-    u16 oldPos = sMenu.cursorPos;
-
-    if (JOY_NEW(A_BUTTON))
-    {
-        if (!sMenu.APressMuted)
-            PlaySE(SE_SELECT);
-        return sMenu.cursorPos;
-    }
-    else if (JOY_NEW(B_BUTTON))
-    {
-        return MENU_B_PRESSED;
-    }
-    else if (JOY_NEW(DPAD_UP))
-    {
-        if (oldPos != Menu_MoveCursorNoWrapAround(-1))
-            PlaySE(SE_SELECT);
-        return MENU_NOTHING_CHOSEN;
-    }
-    else if (JOY_NEW(DPAD_DOWN))
-    {
-        if (oldPos != Menu_MoveCursorNoWrapAround(1))
-            PlaySE(SE_SELECT);
-        return MENU_NOTHING_CHOSEN;
-    }
-    return MENU_NOTHING_CHOSEN;
-}
-
 s8 ProcessMenuInput_other(void)
 {
     if (JOY_NEW(A_BUTTON))
