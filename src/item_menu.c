@@ -54,6 +54,7 @@
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
+#define KEYITEMS_POCKET_NO_REG  5
 
 // The buffer for the bag item list needs to be large enough to hold the maximum
 // number of item slots that could fit in a single pocket, + 1 for Cancel.
@@ -324,6 +325,13 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_USE,
         ACTION_REGISTER,
         ACTION_CANCEL,
+        ACTION_DUMMY,
+        ACTION_DUMMY
+    },
+    [KEYITEMS_POCKET_NO_REG] = {
+        ACTION_USE,
+        ACTION_CANCEL,
+        ACTION_DUMMY,
         ACTION_DUMMY,
         ACTION_DUMMY
     }
@@ -1502,6 +1510,14 @@ static void DrawItemListBgRow(u8 frame)
     ScheduleBgCopyTilemapToVram(1);
 }
 
+static bool8 IsUnregisterableKeyItem(u16 item)
+{
+    if (ItemId_GetFieldFunc(item) == ItemUseOutOfBattle_CannotUse)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 static void OpenContextMenu(u8 taskId)
 {
     u8 windowId;
@@ -1574,8 +1590,14 @@ static void OpenContextMenu(u8 taskId)
                 break;
             case KEYITEMS_POCKET:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
-                gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 2;
-                memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Field[gBagPosition.pocket], sizeof(sContextMenuItems_Field[gBagPosition.pocket] - 2));
+                if ((IsUnregisterableKeyItem(gSpecialVar_ItemId))){
+                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG]) - 3;
+                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG], sizeof(sContextMenuItems_Field[KEYITEMS_POCKET_NO_REG] - 3));
+                }
+                else{
+                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 2;
+                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Field[gBagPosition.pocket], sizeof(sContextMenuItems_Field[gBagPosition.pocket] - 2));
+                }
                 if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
                     gBagMenu->contextMenuItemsBuffer[1] = ACTION_DESELECT;
                 if (gSpecialVar_ItemId == ITEM_BICYCLE && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_BIKE))
