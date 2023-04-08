@@ -1180,7 +1180,7 @@ static void ApplyCleanseTagEncounterRateMod(u32 *encRate)
 {
     int i;
     for (i = 0; i < PARTY_SIZE; i++){
-        if (GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == ITEM_CLEANSE_TAG){
+        if (GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == ITEM_CLEANSE_TAG || FlagGet(FLAG_CLEANSE_TAG)){
             *encRate = 0;
             break;
         }

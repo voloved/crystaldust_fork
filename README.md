@@ -70,11 +70,13 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allow Running From Trainer Battles](https://github.com/pret/pokeemerald/wiki/Allow-Running-From-Trainer-Battles)
 - [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
+- [Make Poké Balls usable outside of battles](https://www.pokecommunity.com/showthread.php?p=10539730#post10539730) [Credit: Lunos]
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
 - [Added Thief Ball](https://github.com/pret/pokeemerald/wiki/Add-Thief-Ball)
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
+- Cleanse Tag can now be a use item as well as being held.
 - Able to get Evolutionary Stones, Thief Ball, Poke Doll, Cleanse Tag, and Lucky Egg in second floor of Goldenrod Dept Store after getting six badges.
 - Raiku and Entei no longer know roar when encountering them.
 - GS Ball event starts after beating the Elite Four.

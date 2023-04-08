@@ -271,10 +271,10 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_DUMMY
     },
     [BALLS_POCKET] = {
+        ACTION_USE,
         ACTION_GIVE,
         ACTION_TOSS,
         ACTION_CANCEL,
-        ACTION_DUMMY,
         ACTION_DUMMY
     },
     [TMHM_POCKET] = {

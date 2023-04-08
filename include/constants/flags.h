@@ -1323,7 +1323,7 @@
 #define FLAG_PARTY_MOVES                                            0x4E8
 #define FLAG_RAN_FROM_TRAINER                                       0x4E9
 #define FLAG_ALLOW_RUNNING_FROM_TRAINER                             0x4EA
-#define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
+#define FLAG_CLEANSE_TAG                                            0x4EB
 #define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
 #define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag

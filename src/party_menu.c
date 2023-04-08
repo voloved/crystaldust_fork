@@ -409,6 +409,8 @@ static bool8 SetUpFieldMove_Fly(void);
 static bool8 SetUpFieldMove_Waterfall(void);
 static bool8 SetUpFieldMove_Dive(void);
 static bool32 HaveBadgeForHM(u8 fieldMove);
+static void Task_ItemUseCB_PokeBallBreakYesNo(u8 taskId);
+static void Task_ItemUseCB_PokeBallBreakYesNoInput(u8 taskId);
 
 // static const data
 #include "data/pokemon/tutor_learnsets.h"
@@ -6548,5 +6550,91 @@ static bool32 HaveBadgeForHM(u8 fieldMove)
             return FALSE;
         default:
             return FALSE;
+    }
+}
+
+void ItemUseCB_PokeBall(u8 taskId, TaskFunc task)
+{
+    u8 i;
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 currBall = GetMonData(mon, MON_DATA_POKEBALL);
+    u16 newBall = gSpecialVar_ItemId;
+    bool8 ballWillBreak = FALSE;
+    static const u16 ballsThatBreak[] = { ITEM_MASTER_BALL, ITEM_THIEF_BALL };  // To avoid someone from infinitely reusing Master Balls.
+    static const u8 sText_MonBallWasChanged[] = _("{STR_VAR_1} was swapped to a {STR_VAR_2}.\nThe {STR_VAR_3} was put back in the BAG.{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_MonChangedBallWillBreak[] = _("The {STR_VAR_3} currently used seems\nfragile and will break when swapping.\pWould you like to continue swapping even\nthough the {STR_VAR_3} will break?{PAUSE_UNTIL_PRESS}");
+
+    if (currBall == newBall)
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = task;
+        return;
+    }
+    for (i = 0; i < ARRAY_COUNT(ballsThatBreak); i++){
+        if (currBall == ballsThatBreak[i] ){
+            ballWillBreak = TRUE;
+            break;
+        }
+    }
+    GetMonNickname(mon, gStringVar1);
+    CopyItemName(newBall, gStringVar2);
+    CopyItemName(currBall, gStringVar3);
+    PlaySE(SE_SELECT);
+
+    if (ballWillBreak){
+        StringExpandPlaceholders(gStringVar4, sText_MonChangedBallWillBreak);
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        gTasks[taskId].func = Task_ItemUseCB_PokeBallBreakYesNo;
+        return;
+    }
+    gPartyMenuUseExitCallback = TRUE;
+    SetMonData(mon, MON_DATA_POKEBALL, &newBall);
+    RemoveBagItem(newBall, 1);
+    AddBagItem(currBall, 1);
+    StringExpandPlaceholders(gStringVar4, sText_MonBallWasChanged);
+    DisplayPartyMenuMessage(gStringVar4, TRUE);
+    ScheduleBgCopyTilemapToVram(2);
+    gTasks[taskId].func = task;   
+}
+
+static void Task_ItemUseCB_PokeBallBreakYesNo(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive() != TRUE)
+    {
+        PartyMenuDisplayYesNoMenu();
+        gTasks[taskId].func = Task_ItemUseCB_PokeBallBreakYesNoInput;
+    }
+}
+
+static void Task_ItemUseCB_PokeBallBreakYesNoInput(u8 taskId)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 currBall = GetMonData(mon, MON_DATA_POKEBALL);
+    u16 newBall = gSpecialVar_ItemId;
+    static const u8 sText_MonBallWasChangedBallBroke[] = _("{STR_VAR_1} was swapped to a {STR_VAR_2}.\nThe {STR_VAR_3} broke when removing it.{PAUSE_UNTIL_PRESS}");
+    static const u8 sText_BallsWereNotSwapped[] = _("The balls were not swapped.{PAUSE_UNTIL_PRESS}");
+
+    switch (Menu_ProcessInputNoWrapClearOnChoose())
+    {
+    case 0:
+        gPartyMenuUseExitCallback = TRUE;
+        SetMonData(mon, MON_DATA_POKEBALL, &newBall);
+        RemoveBagItem(newBall, 1);
+        StringExpandPlaceholders(gStringVar4, sText_MonBallWasChangedBallBroke);
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = Task_ClosePartyMenuAfterText; 
+        break;
+    case MENU_B_PRESSED:
+        PlaySE(SE_SELECT);
+        // fallthrough
+    case 1:
+        gPartyMenuUseExitCallback = FALSE;
+        DisplayPartyMenuMessage(sText_BallsWereNotSwapped, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+        break;
     }
 }

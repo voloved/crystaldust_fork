@@ -26,6 +26,8 @@ void ItemUseOutOfBattle_EnigmaBerry(u8);
 void ItemUseOutOfBattle_CannotUse(u8);
 void ItemUseOutOfBattle_ExpShare(u8);
 void ItemUseOutOfBattle_PokeVial(u8);
+void ItemUseOutOfBattle_CleanseTag(u8);
+void ItemUseOutOfBattle_PokeBall(u8);
 void ItemUseInBattle_PokeBall(u8);
 void ItemUseInBattle_StatIncrease(u8);
 void ItemUseInBattle_Medicine(u8);
@@ -35,5 +37,6 @@ void ItemUseInBattle_EnigmaBerry(u8);
 void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseDigOrEscapeRopeOnCurMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
+void ItemUseOutOfBattle_PokeBall(u8);
 
 #endif // GUARD_ITEM_USE_H
