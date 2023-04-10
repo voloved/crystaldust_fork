@@ -27,6 +27,7 @@ void ItemUseOutOfBattle_CannotUse(u8);
 void ItemUseOutOfBattle_ExpShare(u8);
 void ItemUseOutOfBattle_PokeVial(u8);
 void ItemUseOutOfBattle_CleanseTag(u8);
+void ItemUseOutOfBattle_PokeDoll(u8);
 void ItemUseOutOfBattle_PokeBall(u8);
 void ItemUseInBattle_PokeBall(u8);
 void ItemUseInBattle_StatIncrease(u8);

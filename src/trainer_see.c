@@ -20,6 +20,7 @@
 #include "constants/layouts.h"
 #include "constants/trainer_types.h"
 #include "constants/items.h"
+#include "item.h"
 
 // this file's functions
 static u8 CheckTrainer(u8 objectEventId);
@@ -231,6 +232,12 @@ static const struct SpriteTemplate sSpriteTemplate_HeartIcon =
 static bool8 ignoreIfPokeDoll(void)
 {
     int i;
+    if (FlagGet(FLAG_POKE_DOLL)){
+        if (CheckBagHasItem(ITEM_POKE_DOLL, 1)){
+            return TRUE;            
+        }
+        FlagClear(FLAG_POKE_DOLL);
+    }
     for (i = 0; i < PARTY_SIZE; i++){
         if (GetMonData(&gPlayerParty[i], MON_DATA_HELD_ITEM) == ITEM_POKE_DOLL){
             return TRUE;
