@@ -1182,7 +1182,10 @@ struct SaveBlock1
     /*0x31F4*/ u32 bankedMoney;
     /*0x31F8*/ struct EnigmaBerry enigmaBerry;
     /*0x322C*/ struct MEventBuffers unk_322C;
-    /*0x3598*/ u8 field_3598[360];
+               struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
+               struct ItemSlot bagPocket_BattleItems[BAG_BATTLEITEMS_COUNT];
+               struct ItemSlot bagPocket_Treasures[BAG_TREASURES_COUNT];
+    /*0x3598*/ u8 field_3598[48];
     /*0x3700*/ struct RoomDecor roomDecorInventory;
     /*0x3718*/ u32 trainerHillTimes[4];
     /*0x3728*/ struct RamScript ramScript;

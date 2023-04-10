@@ -62,8 +62,11 @@
 #define MAX_POCKET_ITEMS  ((max(BAG_TMHM_COUNT,              \
                             max(BAG_BERRIES_COUNT,           \
                             max(BAG_ITEMS_COUNT,             \
+                            max(BAG_BATTLEITEMS_COUNT,       \
+                            max(BAG_TREASURES_COUNT,         \
+                            max(BAG_MEDICINE_COUNT,          \
                             max(BAG_KEYITEMS_COUNT,          \
-                                BAG_POKEBALLS_COUNT))))) + 1)
+                                BAG_POKEBALLS_COUNT)))))))) + 1)
 
 #define FREE_IF_SET(ptr)            \
 {                                   \
@@ -241,9 +244,12 @@ static const struct BgTemplate sBgTemplates[] =
 static const u8 *const sPocketNames[] =
 {
     gText_ItemsPocket,
+    gText_MedicinePocket,
     gText_PokeBallsPocket,
-    gText_TMHMPocket,
+    gText_BattleItemsPocket,
     gText_BerriesPocket,
+    gText_TreasuresPocket,
+    gText_TMHMPocket,
     gText_KeyItemsPocket
 };
 

@@ -63,14 +63,35 @@ static const union AnimCmd sSpriteAnim_Bag_Items[] =
     ANIMCMD_END
 };
 
-static const union AnimCmd sSpriteAnim_Bag_KeyItems[] =
+static const union AnimCmd sSpriteAnim_Bag_Medicine[] =
 {
     ANIMCMD_FRAME(  0, 5),
-    ANIMCMD_FRAME(128, 0),
+    ANIMCMD_FRAME(320, 0),
     ANIMCMD_END
 };
 
 static const union AnimCmd sSpriteAnim_Bag_Pokeballs[] =
+{
+    ANIMCMD_FRAME(  0, 5),
+    ANIMCMD_FRAME(192, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Bag_BattleItems[] =
+{
+    ANIMCMD_FRAME( 0, 5),
+    ANIMCMD_FRAME(64, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Bag_Berries[] =
+{
+    ANIMCMD_FRAME(  0, 5),
+    ANIMCMD_FRAME(320, 0),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sSpriteAnim_Bag_Treasures[] =
 {
     ANIMCMD_FRAME(  0, 5),
     ANIMCMD_FRAME(192, 0),
@@ -84,19 +105,22 @@ static const union AnimCmd sSpriteAnim_Bag_TMsHMs[] =
     ANIMCMD_END
 };
 
-static const union AnimCmd sSpriteAnim_Bag_Berries[] =
+static const union AnimCmd sSpriteAnim_Bag_KeyItems[] =
 {
     ANIMCMD_FRAME(  0, 5),
-    ANIMCMD_FRAME(320, 0),
+    ANIMCMD_FRAME(128, 0),
     ANIMCMD_END
 };
 
 static const union AnimCmd *const sBagSpriteAnimTable[] =
 {
     sSpriteAnim_Bag_Items,
+    sSpriteAnim_Bag_Medicine,
     sSpriteAnim_Bag_Pokeballs,
-    sSpriteAnim_Bag_TMsHMs,
+    sSpriteAnim_Bag_BattleItems,
     sSpriteAnim_Bag_Berries,
+    sSpriteAnim_Bag_Treasures,
+    sSpriteAnim_Bag_TMsHMs,
     sSpriteAnim_Bag_KeyItems
 };
 

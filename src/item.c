@@ -80,6 +80,38 @@ void SetBagItemsPointers(void)
 
     gBagPockets[BERRIES_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Berries;
     gBagPockets[BERRIES_POCKET].capacity = BAG_BERRIES_COUNT;
+
+    gBagPockets[MEDICINE_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Medicine;
+    gBagPockets[MEDICINE_POCKET].capacity = BAG_MEDICINE_COUNT;
+
+    gBagPockets[BATTLEITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_BattleItems;
+    gBagPockets[BATTLEITEMS_POCKET].capacity = BAG_BATTLEITEMS_COUNT;
+
+    gBagPockets[TREASURES_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Treasures;
+    gBagPockets[TREASURES_POCKET].capacity = BAG_TREASURES_COUNT;
+}
+
+void SortBagIntoProperPockets(void)
+{
+    u16 i, itemCount;
+    u8 pocket, pocket_correct;
+    u16 itemId;
+    for (pocket = 0; pocket < POCKETS_COUNT; pocket++)
+    {
+        for (i = 0; i < gBagPockets[pocket].capacity; i++)
+        {
+            itemId = gBagPockets[pocket].itemSlots[i].itemId;
+            itemCount = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+            pocket_correct = GetPocketByItemId(itemId) - 1;
+            if (itemId != ITEM_NONE && pocket_correct != pocket)
+            {
+                gBagPockets[pocket].itemSlots[i].itemId = ITEM_NONE;
+                SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, 0);
+                AddBagItem(itemId, itemCount);
+
+            }
+        }
+    }
 }
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
