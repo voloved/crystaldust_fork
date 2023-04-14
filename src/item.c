@@ -64,6 +64,29 @@ void ApplyNewEncryptionKeyToBagItems_(u32 newKey) // really GF?
     ApplyNewEncryptionKeyToBagItems(newKey);
 }
 
+void SortBagIntoProperPockets(void)
+{
+    u16 i, itemCount;
+    u8 pocket, pocket_correct;
+    u16 itemId;
+    for (pocket = 0; pocket < POCKETS_COUNT; pocket++)
+    {
+        for (i = 0; i < gBagPockets[pocket].capacity; i++)
+        {
+            itemId = gBagPockets[pocket].itemSlots[i].itemId;
+            itemCount = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
+            pocket_correct = GetPocketByItemId(itemId) - 1;
+            if (itemId != ITEM_NONE && pocket_correct != pocket)
+            {
+                gBagPockets[pocket].itemSlots[i].itemId = ITEM_NONE;
+                SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, 0);
+                AddBagItem(itemId, itemCount);
+
+            }
+        }
+    }
+}
+
 void SetBagItemsPointers(void)
 {
     gBagPockets[ITEMS_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Items;
@@ -89,29 +112,6 @@ void SetBagItemsPointers(void)
 
     gBagPockets[TREASURES_POCKET].itemSlots = gSaveBlock1Ptr->bagPocket_Treasures;
     gBagPockets[TREASURES_POCKET].capacity = BAG_TREASURES_COUNT;
-}
-
-void SortBagIntoProperPockets(void)
-{
-    u16 i, itemCount;
-    u8 pocket, pocket_correct;
-    u16 itemId;
-    for (pocket = 0; pocket < POCKETS_COUNT; pocket++)
-    {
-        for (i = 0; i < gBagPockets[pocket].capacity; i++)
-        {
-            itemId = gBagPockets[pocket].itemSlots[i].itemId;
-            itemCount = GetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity);
-            pocket_correct = GetPocketByItemId(itemId) - 1;
-            if (itemId != ITEM_NONE && pocket_correct != pocket)
-            {
-                gBagPockets[pocket].itemSlots[i].itemId = ITEM_NONE;
-                SetBagItemQuantity(&gBagPockets[pocket].itemSlots[i].quantity, 0);
-                AddBagItem(itemId, itemCount);
-
-            }
-        }
-    }
 }
 
 u8 *CopyItemName(u16 itemId, u8 *dst)
