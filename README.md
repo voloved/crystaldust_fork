@@ -1,26 +1,19 @@
 # Pokémon CrystalDust
 
-This is a ROM hack of Pokémon Emerald that aims to recreate Pokémon Crystal on the GBA, as if Game Freak had remade it themselves at that time.
+This is a ROM hack branches off of the [progress branch of CrystalDust](https://github.com/Deokishisu/CrystalDust/tree/progress).  
+It includes tweaks that makes the game more enjoyable to the developer of this repo. The changes are documented below. If your goal is to play the game the way Game Freak had released it themselves, then don't play this repo.  
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
 This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald), a decompilation of Pokémon Emerald.
 
 
-## Links
-
-[DoMoreAwesome](https://domoreaweso.me)
-
-[Discord](https://discord.gg/gC6mEQB)
-
-
 ## Quality-of-Life Additions:
 
 - [Allowed All Pokémon to Evolve Without Trading](https://github.com/pret/pokeemerald/wiki/Allow-All-Pokemon-to-Evolve-Without-Trading)
-- [Item Pocket Can Hold 120 items](https://github.com/pret/pokeemerald/wiki/Make-the-Bag-Able-to-Hold-120-Items-Instead-of-30)
 - [HMs Can Be Used if a Pokemon in the party can learn it.](https://github.com/pret/pokeemerald/wiki/Use-HMs-Without-Any-Pokemon-in-your-Party-Knowing-Them)
 - [Item Automatically Goes to PC if Bag is Full](https://github.com/pret/pokeemerald/wiki/Item-Automatically-Goes-to-PC-if-Bag-is-Full)
-- [Trees and Rocks get perminently cut and smashed.](https://github.com/pret/pokeemerald/wiki/All-Trees-Permanently-Get-Cut)
+- [Trees and Rocks get permanently cut and smashed.](https://github.com/pret/pokeemerald/wiki/All-Trees-Permanently-Get-Cut)
 - [Show Species That You're Battling in the Party Menu](https://github.com/pret/pokeemerald/wiki/Show-Species-That-You're-Switching-For-in-the-Party-Menu)
 - [Trainers No Longer Spin to Face You Right As You Pass Them](https://github.com/pret/pokeemerald/wiki/Trainers-No-Longer-Spin-to-Face-You-Right-As-You-Pass-Them)
 - [Pressing B Will Toggle Running](https://github.com/pret/pokeemerald/wiki/Push-B-to-Toggle-Running-Shoes)
@@ -43,7 +36,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [No battery run dry message appears](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Battery-Run-Dry-Error-Message)
 - [Made Cleanse Tag turn the off all wild encounters and made it's held ability work if held by any Pokémon in the party](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#de-nerf-cleanse-tag)
 - [Made Poké Doll cause no trainers to see you. You can still go up and talk with them.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#pokedoll-to-avoid-battles)
- - [Cleanse Tag can now be a use item as well as being held.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#make-cleanse-tag-a-toggle-able-use-item)
+ - [Cleanse Tag and Poké Doll can now be use items as well as being held.](https://github.com/pret/pokeemerald/wiki/Make-Cleanse-Tag-Avoid-All-Wild-Encounters-and-Usable-If-Held-By-Anyone-in-Your-Party;-Make-PokeDoll-Do-the-Same-for-Trainers-Seeing-You#make-cleanse-tag-a-toggle-able-use-item)
 - [Key Items With No Field Effect Will No Longer Be Register-able Nor Usable](https://github.com/pret/pokeemerald/wiki/Make-Key-Items-That-Cannot-Be-Used-In-The-Field-Not-Show-A-Use-or-Register-Option)
 - [Remove the extra save confirmation](https://github.com/pret/pokeemerald/wiki/Remove-the-extra-save-confirmation) [Credit: FieryMewtwo] 
 - [Increase Text Speed Beyond Fast](https://www.pokecommunity.com/showpost.php?p=10400198) [Credit: ellabrella]
@@ -73,6 +66,8 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allow Running From Trainer Battles](https://github.com/pret/pokeemerald/wiki/Allow-Running-From-Trainer-Battles)
 - [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
+- [Added BetterBag. This makes the bag be able to hold 78 more items.](https://github.com/pret/pokeemerald/wiki/Feature-Branches#BetterBag) [Credit: AsparagusEduardo]
+- [Added Bag Sorting](pokecommunity.com/showpost.php?p=10167488&postcount=84) [Credit: Ghoulslash]
 - [Make Poké Balls usable outside of battles](https://www.pokecommunity.com/showthread.php?p=10539730#post10539730) [Credit: Lunos]
 - [Allowed Nicknaming in the Pokémon Party Screen](https://www.pokecommunity.com/showpost.php?p=10120389&postcount=45) [Credit: Lunos]
 - [Added Ability to Use DebugPrintf](https://github.com/pret/pokeemerald/commit/9b6b164aadd18052d9d44be03f3f851a909cf527#diff-e0cf5b28d9b6b600f0af2bc78e8fd30ec675fd731a5da86f0c4283ffc0e40176)
