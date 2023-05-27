@@ -114,6 +114,7 @@ static void DebugMenu_Pokedex_ProfOakRating(u8 taskId);
 static void DebugMenu_Pokedex_ProfOakRating_ProcessInput(u8 taskId);
 static void DebugMenu_Pokegear(u8 taskId);
 static void DebugMenu_Pokegear_ProcessInput(u8 taskId);
+static void DebugMenu_EnablePokeGear(u8 taskId);
 static void DebugMenu_EnableMapCard(u8 taskId);
 static void DebugMenu_EnableRadioCard(u8 taskId);
 static void DebugMenu_WildBattle(u8 taskId);
@@ -184,6 +185,7 @@ static const u8 sText_ToggleDNPalOverride[] = _("Toggle pal override");
 static const u8 sText_CraftDNTintColor[] = _("Craft new tint color");
 static const u8 sText_ToggleNationalDex[] = _("Toggle national dex");
 static const u8 sText_ProfOakRating[] = _("Prof. Oak rating");
+static const u8 sText_EnablePokeGear[] = _("Enable Pokégear");
 static const u8 sText_EnableMapCard[] = _("Enable map card");
 static const u8 sText_EnableRadioCard[] = _("Enable radio card");
 static const u8 sText_DexCount[] = _("Count: {STR_VAR_1}");
@@ -264,6 +266,7 @@ CREATE_BOUNCER(PokedexActions, MainActions);
 
 static const struct DebugMenuAction sDebugMenu_PokegearActions[] =
 {
+    { sText_EnablePokeGear, DebugMenu_EnablePokeGear, NULL },
     { sText_EnableMapCard, DebugMenu_EnableMapCard, NULL },
     { sText_EnableRadioCard, DebugMenu_EnableRadioCard, NULL },
 };
@@ -1590,6 +1593,11 @@ static void DebugMenu_ForceEvolution(u8 taskId)
         evoSpecies = SPECIES_MEW;
     gCB2_AfterEvolution = CB2_ReturnToField;
     BeginEvolutionScene(NULL, evoSpecies, 1, slotId);  // Evolves first mon in party
+}
+
+static void DebugMenu_EnablePokeGear(u8 taskId)
+{
+    FlagSet(FLAG_SYS_POKEGEAR_GET);
 }
 
 static void DebugMenu_EnableMapCard(u8 taskId)
