@@ -17,6 +17,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Show Species That You're Battling in the Party Menu](https://github.com/pret/pokeemerald/wiki/Show-Species-That-You're-Switching-For-in-the-Party-Menu)
 - [Trainers No Longer Spin to Face You Right As You Pass Them](https://github.com/pret/pokeemerald/wiki/Trainers-No-Longer-Spin-to-Face-You-Right-As-You-Pass-Them)
 - [Pressing B Will Toggle Running](https://github.com/pret/pokeemerald/wiki/Push-B-to-Toggle-Running-Shoes)
+- [Holding Select Allows For A Second Register Item](https://github.com/pret/pokeemerald/wiki/Holding-Select-Allows-For-A-Second-Register-Item)
 - [Shifting to Pokémon Already in Battle Exits the Shift Menu](https://github.com/pret/pokeemerald/wiki/Shifting-to-Pok%C3%A9mon-Already-in-Battle-Exits-the-Shift-Menu)
 - [Get Rid of Pokemon Disobeying You](https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Pokemon-Disobeying-You)
 - [Pushing B When Asked To Stop Learning Move Will Cancel Teaching The Move](https://github.com/pret/pokeemerald/wiki/Pushing-B-When-Asked-To-Stop-Learning-Move-Will-Cancel-Teaching-The-Move)

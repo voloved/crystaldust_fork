@@ -598,6 +598,7 @@ extern const u8 BerryTree_EventScript_ItemUseWailmerPail[];
 extern const u8 Route36_EventScript_UseSquirtbottleOnSudowoodo[];
 
 extern const u8 EventScript_SelectWithoutRegisteredItem[];
+extern const u8 EventScript_SelectWithoutRegisteredHoldItem[];
 
 // overworld
 extern const u8 EventScript_WhiteOut[];

@@ -1185,7 +1185,8 @@ struct SaveBlock1
                struct ItemSlot bagPocket_Medicine[BAG_MEDICINE_COUNT];
                struct ItemSlot bagPocket_BattleItems[BAG_BATTLEITEMS_COUNT];
                struct ItemSlot bagPocket_Treasures[BAG_TREASURES_COUNT];
-    /*0x3598*/ u8 field_3598[48];
+    /*0x3598*/ u16 registerHoldItem; // registered for long press of SELECT button
+    /*0x359A*/ u8 field_359A[46];
     /*0x3700*/ struct RoomDecor roomDecorInventory;
     /*0x3718*/ u32 trainerHillTimes[4];
     /*0x3728*/ struct RamScript ramScript;
