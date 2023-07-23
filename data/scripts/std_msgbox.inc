@@ -53,6 +53,9 @@ EventScript_BufferPocketName::
 	case POCKET_POKE_BALLS, EventScript_BufferPokeballsPocket2
 	case POCKET_TM_HM, EventScript_BufferTMHMsPocket2
 	case POCKET_BERRIES, EventScript_BufferBerriesPocket2
+	case POCKET_MEDICINE, EventScript_BufferMedicinePocket2
+	case POCKET_BATTLE_ITEMS, EventScript_BufferBattleitemsPocket2
+	case POCKET_TREASURES, EventScript_BufferTreasuresPocket2
 	end
 
 EventScript_BufferItemsPocket2::
@@ -73,6 +76,18 @@ EventScript_BufferTMHMsPocket2::
 
 EventScript_BufferBerriesPocket2::
 	bufferstdstring 2, STDSTRING_BERRIES
+	return
+
+EventScript_BufferMedicinePocket2::
+	bufferstdstring 2, STDSTRING_MEDICINE
+	return
+
+EventScript_BufferBattleitemsPocket2::
+	bufferstdstring 2, STDSTRING_BATTLEITEMS
+	return
+
+EventScript_BufferTreasuresPocket2::
+	bufferstdstring 2, STDSTRING_TREASURES
 	return
 
 Std_ReceivedItem::
