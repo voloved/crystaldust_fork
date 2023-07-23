@@ -16,6 +16,7 @@
 #include "string_util.h"
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
+#include "event_data.h"
 
 // Task data
 enum
@@ -28,6 +29,7 @@ enum
     TD_SOUND,
     TD_BUTTONMODE,
     TD_FRAMETYPE,
+    TD_VSYNC,
 };
 
 // Menu items
@@ -39,7 +41,7 @@ enum
     MENUITEM_SOUND,
     MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
-    MENUITEM_CANCEL,
+    MENUITEM_VSYNC,
     MENUITEM_COUNT,
 };
 
@@ -76,6 +78,8 @@ static u8   Sound_ProcessInput(u8 selection);
 static void Sound_DrawChoices(u8 selection);
 static u8   FrameType_ProcessInput(u8 selection);
 static void FrameType_DrawChoices(u8 selection);
+static u8   VSync_ProcessInput(u8 selection);
+static void VSync_DrawChoices(u8 selection);
 static u8   ButtonMode_ProcessInput(u8 selection);
 static void ButtonMode_DrawChoices(u8 selection);
 static void DrawTextOption(void);
@@ -156,7 +160,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_SOUND]       = gText_Sound,
     [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
-    [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
+    [MENUITEM_VSYNC]       = gText_VSync,
 };
 
 static const u8 *const sTextSpeedOptions[] =
@@ -191,13 +195,20 @@ static const u8 *const sButtonTypeOptions[] =
 	gText_ButtonTypeLEqualsA
 };
 
+static const u8 *const sVSyncOptions[] =
+{
+    gText_BattleSceneOn, 
+    gText_BattleSceneOff
+};
+
 static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {
     [MENUITEM_TEXTSPEED] =      ARRAY_COUNT(sTextSpeedOptions),
     [MENUITEM_BATTLESCENE] =    ARRAY_COUNT(sBattleSceneOptions),
     [MENUITEM_BATTLESTYLE] =    ARRAY_COUNT(sBattleStyleOptions),
     [MENUITEM_SOUND] =          ARRAY_COUNT(sSoundOptions),
     [MENUITEM_BUTTONMODE] =     ARRAY_COUNT(sButtonTypeOptions),
-    [MENUITEM_FRAMETYPE] =      WINDOW_FRAMES_COUNT
+    [MENUITEM_FRAMETYPE] =      WINDOW_FRAMES_COUNT,
+    [MENUITEM_VSYNC] =          ARRAY_COUNT(sVSyncOptions)
 };
 
 static const u16 sOptionMenuPalette[] = INCBIN_U16("graphics/misc/option_menu.gbapal");
@@ -294,6 +305,7 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
         gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
+        gTasks[taskId].data[TD_VSYNC] = FlagGet(FLAG_VSYNCOFF);
 
         for (i = 0; i < MENUITEM_COUNT; i++)
             BufferOptionMenuString(taskId, i);
@@ -409,12 +421,12 @@ static u8 OptionMenu_ProcessInput(u8 taskId)
         if (data[TD_MENUSELECTION] > 0)
             data[TD_MENUSELECTION]--;
         else
-            data[TD_MENUSELECTION] = MENUITEM_CANCEL;
+            data[TD_MENUSELECTION] = MENUITEM_VSYNC;
         return OPTION_MENU_ACTION_UPDATE_DISPLAY;        
     }
     else if (JOY_REPEAT(DPAD_DOWN))
     {
-        if (data[TD_MENUSELECTION] < MENUITEM_CANCEL)
+        if (data[TD_MENUSELECTION] < MENUITEM_VSYNC)
             data[TD_MENUSELECTION]++;
         else
             data[TD_MENUSELECTION] = 0;
@@ -423,7 +435,7 @@ static u8 OptionMenu_ProcessInput(u8 taskId)
     }
     else if (JOY_NEW(A_BUTTON))
     {
-        if (data[TD_MENUSELECTION] == MENUITEM_CANCEL)
+        if (data[TD_MENUSELECTION] == MENUITEM_VSYNC)
             return OPTION_MENU_ACTION_EXIT;
     }
     else if (JOY_NEW(B_BUTTON))
@@ -446,6 +458,10 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsSound = data[TD_SOUND];
     gSaveBlock2Ptr->optionsButtonMode = data[TD_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = data[TD_FRAMETYPE];
+    if (gTasks[taskId].data[TD_VSYNC] == 0)
+        FlagClear(FLAG_VSYNCOFF);
+    else
+        FlagSet(FLAG_VSYNCOFF);
     SetPokemonCryStereo(data[TD_SOUND]);
     DestroyTask(taskId);
 }
@@ -512,6 +528,9 @@ static void BufferOptionMenuString(u8 taskId, u8 selection)
         *(strEnd++) = CHAR_SPACE;
         ConvertIntToDecimalStringN(strEnd, data[TD_FRAMETYPE] + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
         AddTextPrinterParameterized3(1, 2, x, y, optionsColor, TEXT_SPEED_FF, str);
+        break;
+    case MENUITEM_VSYNC:
+        AddTextPrinterParameterized3(1, 2, x, y, optionsColor, -1, sVSyncOptions[data[TD_VSYNC]]);
         break;
     default:
         break;

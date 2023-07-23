@@ -28,6 +28,8 @@
 #include "union_room_chat.h"
 #include "slot_machine.h"
 #include "pokegear.h"
+#include "palette.h"
+#include "event_data.h"
 
 static void VBlankIntr(void);
 static void HBlankIntr(void);
@@ -179,7 +181,8 @@ void AgbMain()
 
         PlayTimeCounter_Update();
         MapMusicMain();
-        WaitForVBlank();
+        if (gPaletteFade.active || !FlagGet(FLAG_VSYNCOFF))
+            WaitForVBlank();
     }
 }
 
