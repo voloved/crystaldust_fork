@@ -300,9 +300,16 @@ static const struct MenuAction sItemMenuActions[] =
 };
 
 // ACTION_DUMMY is used to represent blank spaces
-static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
+static const u8 sContextMenuItems_Field[][5] =
 {
     [ITEMS_POCKET] = {
+        ACTION_USE,
+        ACTION_GIVE,
+        ACTION_TOSS,
+        ACTION_CANCEL,
+        ACTION_DUMMY
+    },
+    [MEDICINE_POCKET] = {
         ACTION_USE,
         ACTION_GIVE,
         ACTION_TOSS,
@@ -316,11 +323,11 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_CANCEL,
         ACTION_DUMMY
     },
-    [TMHM_POCKET] = {
+    [BATTLEITEMS_POCKET] = {
         ACTION_USE,
         ACTION_GIVE,
+        ACTION_TOSS,
         ACTION_CANCEL,
-        ACTION_DUMMY,
         ACTION_DUMMY
     },
     [BERRIES_POCKET] = {
@@ -329,6 +336,20 @@ static const u8 sContextMenuItems_Field[][POCKETS_COUNT] =
         ACTION_TOSS,
         ACTION_VIEW_TAG,
         ACTION_CANCEL
+    },
+    [TREASURES_POCKET] = {
+        ACTION_USE,
+        ACTION_GIVE,
+        ACTION_TOSS,
+        ACTION_CANCEL,
+        ACTION_DUMMY
+    },
+    [TMHM_POCKET] = {
+        ACTION_USE,
+        ACTION_GIVE,
+        ACTION_CANCEL,
+        ACTION_DUMMY,
+        ACTION_DUMMY
     },
     [KEYITEMS_POCKET] = {
         ACTION_USE,
@@ -1590,6 +1611,12 @@ static void OpenContextMenu(u8 taskId)
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 1;
                 }
                 break;
+            case MEDICINE_POCKET:
+            case BATTLEITEMS_POCKET:
+            case TREASURES_POCKET:
+                    gBagMenu->contextMenuItemsPtr = sContextMenuItems_Field[gBagPosition.pocket];
+                    gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 1;
+                    break;
             case KEYITEMS_POCKET:
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 if ((IsUnregisterableKeyItem(gSpecialVar_ItemId))){
@@ -2306,6 +2333,11 @@ static void Task_Bag_WallyTutorialBagMenu(u8 taskId)
             tTimer++;
             break;
         case WALLY_BAG_DELAY * 2:
+            PlaySE(SE_RG_BAG_POCKET);
+            SwitchPockets(taskId, MENU_CURSOR_DELTA_RIGHT, FALSE);
+            tTimer++;
+            break;
+        case WALLY_BAG_DELAY * 3:
             PlaySE(SE_SELECT);
             BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
             Bag_FillMessageBoxWithPalette(1);
@@ -2314,7 +2346,7 @@ static void Task_Bag_WallyTutorialBagMenu(u8 taskId)
         default:
             tTimer++;
             break;
-        case WALLY_BAG_DELAY * 3:
+        case WALLY_BAG_DELAY * 4:
             PlaySE(SE_SELECT);
             BagMenu_RemoveWindow(ITEMWIN_LIST);
             BagMenu_RemoveWindow(ITEMWIN_6);
