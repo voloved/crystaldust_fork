@@ -1,3 +1,5 @@
+#include "gba/io_reg.h"
+
 EventScript_StartTrainerApproach::
 	selectapproachingtrainer
 	lockfortrainer
@@ -14,13 +16,25 @@ EventScript_TryDoNormalTrainerBattle::
 	waitmovement 0
 	specialvar VAR_RESULT, GetTrainerFlag
 	compare VAR_RESULT, FALSE
-	goto_if_ne EventScript_NoNormalTrainerBattle
+	goto_if_ne EventScript_NoNormalTrainerBattleCheckRematch
+EventScript_TryDoNormalTrainerBattleRematch::
 	special PlayTrainerEncounterMusic
 	special SetTrainerFacingDirection
 	goto EventScript_ShowTrainerIntroMsg
 
+EventScript_NoNormalTrainerBattleCheckRematch::
+	checkbuttonheld B_BUTTON
+	compare VAR_RESULT, TRUE
+	goto_if_ne EventScript_NoNormalTrainerBattle
+	msgbox TrainerBattle_Text_WouldYouLikeToRematch, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq EventScript_TryDoNormalTrainerBattleRematch
 EventScript_NoNormalTrainerBattle::
 	gotopostbattlescript
+
+TrainerBattle_Text_WouldYouLikeToRematch:
+	.string "Would you like to have a\n"
+	.string "rematch with me?$"
 
 EventScript_TryDoDoubleTrainerBattle::
 	lock

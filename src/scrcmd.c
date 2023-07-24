@@ -516,6 +516,16 @@ bool8 ScrCmd_checkpcspace(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_checkbuttonheld(struct ScriptContext *ctx)
+{
+    u16 buttonToCheck = VarGet(ScriptReadHalfword(ctx));
+    if (gMain.heldKeys & buttonToCheck)
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+    return FALSE;
+}
+
 bool8 ScrCmd_checkitemspace(struct ScriptContext *ctx)
 {
     u16 itemId = VarGet(ScriptReadHalfword(ctx));
