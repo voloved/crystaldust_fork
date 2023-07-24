@@ -1291,7 +1291,7 @@
       "exitsBagOnUse": 0,
       "pocket": "POCKET_ITEMS",
       "type": 4,
-      "fieldUseFunc": "ItemUseOutOfBattle_CannotUse",
+      "fieldUseFunc": "ItemUseOutOfBattle_PokeDoll",
       "battleUsage": 2,
       "battleUseFunc": "ItemUseInBattle_Escape",
       "secondaryId": 0

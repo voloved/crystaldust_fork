@@ -283,7 +283,7 @@ static const u8 sMenuText_ByNumber[] = _("Number");
 static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
 static const u8 sMenuText_Tap[] = _("Tap");
 static const u8 sMenuText_Hold[] = _("Hold");
-static const u8 sText_RegisterHow[] = _("Register this\nitem by tapping or\nholding SELECT?");
+static const u8 sText_RegisterHow[] = _("Register item by\ntap or hold SELECT?");
 
 static const struct MenuAction sItemMenuActions[] =
 {
@@ -905,6 +905,10 @@ void BagMenu_ItemPrintCallback(u8 windowId, u16 index, s32 itemIndex, u8 y)
             ConvertIntToDecimalStringN(gStringVar1, itemQuantity, STR_CONV_MODE_RIGHT_ALIGN, 3);
             StringExpandPlaceholders(gStringVar4, gText_xVar1);
             BagMenu_Print(windowId, 4, gStringVar4, 110, y, 0, 0, -1, 1);
+            if (gSaveBlock1Ptr->registeredItem && gSaveBlock1Ptr->registeredItem == itemId)
+                BlitBitmapToWindow(windowId, sBlit_SelectButton, 81, y - 1, 24, 16);
+            else if (gSaveBlock1Ptr->registerHoldItem && gSaveBlock1Ptr->registerHoldItem == itemId)
+                BlitBitmapToWindow(windowId, sBlit_SelectButtonHold, 81, y - 1, 24, 16);
         }
         // Print registered icon
         else if (gSaveBlock1Ptr->registeredItem && gSaveBlock1Ptr->registeredItem == itemId)
@@ -1628,8 +1632,16 @@ static void OpenContextMenu(u8 taskId)
                 }
                 else
                 {
-                    gBagMenu->contextMenuItemsPtr = sContextMenuItems_Field[gBagPosition.pocket];
+                    gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                     gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_Field[gBagPosition.pocket]) - 1;
+                    memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_Field[gBagPosition.pocket], sizeof(sContextMenuItems_Field[gBagPosition.pocket] - 1));
+                    if (gSpecialVar_ItemId == ITEM_CLEANSE_TAG || gSpecialVar_ItemId == ITEM_POKE_DOLL)
+                    { // Replace cancel with register
+                        if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId || gSaveBlock1Ptr->registerHoldItem == gSpecialVar_ItemId)
+                            gBagMenu->contextMenuItemsBuffer[3] = ACTION_DESELECT;
+                        else
+                            gBagMenu->contextMenuItemsBuffer[3] = ACTION_REGISTER;
+                    }
                 }
                 break;
             case MEDICINE_POCKET:
@@ -1865,12 +1877,13 @@ static void ItemMenu_RegisterHold(u8 taskId)
 static void AddRegisterSubMenu(void)
 {
     u8 windowId;
+    windowId = BagMenu_AddWindow(ITEMWIN_6, 0);
+    CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    StringExpandPlaceholders(gStringVar4, sText_RegisterHow);
+    BagMenu_Print(windowId, 2, gStringVar4, 0, 2, 1, 0, 0, COLORID_NORMAL);
     gBagMenu->contextMenuItemsPtr = sRegisterOptions;
     memcpy(&gBagMenu->contextMenuItemsBuffer, &sRegisterOptions, NELEMS(sRegisterOptions));
     gBagMenu->contextMenuNumItems = NELEMS(sRegisterOptions);    
-    StringExpandPlaceholders(gStringVar4, sText_RegisterHow);
-    FillWindowPixelBuffer(1, PIXEL_FILL(0));
-    BagMenu_Print(1, 1, gStringVar4, 3, 1, 0, 0, 0, 0);
     windowId = BagMenu_AddWindow(ITEMWIN_LIST, gBagMenu->contextMenuNumItems - 1);
     AddItemMenuActionTextPrinters(
         windowId,
@@ -1884,10 +1897,6 @@ static void AddRegisterSubMenu(void)
         gBagMenu->contextMenuItemsPtr
     );
     InitMenuInUpperLeftCorner(windowId, 2, 0, 2, GetFontAttribute(2, FONTATTR_MAX_LETTER_HEIGHT) + 2, gBagMenu->contextMenuNumItems, 0, 0);
-    windowId = BagMenu_AddWindow(ITEMWIN_6, 0);
-    CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_Var1IsSelected);
-    BagMenu_Print(windowId, 2, gStringVar4, 0, 2, 1, 0, 0, COLORID_NORMAL);
 }
 
 static void Task_LoadRegisterOptions(u8 taskId)
@@ -1902,7 +1911,12 @@ static void Task_LoadRegisterOptions(u8 taskId)
         gTasks[taskId].func = ItemMenu_RegisterHold;
     }
     else{
+        ClearWindowTilemap(BagMenu_GetWindowId(ITEMWIN_LIST));
+        ClearWindowTilemap(BagMenu_GetWindowId(ITEMWIN_6));
         BagMenu_RemoveWindow(ITEMWIN_LIST);
+        BagMenu_RemoveWindow(ITEMWIN_6);
+        PutWindowTilemap(WIN_ITEM_LIST);
+        CopyWindowToVram(0, 1);
         AddRegisterSubMenu();
         gTasks[taskId].func = Task_ItemContext_SingleRow;
     }
@@ -2330,7 +2344,7 @@ bool8 UseRegisteredKeyItemOnField(bool8 isRegisterHold)
     ChangeBgY_ScreenOff(0, 0, 0);
     if (item != ITEM_NONE)
     {
-        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItem, 1))
+        if (CheckBagHasItem(item, 1))
         {
             ScriptContext2_Enable();
             FreezeObjectEvents();
@@ -3084,10 +3098,6 @@ static void AddBagSortSubMenu(void)
         gBagMenu->contextMenuItemsPtr
     );
     InitMenuInUpperLeftCorner(windowId, 2, 0, 2, GetFontAttribute(2, FONTATTR_MAX_LETTER_HEIGHT) + 2, gBagMenu->contextMenuNumItems, 0, 0);
-    windowId = BagMenu_AddWindow(ITEMWIN_6, 0);
-    CopyItemName(gSpecialVar_ItemId, gStringVar1);
-    StringExpandPlaceholders(gStringVar4, gText_Var1IsSelected);
-    BagMenu_Print(windowId, 2, gStringVar4, 0, 2, 1, 0, 0, COLORID_NORMAL);
 }
 
 static void Task_LoadBagSortOptions(u8 taskId)
