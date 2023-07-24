@@ -544,5 +544,6 @@
       "script": "LilycoveCity_ContestHall_EventScript_CuteStageSign"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

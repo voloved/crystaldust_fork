@@ -15,5 +15,6 @@
   "connections": null,
   "shared_events_map": "ContestHall",
   "shared_scripts_map": "ContestHall",
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

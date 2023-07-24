@@ -98,5 +98,6 @@
       "script": "FarawayIsland_Entrance_EventScript_Sign"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

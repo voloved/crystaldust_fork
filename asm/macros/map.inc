@@ -120,6 +120,6 @@
 	.space 2
 	.endm
 
-	.macro map_header_flags allow_cycling:req, allow_escaping:req, allow_running:req, show_map_name:req, phone_service:req
-	.byte ((\phone_service) << 4) | ((\show_map_name & 1) << 3) | ((\allow_running & 1) << 2) | ((\allow_escaping & 1) << 1) | \allow_cycling
+	.macro map_header_flags allow_cycling:req, allow_escaping:req, allow_running:req, show_map_name:req, phone_service:req, allow_pokevial:req
+	.byte ((\allow_pokevial) << 5) | ((\phone_service) << 4) | ((\show_map_name & 1) << 3) | ((\allow_running & 1) << 2) | ((\allow_escaping & 1) << 1) | \allow_cycling
 	.endm

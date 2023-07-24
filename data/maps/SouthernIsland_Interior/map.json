@@ -70,5 +70,6 @@
       "script": "SouthernIsland_Interior_EventScript_TryLatiEncounter"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

@@ -494,5 +494,6 @@
       "script": "LilycoveCity_ContestLobby_EventScript_LinkContestResults"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

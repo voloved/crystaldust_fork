@@ -110,5 +110,6 @@
     }
   ],
   "bg_events": [],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

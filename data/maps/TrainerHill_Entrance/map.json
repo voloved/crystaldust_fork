@@ -129,5 +129,6 @@
       "script": "TrainerHill_Entrance_EventScript_Records"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

@@ -119,7 +119,8 @@ string generate_map_header_text(Json map_data, Json layouts_data) {
              << "allow_escaping=" << map_data["allow_escaping"].bool_value() << ", "
              << "allow_running=" << map_data["allow_running"].bool_value() << ", "
              << "show_map_name=" << map_data["show_map_name"].bool_value() << ", "
-             << "phone_service=" << map_data["phone_service"].bool_value() << "\n";
+             << "phone_service=" << map_data["phone_service"].bool_value() << ", "
+             << "allow_pokevial=" << map_data["allow_pokevial"].bool_value() << "\n";
     }
 
     //if (version == "firered") {

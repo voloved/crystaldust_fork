@@ -70,5 +70,6 @@
       "script": "SouthernIsland_Exterior_EventScript_Sign"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

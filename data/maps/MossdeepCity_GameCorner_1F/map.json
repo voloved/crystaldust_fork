@@ -93,5 +93,6 @@
       "script": "MossdeepCity_GameCorner_1F_EventScript_PokemonJumpRecords"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

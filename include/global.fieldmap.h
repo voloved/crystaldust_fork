@@ -154,7 +154,8 @@ struct MapHeader
                bool8 allowEscaping:1; // Escape Rope and Dig
                bool8 allowRunning:1;
                bool8 showMapName:1; 
-               bool8 phoneService:4; // the last 3 bits are unused 
+               bool8 phoneService:1;
+               bool8 allowPokevial:3; // the last 2 bits are unused 
     /* 0x1A */ s8 floorNum;
     /* 0x1B */ u8 battleType;
 };

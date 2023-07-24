@@ -172,5 +172,6 @@
       "script": "GoldenrodCity_PokemonSchool_EventScript_StudentNotebook"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }

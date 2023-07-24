@@ -126,5 +126,6 @@
       "script": "VerdanturfTown_BattleTentLobby_EventScript_RulesBoard"
     }
   ],
-  "phone_service": true
+  "phone_service": true,
+  "allow_pokevial":true
 }
