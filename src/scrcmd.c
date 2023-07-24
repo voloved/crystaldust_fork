@@ -1929,6 +1929,7 @@ bool8 ScrCmd_gotopostbattlescript(struct ScriptContext *ctx)
 
 bool8 ScrCmd_gotobeatenscript(struct ScriptContext *ctx)
 {
+    FlagClear(FLAG_TEMP_5);
     ctx->scriptPtr = BattleSetup_GetTrainerPostBattleScript();
     return FALSE;
 }
