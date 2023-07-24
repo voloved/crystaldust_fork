@@ -430,23 +430,23 @@ static void CreatePCMultichoice(void)
     // Include Hall of Fame option if player is champion
     if (FlagGet(FLAG_SYS_GAME_CLEAR))
     {
-        numChoices = 5;
-        windowId = CreateWindowFromRect(0, 0, width, 10);
+        numChoices = 6;
+        windowId = CreateWindowFromRect(0, 0, width, 12);
         SetStandardWindowBorderStyle(windowId, FALSE);
-        AddTextPrinterParameterized(windowId, 2, gText_ProfOakSPc, x, 34, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(windowId, 2, gText_HallOfFame, x, 50, TEXT_SPEED_FF, NULL);
-        AddTextPrinterParameterized(windowId, 2, gText_LogOff, x, 66, TEXT_SPEED_FF, NULL);
+        AddTextPrinterParameterized(windowId, 2, gText_ProfOakSPc, x, 50, TEXT_SPEED_FF, NULL);
+        AddTextPrinterParameterized(windowId, 2, gText_HallOfFame, x, 66, TEXT_SPEED_FF, NULL);
+        AddTextPrinterParameterized(windowId, 2, gText_LogOff, x, 82, TEXT_SPEED_FF, NULL);
     }
     else
     {
         if (FlagGet(FLAG_SYS_POKEDEX_GET))
-            numChoices = 4;
+            numChoices = 5;
         else
-            numChoices = 3;
+            numChoices = 4;
         windowId = CreateWindowFromRect(0, 0, width, numChoices * 2);
         SetStandardWindowBorderStyle(windowId, FALSE);
         if (FlagGet(FLAG_SYS_POKEDEX_GET))
-            AddTextPrinterParameterized(windowId, 2, gText_ProfOakSPc, x, 34, 0xFF, NULL);
+            AddTextPrinterParameterized(windowId, 2, gText_ProfOakSPc, x, 50, 0xFF, NULL);
         AddTextPrinterParameterized(windowId, 2, gText_LogOff, x, 2 + 16 * (numChoices - 1), TEXT_SPEED_FF, NULL);
     }
 
@@ -456,6 +456,7 @@ static void CreatePCMultichoice(void)
     else
         AddTextPrinterParameterized(windowId, 2, gText_SomeonesPC, x, 2, TEXT_SPEED_FF, NULL);
 
+    AddTextPrinterParameterized(windowId, 2, gText_SpecialMenu, x, 34, TEXT_SPEED_FF, NULL);
     StringExpandPlaceholders(gStringVar4, gText_PlayersPC);
     PrintPlayerNameOnWindow(windowId, gStringVar4, x, 18);
     InitMenuInUpperLeftCornerPlaySoundWhenAPressed(windowId, 2, 0, 2, 16, numChoices, 0);

@@ -746,6 +746,7 @@ const u8 gText_Treasures[] = _("TREASURES");
 const u8 gText_SomeonesPC[] = _("BILL'S PC");
 const u8 gText_LanettesPC[] = _("LANETTE'S PC");
 const u8 gText_PlayersPC[] = _("{PLAYER}'s PC");
+const u8 gText_SpecialMenu[] = _("SPECIAL MENU");
 const u8 gText_ProfOakSPc[] = _("PROF. OAK's PC");
 const u8 gText_HallOfFame[] = _("HALL OF FAME");
 const u8 gText_LogOff[] = _("LOG OFF");

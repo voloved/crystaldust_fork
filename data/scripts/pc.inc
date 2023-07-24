@@ -19,9 +19,10 @@ EventScript_AccessPC::
 	switch VAR_RESULT
 	case 0, EventScript_AccessPokemonStorage
 	case 1, EventScript_AccessPlayersPC
-	case 2, EventScript_AccessProfOaksPC
-	case 3, EventScript_AccessHallOfFame
-	case 4, EventScript_TurnOffPC
+	case 2, EventScript_AccessSpecialSettings
+	case 3, EventScript_AccessProfOaksPC
+	case 4, EventScript_AccessHallOfFame
+	case 5, EventScript_TurnOffPC
 	case MULTI_B_PRESSED, EventScript_TurnOffPC
 	end
 
@@ -40,6 +41,15 @@ EventScript_AccessPokemonStorage::
 	msgbox gText_StorageSystemOpened, MSGBOX_DEFAULT
 	special ShowPokemonStorageSystemPC
 	waitstate
+	goto EventScript_PCMainMenu
+	end
+
+EventScript_AccessSpecialSettings::
+	playse SE_PC_LOGIN
+	msgbox gText_AccessedSpecialSettings, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	call NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn
 	goto EventScript_PCMainMenu
 	end
 
