@@ -599,6 +599,11 @@ void CountBadges(void)
     gSpecialVar_Result = numBadges;
 }
 
+void IsRematchAllowed(void)
+{
+    gSpecialVar_Result = gMapHeader.allowPokevial;
+}
+
 void GiveEnemyMonSelfdestruct(void)
 {
     u16 move = MOVE_SELF_DESTRUCT;

@@ -23,6 +23,9 @@ EventScript_TryDoNormalTrainerBattleRematch::
 	goto EventScript_ShowTrainerIntroMsg
 
 EventScript_NoNormalTrainerBattleCheckRematch::
+	callnative IsRematchAllowed
+	compare VAR_RESULT, TRUE
+	goto_if_ne EventScript_NoNormalTrainerBattle
 	checkbuttonheld B_BUTTON
 	compare VAR_RESULT, TRUE
 	goto_if_ne EventScript_NoNormalTrainerBattle
@@ -33,17 +36,14 @@ EventScript_NoNormalTrainerBattleCheckRematch::
 EventScript_NoNormalTrainerBattle::
 	gotopostbattlescript
 
-TrainerBattle_Text_WouldYouLikeToRematch:
-	.string "Would you like to have a\n"
-	.string "rematch with me?$"
-
 EventScript_TryDoDoubleTrainerBattle::
 	lock
 	faceplayer
 	call EventScript_RevealTrainer
 	specialvar VAR_RESULT, GetTrainerFlag
 	compare VAR_RESULT, FALSE
-	goto_if_ne EventScript_NoDoubleTrainerBattle
+	goto_if_ne EventScript_NoDoubleTrainerBattleCheckRematch
+EventScript_TryDoDoubleTrainerBattleRematch::
 	special HasEnoughMonsForDoubleBattle
 	compare VAR_RESULT, PLAYER_HAS_TWO_USABLE_MONS
 	goto_if_ne EventScript_NotEnoughMonsForDoubleBattle
@@ -58,8 +58,27 @@ EventScript_NotEnoughMonsForDoubleBattle::
 	release
 	end
 
+EventScript_NoDoubleTrainerBattleCheckRematch::
+	callnative IsRematchAllowed
+	compare VAR_RESULT, TRUE
+	goto_if_ne EventScript_NoDoubleTrainerBattle
+	checkbuttonheld B_BUTTON
+	compare VAR_RESULT, TRUE
+	goto_if_ne EventScript_NoDoubleTrainerBattle
+	msgbox TrainerBattle_Text_WouldYouLikeToRematchUs, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	setflag FLAG_TEMP_16
+	goto_if_eq EventScript_TryDoDoubleTrainerBattleRematch
 EventScript_NoDoubleTrainerBattle::
 	gotopostbattlescript
+
+TrainerBattle_Text_WouldYouLikeToRematch:
+	.string "Would you like to have a\n"
+	.string "rematch with me?$"
+
+TrainerBattle_Text_WouldYouLikeToRematchUs:
+	.string "Would you like to have a\n"
+	.string "rematch with us?$"
 
 EventScript_DoNoIntroTrainerBattle::
 	applymovement VAR_LAST_TALKED, Movement_RevealTrainer
