@@ -4177,7 +4177,7 @@ u8 IsRunningFromBattleImpossible(void)
 
 bool8 IsTrainerCantRunFrom(void){
     u8 trainerClass;
-    if (gBattleTypeFlags & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL))
+    if (gBattleTypeFlags & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER_HILL))
         return 1;
     trainerClass = gTrainers[gTrainerBattleOpponent_A].trainerClass;
     switch (trainerClass)

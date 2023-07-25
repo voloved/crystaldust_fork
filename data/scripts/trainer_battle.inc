@@ -67,7 +67,6 @@ EventScript_NoDoubleTrainerBattleCheckRematch::
 	goto_if_ne EventScript_NoDoubleTrainerBattle
 	msgbox TrainerBattle_Text_WouldYouLikeToRematchUs, MSGBOX_YESNO
 	compare VAR_RESULT, YES
-	setflag FLAG_TEMP_16
 	goto_if_eq EventScript_TryDoDoubleTrainerBattleRematch
 EventScript_NoDoubleTrainerBattle::
 	gotopostbattlescript
