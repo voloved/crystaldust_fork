@@ -1164,29 +1164,41 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     }
 }
 
+static const u8 sText_PokeVial_Success_Plural[] = _("PokéVial successfully healed party.\p{STR_VAR_1} more uses before needing\nto heal at a POKéMON Center.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVial_Success_Singular[] = _("PokéVial successfully healed party.\p{STR_VAR_1} more use before needing\nto heal at a POKéMON Center.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVial_Success_NoMoreUses[] = _("PokéVial successfully healed party.\pNo more use left. Heal at\nPOKéMON Center to replenish.{PAUSE_UNTIL_PRESS}");
+static const u8 sText_PokeVial_Failure[] = _("PokéVial is drained. Heal at a\nPOKéMON Center to replenish.{PAUSE_UNTIL_PRESS}");
 void ItemUseOutOfBattle_PokeVial(u8 taskId)
 {
+    const u8 *Text_PokeVial_Success = NULL;
     u16 vialUsages = VarGet(VAR_POKEVIAL_USAGES);
     u16 vialUsagesMax = ItemId_GetHoldEffectParam(ITEM_POKEVIAL);
+    u16 vialUsagesLeft = vialUsagesMax - vialUsages;
     if(gMapHeader.allowPokevial == 0)
         ItemUseOutOfBattle_CannotUse(taskId);
-    else if (vialUsages >= vialUsagesMax){
+    else if (vialUsagesLeft == 0){
         if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
-            DisplayItemMessageOnField(taskId, gText_PokeVial_Failure, Task_CloseCantUseKeyItemMessage);
+            DisplayItemMessageOnField(taskId, sText_PokeVial_Failure, Task_CloseCantUseKeyItemMessage);
         else
-            DisplayItemMessage(taskId, 1, gText_PokeVial_Failure, CloseItemMessage);
-
+            DisplayItemMessage(taskId, 1, sText_PokeVial_Failure, CloseItemMessage);
     }
     else{
         PlaySE(SE_RG_POKE_JUMP_SUCCESS);
         HealPlayerParty();
         vialUsages++;
+        vialUsagesLeft = vialUsagesMax - vialUsages;
         VarSet(VAR_POKEVIAL_USAGES, vialUsages);
         ConvertIntToDecimalStringN(gStringVar1, vialUsagesMax - vialUsages, STR_CONV_MODE_LEFT_ALIGN, 2);
-        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
-            DisplayItemMessageOnField(taskId, gText_PokeVial_Success, Task_CloseCantUseKeyItemMessage);
+        if(vialUsagesLeft == 0)
+            Text_PokeVial_Success = sText_PokeVial_Success_NoMoreUses;
+        else if(vialUsagesLeft == 1)
+            Text_PokeVial_Success = sText_PokeVial_Success_Singular;
         else
-            DisplayItemMessage(taskId, 1, gText_PokeVial_Success, CloseItemMessage);
+            Text_PokeVial_Success = sText_PokeVial_Success_Plural;
+        if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
+            DisplayItemMessageOnField(taskId, Text_PokeVial_Success, Task_CloseCantUseKeyItemMessage);
+        else
+            DisplayItemMessage(taskId, 1, Text_PokeVial_Success, CloseItemMessage);
     }
 }
 

@@ -940,8 +940,6 @@ extern const u8 gText_ReturnToPC[];
 
 extern const u8 gText_ExpShareTurnOn[];
 extern const u8 gText_ExpShareTurnOff[];
-extern const u8 gText_PokeVial_Success[];
-extern const u8 gText_PokeVial_Failure[];
 extern const u8 gText_CleanseTagTurnOn[];
 extern const u8 gText_CleanseTagTurnOff[];
 extern const u8 gText_PokeDollTurnOn[];
