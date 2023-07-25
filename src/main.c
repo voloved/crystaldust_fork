@@ -181,7 +181,7 @@ void AgbMain()
 
         PlayTimeCounter_Update();
         MapMusicMain();
-        if (gPaletteFade.active || !FlagGet(FLAG_VSYNCOFF))
+        if (gPaletteFade.active || !FlagGet(FLAG_VSYNCOFF) || FlagGet(FLAG_TEMP_17))
             WaitForVBlank();
     }
 }

@@ -12,7 +12,7 @@
 #define FLAG_TEMP_2      (TEMP_FLAGS_START + 0x2)
 #define FLAG_TEMP_3      (TEMP_FLAGS_START + 0x3)
 #define FLAG_TEMP_4      (TEMP_FLAGS_START + 0x4)
-#define FLAG_TEMP_5      (TEMP_FLAGS_START + 0x5)  // Used to check if in rematch
+#define FLAG_TEMP_5      (TEMP_FLAGS_START + 0x5)  // Unused Flag
 #define FLAG_TEMP_6      (TEMP_FLAGS_START + 0x6)  // Unused Flag
 #define FLAG_TEMP_7      (TEMP_FLAGS_START + 0x7)  // Unused Flag
 #define FLAG_TEMP_8      (TEMP_FLAGS_START + 0x8)  // Unused Flag
@@ -29,8 +29,8 @@
 #define FLAG_TEMP_13     (TEMP_FLAGS_START + 0x13)
 #define FLAG_TEMP_14     (TEMP_FLAGS_START + 0x14)
 #define FLAG_TEMP_15     (TEMP_FLAGS_START + 0x15)
-#define FLAG_TEMP_16     (TEMP_FLAGS_START + 0x16)
-#define FLAG_TEMP_17     (TEMP_FLAGS_START + 0x17)
+#define FLAG_TEMP_16     (TEMP_FLAGS_START + 0x16) // Used to check if in rematch
+#define FLAG_TEMP_17     (TEMP_FLAGS_START + 0x17) // Used to check if in option menu to not turn off VSYNC
 #define FLAG_TEMP_18     (TEMP_FLAGS_START + 0x18)
 #define FLAG_TEMP_19     (TEMP_FLAGS_START + 0x19)
 #define FLAG_TEMP_1A     (TEMP_FLAGS_START + 0x1A)

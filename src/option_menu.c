@@ -319,6 +319,7 @@ void CB2_InitOptionMenu(void)
         break;
     case 13:
         SetMainCallback2(MainCB2);
+        FlagSet(FLAG_TEMP_17);
         return;
     }
     gMain.state++;
@@ -355,6 +356,7 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         case OPTION_MENU_ACTION_DO_NOTHING:
             break;
         case OPTION_MENU_ACTION_EXIT:
+            FlagClear(FLAG_TEMP_17);
             data[TD_STATE]++;
             break;
         case OPTION_MENU_ACTION_CHANGE_FRAME:
@@ -432,11 +434,6 @@ static u8 OptionMenu_ProcessInput(u8 taskId)
             data[TD_MENUSELECTION] = 0;
         HighlightOptionMenuItem(data[TD_MENUSELECTION]);
         return OPTION_MENU_ACTION_UPDATE_DISPLAY;
-    }
-    else if (JOY_NEW(A_BUTTON))
-    {
-        if (data[TD_MENUSELECTION] == MENUITEM_VSYNC)
-            return OPTION_MENU_ACTION_EXIT;
     }
     else if (JOY_NEW(B_BUTTON))
     {

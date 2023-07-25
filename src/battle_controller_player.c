@@ -357,7 +357,7 @@ static void HandleInputChooseAction(void)
         }
         else
         {
-            if(!IsTrainerCantRunFrom() && (FlagGet(FLAG_ALLOW_RUNNING_FROM_TRAINER) || FlagGet(FLAG_TEMP_5))) //if wild, pressing B moves cursor to run
+            if(!IsTrainerCantRunFrom() && (FlagGet(FLAG_ALLOW_RUNNING_FROM_TRAINER) || FlagGet(FLAG_TEMP_16))) //if wild, pressing B moves cursor to run
             {
                 PlaySE(SE_SELECT);
                 ActionSelectionDestroyCursorAt(gActionSelectionCursor[gActiveBattler]);
