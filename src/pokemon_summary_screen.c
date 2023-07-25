@@ -1553,7 +1553,7 @@ static void Task_HandleInput(u8 taskId)
         {
             ChangePage(taskId, 1);
         }
-        else if (JOY_NEW(A_BUTTON))
+        else if (JOY_NEW(A_BUTTON) && (!JOY_HELD(L_BUTTON) || sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS))
         {
             if (sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS)
             {
@@ -1570,14 +1570,14 @@ static void Task_HandleInput(u8 taskId)
                 }
             }
         }
-        else if (JOY_NEW(B_BUTTON))
+        else if (JOY_NEW(B_BUTTON) && (!JOY_HELD(R_BUTTON) || sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS))
         {
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
         }
         // show IVs/EVs/stats on button presses
-        else if (gMain.newKeys & R_BUTTON)
+        else if (JOY_NEW(R_BUTTON))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
@@ -1585,7 +1585,7 @@ static void Task_HandleInput(u8 taskId)
                 BufferIvOrEvStats(sStatsMode);
             }
         }
-        else if (gMain.newKeys & L_BUTTON)
+        else if (JOY_NEW(L_BUTTON))
         {
             if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
             {
