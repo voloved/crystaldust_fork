@@ -24,10 +24,6 @@
 #include "main.h"
 #include "trainer_hill.h"
 #include "constants/rgb.h"
-#include "wallclock.h"
-#include "union_room_chat.h"
-#include "slot_machine.h"
-#include "pokegear.h"
 #include "palette.h"
 #include "event_data.h"
 
@@ -315,7 +311,7 @@ static void ReadKeys(void)
     gMain.heldKeys = gMain.heldKeysRaw;
 
     // Remap L to A if the L=A option is enabled.
-    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A && gMain.callback2 != CB2_Pokegear)
+    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
     {
         if (JOY_NEW(L_BUTTON))
             gMain.newKeys |= A_BUTTON;
@@ -325,8 +321,7 @@ static void ReadKeys(void)
             gMain.newKeys ^= A_BUTTON;
         }
 #if !DEBUG
-        if(JOY_HELD(R_BUTTON) && (gMain.callback2 != CB2_StartWallClock
-        && gMain.callback2 != CB2_UnionRoomChatMain && gMain.callback2 != CB2_SlotMachine)){
+        if(JOY_HELD(R_BUTTON)){
             gMain.newKeys ^= B_BUTTON;
         }
 #endif
