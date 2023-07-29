@@ -93,10 +93,10 @@ EventScript_PkmnCenterNurse_ReturnPkmn::
     goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
     goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_ReturnPkmn_Faster
     message gText_WeHopeToSeeYouAgain
-    return
+    goto EventScript_PkmnCenterNurse_PlayerTurn
 EventScript_PkmnCenterNurse_ReturnPkmn_Faster::
     message gText_IllTakeYourPkmn4
-    return
+    goto EventScript_PkmnCenterNurse_PlayerTurn
 
 EventScript_PkmnCenterNurse_ReturnPkmn2::
     goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_ReturnPkmn2_Faster
@@ -104,7 +104,7 @@ EventScript_PkmnCenterNurse_ReturnPkmn2::
     return
 EventScript_PkmnCenterNurse_ReturnPkmn2_Faster::
     message gText_IllTakeYourPkmn4
-    return
+    goto EventScript_PkmnCenterNurse_PlayerTurn
 
 EventScript_PkmnCenterNurse_PlayerWaitingInUnionRoom::
     goto_if_set FLAG_NURSE_UNION_ROOM_REMINDER, EventScript_PkmnCenterNurse_ReturnPkmn
@@ -162,3 +162,10 @@ Movement_PkmnCenterNurse_Bow:
     nurse_joy_bow
     delay_4
     step_end
+
+EventScript_PkmnCenterNurse_PlayerTurn::
+    waitbuttonpress
+    applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+    waitmovement 0
+    release
+    end
