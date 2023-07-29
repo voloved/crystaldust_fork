@@ -93,7 +93,7 @@ EventScript_PkmnCenterNurse_ReturnPkmn::
     goto_if_eq EventScript_PkmnCenterNurse_ReturnPkmn2
     goto_if_set FLAG_FASTER_NURSE_JOY, EventScript_PkmnCenterNurse_ReturnPkmn_Faster
     message gText_WeHopeToSeeYouAgain
-    goto EventScript_PkmnCenterNurse_PlayerTurn
+    return
 EventScript_PkmnCenterNurse_ReturnPkmn_Faster::
     message gText_IllTakeYourPkmn4
     goto EventScript_PkmnCenterNurse_PlayerTurn
