@@ -65,6 +65,9 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Add Move Relearning Into Party Menu](https://www.pokecommunity.com/showpost.php?p=10470602) [Credit: DiegoIsAwesome]
 - [Allow Move Relearner to Teach Moves that Pre Evolutions Know](https://github.com/pret/pokeemerald/wiki/Allow-Move-Relearner-to-Teach-Moves-that-Pre-Evolutions-Know)
 - [Allow Running From Trainer Battles](https://github.com/pret/pokeemerald/wiki/Allow-Running-From-Trainer-Battles)
+- [Allow Rematch With Trainers When Holding B When Talking to Them](https://gitlab.com/devolov/pokeemerald_fork/-/wikis/Allow-Rematching-Trainers)
+- [Showing IVs/EVs in Summary Screen](https://github.com/pret/pokeemerald/wiki/Colored-stats-by-nature-in-summary-screen) [Credit: PokemonCrazy]
+- [Colored Stats by Nature in Summary Screen](https://www.pokecommunity.com/showpost.php?p=10161688&postcount=77) [Credit: DizzyEgg]
 - [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)
 - [Added BetterBag. This makes the bag be able to hold 78 more items.](https://github.com/pret/pokeemerald/wiki/Feature-Branches#BetterBag) [Credit: AsparagusEduardo]
