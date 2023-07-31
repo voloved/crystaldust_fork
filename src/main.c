@@ -177,7 +177,7 @@ void AgbMain()
 
         PlayTimeCounter_Update();
         MapMusicMain();
-        if (gPaletteFade.active || (!gSaveBlock2Ptr->vSyncOff && !JOY_HELD(L_BUTTON)) || FlagGet(FLAG_TEMP_17))
+        if (gPaletteFade.active || !FlagGet(FLAG_VSYNCOFF) || FlagGet(FLAG_TEMP_17))
             WaitForVBlank();
     }
 }
@@ -310,11 +310,22 @@ static void ReadKeys(void)
     gMain.heldKeysRaw = keyInput;
     gMain.heldKeys = gMain.heldKeysRaw;
 
-    // Turbo Option
-    if(JOY_HELD(R_BUTTON) && JOY_HELD(A_BUTTON))
-        gMain.newKeys ^= A_BUTTON;
-    if(JOY_HELD(R_BUTTON) && JOY_HELD(B_BUTTON))
-        gMain.newKeys ^= B_BUTTON;
+    // Remap L to A if the L=A option is enabled.
+    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    {
+        if (JOY_NEW(L_BUTTON))
+            gMain.newKeys |= A_BUTTON;
+
+        if (JOY_HELD(L_BUTTON)){
+            gMain.heldKeys |= A_BUTTON;
+            gMain.newKeys ^= A_BUTTON;
+        }
+#if !DEBUG
+        if(JOY_HELD(R_BUTTON)){
+            gMain.newKeys ^= B_BUTTON;
+        }
+#endif
+    }
 
     if (JOY_NEW(gMain.watchedKeysMask))
         gMain.watchedKeysPressed = TRUE;

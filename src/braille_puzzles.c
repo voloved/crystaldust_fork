@@ -385,6 +385,11 @@ bool32 BrailleWait_CheckButtonPress(void)
 {
     u16 keyMask = A_BUTTON | B_BUTTON | START_BUTTON | SELECT_BUTTON | DPAD_ANY;
 
+    if (gSaveBlock2.optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
+        keyMask |= L_BUTTON | R_BUTTON;
+    if (gSaveBlock2.optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+        keyMask |= L_BUTTON;
+
     if (JOY_NEW(keyMask))
         return TRUE;
     else

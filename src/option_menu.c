@@ -27,6 +27,7 @@ enum
     TD_BATTLESCENE,
     TD_BATTLESTYLE,
     TD_SOUND,
+    TD_BUTTONMODE,
     TD_FRAMETYPE,
     TD_VSYNC,
 };
@@ -38,9 +39,9 @@ enum
     MENUITEM_BATTLESCENE,
     MENUITEM_BATTLESTYLE,
     MENUITEM_SOUND,
+    MENUITEM_BUTTONMODE,
     MENUITEM_FRAMETYPE,
     MENUITEM_VSYNC,
-    MENUITEM_CANCEL,
     MENUITEM_COUNT,
 };
 
@@ -157,9 +158,9 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_BATTLESCENE] = gText_BattleScene,
     [MENUITEM_BATTLESTYLE] = gText_BattleStyle,
     [MENUITEM_SOUND]       = gText_Sound,
+    [MENUITEM_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_FRAMETYPE]   = gText_Frame,
     [MENUITEM_VSYNC]       = gText_VSync,
-    [MENUITEM_CANCEL]      = gText_OptionMenuCancel,
 };
 
 static const u8 *const sTextSpeedOptions[] =
@@ -205,6 +206,7 @@ static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {
     [MENUITEM_BATTLESCENE] =    ARRAY_COUNT(sBattleSceneOptions),
     [MENUITEM_BATTLESTYLE] =    ARRAY_COUNT(sBattleStyleOptions),
     [MENUITEM_SOUND] =          ARRAY_COUNT(sSoundOptions),
+    [MENUITEM_BUTTONMODE] =     ARRAY_COUNT(sButtonTypeOptions),
     [MENUITEM_FRAMETYPE] =      WINDOW_FRAMES_COUNT,
     [MENUITEM_VSYNC] =          ARRAY_COUNT(sVSyncOptions)
 };
@@ -301,8 +303,9 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].data[TD_BATTLESCENE] = gSaveBlock2Ptr->optionsBattleSceneOff;
         gTasks[taskId].data[TD_BATTLESTYLE] = gSaveBlock2Ptr->optionsBattleStyle;
         gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
+        gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
-        gTasks[taskId].data[TD_VSYNC] = gSaveBlock2Ptr->vSyncOff;
+        gTasks[taskId].data[TD_VSYNC] = FlagGet(FLAG_VSYNCOFF);
 
         for (i = 0; i < MENUITEM_COUNT; i++)
             BufferOptionMenuString(taskId, i);
@@ -420,22 +423,17 @@ static u8 OptionMenu_ProcessInput(u8 taskId)
         if (data[TD_MENUSELECTION] > 0)
             data[TD_MENUSELECTION]--;
         else
-            data[TD_MENUSELECTION] = MENUITEM_CANCEL;
+            data[TD_MENUSELECTION] = MENUITEM_VSYNC;
         return OPTION_MENU_ACTION_UPDATE_DISPLAY;        
     }
     else if (JOY_REPEAT(DPAD_DOWN))
     {
-        if (data[TD_MENUSELECTION] < MENUITEM_CANCEL)
+        if (data[TD_MENUSELECTION] < MENUITEM_VSYNC)
             data[TD_MENUSELECTION]++;
         else
             data[TD_MENUSELECTION] = 0;
         HighlightOptionMenuItem(data[TD_MENUSELECTION]);
         return OPTION_MENU_ACTION_UPDATE_DISPLAY;
-    }
-    else if (JOY_NEW(A_BUTTON))
-    {
-        if (data[TD_MENUSELECTION] == MENUITEM_CANCEL)
-            return OPTION_MENU_ACTION_EXIT;
     }
     else if (JOY_NEW(B_BUTTON))
     {
@@ -455,8 +453,12 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsBattleSceneOff = data[TD_BATTLESCENE];
     gSaveBlock2Ptr->optionsBattleStyle = data[TD_BATTLESTYLE];
     gSaveBlock2Ptr->optionsSound = data[TD_SOUND];
-    gSaveBlock2Ptr->vSyncOff = data[TD_VSYNC];
+    gSaveBlock2Ptr->optionsButtonMode = data[TD_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = data[TD_FRAMETYPE];
+    if (gTasks[taskId].data[TD_VSYNC] == 0)
+        FlagClear(FLAG_VSYNCOFF);
+    else
+        FlagSet(FLAG_VSYNCOFF);
     SetPokemonCryStereo(data[TD_SOUND]);
     DestroyTask(taskId);
 }
@@ -514,6 +516,9 @@ static void BufferOptionMenuString(u8 taskId, u8 selection)
         break;
     case MENUITEM_SOUND:
         AddTextPrinterParameterized3(1, 2, x, y, optionsColor, -1, sSoundOptions[data[TD_SOUND]]);
+        break;
+    case MENUITEM_BUTTONMODE:
+        AddTextPrinterParameterized3(1, 2, x, y, optionsColor, -1, sButtonTypeOptions[data[TD_BUTTONMODE]]);
         break;
     case MENUITEM_FRAMETYPE:
         strEnd = StringCopy(str, gText_FrameType);
