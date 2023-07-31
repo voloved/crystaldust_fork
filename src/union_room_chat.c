@@ -1024,7 +1024,7 @@ static void Chat_HandleInput(void)
         {
             SetChatFunction(CHAT_FUNC_SWITCH);
         }
-        else if (JOY_REPEAT(B_BUTTON) && !JOY_HELD(R_BUTTON))
+        else if (gMain.newAndRepeatedKeys & B_BUTTON)
         {
             if (sChat->bufferCursorPos)
             {

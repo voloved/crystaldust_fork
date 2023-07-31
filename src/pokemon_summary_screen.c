@@ -1570,7 +1570,7 @@ static void Task_HandleInput(u8 taskId)
                 }
             }
         }
-        else if (JOY_NEW(B_BUTTON) && (!JOY_HELD(R_BUTTON) || sMonSummaryScreen->currPageIndex != PSS_PAGE_SKILLS))
+        else if (JOY_NEW(B_BUTTON))
         {
             StopPokemonAnimations();
             PlaySE(SE_SELECT);

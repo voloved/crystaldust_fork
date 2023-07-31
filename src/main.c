@@ -177,7 +177,7 @@ void AgbMain()
 
         PlayTimeCounter_Update();
         MapMusicMain();
-        if (gPaletteFade.active || (!gSaveBlock2Ptr->vSyncOff && !JOY_HELD(L_BUTTON)) || FlagGet(FLAG_TEMP_17))
+        if (gPaletteFade.active || ((R_BUTTON * gSaveBlock2Ptr->vSyncOff) == JOY_HELD(R_BUTTON)) || FlagGet(FLAG_TEMP_17))
             WaitForVBlank();
     }
 }
@@ -311,9 +311,9 @@ static void ReadKeys(void)
     gMain.heldKeys = gMain.heldKeysRaw;
 
     // Turbo Option
-    if(JOY_HELD(R_BUTTON) && JOY_HELD(A_BUTTON))
+    if(JOY_HELD(L_BUTTON) && JOY_HELD(A_BUTTON))
         gMain.newKeys ^= A_BUTTON;
-    if(JOY_HELD(R_BUTTON) && JOY_HELD(B_BUTTON))
+    if(JOY_HELD(L_BUTTON) && JOY_HELD(B_BUTTON))
         gMain.newKeys ^= B_BUTTON;
 
     if (JOY_NEW(gMain.watchedKeysMask))
