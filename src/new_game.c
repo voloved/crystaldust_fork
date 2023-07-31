@@ -101,7 +101,7 @@ static void SetDefaultOptions(void)
     gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
     gSaveBlock2Ptr->daylightSavingTime = FALSE;
     gSaveBlock2Ptr->twentyFourHourClock = FALSE;
-    gSaveBlock2Ptr->optionsButtonMode = OPTIONS_BUTTON_MODE_L_EQUALS_A;
+    gSaveBlock2Ptr->vSyncOff = FALSE;
     FlagSet(FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW);
 }
 

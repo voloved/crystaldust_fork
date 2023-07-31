@@ -159,14 +159,13 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     
     // If B is pressed, field controls are allowed, and the player is either running or walking.
     if ((newKeys & B_BUTTON) && !ScriptContext2_IsEnabled()
-    && !((heldKeys & R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
-    && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    && !((heldKeys & R_BUTTON) && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT))))
     {
         gRunToggleBtnSet = TRUE;
     }
         
 #if DEBUG
-    if ((heldKeys & R_BUTTON) && input->pressedStartButton)
+    if ((heldKeys & A_BUTTON) && input->pressedStartButton)
     {
         input->input_field_1_2 = TRUE;
         input->pressedStartButton = FALSE;
