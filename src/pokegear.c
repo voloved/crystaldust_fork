@@ -877,7 +877,7 @@ static void Task_Pokegear3(u8 taskId)
     {
         u8 newCard = sPokegearStruct.currentCard;
 
-        if (JOY_NEW(B_BUTTON) && !JOY_HELD(R_BUTTON))
+        if (JOY_NEW(B_BUTTON) && !(JOY_HELD(R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
         {
             gTasks[taskId].func = Task_ExitPokegear1;
             PlaySE(SE_POKENAV_OFF);
@@ -1092,7 +1092,9 @@ static void Task_ClockCard(u8 taskId)
         shouldForceUpdate = TRUE;
     }
 
-    if (JOY_NEW(A_BUTTON) && !JOY_HELD(L_BUTTON))
+    if (JOY_NEW(A_BUTTON) && !(JOY_HELD(L_BUTTON) && 
+    (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A
+    || gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE)))
     {
         PlaySE(SE_SELECT);
         gSaveBlock2Ptr->twentyFourHourClock = !gSaveBlock2Ptr->twentyFourHourClock;
@@ -1610,12 +1612,18 @@ void Task_InitPokegearPhoneCall(u8 taskId)
         // the phone contact not being available to talk.
         if (IsTextPrinterActive(gPhoneCallWindowId))
         {
-            if (JOY_HELD(A_BUTTON) && !JOY_HELD(L_BUTTON))
+            if (JOY_HELD(A_BUTTON) && !(JOY_HELD(L_BUTTON)
+            && (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A
+            || gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE)))
                 gTextFlags.canABSpeedUpPrint = 1;
             else
                 gTextFlags.canABSpeedUpPrint = 0;
         }
-        else if ((JOY_NEW(A_BUTTON) && !JOY_HELD(L_BUTTON)) || (JOY_NEW(B_BUTTON) && !JOY_HELD(R_BUTTON)))
+        else if ((JOY_NEW(A_BUTTON) && !(JOY_HELD(L_BUTTON) && 
+            (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A
+            || gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE)))
+            ||(JOY_NEW(B_BUTTON) && !(JOY_HELD(R_BUTTON) && 
+            gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)))
         {
             DestroyTask(taskId);
         }

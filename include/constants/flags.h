@@ -1325,7 +1325,7 @@
 #define FLAG_ALLOW_RUNNING_FROM_TRAINER                             0x4EA
 #define FLAG_CLEANSE_TAG                                            0x4EB
 #define FLAG_POKE_DOLL                                              0x4EC
-#define FLAG_VSYNCOFF                                               0x4ED
+#define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
 #define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
 

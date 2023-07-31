@@ -1241,7 +1241,7 @@ static bool8 SlotAction_HandleBetInput(struct Task *task)
             sSlotMachine->state = SLOT_ACTION_START_SPIN;
 
         // Quit prompt
-        if (JOY_NEW(B_BUTTON) && !JOY_HELD(R_BUTTON))
+        if (JOY_NEW(B_BUTTON) && !(JOY_HELD(R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
             sSlotMachine->state = SLOT_ACTION_ASK_QUIT;
     }
     return FALSE;

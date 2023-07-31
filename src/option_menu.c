@@ -192,7 +192,8 @@ static const u8 *const sButtonTypeOptions[] =
 {
     gText_ButtonTypeNormal,
 	gText_ButtonTypeLR,
-	gText_ButtonTypeLEqualsA
+	gText_ButtonTypeLEqualsA,
+    gText_ButtonTypeVSnycToggle
 };
 
 static const u8 *const sVSyncOptions[] =
@@ -305,7 +306,7 @@ void CB2_InitOptionMenu(void)
         gTasks[taskId].data[TD_SOUND] = gSaveBlock2Ptr->optionsSound;
         gTasks[taskId].data[TD_BUTTONMODE] = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].data[TD_FRAMETYPE] = gSaveBlock2Ptr->optionsWindowFrameType;
-        gTasks[taskId].data[TD_VSYNC] = FlagGet(FLAG_VSYNCOFF);
+        gTasks[taskId].data[TD_VSYNC] = gSaveBlock2Ptr->vSyncOff;
 
         for (i = 0; i < MENUITEM_COUNT; i++)
             BufferOptionMenuString(taskId, i);
@@ -455,10 +456,7 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsSound = data[TD_SOUND];
     gSaveBlock2Ptr->optionsButtonMode = data[TD_BUTTONMODE];
     gSaveBlock2Ptr->optionsWindowFrameType = data[TD_FRAMETYPE];
-    if (gTasks[taskId].data[TD_VSYNC] == 0)
-        FlagClear(FLAG_VSYNCOFF);
-    else
-        FlagSet(FLAG_VSYNCOFF);
+    gSaveBlock2Ptr->vSyncOff = data[TD_VSYNC];
     SetPokemonCryStereo(data[TD_SOUND]);
     DestroyTask(taskId);
 }
@@ -501,7 +499,7 @@ static void BufferOptionMenuString(u8 taskId, u8 selection)
     const u8 optionsColor[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_RED, TEXT_COLOR_RED};
     x = 130;
     y = ((GetFontAttribute(2, FONTATTR_MAX_LETTER_HEIGHT) - 1) * selection) + 2;
-    FillWindowPixelRect(1, 1, x, y, 0x46, GetFontAttribute(2, FONTATTR_MAX_LETTER_HEIGHT));
+    FillWindowPixelRect(1, 1, x, y, 0x49, GetFontAttribute(2, FONTATTR_MAX_LETTER_HEIGHT));
 
     switch (selection)
     {

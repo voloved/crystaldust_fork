@@ -117,7 +117,8 @@ enum
 {
     OPTIONS_BUTTON_MODE_NORMAL,
     OPTIONS_BUTTON_MODE_LR,
-    OPTIONS_BUTTON_MODE_L_EQUALS_A
+    OPTIONS_BUTTON_MODE_L_EQUALS_A,
+    OPTIONS_BUTTON_MODE_VSYNC_TOGGLE
 };
 
 enum
@@ -824,7 +825,8 @@ struct SaveBlock2 /* 0x02024EA4 */
     /*0x10*/ u8 playTimeMinutes;
     /*0x11*/ u8 playTimeSeconds;
     /*0x12*/ u8 playTimeVBlanks;
-    /*0x13*/ u8 optionsButtonMode;         // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
+    /*0x13*/ u8 vSyncOff:4;
+    u8 optionsButtonMode:4;         // OPTIONS_BUTTON_MODE_[NORMAL/LR/L_EQUALS_A]
     /*0x14*/ u16 optionsTextSpeed:3;       // OPTIONS_TEXT_SPEED_[SLOW/MID/FAST]
     u16 optionsWindowFrameType:5; // Specifies one of the 20 decorative borders for text boxes
     u16 optionsSound:1;           // OPTIONS_SOUND_[MONO/STEREO]

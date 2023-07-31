@@ -1024,7 +1024,7 @@ static void Chat_HandleInput(void)
         {
             SetChatFunction(CHAT_FUNC_SWITCH);
         }
-        else if (JOY_REPEAT(B_BUTTON) && !JOY_HELD(R_BUTTON))
+        else if (JOY_REPEAT(B_BUTTON) && !(JOY_HELD(R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
         {
             if (sChat->bufferCursorPos)
             {
