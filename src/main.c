@@ -179,7 +179,7 @@ void AgbMain()
         PlayTimeCounter_Update();
         MapMusicMain();
         VSyncOn = !gSaveBlock2Ptr->vSyncOff;
-        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE && JOY_HELD(R_BUTTON))
+        if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE && JOY_HELD(L_BUTTON))
             VSyncOn = !VSyncOn;
         if (gPaletteFade.active || VSyncOn || FlagGet(FLAG_TEMP_17))
             WaitForVBlank();
@@ -330,7 +330,7 @@ static void ReadKeys(void)
         }
 #endif
     }
-    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE && JOY_HELD(L_BUTTON))
+    if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_VSYNC_TOGGLE && JOY_HELD(R_BUTTON))
     {
         if (JOY_HELD(A_BUTTON))
             gMain.newKeys ^= A_BUTTON;
