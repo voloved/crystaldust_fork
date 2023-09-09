@@ -376,6 +376,7 @@ gBattleAnims_Moves::
 	.4byte Move_DRAINING_KISS
 	.4byte Move_FAIRY_WIND
 	.4byte Move_ENERGY_BALL
+	.4byte Move_ACROBATICS
 	.4byte Move_COUNT
 
 	.align 2
@@ -9751,6 +9752,25 @@ Move_ENERGY_BALL:
 	playsewithpan SE_M_SAND_ATTACK, SOUND_PAN_TARGET
 	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 4, 0, 8, 1
 	createsprite gSimplePaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, 1, 1, 8, 0, RGB_BLACK
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	end
+
+Move_ACROBATICS:
+	loadspritegfx ANIM_TAG_ROUND_SHADOW
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_FLY, SOUND_PAN_ATTACKER
+	createsprite gFlyBallUpSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, 13, 336
+	waitforvisualfinish
+	playsewithpan SE_M_SWAGGER, SOUND_PAN_TARGET
+	createsprite gBounceBallLandSpriteTemplate, ANIM_TARGET, 3
+	delay 7
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_TARGET, 2, 0, 0, 1, 0
+	createvisualtask AnimTask_ShakeMon, 5, 1, 0, 5, 11, 1
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff

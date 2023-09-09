@@ -1441,6 +1441,10 @@ static const u8 gEnergyBallDescription[] = _(
     "Draws power from nature to\n"
     "attack. May lower Sp. Def.");
 
+static const u8 gAcrobaticsDescription[] = _(
+    "Does double damage if the\n"
+    "user has no item.");
+
 // TODO: Reimplement after FR summary screen port
 /*const u8 gMoveDescription_Null[] = _(
     "");
@@ -3928,4 +3932,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_DRAINING_KISS - 1] = gDrainingKissDescription,
     [MOVE_FAIRY_WIND - 1] = gFairyWindDescription,
 	[MOVE_ENERGY_BALL - 1] = gEnergyBallDescription,
+    [MOVE_ACROBATICS - 1] = gAcrobaticsDescription,
 };

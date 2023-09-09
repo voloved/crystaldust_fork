@@ -362,8 +362,9 @@
 #define MOVE_DRAINING_KISS 358
 #define MOVE_FAIRY_WIND 359
 #define MOVE_ENERGY_BALL 360
+#define MOVE_ACROBATICS 361
 
-#define MOVES_COUNT 361
+#define MOVES_COUNT 362
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
