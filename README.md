@@ -27,7 +27,8 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Pressing B as the ball shakes raises catching odds.](https://github.com/pret/pokeemerald/wiki/Raise-Odds-of-Catching-a-Pokemon-by-Pressing-B-When-the-Ball-Shakes)
 - R is now Turbo B most of the time in the overworld and battles.
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
-- Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Leafeon, and Glaceon
+- Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Roserade, Ambipom, Mismagius, Honchkrow, Froslass, Leafeon, and Glaceon
+- Added Zen headbutt, Moonblast, Play Rough, Draining Kiss, Fairy Wind, and Energy Ball
 - Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
 - [Can now quickly run from a battle by holding Right while the wild Pokémon's name appears.](https://github.com/pret/pokeemerald/wiki/Quickly-Run-from-a-Battle-by-Holding-Right-While-the-Wild-Pok%C3%A9mon's-Name-Appears)
 - [Pressing Start in a Battle Will Show the Description of the Move.](https://github.com/pret/pokeemerald/wiki/Add-Description-Submenu)
@@ -69,6 +70,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Allow Running From Trainer Battles](https://github.com/pret/pokeemerald/wiki/Allow-Running-From-Trainer-Battles)
 - [Allow Rematch With Trainers When Holding B When Talking to Them](https://gitlab.com/devolov/pokeemerald_fork/-/wikis/Allow-Rematching-Trainers)
 - [Showing IVs/EVs in Summary Screen](https://github.com/pret/pokeemerald/wiki/Colored-stats-by-nature-in-summary-screen) [Credit: PokemonCrazy]
+- [Added Ability to Move Held Items.](https://www.pokecommunity.com/showpost.php?p=10517557) [Credit: Zeturic]
 - [Colored Stats by Nature in Summary Screen](https://www.pokecommunity.com/showpost.php?p=10161688&postcount=77) [Credit: DizzyEgg]
 - [Amulet Coin Effects If Anyone In Party is Holding It](https://github.com/pret/pokeemerald/wiki/Amulet-Coin-Effects-If-Anyone-In-Party-is-Holding-It)
 - [Fix AI's Switch In Battle (it will remain the same on easy difficulty)](https://github.com/pret/pokeemerald/wiki/Fix-AI's-Switch-In-Battle)

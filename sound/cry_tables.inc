@@ -403,6 +403,11 @@ gCryTable:: @ 869DCF4
 	cry Cry_Gallade
 	cry Cry_Probopass
 	cry Cry_Dusknoir
+	cry Cry_Roserade
+	cry Cry_Ambipom
+	cry Cry_Mismagius
+	cry Cry_Honchkrow
+	cry Cry_Froslass
 	cry Cry_Leafeon
 	cry Cry_Glaceon
 	cry Cry_Missingno
@@ -812,6 +817,11 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Gallade
 	cry2 Cry_Probopass
 	cry2 Cry_Dusknoir
+	cry2 Cry_Roserade
+	cry2 Cry_Ambipom
+	cry2 Cry_Mismagius
+	cry2 Cry_Honchkrow
+	cry2 Cry_Froslass
 	cry2 Cry_Leafeon
 	cry2 Cry_Glaceon
 	cry2 Cry_Missingno

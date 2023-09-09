@@ -1999,6 +1999,26 @@ Cry_Dusknoir::
 	.incbin "sound/direct_sound_samples/cries/dusknoir.bin"
 
 	.align 2
+Cry_Roserade::
+	.incbin "sound/direct_sound_samples/cries/roserade.bin"
+
+	.align 2
+Cry_Ambipom::
+	.incbin "sound/direct_sound_samples/cries/ambipom.bin"
+
+	.align 2
+Cry_Mismagius::
+	.incbin "sound/direct_sound_samples/cries/mismagius.bin"
+
+	.align 2
+Cry_Honchkrow::
+	.incbin "sound/direct_sound_samples/cries/honchkrow.bin"
+
+	.align 2
+Cry_Froslass::
+	.incbin "sound/direct_sound_samples/cries/froslass.bin"
+
+	.align 2
 Cry_Leafeon::
 	.incbin "sound/direct_sound_samples/cries/leafeon.bin"
 
