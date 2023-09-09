@@ -760,7 +760,7 @@ static const u8 sFlailHpScaleToPowerTable[] =
 
 static const u16 sNaturePowerMoves[] =
 {
-    [BATTLE_TERRAIN_GRASS]      = MOVE_STUN_SPORE,
+    [BATTLE_TERRAIN_GRASS]      = MOVE_ENERGY_BALL,
     [BATTLE_TERRAIN_LONG_GRASS] = MOVE_RAZOR_LEAF,
     [BATTLE_TERRAIN_SAND]       = MOVE_EARTHQUAKE,
     [BATTLE_TERRAIN_UNDERWATER] = MOVE_HYDRO_PUMP,
