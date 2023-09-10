@@ -185,8 +185,8 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     [MOVE_RAZOR_WIND] =
     {
         .effect = EFFECT_RAZOR_WIND,
-        .power = 80,
-        .type = TYPE_NORMAL,
+        .power = 120,
+        .type = TYPE_FLYING,
         .accuracy = 100,
         .pp = 10,
         .secondaryEffectChance = 0,

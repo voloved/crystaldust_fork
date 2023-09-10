@@ -950,9 +950,9 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
         case 4:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_Difficulty)
         case 5:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunToggle)
-        case 6:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
+        case 6:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunToggle)
         case 7:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
         case 8:

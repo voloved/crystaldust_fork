@@ -50,8 +50,8 @@ const u8 gMoveDescription_Guillotine[] = _(
     "that may cause fainting.");
 
 const u8 gMoveDescription_RazorWind[] = _(
-    "A 2-turn move that strikes\n"
-    "the foe on the 2nd turn.");
+    "A 2-turn move that raises\n"
+    "ATTACK before striking.");
 
 const u8 gMoveDescription_SwordsDance[] = _(
     "A fighting dance that\n"
