@@ -1547,7 +1547,7 @@ const u8 gText_FrameTypeNumber[] = _("");
 const u8 gText_ButtonTypeNormal[] = _("NORMAL");
 const u8 gText_ButtonTypeLR[] = _("LR");
 const u8 gText_ButtonTypeLEqualsA[] = _("L/R=TurboA/B");
-const u8 gText_ButtonTypeVSnycToggle[] = _("R=VSync");
+const u8 gText_ButtonTypeVSnycToggle[] = _("L=VSync");
 const u8 gText_PickSwitchCancel[] = _("{DPAD_UPDOWN}PICK {DPAD_LEFTRIGHT}SWITCH {A_BUTTON}{B_BUTTON}CANCEL");
 const u8 gText_NumPlayerLink[] = _("{STR_VAR_1}P LINK");
 const u8 gText_BronzeCard[] = _("BRONZE");
