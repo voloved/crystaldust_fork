@@ -2848,6 +2848,8 @@ static const u8 sBagMenuSortItems[] =
 static const u8 sBagMenuSortKeyItems[] =
 {
     ACTION_BY_NAME,
+    ACTION_BY_TYPE,
+    ACTION_DUMMY,
     ACTION_CANCEL,
 };
 
@@ -3323,12 +3325,40 @@ static s8 CompareItemsByMost(struct ItemSlot* itemSlot1, struct ItemSlot* itemSl
     return CompareItemsAlphabetically(itemSlot1, itemSlot2, pocket); //Items have same quantity so sort alphabetically
 }
 
+static u8 GetKeyItemType(u16 itemId)
+{
+    if (itemId == ITEM_NONE)
+        return 0xFF;
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_PokeVial)
+        return 0;
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Bike)
+        return 1;
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Itemfinder)
+        return 2;
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Rod)
+        return 3;
+    else if (ItemId_GetFieldFunc(itemId) != ItemUseOutOfBattle_CannotUse)
+        return 4;
+    else if (ItemId_GetBattleUsage(itemId) )
+        return 5;
+    else   
+        return 6;
+}
+
 static s8 CompareItemsByType(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2, u8 pocket)
 {
+    u8 type1, type2;
     //Null items go last
-    u8 type1 = (itemSlot1->itemId == ITEM_NONE) ? 0xFF : sItemsByType[itemSlot1->itemId];
-    u8 type2 = (itemSlot2->itemId == ITEM_NONE) ? 0xFF : sItemsByType[itemSlot2->itemId];
-
+    if (pocket == KEYITEMS_POCKET)
+    {
+        type1 = GetKeyItemType(itemSlot1->itemId);
+        type2 = GetKeyItemType(itemSlot2->itemId);
+    }
+    else
+    {
+        type1 = (itemSlot1->itemId == ITEM_NONE) ? 0xFF : sItemsByType[itemSlot1->itemId];
+        type2 = (itemSlot2->itemId == ITEM_NONE) ? 0xFF : sItemsByType[itemSlot2->itemId];
+    }
     if (type1 < type2)
         return -1;
     else if (type1 > type2)
