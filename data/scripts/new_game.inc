@@ -142,5 +142,6 @@ EventScript_ResetAllMapFlags::
 	setflag FLAG_HIDE_GOLDENROD_CITY_FLOWER_SHOP_FLORIA
 	setflag FLAG_HIDE_ROUTE_36_FLORIA
 	setflag FLAG_HIDE_ROUTE_36_SIERRA
+	setflag FLAG_ALLOW_RUNNING_TOGGLE
 	call EventScript_ResetAllBerries
 	end

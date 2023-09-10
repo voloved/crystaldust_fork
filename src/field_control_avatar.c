@@ -114,6 +114,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
 {
     u8 tileTransitionState = gPlayerAvatar.tileTransitionState;
     u8 runningState = gPlayerAvatar.runningState;
+    bool8 toggleRunningAllowed = FlagGet(FLAG_ALLOW_RUNNING_TOGGLE);
     bool8 forcedMove = MetatileBehavior_IsForcedMovementTile(GetPlayerCurMetatileBehavior(runningState));
 
     if ((tileTransitionState == T_TILE_CENTER && forcedMove == FALSE) || tileTransitionState == T_NOT_MOVING)
@@ -160,10 +161,13 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     // If B is pressed, field controls are allowed, and the player is either running or walking.
     if ((newKeys & B_BUTTON) && !ScriptContext2_IsEnabled()
     && !((heldKeys & R_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
-    && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT))
+    && toggleRunningAllowed)
     {
         gRunToggleBtnSet = TRUE;
     }
+    else if (!toggleRunningAllowed)
+        gRunToggleBtnSet = FALSE;
         
 #if DEBUG
     if ((heldKeys & R_BUTTON) && input->pressedStartButton)

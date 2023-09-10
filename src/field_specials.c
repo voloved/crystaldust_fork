@@ -2395,6 +2395,17 @@ void ShowScrollableMultichoice(void)
             task->tIgnoreBPress = FALSE;
             task->tTaskId = taskId;
             break;
+        case SCROLL_MULTI_ELM_PC_OPTIONS:
+            task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+            task->tNumItems = 10;
+            task->tLeft = 17;
+            task->tTop = 1;
+            task->tWidth = 11;
+            task->tHeight = 12;
+            task->tKeepOpenAfterSelect = FALSE;
+            task->tIgnoreBPress = FALSE;
+            task->tTaskId = taskId;
+            break;
         default:
             gSpecialVar_Result = MULTI_B_PRESSED;
             DestroyTask(taskId);
@@ -2567,6 +2578,19 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_3F,
         gText_2F,
         gText_1F,
+        gText_Exit
+    },
+    [SCROLL_MULTI_ELM_PC_OPTIONS] =
+    {
+        {(const u8[])_("SHOW EFFECTIVENESS")},
+        {(const u8[])_("SKIP INTRO")},
+        {(const u8[])_("USE GEN 3 MOVE SPLIT")},
+        {(const u8[])_("LOW HEALTH BEEP")},
+        {(const u8[])_("DIFFICULTY")},
+        {(const u8[])_("FASTER NURSE JOY")},
+        {(const u8[])_("TOGGLE RUNNING WITH B")},
+        {(const u8[])_("RELEARN MOVES IN MENU")},
+        {(const u8[])_("ALLOW RUNNING FROM TRAINERS")},
         gText_Exit
     }
 };

@@ -1310,7 +1310,7 @@
 #define FLAG_ROCK_ROUTE40_3                                         0x4D9
 #define FLAG_UNUSED_0x4DA                                           0x4DA // Unused Flag
 #define FLAG_UNUSED_0x4DB                                           0x4DB // Unused Flag
-#define FLAG_UNUSED_0x4DC                                           0x4DC // Unused Flag
+#define FLAG_ALLOW_RUNNING_TOGGLE                                   0x4DC
 #define FLAG_RUNNING_SHOES_TOGGLE                                   0x4DD
 #define FLAG_TYPE_EFFECTIVENESS_BATTLE_SHOW                         0x4DE
 #define FLAG_MISSINGNO                                              0x4DF

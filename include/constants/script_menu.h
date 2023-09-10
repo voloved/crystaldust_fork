@@ -160,8 +160,7 @@
 #define MULTI_DOME_AMBER_ROOT_CLAW         149
 #define MULTI_HELIX_DOME_AMBER_ROOT_CLAW   150 
 #define MULTI_GAME_CORNER_TUTOR            151
-#define MULTI_ELM_PC_OPTIONS               152
-#define MULTI_ELM_PC_DIFFICULTY            153
+#define MULTI_ELM_PC_DIFFICULTY            152
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

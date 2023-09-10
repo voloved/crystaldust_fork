@@ -650,7 +650,8 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             PlayerGoSpeed2(direction);
         return;
     }
-    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (gRunToggleBtnSet || FlagGet(FLAG_RUNNING_SHOES_TOGGLE) || (heldKeys & B_BUTTON))
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) 
+    && (gRunToggleBtnSet || (FlagGet(FLAG_ALLOW_RUNNING_TOGGLE) && FlagGet(FLAG_RUNNING_SHOES_TOGGLE)) || (heldKeys & B_BUTTON))
     && FlagGet(FLAG_SYS_B_DASH) && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0)
     {
         if (gRunToggleBtnSet)

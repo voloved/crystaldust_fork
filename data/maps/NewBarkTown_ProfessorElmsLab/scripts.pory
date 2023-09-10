@@ -926,15 +926,17 @@ script NewBarkTown_ProfessorElmsLab_EventScript_HealingMachine {
 script NewBarkTown_ProfessorElmsLab_EventScript_ElmsPC {
     playse(SE_PC_ON)
     message("{PLAYER} accessed Prof. Elm's PC\nfor secret game options.")
-    waitmessage
     waitbuttonpress
     playse(SE_PC_LOGIN)
     goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
 }
 script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
-    closemessage
-    multichoice(14, 1, MULTI_ELM_PC_OPTIONS, FALSE)
-    waitmessage
+	message("What would you like to do?")
+	waitmessage
+    setvar(VAR_0x8004, SCROLL_MULTI_ELM_PC_OPTIONS)
+    specialvar(VAR_0x8005, GetDeptStoreDefaultFloorChoice)
+    special(ShowScrollableMultichoice)
+    waitstate
     switch(var(VAR_RESULT))
     {
         case 0:
@@ -948,11 +950,14 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
         case 4:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_Difficulty)
         case 5:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunToggle)
         case 6:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
         case 7:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
+        case 8:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_RunFromTrainers)
+        case 9:
         case MULTI_B_PRESSED:
             playse(SE_PC_OFF)
             closemessage
@@ -1079,7 +1084,7 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_Difficulty{
         case 1:
             multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 2, FALSE)
         case 2:
-            multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 1, FALSE)
+            multichoicedefault(20, 6, MULTI_ELM_PC_DIFFICULTY, 0, FALSE)
     }
     switch(var(VAR_RESULT)) 
     {
@@ -1118,6 +1123,32 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
         case 1:
 			msgbox("Nurse Joy is at her default.")
 			clearflag(FLAG_FASTER_NURSE_JOY)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_RunToggle{
+    message("Toggle running shoes when\npressing B?")
+    waitmessage
+    if (flag(FLAG_ALLOW_RUNNING_TOGGLE))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+			msgbox("Running shoes will toggle\nwhen pressing B.")
+			setflag(FLAG_ALLOW_RUNNING_TOGGLE)
+        case 1:
+			msgbox("Running shoes will not toggle\nwhen pressing B.")
+			clearflag(FLAG_ALLOW_RUNNING_TOGGLE)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
     }
