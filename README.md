@@ -50,6 +50,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Faster HP Drain](https://github.com/pret/pokeemerald/wiki/Faster-HP-Drain) [Credit: SonikkuA-DatH]
 - [Wrong Save File Error Message](https://www.pokecommunity.com/showpost.php?p=10449518) [Credit: Anon822]
 - [Let a Pokémon forget any move they know](https://www.pokecommunity.com/showpost.php?p=10182839&postcount=119) [Credit: Lunos]
+- [Surviving poison outside of battle with 1HP](https://www.pokecommunity.com/showpost.php?p=10068565&postcount=32) [Credit: Lunos]
 - [Changed Someone's PC to Lanette's PC from the Start of the Game](https://github.com/pret/pokeemerald/wiki/Change-Someone%27s-PC-to-Lanette%27s-PC-from-the-Start-of-the-Game)
 - [Make Daycare Faster at Leveling Pokémon](https://github.com/pret/pokeemerald/wiki/Make-Daycare-Faster-at-Leveling-Pok%C3%A9mon)
 - [Gen 6 style Exp. Share](https://github.com/pret/pokeemerald/wiki/Gen-6-style-Exp.-Share---Alternative-Option)
