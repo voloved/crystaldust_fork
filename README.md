@@ -28,7 +28,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - R is now Turbo B most of the time in the overworld and battles.
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
 - Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Roserade, Ambipom, Mismagius, Honchkrow, Froslass, Leafeon, and Glaceon
-- Added Zen headbutt, Moonblast, Play Rough, Draining Kiss, Fairy Wind, and Energy Ball
+- Added Zen Headbutt, Moonblast, Play Rough, Draining Kiss, Fairy Wind, Energy Ball, and Acrobatics
 - Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
 - [Can now quickly run from a battle by holding Right while the wild Pokémon's name appears.](https://github.com/pret/pokeemerald/wiki/Quickly-Run-from-a-Battle-by-Holding-Right-While-the-Wild-Pok%C3%A9mon's-Name-Appears)
 - [Pressing Start in a Battle Will Show the Description of the Move.](https://github.com/pret/pokeemerald/wiki/Add-Description-Submenu)
