@@ -2028,46 +2028,6 @@ const struct BardSound gBardSounds_Pokemon[NUM_SPECIES][6] = {
         NULL_BARD_SOUND,
         NULL_BARD_SOUND
     },
-    [SPECIES_OLD_UNOWN_C] = {
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND
-    },
-    [SPECIES_OLD_UNOWN_D] = {
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND
-    },
-    [SPECIES_OLD_UNOWN_E] = {
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND
-    },
-    [SPECIES_OLD_UNOWN_F] = {
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND
-    },
-    [SPECIES_OLD_UNOWN_G] = {
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND,
-        NULL_BARD_SOUND
-    },
     [SPECIES_OLD_UNOWN_H] = {
         NULL_BARD_SOUND,
         NULL_BARD_SOUND,

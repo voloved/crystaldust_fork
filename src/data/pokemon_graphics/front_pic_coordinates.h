@@ -1265,31 +1265,6 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 4,
     },
-    [SPECIES_OLD_UNOWN_C] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
-    [SPECIES_OLD_UNOWN_D] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
-    [SPECIES_OLD_UNOWN_E] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
-    [SPECIES_OLD_UNOWN_F] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
-    [SPECIES_OLD_UNOWN_G] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
     [SPECIES_OLD_UNOWN_H] =
     {
         .size = 0x87,
