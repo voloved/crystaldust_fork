@@ -84,6 +84,11 @@ script IndigoPlateau_HallOfFame_EventScript_ResetDefeatedOneOffs {
         setflag(FLAG_FOREST_IS_RESTLESS)
         clearflag(FLAG_HIDE_ILEX_FOREST_LASS)
     }
+    if(!flag(FLAG_GS_BALL_EVENT_TRIGGERED))
+    {
+        setflag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER)
+        setflag(FLAG_GS_BALL_EVENT_TRIGGERED)
+    }
     if(!flag(FLAG_CAUGHT_SNORLAX))
     {
         clearflag(FLAG_DEFEATED_SNORLAX)
