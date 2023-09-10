@@ -1264,6 +1264,16 @@ const u8 gText_BattleArena[] = _("BATTLE ARENA");
 const u8 gText_BattlePike[] = _("BATTLE PIKE");
 const u8 gText_BattlePyramid[] = _("BATTLE PYRAMID");
 
+const u8 gText_ShowEffectiveness[] = _("SHOW EFFECTIVENESS");
+const u8 gText_SkipIntro[] = _("SKIP INTRO");
+const u8 gText_UseGen3MoveSplit[] = _("USE GEN 3 MOVE SPLIT");
+const u8 gText_LowHealthBeep[] = _("LOW HEALTH BEEP");
+const u8 gText_Difficulty[] = _("DIFFICULTY");
+const u8 gText_FasterNurseJoy[] = _("FASTER NURSE JOY");
+const u8 gText_ToggleRunningWithB[] = _("TOGGLE RUNNING WITH B");
+const u8 gText_RelearnMovesInMenu[] = _("RELEARN MOVES IN MENU");
+const u8 gText_AllowTrainersToRunFromBattle[] = _("ALLOW RUNNING FROM TRAINERS");
+
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} SINGLE");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} DOUBLE");
 ALIGNED(4) const u8 gText_FacilityMulti[] = _("{STR_VAR_1} MULTI");

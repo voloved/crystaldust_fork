@@ -2582,15 +2582,15 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     },
     [SCROLL_MULTI_ELM_PC_OPTIONS] =
     {
-        {(const u8[])_("SHOW EFFECTIVENESS")},
-        {(const u8[])_("SKIP INTRO")},
-        {(const u8[])_("USE GEN 3 MOVE SPLIT")},
-        {(const u8[])_("LOW HEALTH BEEP")},
-        {(const u8[])_("DIFFICULTY")},
-        {(const u8[])_("FASTER NURSE JOY")},
-        {(const u8[])_("TOGGLE RUNNING WITH B")},
-        {(const u8[])_("RELEARN MOVES IN MENU")},
-        {(const u8[])_("ALLOW RUNNING FROM TRAINERS")},
+        gText_ShowEffectiveness,
+        gText_SkipIntro,
+        gText_UseGen3MoveSplit,
+        gText_LowHealthBeep,
+        gText_Difficulty,
+        gText_FasterNurseJoy,
+        gText_ToggleRunningWithB,
+        gText_RelearnMovesInMenu,
+        gText_AllowTrainersToRunFromBattle,
         gText_Exit
     }
 };

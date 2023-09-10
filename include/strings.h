@@ -731,6 +731,16 @@ extern const u8 gText_BattlePyramid[];
 extern const u8 gText_RankingHall[];
 extern const u8 gText_ExchangeService[];
 
+extern const u8 gText_ShowEffectiveness[];
+extern const u8 gText_SkipIntro[];
+extern const u8 gText_UseGen3MoveSplit[];
+extern const u8 gText_LowHealthBeep[];
+extern const u8 gText_Difficulty[];
+extern const u8 gText_FasterNurseJoy[];
+extern const u8 gText_ToggleRunningWithB[];
+extern const u8 gText_RelearnMovesInMenu[];
+extern const u8 gText_AllowTrainersToRunFromBattle[];
+
 // Battle Frontier Move Tutors
 extern const u8 gText_Softboiled16BP[];
 extern const u8 gText_SeismicToss24BP[];
