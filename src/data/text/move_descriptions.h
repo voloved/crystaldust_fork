@@ -1437,6 +1437,10 @@ const u8 gFairyWindDescription[] = _(
     "Stirs up a fairy wind to\n"
     "strike the foe.");
 
+static const u8 gEnergyBallDescription[] = _(
+    "Draws power from nature to\n"
+    "attack. May lower Sp. Def.");
+
 // TODO: Reimplement after FR summary screen port
 /*const u8 gMoveDescription_Null[] = _(
     "");
@@ -3923,4 +3927,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_PLAY_ROUGH - 1] = gPlayRoughDescription,
     [MOVE_DRAINING_KISS - 1] = gDrainingKissDescription,
     [MOVE_FAIRY_WIND - 1] = gFairyWindDescription,
+	[MOVE_ENERGY_BALL - 1] = gEnergyBallDescription,
 };
