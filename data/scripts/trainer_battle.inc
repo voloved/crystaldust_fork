@@ -25,15 +25,14 @@ EventScript_TryDoNormalTrainerBattleRematch::
 EventScript_NoNormalTrainerBattleCheckRematch::
 	callnative IsRematchAllowed
 	compare VAR_RESULT, TRUE
-	goto_if_ne EventScript_NoNormalTrainerBattle
+	goto_if_ne EventScript_NoRematchTrainerBattle
 	checkbuttonheld B_BUTTON
 	compare VAR_RESULT, TRUE
-	goto_if_ne EventScript_NoNormalTrainerBattle
+	goto_if_ne EventScript_NoRematchTrainerBattle
 	msgbox TrainerBattle_Text_WouldYouLikeToRematch, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	setflag FLAG_TEMP_16
 	goto_if_eq EventScript_TryDoNormalTrainerBattleRematch
-EventScript_NoNormalTrainerBattle::
 	gotopostbattlescript
 
 EventScript_TryDoDoubleTrainerBattle::
@@ -61,14 +60,13 @@ EventScript_NotEnoughMonsForDoubleBattle::
 EventScript_NoDoubleTrainerBattleCheckRematch::
 	callnative IsRematchAllowed
 	compare VAR_RESULT, TRUE
-	goto_if_ne EventScript_NoDoubleTrainerBattle
+	goto_if_ne EventScript_NoDoubleRematchTrainerBattle
 	checkbuttonheld B_BUTTON
 	compare VAR_RESULT, TRUE
-	goto_if_ne EventScript_NoDoubleTrainerBattle
+	goto_if_ne EventScript_NoDoubleRematchTrainerBattle
 	msgbox TrainerBattle_Text_WouldYouLikeToRematchUs, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq EventScript_TryDoDoubleTrainerBattleRematch
-EventScript_NoDoubleTrainerBattle::
 	gotopostbattlescript
 
 TrainerBattle_Text_WouldYouLikeToRematch:

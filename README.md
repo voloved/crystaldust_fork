@@ -3,6 +3,8 @@
 This is a ROM hack branches off of the [progress branch of CrystalDust](https://github.com/Deokishisu/CrystalDust/tree/progress).  
 It includes tweaks that makes the game more enjoyable to the developer of this repo. The changes are documented below. If your goal is to play the game the way Game Freak had released it themselves, then don't play this repo.  
 
+[**View the FAQ**](https://github.com/Deokishisu/CrystalDust/blob/progress/FAQ.md)
+
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
 This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald), a decompilation of Pokémon Emerald.

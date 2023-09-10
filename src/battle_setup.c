@@ -50,6 +50,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "match_call.h"
 
 enum
 {
@@ -1416,6 +1417,7 @@ static void CB2_EndTrainerBattle(void)
                     FlagClear(FLAG_RAN_FROM_TRAINER);
                     //RegisterTrainerInPhone();
                     SetBattledTrainersFlags();
+                    MomTriesToBuySomething();
                 }
             }
         }
