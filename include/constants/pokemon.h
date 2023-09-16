@@ -341,8 +341,7 @@
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 
-#define EVOS_PER_MON 7
-#define NUM_EEVEELUTIONS EVOS_PER_MON
+#define EVOS_PER_MON        8
 
 // Evolution 'modes,' for GetEvolutionTargetSpecies
 #define EVO_MODE_NORMAL     0

@@ -2129,7 +2129,6 @@ static const union AnimCmd *const *const sUnknownAnimsTable[] =
     ANIM_CMD(HO_OH),
     ANIM_CMD(CELEBI),
     ANIM_CMD_FULL(OLD_UNOWN_B, sUnknownAnims_OLD_UNOWN),
-    ANIM_CMD_FULL(OLD_UNOWN_H, sUnknownAnims_OLD_UNOWN),
     ANIM_CMD_FULL(OLD_UNOWN_I, sUnknownAnims_OLD_UNOWN),
     ANIM_CMD_FULL(OLD_UNOWN_J, sUnknownAnims_OLD_UNOWN),
     ANIM_CMD_FULL(OLD_UNOWN_K, sUnknownAnims_OLD_UNOWN),

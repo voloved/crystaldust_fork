@@ -253,7 +253,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_HO_OH] = sHoOhLevelUpLearnset,
     [SPECIES_CELEBI] = sCelebiLevelUpLearnset,
     [SPECIES_OLD_UNOWN_B] = sSpecies252LevelUpLearnset,
-    [SPECIES_OLD_UNOWN_H] = sSpecies258LevelUpLearnset,
     [SPECIES_OLD_UNOWN_I] = sSpecies259LevelUpLearnset,
     [SPECIES_OLD_UNOWN_J] = sSpecies260LevelUpLearnset,
     [SPECIES_OLD_UNOWN_K] = sSpecies261LevelUpLearnset,
@@ -429,5 +428,6 @@ const u16 *const gLevelUpLearnsets[NUM_SPECIES] =
     [SPECIES_FROSLASS] = sFroslassLevelUpLearnset,
     [SPECIES_LEAFEON] = sLeafeonLevelUpLearnset,
     [SPECIES_GLACEON] = sGlaceonLevelUpLearnset,
+    [SPECIES_SYLVEON] = sSylveonLevelUpLearnset,
     [SPECIES_MISSINGNO] = sMissingnoLevelUpLearnset,
 };

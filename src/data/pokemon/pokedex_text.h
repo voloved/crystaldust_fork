@@ -2012,33 +2012,28 @@ const u8 gDusknoirPokedexText[] = _(
 
 const u8 gRoseradePokedexText[] = _(
     "Its sweet aroma attracts prey.\n"
-    "With the movements of a dancer,\n"
-    "it strikes with whips that are densely\n"
+    "It strikes with whips that are densely\n"
     "lined with poison thorns.");
 
 const u8 gAmbipomPokedexText[] = _(
     "They live on large trees. Split into two,\n"
     "the tails are so adept at handling and\n"
-    "doing things, Ambipom rarely uses\n"
-    "its hands now.");
+    "doing things.");
 
 const u8 gMismagiusPokedexText[] = _(
     "Its cries sound like incantations.\n"
     "Those hearing it are tormented by\n"
-    "headaches and hallucinations.\n"
-    "It appears where you least expect it.");
+    "headaches and hallucinations.");
 
 const u8 gHonchkrowPokedexText[] = _(
     "Becoming active at night, it is known\n"
     "to swarm with numerous Murkrow in tow.\n"
-    "It is said that it never forgives the\n"
-    "mistakes of its cronies.");
+    "It is said that it never forgives.");
 
 const u8 gFroslassPokedexText[] = _(
     "When it finds people or Pokémon it likes,\n"
     "it freezes them and takes them to its\n"
-    "chilly den, where they become its\n"
-    "decorations.");
+    "chilly den.");
 
 const u8 gLeafeonPokedexText[] = _(
     "Its cellular composition is closer to\n"
@@ -2049,6 +2044,11 @@ const u8 gGlaceonPokedexText[] = _(
     "It can control its body temperature\n"
     "at will. This enables it to freeze the\n"
     "moisture in the atmosphere.");
+
+const u8 gSylveonPokedexText[] = _(
+    "Its ribbonlike feelers give off an aura\n"
+    "that weakens hostility in its prey, causing\n"
+    "them to let down their guard.");
 
 const u8 gMissingnoPokedexText[] = _(
     "An unsual POKéMON with unknown origins.\n"

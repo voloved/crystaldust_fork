@@ -1754,8 +1754,8 @@
       "importance": 0,
       "exitsBagOnUse": 0,
       "pocket": "POCKET_TREASURES",
-      "type": 4,
-      "fieldUseFunc": "ItemUseOutOfBattle_CannotUse",
+      "type": 1,
+      "fieldUseFunc": "ItemUseOutOfBattle_EvolutionStone",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0
@@ -3402,8 +3402,8 @@
       "importance": 0,
       "exitsBagOnUse": 0,
       "pocket": "POCKET_BATTLE_ITEMS",
-      "type": 4,
-      "fieldUseFunc": "ItemUseOutOfBattle_CannotUse",
+      "type": 1,
+      "fieldUseFunc": "ItemUseOutOfBattle_EvolutionStone",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

@@ -5317,6 +5317,20 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerOffset = 0,
     },
 
+    [NATIONAL_DEX_SYLVEON] =
+    {
+        .categoryName = _("Intertwine"),
+        .height = 10,
+        .weight = 235,
+        .description = gSylveonPokedexText,
+        .pokedexShowEntry = gSylveonPokedexText,
+        .pokemonScale = 317,
+        .pokemonOffset = 11,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+    },
+
+
     [NATIONAL_DEX_MISSINGNO] =
     {
         .categoryName = _("???"),

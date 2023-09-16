@@ -355,7 +355,6 @@ const u16 gSpeciesToJohtoPokedexNum[] = // Assigns all species to the Johto Dex 
     SPECIES_TO_JOHTO(HO_OH),
     SPECIES_TO_JOHTO(CELEBI),
     SPECIES_TO_JOHTO(OLD_UNOWN_B),
-    SPECIES_TO_JOHTO(OLD_UNOWN_H),
     SPECIES_TO_JOHTO(OLD_UNOWN_I),
     SPECIES_TO_JOHTO(OLD_UNOWN_J),
     SPECIES_TO_JOHTO(OLD_UNOWN_K),
@@ -531,6 +530,7 @@ const u16 gSpeciesToJohtoPokedexNum[] = // Assigns all species to the Johto Dex 
     SPECIES_TO_JOHTO(FROSLASS),
     SPECIES_TO_JOHTO(LEAFEON),
     SPECIES_TO_JOHTO(GLACEON),
+    SPECIES_TO_JOHTO(SYLVEON),
     SPECIES_TO_JOHTO(MISSINGNO),
 };
 
@@ -788,7 +788,6 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
     SPECIES_TO_NATIONAL(HO_OH),
     SPECIES_TO_NATIONAL(CELEBI),
     SPECIES_TO_NATIONAL(OLD_UNOWN_B),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_H),
     SPECIES_TO_NATIONAL(OLD_UNOWN_I),
     SPECIES_TO_NATIONAL(OLD_UNOWN_J),
     SPECIES_TO_NATIONAL(OLD_UNOWN_K),
@@ -964,6 +963,7 @@ const u16 gSpeciesToNationalPokedexNum[] = // Assigns all species to the Nationa
     SPECIES_TO_NATIONAL(FROSLASS),
     SPECIES_TO_NATIONAL(LEAFEON),
     SPECIES_TO_NATIONAL(GLACEON),
+    SPECIES_TO_NATIONAL(SYLVEON),
     SPECIES_TO_NATIONAL(MISSINGNO),
 };
 
@@ -1356,7 +1356,6 @@ const u16 gJohtoToNationalOrder[] = // Assigns Johto Dex Pokémon (Using Nationa
     JOHTO_TO_NATIONAL(HO_OH),
     JOHTO_TO_NATIONAL(CELEBI),
     JOHTO_TO_NATIONAL(OLD_UNOWN_B),
-    JOHTO_TO_NATIONAL(OLD_UNOWN_H),
     JOHTO_TO_NATIONAL(OLD_UNOWN_I),
     JOHTO_TO_NATIONAL(OLD_UNOWN_J),
     JOHTO_TO_NATIONAL(OLD_UNOWN_K),
@@ -1397,6 +1396,7 @@ const u16 gJohtoToNationalOrder[] = // Assigns Johto Dex Pokémon (Using Nationa
     JOHTO_TO_NATIONAL(FROSLASS),
     JOHTO_TO_NATIONAL(LEAFEON),
     JOHTO_TO_NATIONAL(GLACEON),
+    JOHTO_TO_NATIONAL(SYLVEON),
     JOHTO_TO_NATIONAL(MISSINGNO),
 };
 
@@ -1861,6 +1861,7 @@ static const u8 sMonFrontAnimIdsTable[] =
     [SPECIES_FROSLASS - 1]      = ANIM_V_SLIDE_WOBBLE,
     [SPECIES_LEAFEON - 1]       = ANIM_V_JUMPS_SMALL,
     [SPECIES_GLACEON - 1]       = ANIM_V_STRETCH, 
+    [SPECIES_SYLVEON - 1]       = ANIM_H_STRETCH,
     [SPECIES_MISSINGNO - 1]    = ANIM_TWIST,   
 };
 
@@ -6312,8 +6313,8 @@ static u16 GetPreEvolution(u16 species){
     if (species == SPECIES_EEVEE)
         return SPECIES_NONE;
     
-    for (i = 0; i < ARRAY_COUNT(gEeveelutions); i++){
-        if (species == gEeveelutions[i])
+    for (i = 0; i < EVOS_PER_MON; i++){
+        if (gEvolutionTable[SPECIES_EEVEE][i].targetSpecies == species)
                 return SPECIES_EEVEE;
     }
 

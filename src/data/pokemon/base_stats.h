@@ -4281,7 +4281,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpAttack  = 0,
         .evYield_SpDefense = 1,
         .item1 = ITEM_NONE,
-        .item2 = ITEM_NONE,
+        .item2 = ITEM_STAR_PIECE,
         .genderRatio = PERCENT_FEMALE(12.5),
         .eggCycles = 35,
         .friendship = 70,
@@ -8071,8 +8071,6 @@ const struct BaseStats gBaseStats[] =
     },
 
     [SPECIES_OLD_UNOWN_B] = OLD_UNOWN_BASE_STATS,
-
-    [SPECIES_OLD_UNOWN_H] = OLD_UNOWN_BASE_STATS,
 
     [SPECIES_OLD_UNOWN_I] = OLD_UNOWN_BASE_STATS,
 
@@ -12843,6 +12841,30 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_THICK_FAT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+    },
+
+    [SPECIES_SYLVEON] =
+    {
+        .baseHP        = 95,
+        .baseAttack    = 65,
+        .baseDefense   = 65,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 110,
+        .baseSpDefense = 130,
+        .type1 = TYPE_FAIRY,
+        .type2 = TYPE_FAIRY,
+        .catchRate = 45,
+        .expYield = 184,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 35,
+        .friendship = 70,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroup1 = EGG_GROUP_FIELD,
+        .eggGroup2 = EGG_GROUP_FIELD,
+        .abilities = {ABILITY_CUTE_CHARM, ABILITY_NONE},
+        .bodyColor = BODY_COLOR_PINK,
+        .noFlip = TRUE,
     },
 
     [SPECIES_MISSINGNO] =

@@ -254,7 +254,6 @@ static const u32 sUnused[] =
     [SPECIES_HO_OH]       = 0x888,
     [SPECIES_CELEBI]      = 0x888,
     [SPECIES_OLD_UNOWN_B] = 0x888,
-    [SPECIES_OLD_UNOWN_H] = 0x888,
     [SPECIES_OLD_UNOWN_I] = 0x888,
     [SPECIES_OLD_UNOWN_J] = 0x888,
     [SPECIES_OLD_UNOWN_K] = 0x888,

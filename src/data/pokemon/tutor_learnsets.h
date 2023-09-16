@@ -6467,6 +6467,13 @@ static const u64 sTutorLearnsets[] =
                                 | TUTOR(MOVE_SWAGGER)
                                 | TUTOR(MOVE_HEADBUTT)
                                 | TUTOR(MOVE_SWIFT)),
+    
+    [SPECIES_SYLVEON]          = (TUTOR(MOVE_PSYCH_UP)
+                                | TUTOR(MOVE_SLEEP_TALK)
+                                | TUTOR(MOVE_SNORE)
+                                | TUTOR(MOVE_SUBSTITUTE)
+                                | TUTOR(MOVE_SWAGGER)
+                                | TUTOR(MOVE_SWIFT)),
 
     [SPECIES_MISSINGNO]        = (TUTOR(MOVE_BODY_SLAM)
                                 | TUTOR(MOVE_DOUBLE_EDGE)

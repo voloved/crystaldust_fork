@@ -6125,8 +6125,6 @@ const u32 gTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_B] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_H] = TMHM_LEARNSET(0),
-
     [SPECIES_OLD_UNOWN_I] = TMHM_LEARNSET(0),
 
     [SPECIES_OLD_UNOWN_J] = TMHM_LEARNSET(0),
@@ -10082,7 +10080,30 @@ const u32 gTMHMLearnsets[][2] =
                                         | TMHM(TM11_SUNNY_DAY)
                                         | TMHM(TM06_TOXIC)
                                         | TMHM(TM03_WATER_PULSE)),
-
+    
+        [SPECIES_SYLVEON]         = TMHM_LEARNSET(TMHM(TM45_ATTRACT)
+                                            | TMHM(TM04_CALM_MIND)
+                                            | TMHM(HM01_CUT)
+                                            | TMHM(TM28_DIG)
+                                            | TMHM(TM32_DOUBLE_TEAM)
+                                            | TMHM(TM42_FACADE)
+                                            | TMHM(HM05_FLASH)
+                                            | TMHM(TM21_FRUSTRATION)
+                                            | TMHM(TM10_HIDDEN_POWER)
+                                            | TMHM(TM15_HYPER_BEAM)
+                                            | TMHM(TM23_IRON_TAIL)
+                                            | TMHM(TM16_LIGHT_SCREEN)
+                                            | TMHM(TM17_PROTECT)
+                                            | TMHM(TM18_RAIN_DANCE)
+                                            | TMHM(TM33_REFLECT)
+                                            | TMHM(TM44_REST)
+                                            | TMHM(TM27_RETURN)
+                                            | TMHM(TM20_SAFEGUARD)
+                                            | TMHM(TM43_SECRET_POWER)
+                                            | TMHM(TM30_SHADOW_BALL)
+                                            | TMHM(TM48_SKILL_SWAP)
+                                            | TMHM(TM11_SUNNY_DAY)
+                                            | TMHM(TM06_TOXIC)),
 
     [SPECIES_MISSINGNO]   = TMHM_LEARNSET(TMHM(TM01_FOCUS_PUNCH)
                                         | TMHM(TM03_WATER_PULSE)

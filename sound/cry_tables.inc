@@ -410,6 +410,7 @@ gCryTable:: @ 869DCF4
 	cry Cry_Froslass
 	cry Cry_Leafeon
 	cry Cry_Glaceon
+	cry Cry_Sylveon
 	cry Cry_Missingno
 
 	.align 2
@@ -824,4 +825,5 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Froslass
 	cry2 Cry_Leafeon
 	cry2 Cry_Glaceon
+	cry2 Cry_Sylveon
 	cry2 Cry_Missingno

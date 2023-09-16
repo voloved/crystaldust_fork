@@ -1265,11 +1265,6 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 4,
     },
-    [SPECIES_OLD_UNOWN_H] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
     [SPECIES_OLD_UNOWN_I] =
     {
         .size = 0x87,
@@ -2050,13 +2045,14 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_GALLADE]     = { .size = 0x56, .y_offset =  1, },
     [SPECIES_PROBOPASS]   = { .size = 0x66, .y_offset =  4, },
     [SPECIES_DUSKNOIR]    = { .size = 0x87, .y_offset =  2, },
-    [SPECIES_ROSERADE]    = { .size = 0x56, .y_offset =  7 },
-    [SPECIES_AMBIPOM]     = { .size = 0x87, .y_offset =  1 },
-    [SPECIES_MISMAGIUS]   = { .size = 0x56, .y_offset =  3 },
-    [SPECIES_HONCHKROW]   = { .size = 0x86, .y_offset =  6 },
-    [SPECIES_FROSLASS]    = { .size = 0x66, .y_offset =  8 },
+    [SPECIES_ROSERADE]    = { .size = 0x67, .y_offset =  7, },
+    [SPECIES_AMBIPOM]     = { .size = 0x87, .y_offset =  1, },
+    [SPECIES_MISMAGIUS]   = { .size = 0x56, .y_offset =  3, },
+    [SPECIES_HONCHKROW]   = { .size = 0x86, .y_offset =  6, },
+    [SPECIES_FROSLASS]    = { .size = 0x66, .y_offset =  8, },
     [SPECIES_LEAFEON]     = { .size = 0x66, .y_offset =  9, },
     [SPECIES_GLACEON]     = { .size = 0x86, .y_offset = 10, },
+    [SPECIES_SYLVEON]     = { .size = 0x67, .y_offset =  4, },
     [SPECIES_MISSINGNO]   = { .size = 0x56, .y_offset =  8, },
     [SPECIES_EGG] =
     {

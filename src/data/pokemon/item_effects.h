@@ -328,6 +328,10 @@ const u8 gItemEffect_Nevermeltice[6] = {
     [4] = ITEM4_EVO_STONE,
 };
 
+const u8 gItemEffect_Starpiece[6] = {
+    [4] = ITEM4_EVO_STONE,
+};
+
 const u8 gItemEffect_CheriBerry[6] = {
     [3] = ITEM3_PARALYSIS,
 };
@@ -491,5 +495,14 @@ const u8 *const gItemEffectTable[] =
     [ITEM_GREPA_BERRY - ITEM_POTION]   = gItemEffect_GrepaBerry,
     [ITEM_TAMATO_BERRY - ITEM_POTION]  = gItemEffect_TamatoBerry,
     [ITEM_RAGE_CANDY_BAR - ITEM_POTION] = gItemEffect_RageCandyBar,
+    [ITEM_KINGS_ROCK - ITEM_POTION]      = gItemEffect_KingsRock,
+    [ITEM_DRAGON_SCALE - ITEM_POTION]    = gItemEffect_DragonScale,
+    [ITEM_METAL_COAT - ITEM_POTION]      = gItemEffect_MetalCoat,
+    [ITEM_UP_GRADE - ITEM_POTION]        = gItemEffect_UpGrade,
+    [ITEM_DEEP_SEA_SCALE - ITEM_POTION]  = gItemEffect_DeepSeaScale,
+    [ITEM_DEEP_SEA_TOOTH - ITEM_POTION]  = gItemEffect_DeepSeaTooth,
+    [ITEM_EVERSTONE - ITEM_POTION]       = gItemEffect_Everstone,
+    [ITEM_NEVER_MELT_ICE - ITEM_POTION]  = gItemEffect_Nevermeltice,
+    [ITEM_STAR_PIECE - ITEM_POTION]      = gItemEffect_Starpiece,
     [LAST_BERRY_INDEX - ITEM_POTION]   = NULL
 };

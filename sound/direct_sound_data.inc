@@ -2027,6 +2027,10 @@ Cry_Glaceon::
 	.incbin "sound/direct_sound_samples/cries/glaceon.bin"
 
 	.align 2
+Cry_Sylveon::
+	.incbin "sound/direct_sound_samples/cries/sylveon.bin"
+
+	.align 2
 Cry_Missingno::
 	.incbin "sound/direct_sound_samples/cries/nidoran_m.bin"
 
