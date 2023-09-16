@@ -1592,7 +1592,7 @@ static void DebugMenu_ForceEvolution(u8 taskId)
     if(evoSpecies == SPECIES_NONE)
         evoSpecies = SPECIES_MEW;
     gCB2_AfterEvolution = CB2_ReturnToField;
-    BeginEvolutionScene(NULL, evoSpecies, 1, slotId);  // Evolves first mon in party
+    BeginEvolutionScene(NULL, evoSpecies, 1, slotId, FALSE);  // Evolves first mon in party
 }
 
 static void DebugMenu_EnablePokeGear(u8 taskId)

@@ -5281,7 +5281,7 @@ static void PartyMenuTryEvolution(u8 taskId)
     {
         FreePartyPointers();
         gCB2_AfterEvolution = gPartyMenu.exitCallback;
-        BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
+        BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId, FALSE);
         DestroyTask(taskId);
     }
     else

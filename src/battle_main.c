@@ -5369,7 +5369,7 @@ static void TryEvolvePokemon(void)
                 {
                     FreeAllWindowBuffers();
                     gBattleMainFunc = WaitForEvoSceneToFinish;
-                    EvolutionScene(&gPlayerParty[i], species, TRUE, i);
+                    EvolutionScene(&gPlayerParty[i], species, TRUE, i, FALSE);
                     return;
                 }
             }

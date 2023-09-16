@@ -115,11 +115,15 @@ static void SetEvoSparklesMatrices(void)
 
 static void SpriteCB_Sparkle_SpiralUpward(struct Sprite* sprite)
 {
-    if (sprite->y > 8)
+    u32 start = sprite->data[4] ? 22 : 88;
+    u32 end = sprite->data[4] ? 102 : 8;
+    s16 y_delta;
+    if (sprite->data[4] ? sprite->y < end : sprite->y > end)
     {
         u8 matrixNum;
 
-        sprite->y = 88 - (sprite->data[7] * sprite->data[7]) / 80;
+        y_delta = (sprite->data[7] * sprite->data[7]) / 80;
+        sprite->y = sprite->data[4] ? start + y_delta : start - y_delta;
         sprite->y2 = Sin((u8)(sprite->data[6]), sprite->data[5]) / 4;
         sprite->x2 = Cos((u8)(sprite->data[6]), sprite->data[5]);
         sprite->data[6] += 4;
@@ -139,11 +143,12 @@ static void SpriteCB_Sparkle_SpiralUpward(struct Sprite* sprite)
         DestroySprite(sprite);
 }
 
-static void CreateSparkle_SpiralUpward(u8 arg0)
+static void CreateSparkle_SpiralUpward(u8 arg0, bool32 devolving)
 {
     u8 spriteID = CreateSprite(&sEvoSparkleSpriteTemplate, 120, 88, 0);
     if (spriteID != MAX_SPRITES)
     {
+        gSprites[spriteID].data[4] = devolving;
         gSprites[spriteID].data[5] = 48;
         gSprites[spriteID].data[6] = arg0;
         gSprites[spriteID].data[7] = 0;
@@ -262,13 +267,15 @@ void LoadEvoSparkleSpriteAndPal(void)
     LoadSpritePalettes(sEvoSparkleSpritePals);
 }
 
-#define tPalNum data[1]
-#define tTimer  data[15]
+#define tPalNum    data[1]
+#define tDevolving data[14]
+#define tTimer     data[15]
 
-u8 EvolutionSparkles_SpiralUpward(u16 palNum)
+u8 EvolutionSparkles_SpiralUpward(u16 palNum, bool32 devolving)
 {
     u8 taskId = CreateTask(Task_Sparkles_SpiralUpward_Init, 0);
     gTasks[taskId].tPalNum = palNum;
+    gTasks[taskId].tDevolving = devolving;
     return taskId;
 }
 
@@ -289,7 +296,7 @@ static void Task_Sparkles_SpiralUpward(u8 taskId)
         {
             u8 i;
             for (i = 0; i < 4; i++)
-                CreateSparkle_SpiralUpward((0x78 & gTasks[taskId].tTimer) * 2 + i * 64);
+                CreateSparkle_SpiralUpward((0x78 & gTasks[taskId].tTimer) * 2 + i * 64, gTasks[taskId].tDevolving);
         }
         gTasks[taskId].tTimer++;
     }
