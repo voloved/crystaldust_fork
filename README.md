@@ -86,7 +86,8 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
 - Able to get Evolutionary Stones, Thief Ball, Poke Doll, Cleanse Tag, and Lucky Egg in second floor of Goldenrod Dept Store after getting six badges.
-- Raiku and Entei no longer know roar when encountering them.
+- Made Everstone Able to De-evolve Any Non-Basic Pokémon.
+- Roamers no longer flee and Raiku and Entei no longer know roar when encountering them.
 - GS Ball event starts after beating the Elite Four.
 - Pokegear button mapping changed.
 - Houndoom can learn dig.

@@ -42,7 +42,7 @@ gBattleAI_ScriptsTable::
 	.4byte AI_Ret
 	.4byte AI_Ret
 	.4byte AI_Ret
-	.4byte AI_Roaming               @ AI_SCRIPT_ROAMING
+	.4byte AI_Ret                   @ AI_SCRIPT_ROAMING
 	.4byte AI_Safari                @ AI_SCRIPT_SAFARI
 	.4byte AI_FirstBattle           @ AI_SCRIPT_FIRST_BATTLE
 
