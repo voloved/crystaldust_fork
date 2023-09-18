@@ -91,6 +91,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - GS Ball event starts after beating the Elite Four.
 - Pokegear button mapping changed.
 - Houndoom can learn dig.
+- Safari Zone Pokémon will run away 20% less often.
 - Fury Cutter based power changed to 40.
 - Fly to opposite region, heal party, and evolve first Pokémon in party in debug menu.
 - More Wild Pokémon Added:

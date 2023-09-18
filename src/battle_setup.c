@@ -1417,7 +1417,8 @@ static void CB2_EndTrainerBattle(void)
                     FlagClear(FLAG_RAN_FROM_TRAINER);
                     //RegisterTrainerInPhone();
                     SetBattledTrainersFlags();
-                    MomTriesToBuySomething();
+                    if ((Random() % 50) == 0)
+                        MomTriesToBuySomething();
                 }
             }
         }
