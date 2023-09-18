@@ -408,6 +408,8 @@ gCryTable:: @ 869DCF4
 	cry Cry_Mismagius
 	cry Cry_Honchkrow
 	cry Cry_Froslass
+	cry Cry_Ursaluna
+	cry Cry_Annihilape
 	cry Cry_Leafeon
 	cry Cry_Glaceon
 	cry Cry_Sylveon
@@ -823,6 +825,8 @@ gCryTable2:: @ 869EF24
 	cry2 Cry_Mismagius
 	cry2 Cry_Honchkrow
 	cry2 Cry_Froslass
+	cry2 Cry_Ursaluna
+	cry2 Cry_Annihilape
 	cry2 Cry_Leafeon
 	cry2 Cry_Glaceon
 	cry2 Cry_Sylveon

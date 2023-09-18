@@ -4748,6 +4748,25 @@ static const union AnimCmd sAnim_FROSLASS_1[] =
     ANIMCMD_END,
 };
 
+static const union AnimCmd sAnim_URSALUNA_1[] =
+{
+    ANIMCMD_FRAME(1, 40),
+    ANIMCMD_FRAME(0, 20),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_ANNIHILAPE_1[] =
+{
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_FRAME(1, 15),
+    ANIMCMD_FRAME(0, 15),
+    ANIMCMD_END,
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_LEAFEON_1[] =
 {
     ANIMCMD_FRAME(1, 35),
@@ -7099,6 +7118,16 @@ static const union AnimCmd *const sAnims_FROSLASS[] ={
     sAnim_FROSLASS_1,
 };
 
+static const union AnimCmd *const sAnims_URSALUNA[] ={
+    sAnim_GeneralFrame0,
+    sAnim_URSALUNA_1,
+};
+
+static const union AnimCmd *const sAnims_ANNIHILAPE[] ={
+    sAnim_GeneralFrame0,
+    sAnim_ANNIHILAPE_1,
+};
+
 static const union AnimCmd *const sAnims_LEAFEON[] ={
     sAnim_GeneralFrame0,
     sAnim_LEAFEON_1,
@@ -7517,8 +7546,6 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(HO_OH),
     ANIM_CMD(CELEBI),
     ANIM_CMD(OLD_UNOWN_B),
-    ANIM_CMD_FULL(OLD_UNOWN_I, sAnims_OLD_UNOWN_B),
-    ANIM_CMD_FULL(OLD_UNOWN_J, sAnims_OLD_UNOWN_B),
     ANIM_CMD_FULL(OLD_UNOWN_K, sAnims_OLD_UNOWN_B),
     ANIM_CMD_FULL(OLD_UNOWN_L, sAnims_OLD_UNOWN_B),
     ANIM_CMD_FULL(OLD_UNOWN_M, sAnims_OLD_UNOWN_B),
@@ -7690,6 +7717,8 @@ const union AnimCmd *const *const gMonFrontAnimsPtrTable[] =
     ANIM_CMD(MISMAGIUS),
     ANIM_CMD(HONCHKROW),
     ANIM_CMD(FROSLASS),
+    ANIM_CMD(URSALUNA),
+    ANIM_CMD(ANNIHILAPE),
     ANIM_CMD(LEAFEON),
     ANIM_CMD(GLACEON),
     ANIM_CMD(SYLVEON),

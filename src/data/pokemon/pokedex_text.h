@@ -2035,6 +2035,16 @@ const u8 gFroslassPokedexText[] = _(
     "it freezes them and takes them to its\n"
     "chilly den.");
 
+const u8 gUrsalunaPokedexText[] = _(
+    "Swampy terrain gives Ursaluna its burly\n"
+    "physique and newfound capacity to\n"
+    "manipulate peat at will.");
+
+const u8 gAnnihilapePokedexText[] = _(
+    "When its anger rose beyond a\n"
+    "critical point, this Pokémon gained power\n"
+    "that is unfettered by its body.");
+
 const u8 gLeafeonPokedexText[] = _(
     "Its cellular composition is closer to\n"
     "that of a plant than an animal. It uses\n"

@@ -255,8 +255,6 @@ const struct CompressedSpriteSheet gMonStillFrontPicTable[] =
     SPECIES_SPRITE(CELEBI,        gMonStillFrontPic_Celebi),
 // Empty slots
     SPECIES_SPRITE(OLD_UNOWN_B,   gMonStillFrontPic_DoubleQuestionMark),
-    SPECIES_SPRITE(OLD_UNOWN_I,   gMonStillFrontPic_DoubleQuestionMark),
-    SPECIES_SPRITE(OLD_UNOWN_J,   gMonStillFrontPic_DoubleQuestionMark),
     SPECIES_SPRITE(OLD_UNOWN_K,   gMonStillFrontPic_DoubleQuestionMark),
     SPECIES_SPRITE(OLD_UNOWN_L,   gMonStillFrontPic_DoubleQuestionMark),
     SPECIES_SPRITE(OLD_UNOWN_M,   gMonStillFrontPic_DoubleQuestionMark),
@@ -429,6 +427,8 @@ const struct CompressedSpriteSheet gMonStillFrontPicTable[] =
     SPECIES_SPRITE(MISMAGIUS,     gMonStillFrontPic_Mismagius),
     SPECIES_SPRITE(HONCHKROW,     gMonStillFrontPic_Honchkrow),
     SPECIES_SPRITE(FROSLASS,      gMonStillFrontPic_Froslass),
+    SPECIES_SPRITE(URSALUNA,      gMonStillFrontPic_Ursaluna),
+    SPECIES_SPRITE(ANNIHILAPE,    gMonStillFrontPic_Annihilape),
     SPECIES_SPRITE(LEAFEON,       gMonStillFrontPic_Leafeon),
     SPECIES_SPRITE(GLACEON,       gMonStillFrontPic_Glaceon),
     SPECIES_SPRITE(SYLVEON,       gMonStillFrontPic_Sylveon),

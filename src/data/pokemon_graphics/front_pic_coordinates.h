@@ -1265,16 +1265,6 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = 0x87,
         .y_offset = 4,
     },
-    [SPECIES_OLD_UNOWN_I] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
-    [SPECIES_OLD_UNOWN_J] =
-    {
-        .size = 0x87,
-        .y_offset = 4,
-    },
     [SPECIES_OLD_UNOWN_K] =
     {
         .size = 0x87,
@@ -2050,6 +2040,8 @@ const struct MonCoords gMonFrontPicCoords[] =
     [SPECIES_MISMAGIUS]   = { .size = 0x56, .y_offset =  3, },
     [SPECIES_HONCHKROW]   = { .size = 0x86, .y_offset =  6, },
     [SPECIES_FROSLASS]    = { .size = 0x66, .y_offset =  8, },
+    [SPECIES_URSALUNA]    = { .size = 0x77, .y_offset =  4, },
+    [SPECIES_ANNIHILAPE]  = { .size = 0x87, .y_offset =  0, },
     [SPECIES_LEAFEON]     = { .size = 0x66, .y_offset =  9, },
     [SPECIES_GLACEON]     = { .size = 0x86, .y_offset = 10, },
     [SPECIES_SYLVEON]     = { .size = 0x67, .y_offset =  4, },
