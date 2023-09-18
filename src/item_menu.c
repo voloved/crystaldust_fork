@@ -2849,7 +2849,6 @@ static const u8 sBagMenuSortKeyItems[] =
 {
     ACTION_BY_NAME,
     ACTION_BY_TYPE,
-    ACTION_DUMMY,
     ACTION_CANCEL,
 };
 
