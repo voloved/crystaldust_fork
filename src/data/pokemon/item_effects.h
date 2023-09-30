@@ -456,6 +456,7 @@ const u8 *const gItemEffectTable[] =
     [ITEM_RED_FLUTE - ITEM_POTION]     = gItemEffect_RedFlute,
     [ITEM_BERRY_JUICE - ITEM_POTION]   = gItemEffect_BerryJuice,
     [ITEM_SACRED_ASH - ITEM_POTION]    = gItemEffect_SacredAsh,
+    [ITEM_INF_RARE_CANDY - ITEM_POTION] = gItemEffect_RareCandy,
     [ITEM_HP_UP - ITEM_POTION]         = gItemEffect_HPUp,
     [ITEM_PROTEIN - ITEM_POTION]       = gItemEffect_Protein,
     [ITEM_IRON - ITEM_POTION]          = gItemEffect_Iron,
