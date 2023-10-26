@@ -128,6 +128,12 @@ static const struct ItemSlot sNewGamePCItems[] =
     { ITEM_NONE, 0 }
 };
 
+static const struct ItemSlot sPostGamePCItems[] =
+{
+    { ITEM_INF_RARE_CANDY, 1 },
+    { ITEM_NONE, 0 }
+};
+
 const struct MenuAction gMenuActions_MailSubmenu[] = {
     { gText_Read, Task_PlayerPcReadMail },
     { gText_MoveToBag, Task_PlayerPcMoveMailToBag },
@@ -173,6 +179,13 @@ void NewGameInitPCItems(void)
     ClearItemSlots(gSaveBlock1Ptr->pcItems, PC_ITEMS_COUNT);
     for(; sNewGamePCItems[i].itemId != ITEM_NONE && GET_QUANTITY(i) &&
         AddPCItem(sNewGamePCItems[i].itemId, GET_QUANTITY(i)) == TRUE; i++);
+}
+
+void PostGameInitPCItems(void)
+{
+    u8 i = 0;
+    for(; sPostGamePCItems[i].itemId != ITEM_NONE && GET_QUANTITY(i) &&
+        AddPCItem(sPostGamePCItems[i].itemId, GET_QUANTITY(i)) == TRUE; i++);
 }
 #undef GET_QUANTITY
 

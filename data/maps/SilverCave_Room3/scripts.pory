@@ -16,6 +16,7 @@ script SilverCave_Room3_EventScript_Red{
     fadescreenswapbuffers(FADE_FROM_BLACK)
     delay(60)
     special(HealPlayerParty)
+    special(PostGameInitPCItems)
     setrespawn(HEAL_LOCATION_SILVER_CAVE_OUTSIDE)
     fadescreenspeed(FADE_TO_BLACK, 24)
     delay(15)
