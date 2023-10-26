@@ -60,6 +60,36 @@ void HealPlayerParty(void)
     }
 }
 
+bool8 CheckPlayerPartyHealed(void)
+{
+    u8 i, j;
+    u8 ppBonuses;
+    u16 currHP, maxHP;
+    u8 currPP, maxPP;
+
+    for(i = 0; i < CalculatePlayerPartyCount(); i++)
+    {
+        //Check HP
+        currHP = GetMonData(&gPlayerParty[i], MON_DATA_HP);
+        maxHP = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
+        if ( currHP <  maxHP)
+            return FALSE;
+        //Check PP
+        ppBonuses = GetMonData(&gPlayerParty[i], MON_DATA_PP_BONUSES);
+        for(j = 0; j < MAX_MON_MOVES; j++)
+        {
+            currPP = GetMonData(&gPlayerParty[i], MON_DATA_PP1 + j);
+            maxPP = CalculatePPWithBonus(GetMonData(&gPlayerParty[i], MON_DATA_MOVE1 + j), ppBonuses, j);
+            if ( currPP <  maxPP)
+                return FALSE;
+        }
+        //Check Status
+        if (GetMonData(&gPlayerParty[i], MON_DATA_STATUS) != STATUS1_NONE)
+            return FALSE;
+    }
+    return TRUE;
+}
+
 u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
 {
     u16 nationalDexNum;
