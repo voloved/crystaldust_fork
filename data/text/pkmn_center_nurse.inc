@@ -25,6 +25,10 @@ gText_RestoredPkmnToFullHealth::
 gText_WeHopeToSeeYouAgain::
     .string "We hope to see you again!$"
 
+gText_PokemonAlreadyHealed::
+	.string "Your {POKEMON} are already healed.\n"
+    .string "We hope to see you again!$"
+
 gText_WelcomeCutShort::
 	.string "Hello!\n"
 	.string "Welcome to our {POKEMON} CENTER.\p"

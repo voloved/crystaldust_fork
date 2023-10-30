@@ -2,9 +2,14 @@ Common_EventScript_PkmnCenterNurse::
     lock
     faceplayer
     setvar VAR_0x8004, 0
+    setvar VAR_POKEVIAL_USAGES, 0
     specialvar VAR_RESULT, CountPlayerTrainerStars
     compare VAR_RESULT, 4
     goto_if_eq EventScript_PkmnCenterNurse_GoldCard
+    callnative IsPartyHealed
+    copyvar VAR_0x8005, VAR_RESULT
+    compare VAR_0x8005, TRUE
+    goto_if_eq EventScript_PkmnCenterNurse_HealPkmn_Cont    
     goto_if_set FLAG_FASTER_NURSE_JOY, Common_EventScript_PkmnCenterNurse_Common
 	gettime
 	compare VAR_0x8002, TIME_MORNING
@@ -16,6 +21,8 @@ Common_EventScript_PkmnCenterNurse::
     waitmessage
     waitbuttonpress
     @ fallthrough
+@ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
+@ VAR_0x8005 is 1 if party is already healed
 Common_EventScript_PkmnCenterNurse_Common::
     goto EventScript_PkmnCenterNurse_HealPkmn
     end
@@ -36,6 +43,10 @@ EventScript_PkmnCenterNurse_Goodbye::
     message gText_WeHopeToSeeYouAgain
     return
 
+EventScript_PkmnCenterNurse_AlreadyHealed:
+	message gText_PokemonAlreadyHealed
+	return
+
 @ VAR_0x8004 is 1 when player has Gold Card; jumps are identical
 EventScript_PkmnCenterNurse_HealPkmn::
     incrementgamestat GAME_STAT_USED_POKECENTER
@@ -46,8 +57,9 @@ EventScript_PkmnCenterNurse_HealPkmn::
     goto EventScript_PkmnCenterNurse_HealPkmn_Cont
 EventScript_PkmnCenterNurse_HealPkmn_Faster::
     special HealPlayerParty
-    setvar VAR_POKEVIAL_USAGES, 0
 EventScript_PkmnCenterNurse_HealPkmn_Cont::
+    compare VAR_0x8005, TRUE
+    call_if_eq EventScript_PkmnCenterNurse_AlreadyHealed   
     goto_if_unset FLAG_POKERUS_EXPLAINED, EventScript_PkmnCenterNurse_CheckPokerus
     goto EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom
     end
@@ -72,7 +84,6 @@ EventScript_PkmnCenterNurse_TakeAndHealPkmn::
     applymovement VAR_0x800B, Common_Movement_WalkInPlaceFastestDown
     waitmovement 0
     special HealPlayerParty
-    setvar VAR_POKEVIAL_USAGES, 0
     return
 
 EventScript_PkmnCenterNurse_CheckTrainerHillAndUnionRoom::

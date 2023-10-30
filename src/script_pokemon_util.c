@@ -90,6 +90,11 @@ bool8 CheckPlayerPartyHealed(void)
     return TRUE;
 }
 
+void IsPartyHealed(void)
+{
+    gSpecialVar_Result = CheckPlayerPartyHealed();
+}
+
 u8 ScriptGiveMon(u16 species, u8 level, u16 item, u32 unused1, u32 unused2, u8 unused3)
 {
     u16 nationalDexNum;

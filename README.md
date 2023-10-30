@@ -86,8 +86,9 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
   - Replaces Premier Ball, so buying 10 Pokeballs at the Mart will get Luxury Ball instead now.
   - Can get on Second Floor of Goldenrod Dept Store after getting sixth badge.
 - Able to get Evolutionary Stones, Thief Ball, Poke Doll, Cleanse Tag, and Lucky Egg in second floor of Goldenrod Dept Store after getting six badges.
-- Made Everstone Able to De-evolve Any Non-Basic Pokémon.
+- [Made Everstone Able to De-evolve Any Non-Basic Pokémon.](https://gitlab.com/devolov/crystaldust_fork/-/commit/530f2dc3faa746919efc4c68d930e7a741371183)
 - Roamers no longer flee and Raiku and Entei no longer know roar when encountering them.
+- Infinite Rare Candy is made and added to PC after defeating Red on Mt. Silver.
 - GS Ball event starts after beating the Elite Four.
 - Pokegear button mapping changed.
 - Houndoom can learn dig.

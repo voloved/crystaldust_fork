@@ -86,6 +86,7 @@ script GoldenrodCity_PokemonCenter_1F_EventScript_PokecomNurse {
                 break
         }
 
+        waitmessage
         goto(Common_EventScript_PkmnCenterNurse_Common)
     }
 }
