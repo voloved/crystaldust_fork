@@ -3681,6 +3681,7 @@ static void PrintMoveNameAndPP(u8 moveIndex)
 static void PrintMovePowerAndAccuracy(u16 moveIndex)
 {
     const u8 *text;
+    u8 splitIcon = isMoveStatus(moveIndex) ? 2 : isMoveSpecial(moveIndex);
     if (moveIndex != 0)
     {
         FillWindowPixelRect(PSS_LABEL_WINDOW_MOVES_POWER_ACC, PIXEL_FILL(0), 53, 0, 19, 32);
@@ -3708,6 +3709,7 @@ static void PrintMovePowerAndAccuracy(u16 moveIndex)
         }
 
         PrintTextOnWindow(PSS_LABEL_WINDOW_MOVES_POWER_ACC, text, 53, 17, 0, 0);
+        BlitMenuInfoIcon(PSS_LABEL_WINDOW_MOVES_POWER_ACC, splitIcon + MENU_INFO_ICON_PSS_PHYS, 36, 3);
     }
 }
 

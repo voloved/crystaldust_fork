@@ -108,7 +108,7 @@ static const struct MenuInfoIcon sMenuInfoIcons[] =
     [TYPE_BUG + 1]      = { 32, 12, 0x6C },
     [TYPE_GHOST + 1]    = { 32, 12, 0x68 },
     [TYPE_STEEL + 1]    = { 32, 12, 0x88 },
-    [TYPE_MYSTERY + 1]  = { 32, 12, 0xA4 },
+    [TYPE_MYSTERY + 1]  = { 32, 12, 0xA8 },
     [TYPE_FIRE + 1]     = { 32, 12, 0x24 },
     [TYPE_WATER + 1]    = { 32, 12, 0x28 },
     [TYPE_GRASS + 1]    = { 32, 12, 0x2C },
@@ -117,14 +117,20 @@ static const struct MenuInfoIcon sMenuInfoIcons[] =
     [TYPE_ICE + 1]      = { 32, 12, 0x4C },
     [TYPE_DRAGON + 1]   = { 32, 12, 0xA0 },
     [TYPE_DARK + 1]     = { 32, 12, 0x8C },
-    [TYPE_FAIRY + 1]    = { 32, 12, 0x4  }, // 0x4 does not seem right. May need to fix.
-    [MENU_INFO_ICON_TYPE]      = { 42, 12, 0xA8 },
-    [MENU_INFO_ICON_POWER]     = { 42, 12, 0xC0 },
-    [MENU_INFO_ICON_ACCURACY]  = { 42, 12, 0xC8 },
-    [MENU_INFO_ICON_PP]        = { 42, 12, 0xE0 },
-    [MENU_INFO_ICON_EFFECT]    = { 42, 12, 0xE8 }, // Unused
+    [TYPE_FAIRY + 1]    = { 32, 12, 0xA4  },
+    [MENU_INFO_ICON_TYPE]      = { 40, 12, 0xC0 },
+    [MENU_INFO_ICON_POWER]     = { 40, 12, 0xC5 },
+    [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xCA },
+    [MENU_INFO_ICON_PP]        = { 40, 12, 0xE0 },
+    [MENU_INFO_ICON_EFFECT]    = { 40, 12, 0xE5 }, // Unused
     [MENU_INFO_ICON_BALL_RED]  = {  8,  8, 0xAE }, // For placed decorations in Secret Base
     [MENU_INFO_ICON_BALL_BLUE] = {  8,  8, 0xAF }, // For placed decorations in player's room
+    [MENU_INFO_ICON_PHYSICAL]  = { 12, 12, 0x04 },
+    [MENU_INFO_ICON_SPECIAL]   = { 12, 12, 0x06 },
+    [MENU_INFO_ICON_STATUS]    = { 12, 12, 0x08 },
+    [MENU_INFO_ICON_PSS_PHYS]  = { 12, 12, 0x0A },
+    [MENU_INFO_ICON_PSS_SPEC]  = { 12, 12, 0x0C },
+    [MENU_INFO_ICON_PSS_STAT]  = { 12, 12, 0x0E },
 };
 
 
