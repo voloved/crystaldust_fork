@@ -184,6 +184,7 @@
 #define MON_DATA_SPDEF2            88
 #define MON_DATA_LOCATION_BIT      89
 #define MON_DATA_APRICORN_BALL     90
+#define MON_DATA_BOX_HP            91
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0

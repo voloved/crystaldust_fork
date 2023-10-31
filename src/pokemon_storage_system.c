@@ -6387,15 +6387,43 @@ static void SetMovingMonData(u8 boxId, u8 position)
     sMovingMonOrigBoxPos = position;
 }
 
+static u8 GetBoxHPFromHP(struct Pokemon *mon)
+{
+    u8 hp_box;
+    u16 hp_curr = GetMonData(mon, MON_DATA_HP);
+    u16 hp_max = GetMonData(mon, MON_DATA_MAX_HP);
+    hp_box = SAFE_DIV(0xFF * hp_curr, hp_max);
+    if(hp_curr != 0 && hp_box == 0)  // to stop accidental fainting
+        hp_box = 1;
+    return hp_box;
+}
+
+u16 GetHPFromBoxHP(struct Pokemon *mon)
+{
+    u16 hp_curr;
+    u8 hp_box = GetMonData(mon, MON_DATA_BOX_HP);
+    u16 hp_max = GetMonData(mon, MON_DATA_MAX_HP);
+    hp_curr = SAFE_DIV(hp_max * hp_box, 0xFF);
+    return hp_curr; 
+}
+
+
 static void SetPlacedMonData(u8 boxId, u8 position)
 {
+    u32 hp;
     if (boxId == TOTAL_BOXES_COUNT)
     {
+        hp = GetHPFromBoxHP(&sStorage->movingMon);
+        SetMonData(&sStorage->movingMon, MON_DATA_HP, &hp);      
+        hp = 0;
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &hp);
         gPlayerParty[position] = sStorage->movingMon;
     }
     else
     {
         BoxMonRestorePP(&sStorage->movingMon.box);
+        hp = GetBoxHPFromHP(&sStorage->movingMon);
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &hp);
         SetBoxMonAt(boxId, position, &sStorage->movingMon.box);
     }
 }
@@ -6724,10 +6752,16 @@ static void LoadSavedMovingMon(void)
 
 static void InitSummaryScreenData(void)
 {
+    u16 hp;
     if (sIsMonBeingMoved)
     {
         SaveMovingMon();
         sStorage->summaryMon.mon = &sSavedMovingMon;
+        if (sMovingMonOrigBoxId != TOTAL_BOXES_COUNT)
+        {
+            hp = GetHPFromBoxHP(&sStorage->movingMon);
+            SetMonData(sStorage->summaryMon.mon, MON_DATA_HP, &hp);
+        }
         sStorage->summaryStartPos = 0;
         sStorage->summaryMaxPos = 0;
         sStorage->summaryScreenMode = SUMMARY_MODE_NORMAL;

@@ -4115,6 +4115,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_APRICORN_BALL:
         retVal = substruct0->apricornBall;
         break;
+    case MON_DATA_BOX_HP:
+        retVal = substruct0->box_hp;
+        break;
     default:
         break;
     }
@@ -4447,6 +4450,11 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
     case MON_DATA_APRICORN_BALL:
     {
         SET16(substruct0->apricornBall);
+        break;
+    }
+    case MON_DATA_BOX_HP:
+    {
+        SET8(substruct0->box_hp);
         break;
     }
     default:
