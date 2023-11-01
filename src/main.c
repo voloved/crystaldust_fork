@@ -72,6 +72,7 @@ u32 IntrMain_Buffer[0x200];
 s8 gPcmDmaCounter;
 
 static EWRAM_DATA u16 sTimer1Val = 0;
+EWRAM_DATA bool8 gWokeUpFromSleepMode = FALSE;
 
 //EWRAM_DATA void (**gFlashTimerIntrFunc)(void) = NULL;
 
@@ -266,11 +267,13 @@ static void ReadKeys(void)
 {
     u16 keyInput = REG_KEYINPUT ^ KEYS_MASK;
 
-    if ((keyInput & SLEEP_KEYS) == SLEEP_KEYS)
+    if (keyInput == SLEEP_KEYS)
     {
-        vu16 IeBak, DispCntBak;
+        vu16 IeBak, DispCntBak, SoundCntBak;
         DispCntBak = REG_DISPCNT;      // LCDC OFF
         REG_DISPCNT = 1 << 7;          // DISP_LCDC_OFF = 1 << 7
+        SoundCntBak = REG_SOUNDCNT_L;
+        REG_SOUNDCNT_L = 0;            //SOUND OFF (Though this may do nothing)
         REG_KEYCNT= KEY_AND_INTR | KEY_INTR_ENABLE | WAKE_KEYS;
         REG_IME = 0;
         IeBak = REG_IE;               // IE save
@@ -281,12 +284,15 @@ static void ReadKeys(void)
         REG_IE = IeBak;               // IE return
         REG_IME = 1;
         REG_DISPCNT = DispCntBak;     // LCDC ON
+        REG_SOUNDCNT_L = SoundCntBak; // SOUND ON
         VBlankIntrWait();
         while (keyInput)              // Doesn't continue until the wake keys are let go
             keyInput = REG_KEYINPUT ^ KEYS_MASK;
+        gWokeUpFromSleepMode = TRUE;
         return;
     }
 
+    gWokeUpFromSleepMode = FALSE;
     gMain.newKeysRaw = keyInput & ~gMain.heldKeysRaw;
     gMain.newKeys = gMain.newKeysRaw;
     gMain.newAndRepeatedKeys = gMain.newKeysRaw;
