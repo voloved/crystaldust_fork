@@ -14,7 +14,7 @@ struct PokemonSubstruct0
     u16 locationBit:1;
     u16 apricornBall:4;
     u16 box_hp:8; //Set to zero unless pokemon is in the box, then it's set to currHP/maxHP * 255
-    u16 filler:3;
+    u16 box_ailment:3;
 };
 
 struct PokemonSubstruct1
