@@ -7231,7 +7231,12 @@ static u8 InBoxInput_Normal(void)
         }
 
         if (JOY_NEW(B_BUTTON))
-            return INPUT_PRESSED_B;
+        {
+            if (IsMonBeingMoved() && GetSpeciesAtCursorPosition() == SPECIES_NONE)
+                return INPUT_PLACE_MON;
+            else
+                return INPUT_PRESSED_B;
+        }
 
         if (gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)
         {
