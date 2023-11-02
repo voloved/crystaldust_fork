@@ -934,7 +934,6 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
 	message("What would you like to do?")
 	waitmessage
     setvar(VAR_0x8004, SCROLL_MULTI_ELM_PC_OPTIONS)
-    specialvar(VAR_0x8005, GetDeptStoreDefaultFloorChoice)
     special(ShowScrollableMultichoice)
     waitstate
     switch(var(VAR_RESULT))
@@ -952,12 +951,14 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
         case 5:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy)
         case 6:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunToggle)
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_PCDoesntHeal)
         case 7:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunToggle)
         case 8:
-            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunFromTrainers)
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RelearnInMenu)
         case 9:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RunFromTrainers)
+        case 10:
         case MULTI_B_PRESSED:
             playse(SE_PC_OFF)
             closemessage
@@ -1123,6 +1124,35 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_FasterNurseJoy{
         case 1:
 			msgbox("Nurse Joy is at her default.")
 			clearflag(FLAG_FASTER_NURSE_JOY)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_PCDoesntHeal{
+    message("Make the PC not fully\n"
+            "heal {POKEMON}?")
+    waitmessage
+    if (flag(FLAG_RETAIN_HP_AILMENT_IN_PC))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+            msgbox("PC will not reset a {POKEMON}'s\n"
+                    "HP and Status.")
+			setflag(FLAG_RETAIN_HP_AILMENT_IN_PC)
+        case 1:
+            msgbox("PC will fully heal\n"
+                    "{POKEMON}.")
+			clearflag(FLAG_RETAIN_HP_AILMENT_IN_PC)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
     }

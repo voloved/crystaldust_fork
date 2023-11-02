@@ -1270,6 +1270,7 @@ const u8 gText_UseGen3MoveSplit[] = _("USE GEN 3 MOVE SPLIT");
 const u8 gText_LowHealthBeep[] = _("LOW HEALTH BEEP");
 const u8 gText_Difficulty[] = _("DIFFICULTY");
 const u8 gText_FasterNurseJoy[] = _("FASTER NURSE JOY");
+const u8 gText_PCDoesntHeal[] = _("PC DOESN'T HEAL");
 const u8 gText_ToggleRunningWithB[] = _("TOGGLE RUNNING WITH B");
 const u8 gText_RelearnMovesInMenu[] = _("RELEARN MOVES IN MENU");
 const u8 gText_AllowTrainersToRunFromBattle[] = _("ALLOW RUNNING FROM TRAINERS");

@@ -737,6 +737,7 @@ extern const u8 gText_UseGen3MoveSplit[];
 extern const u8 gText_LowHealthBeep[];
 extern const u8 gText_Difficulty[];
 extern const u8 gText_FasterNurseJoy[];
+extern const u8 gText_PCDoesntHeal[];
 extern const u8 gText_ToggleRunningWithB[];
 extern const u8 gText_RelearnMovesInMenu[];
 extern const u8 gText_AllowTrainersToRunFromBattle[];

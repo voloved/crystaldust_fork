@@ -6453,10 +6453,13 @@ static void SetPlacedMonData(u8 boxId, u8 position)
     u32 status;
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        hp = GetHPFromBoxHP(&sStorage->movingMon);
-        status = GetStatusFromBoxStatus(&sStorage->movingMon);
-        SetMonData(&sStorage->movingMon, MON_DATA_HP, &hp);      
-        SetMonData(&sStorage->movingMon, MON_DATA_STATUS, &status);    
+        if (FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC))
+        {
+            hp = GetHPFromBoxHP(&sStorage->movingMon);
+            status = GetStatusFromBoxStatus(&sStorage->movingMon);
+            SetMonData(&sStorage->movingMon, MON_DATA_HP, &hp);
+            SetMonData(&sStorage->movingMon, MON_DATA_STATUS, &status);
+        }
         hp = 0;
         SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &hp);
         SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_AILMENT, &hp);
@@ -6797,16 +6800,14 @@ static void LoadSavedMovingMon(void)
 
 static void InitSummaryScreenData(void)
 {
-    u16 hp;
-    u32 status;
     if (sIsMonBeingMoved)
     {
         SaveMovingMon();
         sStorage->summaryMon.mon = &sSavedMovingMon;
-        if (sMovingMonOrigBoxId != TOTAL_BOXES_COUNT)
+        if (sMovingMonOrigBoxId != TOTAL_BOXES_COUNT && FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC))
         {
-            hp = GetHPFromBoxHP(&sStorage->movingMon);
-            status = GetStatusFromBoxStatus(&sStorage->movingMon);
+            u16 hp = GetHPFromBoxHP(&sStorage->movingMon);
+            u32 status = GetStatusFromBoxStatus(&sStorage->movingMon);
             SetMonData(sStorage->summaryMon.mon, MON_DATA_HP, &hp);
             SetMonData(sStorage->summaryMon.mon, MON_DATA_STATUS, &status);
         }
