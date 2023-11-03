@@ -6395,7 +6395,10 @@ static u8 GetBoxHPFromHP(struct Pokemon *mon)
     u8 hp_box;
     u16 hp_curr = GetMonData(mon, MON_DATA_HP);
     u16 hp_max = GetMonData(mon, MON_DATA_MAX_HP);
-    hp_box = SAFE_DIV(0xFF * hp_curr, hp_max);
+    if (hp_max <= 0xFF)  // If the HP is small enough to fully fit into a u8, put in the precise value
+        hp_box = hp_curr;
+    else  // Otherwise, round
+        hp_box = SAFE_DIV(0xFF * hp_curr, hp_max);
     if(hp_curr != 0 && hp_box == 0)  // to stop accidental fainting
         hp_box = 1;
     return hp_box;
@@ -6406,7 +6409,10 @@ u16 GetHPFromBoxHP(struct Pokemon *mon)
     u16 hp_curr;
     u8 hp_box = GetMonData(mon, MON_DATA_BOX_HP);
     u16 hp_max = GetMonData(mon, MON_DATA_MAX_HP);
-    hp_curr = SAFE_DIV(hp_max * hp_box, 0xFF);
+    if (hp_max <= 0xFF)
+        hp_curr = hp_box;
+    else
+        hp_curr = SAFE_DIV(hp_max * hp_box, 0xFF);
     return hp_curr; 
 }
 
@@ -6451,25 +6457,31 @@ static void SetPlacedMonData(u8 boxId, u8 position)
 {
     u32 hp;
     u32 status;
+    u8 value;
     if (boxId == TOTAL_BOXES_COUNT)
     {
-        if (FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC))
+        if (FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC) && GetMonData(&sStorage->movingMon, MON_DATA_IN_PC))
         {
             hp = GetHPFromBoxHP(&sStorage->movingMon);
             status = GetStatusFromBoxStatus(&sStorage->movingMon);
             SetMonData(&sStorage->movingMon, MON_DATA_HP, &hp);
             SetMonData(&sStorage->movingMon, MON_DATA_STATUS, &status);
         }
-        hp = 0;
-        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &hp);
-        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_AILMENT, &hp);
+        else
+            MonRestorePP(&sStorage->movingMon);
+        value = 0;
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_IN_PC, &value);
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &value);
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_AILMENT, &value);
         gPlayerParty[position] = sStorage->movingMon;
     }
     else
     {
+        value = TRUE;
         BoxMonRestorePP(&sStorage->movingMon.box);
         hp = GetBoxHPFromHP(&sStorage->movingMon);
         status = GetBoxStatusFromStatus(&sStorage->movingMon);
+        SetBoxMonData(&sStorage->movingMon.box, MON_DATA_IN_PC, &value);
         SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_HP, &hp);
         SetBoxMonData(&sStorage->movingMon.box, MON_DATA_BOX_AILMENT, &status);
         SetBoxMonAt(boxId, position, &sStorage->movingMon.box);
@@ -6804,13 +6816,16 @@ static void InitSummaryScreenData(void)
     {
         SaveMovingMon();
         sStorage->summaryMon.mon = &sSavedMovingMon;
-        if (sMovingMonOrigBoxId != TOTAL_BOXES_COUNT && FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC))
+        if (sMovingMonOrigBoxId != TOTAL_BOXES_COUNT && FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC)
+            && GetMonData(&sStorage->movingMon, MON_DATA_IN_PC))
         {
             u16 hp = GetHPFromBoxHP(&sStorage->movingMon);
             u32 status = GetStatusFromBoxStatus(&sStorage->movingMon);
             SetMonData(sStorage->summaryMon.mon, MON_DATA_HP, &hp);
             SetMonData(sStorage->summaryMon.mon, MON_DATA_STATUS, &status);
         }
+        else
+            MonRestorePP(sStorage->summaryMon.mon);
         sStorage->summaryStartPos = 0;
         sStorage->summaryMaxPos = 0;
         sStorage->summaryScreenMode = SUMMARY_MODE_NORMAL;

@@ -1396,13 +1396,15 @@ static void CopyMonToSummaryStruct(struct Pokemon *mon)
     {
         struct BoxPokemon *boxMon = sMonSummaryScreen->monList.boxMons;
         BoxMonToMon(&boxMon[sMonSummaryScreen->curMonIndex], mon);
-        if (FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC))
+        if (FlagGet(FLAG_RETAIN_HP_AILMENT_IN_PC) && GetMonData(mon, MON_DATA_IN_PC))
         {
             u16 hp = GetHPFromBoxHP(mon);
             u32 status = GetStatusFromBoxStatus(mon);
             SetMonData(mon, MON_DATA_HP, &hp);
             SetMonData(mon, MON_DATA_STATUS, &status);
         }
+        else
+            MonRestorePP(mon);
     }
 }
 
