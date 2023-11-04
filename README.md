@@ -27,6 +27,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Pressing B as the ball shakes raises catching odds.](https://github.com/pret/pokeemerald/wiki/Raise-Odds-of-Catching-a-Pokemon-by-Pressing-B-When-the-Ball-Shakes)
 - R is now Turbo B most of the time in the overworld and battles.
 - [Physical Special Split Icons In Battle](https://www.pokecommunity.com/showpost.php?p=10527471) [Credit: Anon822]
+- Move Status is now displayed in summary screen, TM bag pocket, and TM Case.
 - Added  Weavile, Magnezone, Lickilicky, Rhyperior, Tangrowth, Electivire, Magmortar, Togekiss, Yanmega, Gliscor, Mamoswine, Porygon Z, Gallade, Probopass, Dusknoir, Roserade, Ambipom, Mismagius, Honchkrow, Froslass, Ursaluna, Annihilape, Leafeon, and Glaceon
 - Added Zen Headbutt, Moonblast, Play Rough, Draining Kiss, Fairy Wind, Energy Ball, and Acrobatics
 - Added Missingno. You can get it by doing the same steps as the gen 1 glitch.
@@ -66,6 +67,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Low Health Beeping Can Be Toggled Off. Able to toggle it on one of Prof. Elm's PCs.](https://www.pokecommunity.com/showpost.php?p=10246778&postcount=194)
 - [Added Difficulty Mode. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Add-Difficulty-Mode)
 - [Faster Pokémon Center Healing. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Speedy-Nurse-Joy)
+- [PC Does Not Heal Pokémon. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Make-Pokemon-Not-Heal-When-Going-into-PC)
 - [Add Move Relearning Into Party Menu](https://www.pokecommunity.com/showpost.php?p=10470602) [Credit: DiegoIsAwesome]
 - [Allow Move Relearner to Teach Moves that Pre Evolutions Know](https://github.com/pret/pokeemerald/wiki/Allow-Move-Relearner-to-Teach-Moves-that-Pre-Evolutions-Know)
 - [Allow Running From Trainer Battles](https://github.com/pret/pokeemerald/wiki/Allow-Running-From-Trainer-Battles)
