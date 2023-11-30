@@ -3227,9 +3227,6 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defenderHoldEffectParam = ItemId_GetHoldEffectParam(defender->item);
     }
 
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_ACROBATICS && attacker->item == ITEM_NONE)
-        gBattleMovePower *= 2;
-
     if (attacker->ability == ABILITY_HUGE_POWER || attacker->ability == ABILITY_PURE_POWER)
         attack *= 2;
 

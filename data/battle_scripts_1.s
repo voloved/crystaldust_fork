@@ -231,7 +231,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectCalmMind               @ EFFECT_CALM_MIND
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
-	.4byte BattleScript_EffectHit                    @ EFFECT_ACROBATICS
+	.4byte BattleScript_EffectAcrobatics             @ EFFECT_ACROBATICS
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -2802,6 +2802,10 @@ BattleScript_DragonDanceTrySpeed::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_DragonDanceEnd::
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectAcrobatics::
+	helditemtodamagecalculation
+	goto BattleScript_EffectHit
 
 BattleScript_EffectCamouflage::
 	attackcanceler
