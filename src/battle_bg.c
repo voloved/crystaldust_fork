@@ -405,6 +405,15 @@ static const struct WindowTemplate gStandardBattleWindowTemplates[] =
         .paletteNum = 5,
         .baseBlock = 0x02a0,
     },
+    { // B_WIN_MOVE_STAB
+        .bg = 0,
+        .tilemapLeft = 28,
+        .tilemapTop = 57,
+        .width = 1,
+        .height = 2,
+        .paletteNum = 5,
+        .baseBlock = 0x0350,
+    },
     { // description
         .bg = 0,
         .tilemapLeft = 1,
@@ -412,7 +421,7 @@ static const struct WindowTemplate gStandardBattleWindowTemplates[] =
         .width = 18,
         .height = 6,
         .paletteNum = 5,
-        .baseBlock = 0x0350,
+        .baseBlock = 0x0352,
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -838,6 +847,15 @@ static const struct WindowTemplate gBugCatchingContestBattleWindowTemplates[] =
         .paletteNum = 0,
         .baseBlock = 0x00a0,
     },
+    { // B_WIN_MOVE_STAB
+        .bg = 0,
+        .tilemapLeft = 28,
+        .tilemapTop = 57,
+        .width = 1,
+        .height = 2,
+        .paletteNum = 5,
+        .baseBlock = 0x0350,
+    },
     {
         .bg = 0,
         .tilemapLeft = 19,
@@ -846,6 +864,7 @@ static const struct WindowTemplate gBugCatchingContestBattleWindowTemplates[] =
         .height = 2,
         .paletteNum = 0,
         .baseBlock = 0x00b0,
+        .baseBlock = 0x0352,
     },
     DUMMY_WIN_TEMPLATE
 };

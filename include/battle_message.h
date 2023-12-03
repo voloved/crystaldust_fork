@@ -245,6 +245,7 @@ extern const u8 gText_MoveInterfaceType[];
 extern const u8 gText_MoveInterfaceSTAB[];
 extern const u8 gText_MoveInterfaceSupEff[];
 extern const u8 gText_MoveInterfaceNotEff[];
+extern const u8 gText_MoveInterfaceNoEff[];
 extern const u8 gText_MoveInterfacePpType[];
 extern const u8 gText_MoveInterfaceDynamicColors[];
 extern const u8 gText_WhichMoveToForget4[];

@@ -1312,6 +1312,7 @@ const u8 gText_MoveInterfaceType[] = _("TYPE/");
 const u8 gText_MoveInterfaceSTAB[] = _("+");
 const u8 gText_MoveInterfaceSupEff[] = _("{UP_ARROW}");
 const u8 gText_MoveInterfaceNotEff[] = _("{DOWN_ARROW}");
+const u8 gText_MoveInterfaceNoEff[] = _("-");
 const u8 gText_MoveInterfacePpType[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}PP\nTYPE/");
 const u8 gText_MoveInterfaceDynamicColors[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}");
 const u8 gText_WhichMoveToForget4[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}Which move should\nbe forgotten?");
@@ -1805,7 +1806,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     },
     { // 24 "type" super-effective
         .fillValue = PIXEL_FILL(0xE),
-        .fontId = 7,
+        .fontId = 1,
         .x = 0,
         .y = 1,
         .letterSpacing = 0,
@@ -1817,7 +1818,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     },
     { // 25 "type" not very effective
         .fillValue = PIXEL_FILL(0xE),
-        .fontId = 7,
+        .fontId = 1,
         .x = 0,
         .y = 1,
         .letterSpacing = 0,
@@ -1829,7 +1830,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     },
     { // 26 "type" no effect
         .fillValue = PIXEL_FILL(0xE),
-        .fontId = 7,
+        .fontId = 1,
         .x = 0,
         .y = 1,
         .letterSpacing = 0,
@@ -1838,6 +1839,18 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
         .fgColor = 7,
         .bgColor = 14,
         .shadowColor = 15,
+    },
+    {  //STAB Window
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 1,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 12,
+        .bgColor = 14,
+        .shadowColor = 11,
     },
     {  // description submenu
         .fillValue = PIXEL_FILL(0xE),
@@ -2130,6 +2143,78 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
         .fgColor = 2,
         .bgColor = 1,
         .shadowColor = 3,
+    },
+    { // 23
+        .fillValue = PIXEL_FILL(0x0),
+        .fontId = 2,
+        .x = -1,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 1,
+        .bgColor = 0,
+        .shadowColor = 6,
+    },
+    { // 24 "type" super-effective
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 1,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 6,
+        .bgColor = 14,
+        .shadowColor = 5,
+    },
+    { // 25 "type" not very effective
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 1,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 1,
+        .bgColor = 14,
+        .shadowColor = 3,
+    },
+    { // 26 "type" no effect
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 1,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 7,
+        .bgColor = 14,
+        .shadowColor = 15,
+    },
+    {  //STAB Window
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 1,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 12,
+        .bgColor = 14,
+        .shadowColor = 11,
+    },
+    {  // description submenu
+        .fillValue = PIXEL_FILL(0xE),
+        .fontId = 7,
+        .x = 0,
+        .y = 1,
+        .letterSpacing = 0,
+        .lineSpacing = 0,
+        .speed = 0,
+        .fgColor = 13,
+        .bgColor = 14,
+        .shadowColor = 15,
     },
 };
 
