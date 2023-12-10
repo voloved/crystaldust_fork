@@ -156,7 +156,7 @@ u8 AddCustomItemIconSprite(const struct SpriteTemplate *customSpriteTemplate, u1
     }
 }
 
-const u32 *const pokevialIconIndex[11] =
+const u32 *const pokevialIconIndex[POKEVIAL_ICONS + 1] =
 {
     gItemIcon_PokeVial0,
     gItemIcon_PokeVial1,
@@ -164,16 +164,12 @@ const u32 *const pokevialIconIndex[11] =
     gItemIcon_PokeVial3,
     gItemIcon_PokeVial4,
     gItemIcon_PokeVial5,
-    gItemIcon_PokeVial6,
-    gItemIcon_PokeVial7,
-    gItemIcon_PokeVial8,
-    gItemIcon_PokeVial9,
-    gItemIcon_PokeVial
+    gItemIcon_PokeVial6
 };
 
 static const void *PokevialGetDoseIcon(void)
 {
-    return pokevialIconIndex[PokevialGetVialPercent()];
+    return pokevialIconIndex[PokevialGetVialIconIdx()]; 
 }
 
 const void *GetItemIconPicOrPalette(u16 itemId, u8 which)

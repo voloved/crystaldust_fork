@@ -38,6 +38,6 @@ void ItemUseInBattle_EnigmaBerry(u8);
 void Task_UseDigEscapeRopeOnField(u8 taskId);
 u8 CanUseDigOrEscapeRopeOnCurMap(void);
 u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
-u32 PokevialGetVialPercent(void);
+u32 PokevialGetVialIconIdx(void);
 
 #endif // GUARD_ITEM_USE_H

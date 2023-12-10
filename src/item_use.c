@@ -1179,7 +1179,7 @@ static s16 PokevialGetUsesLeft(u16 vialUsages, u16 vialUsagesMax)
     return vialUsagesLeft;
 }
 
-u32 PokevialGetVialPercent(void)
+u32 PokevialGetVialIconIdx(void)
 {
     u32 vialPercent;
     u16 vialUsages = VarGet(VAR_POKEVIAL_USAGES);
@@ -1188,8 +1188,8 @@ u32 PokevialGetVialPercent(void)
     if (vialUsagesLeft == 0)
         return 0;
     if (vialUsagesLeft == vialUsagesMax)
-        return 10;
-    vialPercent = (vialUsagesLeft * 10 / vialUsagesMax);
+        return POKEVIAL_ICONS;
+    vialPercent = SAFE_DIV(vialUsagesLeft * POKEVIAL_ICONS, vialUsagesMax);
     return (vialPercent == 0 && vialUsagesLeft > 0) ? 1 : vialPercent;
 }
 
@@ -1213,7 +1213,7 @@ void ItemUseOutOfBattle_PokeVial(u8 taskId)
             DisplayItemMessage(taskId, 1, sText_PokeVial_Failure, CloseItemMessage);
     }
     else{
-            if (CheckPlayerPartyHealed()){
+            if (FALSE && CheckPlayerPartyHealed()){
                 if (gTasks[taskId].tUsingRegisteredKeyItem) // to account for pressing select in the overworld
                     DisplayItemMessageOnField(taskId, sText_PokeVial_NoEffect, Task_CloseCantUseKeyItemMessage);
                 else

@@ -574,5 +574,6 @@
 
 
 #define APRICORN_COUNT              7
+#define POKEVIAL_ICONS              6
 
 #endif  // GUARD_CONSTANTS_ITEMS_H
