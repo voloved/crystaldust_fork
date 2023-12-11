@@ -1164,6 +1164,35 @@ void ItemUseOutOfBattle_ExpShare(u8 taskId)
     }
 }
 
+static u16 PokevialGetUsesMax(void)
+{
+    u16 vialUsagesMax = ItemId_GetHoldEffectParam(ITEM_POKEVIAL);
+    return vialUsagesMax;
+}
+
+static s16 PokevialGetUsesLeft(u16 vialUsages, u16 vialUsagesMax)
+{
+    s16 vialUsagesLeft;
+    vialUsagesLeft = vialUsagesMax - vialUsages;
+    if (vialUsagesLeft < 0)
+        vialUsagesLeft = 0;
+    return vialUsagesLeft;
+}
+
+u32 PokevialGetVialPercent(void)
+{
+    u32 vialPercent;
+    u16 vialUsages = VarGet(VAR_POKEVIAL_USAGES);
+    u16 vialUsagesMax = PokevialGetUsesMax();
+    s16 vialUsagesLeft = PokevialGetUsesLeft(vialUsages, vialUsagesMax);
+    if (vialUsagesLeft == 0)
+        return 0;
+    if (vialUsagesLeft == vialUsagesMax)
+        return 10;
+    vialPercent = (vialUsagesLeft * 10 / vialUsagesMax);
+    return (vialPercent == 0 && vialUsagesLeft > 0) ? 1 : vialPercent;
+}
+
 static const u8 sText_PokeVial_Success_Plural[] = _("PokéVial successfully healed party.\p{STR_VAR_1} more uses before needing\nto heal at a POKéMON Center.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVial_Success_Singular[] = _("PokéVial successfully healed party.\p{STR_VAR_1} more use before needing\nto heal at a POKéMON Center.{PAUSE_UNTIL_PRESS}");
 static const u8 sText_PokeVial_Success_NoMoreUses[] = _("PokéVial successfully healed party.\pNo more use left. Heal at\nPOKéMON Center to replenish.{PAUSE_UNTIL_PRESS}");
