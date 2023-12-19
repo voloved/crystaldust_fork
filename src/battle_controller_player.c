@@ -1640,6 +1640,7 @@ static void MoveSelectionDisplayMoveTypeDoubles(u8 targetId)
     }
 
 	BattlePutTextOnWindow(gDisplayedStringBattle, typeColor);
+    MoveSelectionDisplayMoveStab();
     MoveSelectionDisplaySplitIcon();
 }
 
@@ -1694,7 +1695,6 @@ static void MoveSelectionDisplayMoveDescription(void)
     u8 pwr_desc[7] = _("PWR: ");
     u8 acc_desc[7] = _("ACC: ");
     u8 pri_desc[7] = _("PRI: ");
-    u8 pwr_start[] = _("{CLEAR_TO 0x03}");
     u8 acc_start[] = _("{CLEAR_TO 0x38}");
     u8 pri_start[] = _("{CLEAR_TO 0x6D}");
     LoadMessageBoxAndBorderGfx();
@@ -1708,8 +1708,7 @@ static void MoveSelectionDisplayMoveDescription(void)
     else
         ConvertIntToDecimalStringN(acc_num, acc, STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(pri_num, pri, STR_CONV_MODE_LEFT_ALIGN, 2);
-    StringCopy(gDisplayedStringBattle, pwr_start);
-    StringAppend(gDisplayedStringBattle, pwr_desc);
+    StringCopy(gDisplayedStringBattle, pwr_desc);
     StringAppend(gDisplayedStringBattle, pwr_num);
     StringAppend(gDisplayedStringBattle, acc_start);
     StringAppend(gDisplayedStringBattle, acc_desc);

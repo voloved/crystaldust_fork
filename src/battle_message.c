@@ -1855,7 +1855,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Normal[] =
     {  // description submenu
         .fillValue = PIXEL_FILL(0xE),
         .fontId = 7,
-        .x = 0,
+        .x = 5,
         .y = 1,
         .letterSpacing = 0,
         .lineSpacing = 0,
@@ -2207,7 +2207,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
     {  // description submenu
         .fillValue = PIXEL_FILL(0xE),
         .fontId = 7,
-        .x = 0,
+        .x = 5,
         .y = 1,
         .letterSpacing = 0,
         .lineSpacing = 0,
