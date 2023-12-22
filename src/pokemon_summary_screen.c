@@ -1754,7 +1754,7 @@ static s8 AdvanceMultiBattleMonIndex(s8 delta)
 {
     struct Pokemon *mons = sMonSummaryScreen->monList.mons;
     s8 index, arrId = 0;
-    u8 i;
+    u32 i;
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
@@ -1982,7 +1982,7 @@ static void Task_HandleInput_MoveSelect(u8 taskId)
 
 static bool8 HasMoreThanOneMove(void)
 {
-    u8 i;
+    u32 i;
     for (i = 1; i < MAX_MON_MOVES; i++)
     {
         if (sMonSummaryScreen->summary.moves[i] != 0)
@@ -1993,7 +1993,7 @@ static bool8 HasMoreThanOneMove(void)
 
 static void ChangeSelectedMove(s16 *taskData, s8 direction, u8 *moveIndexPtr)
 {
-    s8 i, newMoveIndex;
+    s32 i, newMoveIndex;
     u16 move;
 
     PlaySE(SE_SELECT);
@@ -3893,7 +3893,7 @@ static void SetSpriteInvisibility(u8 spriteArrayId, bool8 invisible)
 
 static void HidePageSpecificSprites(void)
 {
-    // Keeps Pok�mon, caught ball and status sprites visible.
+    // Keeps Pokémon, caught ball and status sprites visible.
     u8 i;
 
     for (i = SPRITE_ARR_ID_TYPE; i < ARRAY_COUNT(sMonSummaryScreen->spriteIds); i++)
@@ -3923,7 +3923,7 @@ static void SetTypeIcons(void)
 
 static void CreateMoveTypeIcons(void)
 {
-    u8 i;
+    u32 i;
 
     for (i = SPRITE_ARR_ID_TYPE; i < SPRITE_ARR_ID_TYPE + 5; i++)
     {
@@ -3969,7 +3969,7 @@ static void SetMonTypeIcons(void)
 
 static void SetMoveTypeIcons(void)
 {
-    u8 i;
+    u32 i;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -3982,7 +3982,7 @@ static void SetMoveTypeIcons(void)
 
 static void SetContestMoveTypeIcons(void)
 {
-    u8 i;
+    u32 i;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
@@ -4211,7 +4211,7 @@ static void CreateSetStatusSprite(void)
 
 static void CreateMoveSelectorSprites(u8 idArrayStart)
 {
-    u8 i;
+    u32 i;
     u8 *spriteIds = &sMonSummaryScreen->spriteIds[idArrayStart];
 
     if (sMonSummaryScreen->currPageIndex >= PSS_PAGE_BATTLE_MOVES)
@@ -4268,7 +4268,7 @@ static void DestroyMoveSelectorSprites(u8 firstArrayId)
 
 static void SetMainMoveSelectorColor(u8 which)
 {
-    u8 i;
+    u32 i;
     u8 *spriteIds = &sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MOVE_SELECTOR1];
 
     which *= 3;
@@ -4285,7 +4285,7 @@ static void SetMainMoveSelectorColor(u8 which)
 
 static void KeepMoveSelectorVisible(u8 firstSpriteId)
 {
-    u8 i;
+    u32 i;
     u8 *spriteIds = &sMonSummaryScreen->spriteIds[firstSpriteId];
 
     for (i = 0; i < MOVE_SELECTOR_SPRITES_COUNT; i++)

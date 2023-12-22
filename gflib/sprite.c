@@ -512,7 +512,7 @@ void CopyMatricesToOamBuffer(void)
 void AddSpritesToOamBuffer(void)
 {
     u8 i = 0;
-    u8 oamIndex = 0;
+    u32 oamIndex = 0;
 
     while (i < MAX_SPRITES)
     {
@@ -1674,7 +1674,7 @@ void SetSubspriteTables(struct Sprite *sprite, const struct SubspriteTable *subs
     sprite->subspriteMode = SUBSPRITES_ON;
 }
 
-bool8 AddSpriteToOamBuffer(struct Sprite *sprite, u8 *oamIndex)
+bool8 AddSpriteToOamBuffer(struct Sprite *sprite, u32 *oamIndex)
 {
     if (*oamIndex >= gOamLimit)
         return 1;
@@ -1691,7 +1691,7 @@ bool8 AddSpriteToOamBuffer(struct Sprite *sprite, u8 *oamIndex)
     }
 }
 
-bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u8 *oamIndex)
+bool8 AddSubspritesToOamBuffer(struct Sprite *sprite, struct OamData *destOam, u32 *oamIndex)
 {
     const struct SubspriteTable *subspriteTable;
     struct OamData *oam;

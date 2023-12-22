@@ -1014,7 +1014,7 @@ void AnimTask_CreateSurfWave(u8 taskId)
 static void AnimTask_CreateSurfWave_Step1(u8 taskId)
 {
     struct BattleAnimBgData animBg;
-    u8 i;
+    u32 i;
     u16 rgbBuffer;
     u16 *BGptrX = &gBattle_BG1_X;
     u16 *BGptrY = &gBattle_BG1_Y;
@@ -1079,7 +1079,7 @@ static void AnimTask_CreateSurfWave_Step2(u8 taskId)
 
 static void AnimTask_SurfWaveScanlineEffect(u8 taskId)
 {
-    s16 i;
+    s32 i;
     struct ScanlineEffectParams params;
     struct Task *task = &gTasks[taskId];
 
@@ -1272,7 +1272,7 @@ static void AnimTask_WaterSpoutLaunch_Step(u8 taskId)
 // A higher number results in more water sprites during the Water Spout animation
 static u8 GetWaterSpoutPowerForAnim(void)
 {
-    u8 i;
+    u32 i;
     u16 hp;
     u16 maxhp;
     u16 partyIndex;
@@ -1304,7 +1304,7 @@ static u8 GetWaterSpoutPowerForAnim(void)
 
 static void CreateWaterSpoutLaunchDroplets(struct Task *task, u8 taskId)
 {
-    s16 i;
+    s32 i;
     s16 attackerCoordX = GetBattlerSpriteCoord(gBattleAnimAttacker, 2);
     s16 attackerCoordY = GetBattlerSpriteCoord(gBattleAnimAttacker, 3);
     s16 trigIndex = 172;
@@ -1599,7 +1599,7 @@ static void AnimWaterSportDroplet(struct Sprite *sprite)
 
 static void AnimWaterSportDroplet_Step(struct Sprite *sprite)
 {
-    u16 i;
+    u32 i;
 
     if (TranslateAnimHorizontalArc(sprite))
     {
@@ -1680,7 +1680,7 @@ static void CreateWaterPulseRingBubbles(struct Sprite *sprite, int xDiff, int yD
 {
     s16 combinedX;
     s16 combinedY;
-    s16 i;
+    s32 i;
     s16 something;
     s16 unusedVar = 1; //unusedVar is needed to match
     s16 randomSomethingY;

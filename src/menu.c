@@ -1283,7 +1283,7 @@ s8 Menu_ProcessInputNoWrapAround_other(void)
 
 void PrintTextArray(u8 windowId, u8 fontId, u8 left, u8 top, u8 lineHeight, u8 itemCount, const struct MenuAction *menuActions)
 {
-    u8 i;
+    u32 i;
     for (i = 0; i < itemCount; i++)
     {
         AddTextPrinterParameterized(windowId, fontId, menuActions[i].text, left, (lineHeight * i) + top, 0xFF, NULL);
@@ -1293,7 +1293,7 @@ void PrintTextArray(u8 windowId, u8 fontId, u8 left, u8 top, u8 lineHeight, u8 i
 
 void MultichoiceList_PrintItems(u8 windowId, u8 fontId, u8 left, u8 top, u8 lineHeight, u8 itemCount, const struct MenuAction *strs, u8 letterSpacing, u8 lineSpacing)
 {
-    u8 i;
+    u32 i;
 
     for (i = 0; i < itemCount; i++)
     {
@@ -1309,7 +1309,7 @@ void sub_8198854(u8 windowId, u8 fontId, u8 lineHeight, u8 itemCount, const stru
 
 void AddItemMenuActionTextPrinters(u8 windowId, u8 fontId, u8 left, u8 top, u8 letterSpacing, u8 lineHeight, u8 itemCount, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    u8 i;
+    u32 i;
     struct TextPrinterTemplate printer;
 
     printer.windowId = windowId;
@@ -1411,8 +1411,8 @@ void sub_8198C78(void)
 
 void sub_8198C94(u8 windowId, u8 fontId, u8 left, u8 top, u8 a4, u8 a5, u8 a6, u8 a7, const struct MenuAction *menuActions)
 {
-    u8 i;
-    u8 j;
+    u32 i;
+    u32 j;
     for (i = 0; i < a7; i++)
     {
         for (j = 0; j < a6; j++)
@@ -1430,8 +1430,8 @@ void sub_8198D54(u8 windowId, u8 fontId, u8 a2, u8 a3, u8 a4, u8 a5, const struc
 
 void PrintMenuActionGrid(u8 windowId, u8 fontId, u8 left, u8 top, u8 optionWidth, u8 horizontalCount, u8 verticalCount, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    u8 i;
-    u8 j;
+    u32 i;
+    u32 j;
     struct TextPrinterTemplate printer;
 
     printer.windowId = windowId;
@@ -1796,7 +1796,7 @@ void PrintMenuTable(u8 windowId, u8 itemCount, const struct MenuAction *menuActi
 
 void sub_81995E4(u8 windowId, u8 itemCount, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    u8 i;
+    u32 i;
     struct TextPrinterTemplate printer;
 
     printer.windowId = windowId;
@@ -1888,8 +1888,8 @@ void PrintMenuGridTable(u8 windowId, u8 optionWidth, u8 columns, u8 rows, const 
 
 void sub_819983C(u8 windowId, u8 a4, u8 itemCount, u8 itemCount2, const struct MenuAction *menuActions, const u8 *actionIds)
 {
-    u8 i;
-    u8 j;
+    u32 i;
+    u32 j;
     struct TextPrinterTemplate printer;
 
     printer.windowId = windowId;
@@ -2083,8 +2083,8 @@ u16 copy_decompressed_tile_data_to_vram(u8 bgId, const void *src, u16 size, u16 
 
 void SetBgTilemapPalette(u8 bgId, u8 left, u8 top, u8 width, u8 height, u8 palette)
 {
-    u8 i;
-    u8 j;
+    u32 i;
+    u32 j;
     u16 *ptr = GetBgTilemapBuffer(bgId);
 
     for (i = top; i < top + height; i++)
@@ -2098,8 +2098,8 @@ void SetBgTilemapPalette(u8 bgId, u8 left, u8 top, u8 width, u8 height, u8 palet
 
 void CopyToBufferFromBgTilemap(u8 bgId, u16 *dest, u8 left, u8 top, u8 width, u8 height)
 {
-    u8 i;
-    u8 j;
+    u32 i;
+    u32 j;
     const u16 *src = GetBgTilemapBuffer(bgId);
 
     for (i = 0; i < height; i++)

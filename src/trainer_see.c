@@ -249,7 +249,7 @@ static bool8 ignoreIfPokeDoll(void)
 // code
 bool8 CheckForTrainersWantingBattle(void)
 {
-    u8 i;
+    u32 i;
 
     gNoOfApproachingTrainers = 0;
     gApproachingTrainerId = 0;
@@ -361,7 +361,7 @@ static u8 CheckTrainer(u8 objectEventId)
 static u8 GetTrainerApproachDistance(struct ObjectEvent *trainerObj)
 {
     s16 x, y;
-    u8 i;
+    u32 i;
     u8 approachDistance;
 
     PlayerGetDestCoords(&x, &y);
@@ -433,7 +433,7 @@ static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 ap
 {
     s16 x, y;
     u8 rangeX, rangeY;
-    u8 i;
+    u32 i;
     u8 collision;
 
     if (approachDistance == 0)

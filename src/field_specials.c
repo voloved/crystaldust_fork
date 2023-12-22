@@ -498,8 +498,8 @@ bool32 ShouldDoRivalRayquazaCall(void)
 
 u8 GetLinkPartnerNames(void)
 {
-    u8 i;
-    u8 j = 0;
+    u32 i;
+    u32 j = 0;
     u8 myLinkPlayerNumber = GetMultiplayerId();
     u8 nLinkPlayers = GetLinkPlayerCount();
     for (i = 0; i < nLinkPlayers; i++)
@@ -515,7 +515,7 @@ u8 GetLinkPartnerNames(void)
 
 void SpawnLinkPartnerObjectEvent(void)
 {
-    u8 j = 0;
+    u32 j = 0;
     s16 x = 0;
     s16 y = 0;
     u8 movementTypes[] = {
@@ -533,7 +533,7 @@ void SpawnLinkPartnerObjectEvent(void)
     u8 myLinkPlayerNumber;
     u8 playerFacingDirection;
     u16 linkSpriteId;
-    u8 i;
+    u32 i;
 
     myLinkPlayerNumber = GetMultiplayerId();
     playerFacingDirection = GetPlayerFacingDirection();
@@ -643,7 +643,7 @@ static const struct UCoords8 sMauvilleGymSwitchCoords[] =
 // Presses the stepped-on switch and raises the rest
 void MauvilleGymPressSwitch(void)
 {
-    u8 i;
+    u32 i;
     for (i = 0; i < ARRAY_COUNT(sMauvilleGymSwitchCoords); i++)
     {
         if (i == gSpecialVar_0x8004)
@@ -845,7 +845,7 @@ static void PetalburgGymSetDoorMetatiles(u8 roomNumber, u16 metatileId)
 {
     u16 doorCoordsX[4];
     u16 doorCoordsY[4];
-    u8 i;
+    u32 i;
     u8 nDoors = 0;
     switch (roomNumber)
     {
@@ -1263,7 +1263,7 @@ bool8 CheckLeadMonTough(void)
 
 void IsGrassTypeInParty(void)
 {
-    u8 i;
+    u32 i;
     u16 species;
     struct Pokemon *pokemon;
     for (i = 0; i < PARTY_SIZE; i++)
@@ -1379,7 +1379,7 @@ void PutZigzagoonInPlayerParty(void)
 
 bool8 IsStarterInParty(void)
 {
-    u8 i;
+    u32 i;
     u16 starter = GetStarterPokemon(VarGet(VAR_STARTER_MON));
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
@@ -1479,7 +1479,7 @@ void SetRoute123Weather(void)
 
 u8 GetLeadMonIndex(void)
 {
-    u8 i;
+    u32 i;
     u8 partyCount = CalculatePlayerPartyCount();
     for (i = 0; i < partyCount; i++)
     {
@@ -1610,7 +1610,7 @@ bool8 BufferTMHMMoveName(void)
 bool8 IsBadEggInParty(void)
 {
     u8 partyCount = CalculatePlayerPartyCount();
-    u8 i;
+    u32 i;
 
     for (i = 0; i < partyCount; i++)
     {
@@ -1934,7 +1934,7 @@ static void Task_MoveElevatorWindowLights(u8 taskId)
 
 void BufferVarsForIVRater(void)
 {
-    u8 i;
+    u32 i;
     u32 ivStorage[NUM_STATS];
 
     ivStorage[STAT_HP] = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV);
@@ -2100,7 +2100,7 @@ void ShowFrontierManiacMessage(void)
         [FRONTIER_MANIAC_BATTLE_PYRAMID]       = { 7, 56 }
     };
 
-    u8 i;
+    u32 i;
     u16 winStreak = 0;
     u16 facility = VarGet(VAR_FRONTIER_MANIAC_FACILITY);
 
@@ -2200,7 +2200,7 @@ void BufferBattleTowerElevatorFloors(void)
         7, 14, 21, 28, 35, 49, 63, 77, 91, 0
     };
 
-    u8 i;
+    u32 i;
     u16 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
     u8 lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
 
@@ -2599,7 +2599,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
 static void Task_ShowScrollableMultichoice(u8 taskId)
 {
     u32 width;
-    u8 i, windowId;
+    u32 i, windowId;
     struct WindowTemplate template;
     struct Task *task = &gTasks[taskId];
 
@@ -2829,7 +2829,7 @@ static void ScrollableMultichoice_RemoveScrollArrows(u8 taskId)
 void ShowGlassWorkshopMenu(void)
 {
     /*
-    u8 i;
+    u32 i;
     ScriptContext2_Enable();
     Menu_DrawStdWindowFrame(0, 0, 10, 11);
     InitMenu(0, 1, 1, 5, 0, 9);
@@ -3161,7 +3161,7 @@ u8 ContextNpcGetTextColor(void)
 
 void SetBattleTowerLinkPlayerGfx(void)
 {
-    u8 i;
+    u32 i;
     for (i = 0; i < 2; i++)
     {
         if (gLinkPlayers[i].gender == MALE)
@@ -3588,7 +3588,7 @@ void CloseBattleFrontierTutorWindow(void)
 void RedrawScrollableMultichoice(void)
 {
     u16 scrollOffset, selectedRow;
-    u8 i;
+    u32 i;
     u8 taskId = FindTaskIdByFunc(Task_WaitForResumeScrollableMulitichoice);
     if (taskId != TASK_NONE)
     {
@@ -3609,7 +3609,7 @@ void RedrawScrollableMultichoice(void)
 
 void GetBattleFrontierTutorMoveIndex(void)
 {
-    u8 i;
+    u32 i;
     u16 moveTutor = 0;
     u16 moveIndex = 0;
     gSpecialVar_0x8005 = 0;
@@ -4411,7 +4411,7 @@ static u16 PlayerGainRandomTrainerFan(void)
         FANCLUB_MEMBER8 
     };
 
-    u8 i;
+    u32 i;
     u8 idx = 0;
 
     for (i = 0; i < ARRAY_COUNT(sFanClubMemberIds); i++)
@@ -4447,7 +4447,7 @@ static u16 PlayerLoseRandomTrainerFan(void)
         FANCLUB_MEMBER2 
     };
 
-    u8 i;
+    u32 i;
     u8 idx = 0;
 
     if (GetNumFansOfPlayerInTrainerFanClub() == 1)
@@ -4478,7 +4478,7 @@ static u16 PlayerLoseRandomTrainerFan(void)
 
 u16 GetNumFansOfPlayerInTrainerFanClub(void)
 {
-    u8 i;
+    u32 i;
     u8 numFans = 0;
 
     for (i = 0; i < NUM_TRAINER_FAN_CLUB_MEMBERS; i++)
@@ -4493,7 +4493,7 @@ u16 GetNumFansOfPlayerInTrainerFanClub(void)
 // If the player has > 5 fans in the Trainer Fan Club, then lose 1 fan for every 12 hours since the last fan loss / timer reset
 void TryLoseFansFromPlayTime(void)
 {
-    u8 i = 0;
+    u32 i = 0;
     if (gSaveBlock2Ptr->playTimeHours < 999)
     {
         while (TRUE)
@@ -4750,7 +4750,7 @@ void Special_GetFreePokemonStorageSpace(void)
 
 void IsPlayersMonOfSpeciesInParty(void)
 {
-    u8 i;
+    u32 i;
     u16 species = gSpecialVar_0x8004;
     u8 partyCount = CalculatePlayerPartyCount();
 
@@ -5173,7 +5173,7 @@ bool8 PokeSeerGetMoveToTeachLeadPokemon(void)
     u8 tutorMonId = 0;
     u8 numMovesKnown = 0;
     u8 leadMonSlot = GetLeadMonIndex();
-    u8 i;
+    u32 i;
     gSpecialVar_0x8007 = leadMonSlot;
     for (i = 0; i < NELEMS(sPokeSeerCompatibleSpecies); i++)
     {

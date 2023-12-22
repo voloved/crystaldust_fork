@@ -1759,7 +1759,7 @@ static void Task_NewGameOakSpeech_Init(u8 taskId)
 static void LoadOakIntroBigSprite(u16 which, u16 offset)
 {
     u8 *buffer;
-    u8 i;
+    u32 i;
 
     switch (which)
     {
@@ -2087,7 +2087,7 @@ static void Task_NewGameOakSpeech_ProcessNameYesNoMenu(u8 taskId)
 
 static void Task_NewGameOakSpeech_SlidePlatformAway2(u8 taskId)
 {
-    u8 i, spriteId;
+    u32 i, spriteId;
 
     if (gTasks[taskId].tSlideOffset)
     {
@@ -2205,7 +2205,7 @@ static void Task_NewGameOakSpeech_FadeEverythingButPlayerAndTextbox(u8 taskId)
 
 static void Task_NewGameOakSpeech_WaitToFadeTextbox(u8 taskId)
 {
-    u8 i;
+    u32 i;
     s16 *data = gTasks[taskId].data;
 
 
@@ -2244,7 +2244,7 @@ static void Task_NewGameOakSpeech_StartFadePlayerToWhite(u8 taskId)
 
 static void Task_NewGameOakSpeech_FadePlayerToWhite(u8 taskId)
 {
-    u8 i;
+    u32 i;
     s16 *data = gTasks[taskId].data;
 
     if (data[0])
@@ -2303,7 +2303,7 @@ static void Task_NewGameOakSpeech_Cleanup(u8 taskId)
 
 static void CB2_NewGameOakSpeech_ReturnFromNamingScreen(void)
 {
-    u8 i;
+    u32 i;
     u8 taskId;
     u8 spriteId;
     u16 savedIme;
@@ -2392,7 +2392,7 @@ static u8 NewGameOakSpeech_CreateWooperSprite(u8 a, u8 b)
 
 void AddOakSpeechObjects(u8 taskId)
 {
-    u8 i;
+    u32 i;
     u8 wooperSprite;
     u8 spriteId;
 
@@ -2429,7 +2429,7 @@ void AddOakSpeechObjects(u8 taskId)
 
 static void Task_NewGameOakSpeech_FadeOutTarget1InTarget2(u8 taskId)
 {
-    u8 i;
+    u32 i;
     int alphaCoeff2;
 
     if (gTasks[taskId].tAlphaCoeff1 == 0)
@@ -2479,7 +2479,7 @@ static void NewGameOakSpeech_StartFadeOutTarget1InTarget2(u8 taskId, u8 delay)
 
 static void Task_NewGameOakSpeech_FadeInTarget1OutTarget2(u8 taskId)
 {
-    u8 i;
+    u32 i;
     int alphaCoeff2;
 
     if (gTasks[taskId].tAlphaCoeff1 == 16)
@@ -2551,7 +2551,7 @@ static s8 NewGameOakSpeech_ProcessGenderMenuInput(void)
 static void NewGameOakSpeech_SetDefaultPlayerName(u8 nameId)
 {
     const u8* name;
-    u8 i;
+    u32 i;
 
     if (gSaveBlock2Ptr->playerGender == MALE)
         name = gMalePresetNames[nameId];
