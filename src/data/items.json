@@ -5894,7 +5894,7 @@
       "exitsBagOnUse": 1,
       "pocket": "POCKET_KEY_ITEMS",
       "type": 4,
-      "fieldUseFunc": "ItemUseOutOfBattle_CannotUse",
+      "fieldUseFunc": "ItemUseOutOfBattle_TmCase",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

@@ -162,3 +162,4 @@
 	.include "src/phone_script.o"
 	.include "src/buenas_password.o"
 	.include "src/battle_controller_player.o"
+	.include "src/tm_case.o"

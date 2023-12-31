@@ -73,5 +73,6 @@ void SetWaldaPhrase(const u8 *src);
 bool32 IsWaldaPhraseEmpty(void);
 u16 GetHPFromBoxHP(struct Pokemon *mon);
 u32 GetStatusFromBoxStatus(struct Pokemon *mon);
+void CB2_ReturnToPokeStorage(void);
 
 #endif // GUARD_POKEMON_STORAGE_SYSTEM_H

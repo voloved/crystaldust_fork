@@ -2134,3 +2134,11 @@ const u8 gText_TM15AndPrice[] = _("TM15{CLEAR_TO 0x48}{FONT SMALL}7,500 COINS");
 const u8 gText_Flamethrower[] = _("TM35 FLAMETHROWER");
 const u8 gText_Thunderbolt[] = _("TM13 ICE BEAM");
 const u8 gText_Ice_Beam[] = _("TM24 THUNDERBOLT");
+
+// frlg_tm_case_port
+const u8 gText_TMCase[] =               _("TM CASE");
+const u8 gText_Close[] =                _("CLOSE");
+const u8 gText_TMCaseWillBePutAway[] =  _("The TM CASE will be\nput away.");
+const u8 gText_FontSmall[] =            _("{FONT SMALL}");
+const u8 gText_FontShort[] =            _("{FONT NORMAL}");
+const u8 gText_TMCase_Blue[] =          _("{COLOR_HIGHLIGHT_SHADOW BLUE TRANSPARENT LIGHT_BLUE}{STR_VAR_2}");
