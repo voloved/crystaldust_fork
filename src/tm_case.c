@@ -28,6 +28,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "battle_main.h"
 
 #define TM_CASE_TM_TAG 400
 
@@ -994,17 +995,10 @@ static void PrintStringTMCaseOnWindow3(void)
 
 static void DrawMoveInfoUIMarkers(void)
 {
-    #ifndef POKEMON_EXPANSION
-        BlitMenuInfoIcon(4, 19, 0, 0); // "Type" sprite
-        BlitMenuInfoIcon(4, 20, 0, 12); // "Power" sprite
-        BlitMenuInfoIcon(4, 21, 0, 24); // "Accuracy" sprite
-        BlitMenuInfoIcon(4, 22, 0, 36); // "PP" sprite
-    #else
-        BlitMenuInfoIcon(4, 20, 0, 0); // "Type" sprite
-        BlitMenuInfoIcon(4, 21, 0, 12); // "Power" sprite
-        BlitMenuInfoIcon(4, 22, 0, 24); // "Accuracy" sprite
-        BlitMenuInfoIcon(4, 23, 0, 36); // "PP" sprite
-    #endif
+    BlitMenuInfoIcon(4, MENU_INFO_ICON_TYPE, 0, 0); // "Type" sprite
+    BlitMenuInfoIcon(4, MENU_INFO_ICON_POWER, 0, 12); // "Power" sprite
+    BlitMenuInfoIcon(4, MENU_INFO_ICON_ACCURACY, 0, 24); // "Accuracy" sprite
+    BlitMenuInfoIcon(4, MENU_INFO_ICON_PP, 0, 36); // "PP" sprite
     CopyWindowToVram(4, 2);
 }
 
@@ -1027,6 +1021,8 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
     {
         move = ItemIdToBattleMoveId(itemId);
         BlitMenuInfoIcon(5, gBattleMoves[move].type + 1, 0, 0);
+        if (!isMoveStatus(move))
+            BlitMenuInfoIcon(5, isMoveSpecial(move) + MENU_INFO_ICON_PHYSICAL, 0, 12);
         if (gBattleMoves[move].power < 2)
             str = gText_ThreeDashes;
         else
@@ -1034,7 +1030,7 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
             ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].power, STR_CONV_MODE_RIGHT_ALIGN, 3);
             str = gStringVar1;
         }
-        AddTextPrinterParameterized_ColorByIndex(5, 3, str, 7, 12, 0, 0, 0xFF, 3);
+        AddTextPrinterParameterized_ColorByIndex(5, 3, str, 14, 12, 0, 0, 0xFF, 3);
         if (gBattleMoves[move].accuracy == 0)
             str = gText_ThreeDashes;
         else
@@ -1042,9 +1038,9 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
             ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].accuracy, STR_CONV_MODE_RIGHT_ALIGN, 3);
             str = gStringVar1;
         }
-        AddTextPrinterParameterized_ColorByIndex(5, 3, str, 7, 24, 0, 0, 0xFF, 3);
+        AddTextPrinterParameterized_ColorByIndex(5, 3, str, 14, 24, 0, 0, 0xFF, 3);
         ConvertIntToDecimalStringN(gStringVar1, gBattleMoves[move].pp, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        AddTextPrinterParameterized_ColorByIndex(5, 3, gStringVar1, 7, 36, 0, 0, 0xFF, 3);
+        AddTextPrinterParameterized_ColorByIndex(5, 3, gStringVar1, 14, 36, 0, 0, 0xFF, 3);
         CopyWindowToVram(5, 2);
     }
 }

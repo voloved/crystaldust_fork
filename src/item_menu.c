@@ -851,13 +851,7 @@ static void GetItemName(s8 *dest, u16 itemId)
             StringExpandPlaceholders(dest, gText_NumberItem_TMBerry);
             break;
     default:
-        if (itemId == ITEM_TM_CASE)
-        {
-            CopyItemName(itemId, gStringVar2);
-            StringExpandPlaceholders(dest, gText_TMCase_Blue);
-        }
-        else
-            CopyItemName(itemId, dest);
+        CopyItemName(itemId, dest);
         break;
     }
 }
@@ -3342,14 +3336,16 @@ static u8 GetKeyItemType(u16 itemId)
         return 1;
     else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Itemfinder)
         return 2;
-    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Rod)
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_TmCase)
         return 3;
-    else if (ItemId_GetFieldFunc(itemId) != ItemUseOutOfBattle_CannotUse)
+    else if (ItemId_GetFieldFunc(itemId) == ItemUseOutOfBattle_Rod)
         return 4;
-    else if (ItemId_GetBattleUsage(itemId) )
+    else if (ItemId_GetFieldFunc(itemId) != ItemUseOutOfBattle_CannotUse)
         return 5;
-    else   
+    else if (ItemId_GetBattleUsage(itemId) )
         return 6;
+    else   
+        return 7;
 }
 
 static s8 CompareItemsByType(struct ItemSlot* itemSlot1, struct ItemSlot* itemSlot2, u8 pocket)
