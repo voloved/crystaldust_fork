@@ -573,20 +573,51 @@ static void TMCase_ItemPrintFunc(u8 windowId, u16 index, s32 itemId, u8 y)
     }
 }
 
+void stripNewline(u8 *str)
+{
+    u32 i;
+    u32 newline1 = 0, newline2 = 0,newline3 = 0;
+    u32 maxLineLen = 30;
+
+    //FIND ALL SPACES
+    for (i = 1; str[i] != EOS; i++)
+    {
+        if (str[i] != CHAR_SPACE && str[i] != CHAR_NEWLINE)
+            continue;
+        else if (i <= maxLineLen)
+            newline1 = i;
+        else if (i <= maxLineLen + newline1)
+            newline2 = i;
+        else if (i <= maxLineLen + newline2)
+            newline3 = i;
+    }
+    if (i <= maxLineLen + newline2)
+        newline3 = 0;
+
+    for (i = 1; str[i] != EOS; i++)
+    {
+        if (i == newline1 || i == newline2 || i == newline3)
+            str[i] = CHAR_NEWLINE;
+        else if (str[i] == CHAR_NEWLINE)
+            str[i] = CHAR_SPACE;
+    }
+}
+
 static void TMCase_MoveCursor_UpdatePrintedDescription(s32 itemIndex)
 {
-    const u8 * str;
+    u8 str[120];
     u16 itemId = BagGetItemIdByPocketPosition(POCKET_TM_HM, itemIndex);
     if (itemIndex != -2)
     {
-        str = ItemId_GetDescription(itemId);
+        StringCopy(str, ItemId_GetDescription(itemId));
     }
     else
     {
-        str = gText_TMCaseWillBePutAway;
+        StringCopy(str, gText_TMCaseWillBePutAway);
     }
+    stripNewline(str);
     FillWindowPixelBuffer(1, 0);
-    AddTextPrinterParameterized_ColorByIndex(1, 2, str, 2, 3, 1, 0, 0, 0); // Need to fix
+    AddTextPrinterParameterized_ColorByIndex(1, 8, str, 2, 3, 1, 0, 0, 0); // Need to fix
 
     // update icons
     TintPartyMonIcons(itemId - ITEM_TM01);

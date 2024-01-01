@@ -172,10 +172,10 @@ const struct FontInfo gFontInfos[] =
         .bgColor = 0x1,
         .shadowColor = 0x3,
     },
-    {
-        .fontFunction = NULL,
-        .maxLetterWidth = 0x8,
-        .maxLetterHeight = 0x8,
+    {  // latin_narrow
+        .fontFunction = Font8Func,
+        .maxLetterWidth = 0x6,
+        .maxLetterHeight = 0xE,
         .letterSpacing = 0x0,
         .lineSpacing = 0x0,
         .style = 0x0,
@@ -1848,7 +1848,7 @@ void DecompressGlyphFont8(u16 glyphId, bool32 isJapanese)
             DecompressGlyphTile(glyphs + 0x18, gCurGlyph.gfxBufferBottom + 8);
         }
 
-        gCurGlyph.height = 12;
+        gCurGlyph.height = 15;
     }
 }
 
