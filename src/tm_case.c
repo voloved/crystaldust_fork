@@ -1130,7 +1130,7 @@ void LoadMonIconPalettesTinted(void)
     for (i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
     {
         LoadSpritePalette(&gMonIconPaletteTable[i]);
-        TintPalette_GrayScale2(&gPlttBufferUnfaded[0x170 + i*16], 16);
+        TintPalette_CustomTone(&gPlttBufferUnfaded[0x170 + i*16], 16, 30, 30, 30);
     }
 }
         
