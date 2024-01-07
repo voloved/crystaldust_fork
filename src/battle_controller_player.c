@@ -1722,8 +1722,8 @@ static void MoveSelectionDisplayMoveTypeDoubles(u8 targetId, u8 targetIdPrev)
         return;
 
     // Avoids a jitter when swapping past the player's pokemon or selecting an absent slot
-    if (targetId == GetBattlerPosition(gActiveBattler) && !(gBattleMoves[move].target & MOVE_TARGET_USER_OR_SELECTED)
-    || gAbsentBattlerFlags & gBitTable[targetId])
+    if ((targetId == GetBattlerPosition(gActiveBattler) && !(gBattleMoves[move].target & MOVE_TARGET_USER_OR_SELECTED))
+        || gAbsentBattlerFlags & gBitTable[targetId])
         return;
 
     if (!showEffectiveness)
