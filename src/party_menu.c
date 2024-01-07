@@ -5215,6 +5215,17 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     PlaySE(SE_SELECT);
     if (cannotUseEffect)
     {
+        u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE);
+        if (targetSpecies != SPECIES_NONE)
+        {
+            if (gSpecialVar_ItemId != ITEM_INF_RARE_CANDY)
+                RemoveBagItem(gSpecialVar_ItemId, 1);
+            FreePartyPointers();
+            gCB2_AfterEvolution = gPartyMenu.exitCallback;
+            BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId, FALSE);
+            DestroyTask(taskId);
+            return;
+        }
         gPartyMenuUseExitCallback = FALSE;
         DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
         ScheduleBgCopyTilemapToVram(2);
