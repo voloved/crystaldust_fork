@@ -62,6 +62,7 @@ This project is based on [**pokeemerald**](https://github.com/pret/pokeemerald),
 - [Don't Consume TMs on Use](https://github.com/pret/pokeemerald/wiki/Infinite-TM-usage#2-treat-tms-as-hms-in-the-bag)
 - [Added PokéVial](https://github.com/pret/pokeemerald/wiki/Add-A-PokeVial-Item)
 - [Added Color to Show Type Effectiveness of a Move. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Show-Type-Effectiveness-In-Battle-Using-Pre-Existing--Function-and-Disable-in-Option-Menu)
+- [Type Effectiveness Icon for Double Battles Created.](https://gitlab.com/devolov/pokeemerald_fork/-/compare/3be058cd...fafe270d?from_project_id=41747019&straight=false)
 - [Option to Skip Copyright and Intro. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/Option-to-Skip-Copyright-and-Intro)
 - [Added Physical Special Split. Able to toggle it on one of Prof. Elm's PCs.](https://github.com/pret/pokeemerald/wiki/add-physical-special-split) [Credit Kurausukun]
 - [Low Health Beeping Can Be Toggled Off. Able to toggle it on one of Prof. Elm's PCs.](https://www.pokecommunity.com/showpost.php?p=10246778&postcount=194)

@@ -24,6 +24,8 @@ mapscripts GoldenrodCity_MagnetTrainStation_MapScripts {
             setvar(VAR_TEMP_0, 1)
             textcolor(0)
             msgbox("We have arrived in GOLDENROD.\nWe hope to see you again.", MSGBOX_DEFAULT)
+            applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceDown)
+            waitmovement(0)
             releaseall
             end
         }

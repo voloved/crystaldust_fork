@@ -1510,12 +1510,15 @@ u8 GetScaledLevel(u8 lvl)
     if (VarGet(VAR_DIFFICULTY) == DIFFICULTY_HARD)
         lvl += levelScaling;
     else if (VarGet(VAR_DIFFICULTY) == DIFFICULTY_EASY)
-        lvl -= levelScaling;
+    {
+        if (levelScaling >= lvl)
+            lvl = 1;
+        else
+            lvl -= levelScaling;
+    }
 
     if (lvl > 100)
         lvl = 100;
-    if (lvl < 1)
-        lvl = 1;
     return lvl;
 }
 

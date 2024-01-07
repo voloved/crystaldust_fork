@@ -280,7 +280,6 @@ static const u8 sMenuText_ByName[] = _("Name");
 static const u8 sMenuText_ByType[] = _("Type");
 static const u8 sMenuText_ByAmount[] = _("Amount");
 static const u8 sMenuText_ByNumber[] = _("Number");
-static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
 static const u8 sMenuText_Tap[] = _("Tap");
 static const u8 sMenuText_Hold[] = _("Hold");
 static const u8 sText_RegisterHow[] = _("Register item by\ntap or hold SELECT?");
@@ -1258,6 +1257,7 @@ static void Task_BagMenu_HandleInput(u8 taskId)
             {
                 static const u8 sText_NothingToSort[] = _("There's nothing to sort!");
                 PlaySE(SE_FAILURE);
+                DestroyPocketScrollArrowPair();
                 DisplayItemMessage(taskId, 1, sText_NothingToSort, HandleErrorMessage);
                 break;
             }
@@ -2841,21 +2841,22 @@ static const u8 *const sSortTypeStrings[] =
 
 static const u8 sBagMenuSortItems[] =
 {
-    ACTION_BY_NAME,
     ACTION_BY_TYPE,
+    ACTION_BY_NAME,
     ACTION_BY_AMOUNT,
     ACTION_CANCEL,
 };
 
 static const u8 sBagMenuSortKeyItems[] =
 {
-    ACTION_BY_NAME,
     ACTION_BY_TYPE,
+    ACTION_BY_NAME,
     ACTION_CANCEL,
 };
 
 static const u8 sBagMenuSortBerries[] =
 {
+    ACTION_BY_NUMBER,
     ACTION_BY_NAME,
     ACTION_BY_AMOUNT,
     ACTION_CANCEL,
@@ -2863,8 +2864,8 @@ static const u8 sBagMenuSortBerries[] =
 
 static const u8 sBagMenuSortTMHM[] =
 {
-    ACTION_BY_NAME,
     ACTION_BY_NUMBER,
+    ACTION_BY_NAME,
     ACTION_BY_AMOUNT,
     ACTION_CANCEL,
 };
