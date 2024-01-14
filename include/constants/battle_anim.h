@@ -346,6 +346,9 @@
 #define BG_SOLARBEAM_OPPONENT 24
 #define BG_SOLARBEAM_PLAYER 25
 #define BG_SOLARBEAM_CONTESTS 26
+#define BG_GIGA_IMPACT_OPPONENT 27
+#define BG_GIGA_IMPACT_PLAYER 28
+#define BG_GIGA_IMPACT_CONTEST 29
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

@@ -1067,6 +1067,13 @@ const u32 gBattleAnimBgPalette_Solarbeam[] = INCBIN_U32("graphics/battle_anims/b
 
 const u32 gUnknown_E6BC04[] = INCBIN_U32("graphics/unknown/unknown_E6BC04.bin.lz");
 
+const u32 gBattleAnimBgTilemap_GigaImpactPlayer[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact_player.bin.lz");
+const u32 gBattleAnimBgTilemap_GigaImpactOpponent[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact_opponent.bin.lz");
+const u32 gBattleAnimBgTilemap_GigaImpactContest[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact_contest.bin.lz");
+const u32 gBattleAnimBgImage_GigaImpact[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact.4bpp.lz");
+const u32 gBattleAnimBgImage_GigaImpactContest[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact_contest.4bpp.lz");
+const u32 gBattleAnimBgPalette_GigaImpact[] = INCBIN_U32("graphics/battle_anims/backgrounds/giga_impact.gbapal.lz");
+
 const u32 gBerryBlenderCenter_Gfx[] = INCBIN_U32("graphics/berry_blender/center.8bpp.lz");
 const u32 gBerryBlenderOuter_Gfx[] = INCBIN_U32("graphics/berry_blender/outer.4bpp.lz");
 const u32 gBerryBlenderOuter_Tilemap[] = INCBIN_U32("graphics/berry_blender/outer_map.bin.lz");
