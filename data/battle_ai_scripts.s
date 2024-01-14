@@ -879,6 +879,7 @@ AI_CV_MirrorMove_EncouragedMovesToMirror:
     .2byte MOVE_SHADOW_BALL
     .2byte MOVE_DYNAMIC_PUNCH
     .2byte MOVE_HYPER_BEAM
+	.2byte MOVE_GIGA_IMPACT
     .2byte MOVE_EXTREME_SPEED
     .2byte MOVE_THIEF
     .2byte MOVE_COVET

@@ -3933,4 +3933,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_FAIRY_WIND - 1] = gFairyWindDescription,
 	[MOVE_ENERGY_BALL - 1] = gEnergyBallDescription,
     [MOVE_ACROBATICS - 1] = gAcrobaticsDescription,
+	[MOVE_GIGA_IMPACT - 1] = gMoveDescription_HyperBeam,
 };

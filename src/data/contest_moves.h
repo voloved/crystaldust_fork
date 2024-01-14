@@ -2888,6 +2888,14 @@ const struct ContestMove gContestMoves[MOVES_COUNT] =
         .comboStarterId = 0,
         .comboMoves = {0}
     },
+
+    [MOVE_GIGA_IMPACT] =
+    {
+        .effect = CONTEST_EFFECT_JAMS_OTHERS_BUT_MISS_ONE_TURN,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .comboStarterId = 0,
+        .comboMoves = {0},
+    },
 };
 
 const struct ContestEffect gContestEffects[] =
