@@ -401,10 +401,6 @@ static void CB2_InitLearnMove(void)
 
     CreateLearnableMovesList();
 
-    LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
-    LoadSpritePalette(&sMoveRelearnerPalette);
-    CreateUISprites();
-
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
     SetMainCallback2(CB2_MoveRelearnerMain);
@@ -425,10 +421,6 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
     InitMoveRelearnerBackgroundLayers();
     InitMoveRelearnerWindows(sMoveRelearnerMenuSate.showContestInfo);
     CreateLearnableMovesList();
-
-    LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
-    LoadSpritePalette(&sMoveRelearnerPalette);
-    CreateUISprites();
 
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     FillPalette(RGB_BLACK, 0, 2);
@@ -786,28 +778,6 @@ static void HandleInput(bool8 showContest)
     switch (itemId)
     {
     case LIST_NOTHING_CHOSEN:
-        if (!(JOY_NEW(DPAD_LEFT | DPAD_RIGHT)) && !GetLRKeysPressed())
-        {
-            break;
-        }
-
-        PlaySE(SE_SELECT);
-
-        if (showContest == FALSE)
-        {
-            PutWindowTilemap(1);
-            sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
-            sMoveRelearnerMenuSate.showContestInfo = TRUE;
-        }
-        else
-        {
-            PutWindowTilemap(0);
-            sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
-            sMoveRelearnerMenuSate.showContestInfo = FALSE;
-        }
-
-        ScheduleBgCopyTilemapToVram(1);
-        MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
         break;
     case LIST_CANCEL:
         PlaySE(SE_SELECT);
@@ -878,11 +848,6 @@ static void CreateUISprites(void)
 
 static void AddScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
-    {
-        sMoveRelearnerStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
-    }
-
     if (sMoveRelearnerStruct->moveListScrollArrowTask == TASK_NONE)
     {
         gTempScrollArrowTemplate = sMoveListScrollArrowsTemplate;
@@ -893,12 +858,6 @@ static void AddScrollArrows(void)
 
 static void RemoveScrollArrows(void)
 {
-    if (sMoveRelearnerStruct->moveDisplayArrowTask != TASK_NONE)
-    {
-        RemoveScrollIndicatorArrowPair(sMoveRelearnerStruct->moveDisplayArrowTask);
-        sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
-    }
-
     if (sMoveRelearnerStruct->moveListScrollArrowTask != TASK_NONE)
     {
         RemoveScrollIndicatorArrowPair(sMoveRelearnerStruct->moveListScrollArrowTask);
