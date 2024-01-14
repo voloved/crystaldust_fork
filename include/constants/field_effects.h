@@ -71,6 +71,7 @@
 #define FLDEFF_USE_HEADBUTT              67
 #define FLDEFF_CAMERA_FLASH              68
 #define FLDEFF_USE_WHIRLPOOL             69
+#define FLDEFF_USE_SURF_NO_INTRO         70
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

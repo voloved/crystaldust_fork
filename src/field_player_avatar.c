@@ -34,6 +34,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 #include "item.h"
+#include "event_scripts.h"
 
 EWRAM_DATA bool8 gRunToggleBtnSet = FALSE;
 
@@ -728,6 +729,13 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
     u8 collision = GetCollisionAtCoords(objectEvent, x, y, direction);
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
+    if (IsPlayerFacingSurfableFishableWater() 
+        && (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+        && GetObjectEventIdByXYZ(x, y, 1) == OBJECT_EVENTS_COUNT)
+    {
+        ScriptContext1_SetupScript(EventScript_UseSurfNoIntro);
+        return COLLISION_SURF_NO_INTRO;
+    }
 
     if (ShouldJumpLedge(x, y, direction))
     {
