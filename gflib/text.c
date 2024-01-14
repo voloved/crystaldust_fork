@@ -179,9 +179,9 @@ const struct FontInfo gFontInfos[] =
         .letterSpacing = 0x0,
         .lineSpacing = 0x0,
         .style = 0x0,
-        .fgColor = 0x1,
-        .bgColor = 0x2,
-        .shadowColor = 0xF,
+        .fgColor = 0x2,
+        .bgColor = 0x1,
+        .shadowColor = 0x3,
     }
 };
 

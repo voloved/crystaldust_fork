@@ -778,7 +778,7 @@ static void MoveRelearnerLoadBattleMoveDescription(u32 chosenMove)
     AddTextPrinterParameterized(0, 2, str, 0x6A, 0x29, TEXT_SPEED_FF, NULL);
 
     str = gMoveDescriptionPointers[chosenMove - 1];
-    AddTextPrinterParameterized(0, 7, str, 0, 0x41, 0, NULL);
+    AddTextPrinterParameterized(0, 8, str, 0, 0x41, 0, NULL);
 }
 
 static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
@@ -812,7 +812,7 @@ static void MoveRelearnerMenuLoadContestMoveDescription(u32 chosenMove)
     AddTextPrinterParameterized(1, 2, str, 4, 0x19, TEXT_SPEED_FF, NULL);
 
     str = gContestEffectDescriptionPointers[move->effect];
-    AddTextPrinterParameterized(1, 7, str, 0, 0x41, TEXT_SPEED_FF, NULL);
+    AddTextPrinterParameterized(1, 8, str, 0, 0x41, TEXT_SPEED_FF, NULL);
 
     CopyWindowToVram(1, 2);
 }
