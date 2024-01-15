@@ -106,7 +106,7 @@ static void PlayerRun(u8);
 static void PlayerNotOnBikeCollide(u8);
 static void PlayerNotOnBikeCollideWithFarawayIslandMew(u8);
 
-static void PlayerFreezeImmedietly(void);
+static void ForcePlayerToPerformMovementAction(void);
 static void PlayCollisionSoundIfNotFacingWarp(u8 a);
 
 static void HideShowWarpArrow(struct ObjectEvent *);
@@ -734,7 +734,7 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
         && (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         && GetObjectEventIdByXYZ(x, y, 1) == OBJECT_EVENTS_COUNT)
     {
-        PlayerFreezeImmedietly();
+        ForcePlayerToPerformMovementAction();
         ScriptContext1_SetupScript(EventScript_UseSurfNoIntro);
         return COLLISION_SURF_NO_INTRO;
     }
@@ -1102,7 +1102,7 @@ void PlayerJumpLedge(u8 direction)
     PlayerSetAnimId(GetJump2MovementAction(direction), 8);
 }
 
-static void PlayerFreezeImmedietly(void)
+static void ForcePlayerToPerformMovementAction(void)
 {
      PlayerForceSetHeldMovement(GetFaceDirectionMovementAction(gObjectEvents[gPlayerAvatar.objectEventId].facingDirection));
 }
@@ -1113,7 +1113,7 @@ void PlayerFreeze(void)
     if (gPlayerAvatar.tileTransitionState == T_TILE_CENTER || gPlayerAvatar.tileTransitionState == T_NOT_MOVING)
     {
         if (IsPlayerNotUsingAcroBikeOnBumpySlope())
-            PlayerFreezeImmedietly();
+            ForcePlayerToPerformMovementAction();
     }
 }
 
