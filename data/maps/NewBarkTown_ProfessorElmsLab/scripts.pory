@@ -114,7 +114,6 @@ script NewBarkTown_ProfessorElmsLab_EventScript_Elm {
         textcolor(MSG_COLOR_PREV)
         removeitem(ITEM_MYSTERY_EGG)
         delay(10)
-        playse(SE_LEDGE)
         switch (var(VAR_FACING))
         {
             case DIR_SOUTH:
@@ -261,8 +260,7 @@ script NewBarkTown_ProfessorElmsLab_EventScript_Elm_GiveEverstone {
 
 movement NewBarkTown_ProfessorElmsLab_Movement_ElmJumpsDown {
 	lock_facing_direction
-	disable_jump_landing_ground_effect
-	jump_down
+	walk_down
 	unlock_facing_direction
 }
 
@@ -272,8 +270,7 @@ movement NewBarkTown_ProfessorElmsLab_Movement_ElmStepsUp {
 
 movement NewBarkTown_ProfessorElmsLab_Movement_ElmJumpsUp {
 	lock_facing_direction
-	disable_jump_landing_ground_effect
-	jump_up
+	walk_up
 	unlock_facing_direction
 }
 
@@ -283,8 +280,7 @@ movement NewBarkTown_ProfessorElmsLab_Movement_ElmStepsDown {
 
 movement NewBarkTown_ProfessorElmsLab_Movement_ElmJumpsLeft {
 	lock_facing_direction
-	disable_jump_landing_ground_effect
-	jump_left
+	walk_left
 	unlock_facing_direction
 }
 
@@ -294,8 +290,7 @@ movement NewBarkTown_ProfessorElmsLab_Movement_ElmStepsRight {
 
 movement NewBarkTown_ProfessorElmsLab_Movement_ElmJumpsRight {
 	lock_facing_direction
-	disable_jump_landing_ground_effect
-	jump_right
+	walk_right
 	unlock_facing_direction
 }
 
@@ -504,7 +499,14 @@ script NewBarkTown_EventScript_PokeBallMain {
             message("{PLAYER} received the {STR_VAR_1}\n"
                     "from PROF. ELM!")
             waitmessage
-            playfanfare(MUS_RG_OBTAIN_KEY_ITEM)
+            if (flag(FLAG_SYS_GBS_ENABLED))
+            {
+                playfanfare(MUS_RG_CAUGHT_INTRO)
+            }
+            else
+            {
+                playfanfare(MUS_RG_OBTAIN_KEY_ITEM)
+            }
             waitfanfare
             msgbox(gText_NicknameThisPokemon, MSGBOX_YESNO)
             if (var(VAR_RESULT) == YES)
