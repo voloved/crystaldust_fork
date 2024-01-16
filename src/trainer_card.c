@@ -1241,8 +1241,8 @@ static void BufferHofDebutTime(void)
 
 static void PrintStatOnBackOfCard(u8 top, const u8* statName, u8* stat, const u8* color)
 {
-    static const u8 xOffsets[] = {8, 16, 8};
-    static const u8 widths[] = {216, 216, 216};
+    static const u8 xOffsets[] = {8, 16, 10};
+    static const u8 widths[] = {216, 216, 208};
 
     u8 fontId;
 
