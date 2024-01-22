@@ -566,11 +566,13 @@
 #define ITEM_B_USE_MEDICINE 1
 #define ITEM_B_USE_OTHER    2
 
+#define DEVOLUTION_ITEM ITEM_EVERSTONE
+
 // Check if the item is one that can be used on a Pokemon.
 #define ITEM_HAS_EFFECT(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || (item) == ITEM_RAGE_CANDY_BAR \
 || (item) == ITEM_KINGS_ROCK || (item) == ITEM_DRAGON_SCALE || (item) == ITEM_METAL_COAT \
 || (item) == ITEM_UP_GRADE || (item) == ITEM_DEEP_SEA_TOOTH || (item) == ITEM_DEEP_SEA_SCALE \
-|| (item) == ITEM_NEVER_MELT_ICE || (item) == ITEM_STAR_PIECE || (item) == ITEM_EVERSTONE)
+|| (item) == ITEM_NEVER_MELT_ICE || (item) == ITEM_STAR_PIECE || (item) == DEVOLUTION_ITEM)
 
 
 #define APRICORN_COUNT              7

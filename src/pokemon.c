@@ -5263,7 +5263,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
 
                     case 7: // ITEM4_EVO_STONE
                         {
-                            bool8 devolving = (item == ITEM_EVERSTONE);
+                            bool8 devolving = (item == DEVOLUTION_ITEM);
                             u16 targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_ITEM_USE, item);
 
                             if (targetSpecies != SPECIES_NONE)
@@ -5699,14 +5699,17 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 mode, u16 evolutionItem)
     case EVO_MODE_ITEM_CHECK:
         for (i = 0; i < EVOS_PER_MON; i++)
         {
-            if (gEvolutionTable[species][i].method == EVO_ITEM
-            && gEvolutionTable[species][i].param == evolutionItem)
+            if(evolutionItem == DEVOLUTION_ITEM)
+            {
+                targetSpecies = GetPreEvolution(species);
+                break;
+            }           
+            else if (gEvolutionTable[species][i].method == EVO_ITEM
+             && gEvolutionTable[species][i].param == evolutionItem)
             {
                 targetSpecies = gEvolutionTable[species][i].targetSpecies;
                 break;
-            }
-            else if(evolutionItem == ITEM_EVERSTONE)
-                targetSpecies = GetPreEvolution(species);
+            }                
         }
         break;
     }

@@ -75,7 +75,7 @@ GoldenrodCity_DeptStore_2F_Pokemart_LeftClerk_SixBadge:
 	.2byte ITEM_THUNDER_STONE
 	.2byte ITEM_SUN_STONE
 	.2byte ITEM_MOON_STONE
-    .2byte ITEM_EVERSTONE
+    .2byte DEVOLUTION_ITEM
 	.2byte ITEM_LUCKY_EGG
 	.2byte ITEM_NONE
 `
