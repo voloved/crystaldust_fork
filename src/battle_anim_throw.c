@@ -5,6 +5,7 @@
 #include "battle_interface.h"
 #include "decompress.h"
 #include "dma3.h"
+#include "item.h"
 #include "gpu_regs.h"
 #include "graphics.h"
 #include "m4a.h"
@@ -2756,7 +2757,11 @@ void TryShinyAnimation(u8 battler, struct Pokemon *mon)
     {
         shinyValue = HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality);
         if (shinyValue < SHINY_ODDS)
-            isShiny = TRUE;
+        {
+            CompactItemsInBagPocket(&gBagPockets[BALLS_POCKET]);
+            if (gBagPockets[BALLS_POCKET].itemSlots[0].itemId != ITEM_NONE)
+                isShiny = TRUE;
+        }
 
         if (isShiny)
         {
