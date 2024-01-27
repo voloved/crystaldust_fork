@@ -1328,7 +1328,7 @@
 #define FLAG_CLEANSE_TAG                                            0x4EB
 #define FLAG_POKE_DOLL                                              0x4EC
 #define FLAG_RETAIN_HP_AILMENT_IN_PC                                0x4ED
-#define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
+#define FLAG_RANDOMIZE_WILD                                         0x4EE
 #define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
 
 #define FLAG_DEFEATED_VIOLET_GYM                                    0x4F0

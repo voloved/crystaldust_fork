@@ -1274,6 +1274,7 @@ const u8 gText_PCDoesntHeal[] = _("PC DOESN'T HEAL");
 const u8 gText_ToggleRunningWithB[] = _("TOGGLE RUNNING WITH B");
 const u8 gText_RelearnMovesInMenu[] = _("RELEARN MOVES IN MENU");
 const u8 gText_AllowTrainersToRunFromBattle[] = _("ALLOW RUNNING FROM TRAINERS");
+const u8 gText_RandomWildEncounters[] = _("RANDOMIZE WILD ENCOUNTERS");
 
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} SINGLE");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} DOUBLE");

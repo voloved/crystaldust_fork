@@ -206,7 +206,8 @@ struct BaseStats
  /* 0x14 */ u8 eggGroup1;
  /* 0x15 */ u8 eggGroup2;
  /* 0x16 */ u8 abilities[2];
- /* 0x18 */ u8 safariZoneFleeRate;
+ /* 0x18 */ u8 safariZoneFleeRate : 5;
+            u8 rarity : 3;
  /* 0x19 */ u8 bodyColor : 7;
             u8 noFlip : 1;
 };
@@ -329,6 +330,7 @@ u8 GetGenderFromSpeciesAndPersonality(u16 species, u32 personality);
 void SetMultiuseSpriteTemplateToPokemon(u16 speciesTag, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerBack(u16 trainerSpriteId, u8 battlerPosition);
 void SetMultiuseSpriteTemplateToTrainerFront(u16 arg0, u8 battlerPosition);
+u16 GetPreEvolution(u16 species);
 
 // These are full type signatures for GetMonData() and GetBoxMonData(),
 // but they are not used since some code erroneously omits the third arg.

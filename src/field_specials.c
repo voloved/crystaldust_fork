@@ -2397,7 +2397,7 @@ void ShowScrollableMultichoice(void)
             break;
         case SCROLL_MULTI_ELM_PC_OPTIONS:
             task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-            task->tNumItems = 11;
+            task->tNumItems = 12;
             task->tLeft = 17;
             task->tTop = 1;
             task->tWidth = 11;
@@ -2592,6 +2592,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_ToggleRunningWithB,
         gText_RelearnMovesInMenu,
         gText_AllowTrainersToRunFromBattle,
+        gText_RandomWildEncounters,
         gText_Exit
     }
 };

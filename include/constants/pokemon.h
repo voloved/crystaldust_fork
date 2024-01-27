@@ -72,6 +72,16 @@
 #define NATURE_QUIRKY   24
 #define NUM_NATURES     25
 
+// Pokemon rarity
+#define RARITY_COMMON     0
+#define RARITY_UNCOMMON   1
+#define RARITY_RARE       2
+#define RARITY_VERY_RARE  3
+#define RARITY_SUPER_RARE 4
+#define RARITY_LEGENDARY  5
+#define RARITY_GLITCH     6
+#define NUM_RARITIES      7
+
 // Pokemon Stats
 #define STAT_HP      0
 #define STAT_ATK     1

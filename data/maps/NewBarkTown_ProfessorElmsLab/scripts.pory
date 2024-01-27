@@ -954,6 +954,8 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn{
         case 9:
             goto(NewBarkTown_ProfessorElmsLab_EventScript_RunFromTrainers)
         case 10:
+            goto(NewBarkTown_ProfessorElmsLab_EventScript_RandomWildEncounters)
+        case 11:
         case MULTI_B_PRESSED:
             playse(SE_PC_OFF)
             closemessage
@@ -1226,6 +1228,35 @@ script(local) NewBarkTown_ProfessorElmsLab_EventScript_RunFromTrainers{
         case 1:
 			msgbox("Running from trainers\nwill not be allowed.")
 			clearflag(FLAG_ALLOW_RUNNING_FROM_TRAINER)
+        case MULTI_B_PRESSED:
+            msgbox("No changes occurred.")
+    }
+    waitmessage
+    goto(NewBarkTown_ProfessorElmsLab_EventScript_ElmsPCReturn)
+}
+
+script(local) NewBarkTown_ProfessorElmsLab_EventScript_RandomWildEncounters{
+    message("Randomize all wild\n"
+            "encounters?")
+    waitmessage
+    if (flag(FLAG_RANDOMIZE_WILD))
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 0, FALSE)
+    }
+    else
+    {
+        multichoicedefault(20, 8, MULTI_YESNO, 1, FALSE)
+    }
+    switch (var(VAR_RESULT))
+    {
+        case 0:
+            msgbox("All wild encounters will\n"
+                    "be randomized.")
+			setflag(FLAG_RANDOMIZE_WILD)
+        case 1:
+            msgbox("No encounters will\n"
+                    "be randomized.")
+			clearflag(FLAG_RANDOMIZE_WILD)
         case MULTI_B_PRESSED:
             msgbox("No changes occurred.")
     }

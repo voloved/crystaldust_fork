@@ -32,6 +32,7 @@
         .safariZoneFleeRate = 0,                    \
         .bodyColor = BODY_COLOR_BLACK,              \
         .noFlip = FALSE,                            \
+        .rarity = RARITY_VERY_RARE                  \
     }
 
 const struct BaseStats gBaseStats[] =
@@ -68,6 +69,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_IVYSAUR] =
@@ -100,6 +102,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_VENUSAUR] =
@@ -132,6 +135,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_CHARMANDER] =
@@ -164,6 +168,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_CHARMELEON] =
@@ -196,6 +201,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_CHARIZARD] =
@@ -228,6 +234,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SQUIRTLE] =
@@ -260,6 +267,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_WARTORTLE] =
@@ -292,6 +300,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_BLASTOISE] =
@@ -324,6 +333,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_CATERPIE] =
@@ -356,6 +366,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_METAPOD] =
@@ -388,6 +399,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_BUTTERFREE] =
@@ -420,6 +432,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WEEDLE] =
@@ -452,6 +465,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_KAKUNA] =
@@ -484,6 +498,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_BEEDRILL] =
@@ -516,6 +531,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_PIDGEY] =
@@ -548,6 +564,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PIDGEOTTO] =
@@ -580,6 +597,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PIDGEOT] =
@@ -612,6 +630,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_RATTATA] =
@@ -644,6 +663,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_RATICATE] =
@@ -676,6 +696,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SPEAROW] =
@@ -708,6 +729,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_FEAROW] =
@@ -740,6 +762,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_EKANS] =
@@ -772,6 +795,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_ARBOK] =
@@ -804,6 +828,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PIKACHU] =
@@ -836,6 +861,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 6,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_RAICHU] =
@@ -868,6 +894,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SANDSHREW] =
@@ -900,6 +927,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SANDSLASH] =
@@ -932,6 +960,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_NIDORAN_F] =
@@ -964,6 +993,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NIDORINA] =
@@ -996,6 +1026,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_NIDOQUEEN] =
@@ -1028,6 +1059,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_NIDORAN_M] =
@@ -1060,6 +1092,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NIDORINO] =
@@ -1092,6 +1125,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_NIDOKING] =
@@ -1124,6 +1158,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CLEFAIRY] =
@@ -1156,6 +1191,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CLEFABLE] =
@@ -1188,6 +1224,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VULPIX] =
@@ -1220,6 +1257,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NINETALES] =
@@ -1252,6 +1290,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_JIGGLYPUFF] =
@@ -1284,6 +1323,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_WIGGLYTUFF] =
@@ -1316,6 +1356,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ZUBAT] =
@@ -1348,6 +1389,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GOLBAT] =
@@ -1380,6 +1422,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ODDISH] =
@@ -1412,6 +1455,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GLOOM] =
@@ -1444,6 +1488,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 6,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VILEPLUME] =
@@ -1476,6 +1521,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_PARAS] =
@@ -1508,6 +1554,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PARASECT] =
@@ -1540,6 +1587,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VENONAT] =
@@ -1572,6 +1620,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_VENOMOTH] =
@@ -1604,6 +1653,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_DIGLETT] =
@@ -1636,6 +1686,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DUGTRIO] =
@@ -1668,6 +1719,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MEOWTH] =
@@ -1700,6 +1752,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PERSIAN] =
@@ -1732,6 +1785,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_PSYDUCK] =
@@ -1764,6 +1818,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 6,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GOLDUCK] =
@@ -1796,6 +1851,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 8,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MANKEY] =
@@ -1828,6 +1884,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PRIMEAPE] =
@@ -1860,6 +1917,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GROWLITHE] =
@@ -1892,6 +1950,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_ARCANINE] =
@@ -1924,6 +1983,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_POLIWAG] =
@@ -1956,6 +2016,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_POLIWHIRL] =
@@ -1988,6 +2049,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_POLIWRATH] =
@@ -2020,6 +2082,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_ABRA] =
@@ -2052,6 +2115,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_KADABRA] =
@@ -2084,6 +2148,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ALAKAZAM] =
@@ -2116,6 +2181,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MACHOP] =
@@ -2148,6 +2214,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MACHOKE] =
@@ -2180,6 +2247,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MACHAMP] =
@@ -2212,6 +2280,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_BELLSPROUT] =
@@ -2244,6 +2313,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_WEEPINBELL] =
@@ -2276,6 +2346,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VICTREEBEL] =
@@ -2308,6 +2379,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_TENTACOOL] =
@@ -2340,6 +2412,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_TENTACRUEL] =
@@ -2372,6 +2445,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GEODUDE] =
@@ -2404,6 +2478,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GRAVELER] =
@@ -2436,6 +2511,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GOLEM] =
@@ -2468,6 +2544,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_PONYTA] =
@@ -2500,6 +2577,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_RAPIDASH] =
@@ -2532,6 +2610,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SLOWPOKE] =
@@ -2564,6 +2643,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SLOWBRO] =
@@ -2596,6 +2676,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MAGNEMITE] =
@@ -2628,6 +2709,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MAGNETON] =
@@ -2660,6 +2742,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_FARFETCHD] =
@@ -2692,6 +2775,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_DODUO] =
@@ -2724,6 +2808,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 8,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DODRIO] =
@@ -2756,6 +2841,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 10,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SEEL] =
@@ -2788,6 +2874,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DEWGONG] =
@@ -2820,6 +2907,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GRIMER] =
@@ -2852,6 +2940,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MUK] =
@@ -2884,6 +2973,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SHELLDER] =
@@ -2916,6 +3006,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CLOYSTER] =
@@ -2948,6 +3039,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GASTLY] =
@@ -2980,6 +3072,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_HAUNTER] =
@@ -3012,6 +3105,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GENGAR] =
@@ -3044,6 +3138,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ONIX] =
@@ -3076,6 +3171,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DROWZEE] =
@@ -3108,6 +3204,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_HYPNO] =
@@ -3140,6 +3237,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_KRABBY] =
@@ -3172,6 +3270,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_KINGLER] =
@@ -3204,6 +3303,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VOLTORB] =
@@ -3236,6 +3336,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_ELECTRODE] =
@@ -3268,6 +3369,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_EXEGGCUTE] =
@@ -3300,6 +3402,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_EXEGGUTOR] =
@@ -3332,6 +3435,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CUBONE] =
@@ -3364,6 +3468,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MAROWAK] =
@@ -3396,6 +3501,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_HITMONLEE] =
@@ -3428,6 +3534,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_HITMONCHAN] =
@@ -3460,6 +3567,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_LICKITUNG] =
@@ -3492,6 +3600,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_KOFFING] =
@@ -3524,6 +3633,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_WEEZING] =
@@ -3556,6 +3666,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_RHYHORN] =
@@ -3588,6 +3699,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_RHYDON] =
@@ -3620,6 +3732,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CHANSEY] =
@@ -3652,6 +3765,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_TANGELA] =
@@ -3684,6 +3798,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_KANGASKHAN] =
@@ -3716,6 +3831,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_HORSEA] =
@@ -3748,6 +3864,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SEADRA] =
@@ -3780,6 +3897,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_GOLDEEN] =
@@ -3812,6 +3930,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SEAKING] =
@@ -3844,6 +3963,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 6,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_STARYU] =
@@ -3876,6 +3996,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_STARMIE] =
@@ -3908,6 +4029,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MR_MIME] =
@@ -3940,6 +4062,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SCYTHER] =
@@ -3972,6 +4095,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_JYNX] =
@@ -4004,6 +4128,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ELECTABUZZ] =
@@ -4036,6 +4161,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MAGMAR] =
@@ -4068,6 +4194,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_PINSIR] =
@@ -4100,6 +4227,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 8,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_TAUROS] =
@@ -4132,6 +4260,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MAGIKARP] =
@@ -4164,6 +4293,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GYARADOS] =
@@ -4196,6 +4326,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_LAPRAS] =
@@ -4228,6 +4359,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_DITTO] =
@@ -4260,6 +4392,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_EEVEE] =
@@ -4282,7 +4415,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 1,
         .item1 = ITEM_NONE,
         .item2 = ITEM_STAR_PIECE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -4292,6 +4425,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_VAPOREON] =
@@ -4314,7 +4448,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 0,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -4324,6 +4458,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_JOLTEON] =
@@ -4346,7 +4481,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 0,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -4356,6 +4491,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_FLAREON] =
@@ -4378,7 +4514,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 0,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -4388,6 +4524,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_PORYGON] =
@@ -4420,6 +4557,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_OMANYTE] =
@@ -4452,6 +4590,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_OMASTAR] =
@@ -4484,6 +4623,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_KABUTO] =
@@ -4516,6 +4656,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_KABUTOPS] =
@@ -4548,6 +4689,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_AERODACTYL] =
@@ -4580,6 +4722,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SNORLAX] =
@@ -4612,6 +4755,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ARTICUNO] =
@@ -4644,6 +4788,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_ZAPDOS] =
@@ -4676,6 +4821,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_MOLTRES] =
@@ -4708,6 +4854,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_DRATINI] =
@@ -4740,6 +4887,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_DRAGONAIR] =
@@ -4772,6 +4920,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_DRAGONITE] =
@@ -4804,6 +4953,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MEWTWO] =
@@ -4836,6 +4986,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_MEW] =
@@ -4868,6 +5019,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_CHIKORITA] =
@@ -4900,6 +5052,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_BAYLEEF] =
@@ -4932,6 +5085,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MEGANIUM] =
@@ -4964,6 +5118,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_CYNDAQUIL] =
@@ -4996,6 +5151,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_QUILAVA] =
@@ -5028,6 +5184,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TYPHLOSION] =
@@ -5060,6 +5217,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TOTODILE] =
@@ -5092,6 +5250,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_CROCONAW] =
@@ -5124,6 +5283,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = TRUE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_FERALIGATR] =
@@ -5156,6 +5316,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SENTRET] =
@@ -5188,6 +5349,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_FURRET] =
@@ -5220,6 +5382,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_HOOTHOOT] =
@@ -5252,6 +5415,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NOCTOWL] =
@@ -5284,6 +5448,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LEDYBA] =
@@ -5316,6 +5481,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_LEDIAN] =
@@ -5348,6 +5514,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SPINARAK] =
@@ -5380,6 +5547,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_ARIADOS] =
@@ -5412,6 +5580,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_CROBAT] =
@@ -5444,6 +5613,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_CHINCHOU] =
@@ -5476,6 +5646,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LANTURN] =
@@ -5508,6 +5679,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_PICHU] =
@@ -5540,6 +5712,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CLEFFA] =
@@ -5572,6 +5745,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_IGGLYBUFF] =
@@ -5604,6 +5778,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = TRUE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_TOGEPI] =
@@ -5636,6 +5811,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_TOGETIC] =
@@ -5668,6 +5844,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_NATU] =
@@ -5700,6 +5877,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 6,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_XATU] =
@@ -5732,6 +5910,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 8,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MAREEP] =
@@ -5764,6 +5943,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_FLAAFFY] =
@@ -5796,6 +5976,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_AMPHAROS] =
@@ -5828,6 +6009,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_BELLOSSOM] =
@@ -5860,6 +6042,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MARILL] =
@@ -5892,6 +6075,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_AZUMARILL] =
@@ -5924,6 +6108,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SUDOWOODO] =
@@ -5956,6 +6141,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_POLITOED] =
@@ -5988,6 +6174,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_HOPPIP] =
@@ -6020,6 +6207,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SKIPLOOM] =
@@ -6052,6 +6240,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_JUMPLUFF] =
@@ -6084,6 +6273,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_AIPOM] =
@@ -6116,6 +6306,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SUNKERN] =
@@ -6148,6 +6339,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SUNFLORA] =
@@ -6180,6 +6372,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_YANMA] =
@@ -6212,6 +6405,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_WOOPER] =
@@ -6244,6 +6438,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_QUAGSIRE] =
@@ -6276,6 +6471,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ESPEON] =
@@ -6298,7 +6494,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 0,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 70,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -6308,6 +6504,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_UMBREON] =
@@ -6330,7 +6527,7 @@ const struct BaseStats gBaseStats[] =
         .evYield_SpDefense = 2,
         .item1 = ITEM_NONE,
         .item2 = ITEM_NONE,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -6340,6 +6537,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MURKROW] =
@@ -6372,6 +6570,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SLOWKING] =
@@ -6404,6 +6603,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MISDREAVUS] =
@@ -6436,6 +6636,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_UNOWN] =
@@ -6468,6 +6669,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_WOBBUFFET] =
@@ -6500,6 +6702,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_GIRAFARIG] =
@@ -6532,6 +6735,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 4,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_PINECO] =
@@ -6564,6 +6768,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_FORRETRESS] =
@@ -6596,6 +6801,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_DUNSPARCE] =
@@ -6628,6 +6834,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GLIGAR] =
@@ -6660,6 +6867,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_STEELIX] =
@@ -6692,6 +6900,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SNUBBULL] =
@@ -6724,6 +6933,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GRANBULL] =
@@ -6756,6 +6966,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_QWILFISH] =
@@ -6788,6 +6999,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SCIZOR] =
@@ -6820,6 +7032,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SHUCKLE] =
@@ -6852,6 +7065,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_HERACROSS] =
@@ -6884,6 +7098,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 8,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SNEASEL] =
@@ -6916,6 +7131,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_TEDDIURSA] =
@@ -6948,6 +7164,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_URSARING] =
@@ -6980,6 +7197,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SLUGMA] =
@@ -7012,6 +7230,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MAGCARGO] =
@@ -7044,6 +7263,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SWINUB] =
@@ -7076,6 +7296,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PILOSWINE] =
@@ -7108,6 +7329,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CORSOLA] =
@@ -7140,6 +7362,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_REMORAID] =
@@ -7172,6 +7395,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_OCTILLERY] =
@@ -7204,6 +7428,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_DELIBIRD] =
@@ -7236,6 +7461,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_MANTINE] =
@@ -7268,6 +7494,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SKARMORY] =
@@ -7300,6 +7527,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_HOUNDOUR] =
@@ -7332,6 +7560,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_HOUNDOOM] =
@@ -7364,6 +7593,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_KINGDRA] =
@@ -7396,6 +7626,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_PHANPY] =
@@ -7428,6 +7659,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 10,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DONPHAN] =
@@ -7460,6 +7692,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_PORYGON2] =
@@ -7492,6 +7725,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_STANTLER] =
@@ -7524,6 +7758,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SMEARGLE] =
@@ -7556,6 +7791,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_TYROGUE] =
@@ -7588,6 +7824,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_HITMONTOP] =
@@ -7620,6 +7857,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SMOOCHUM] =
@@ -7652,6 +7890,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ELEKID] =
@@ -7684,6 +7923,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MAGBY] =
@@ -7716,6 +7956,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MILTANK] =
@@ -7748,6 +7989,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_BLISSEY] =
@@ -7780,6 +8022,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_RAIKOU] =
@@ -7812,6 +8055,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_ENTEI] =
@@ -7844,6 +8088,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_SUICUNE] =
@@ -7876,6 +8121,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_LARVITAR] =
@@ -7908,6 +8154,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_PUPITAR] =
@@ -7940,6 +8187,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TYRANITAR] =
@@ -7972,6 +8220,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_LUGIA] =
@@ -8004,6 +8253,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_HO_OH] =
@@ -8036,6 +8286,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_CELEBI] =
@@ -8068,6 +8319,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_OLD_UNOWN_B] = OLD_UNOWN_BASE_STATS,
@@ -8134,6 +8386,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_GROVYLE] =
@@ -8166,6 +8419,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SCEPTILE] =
@@ -8198,6 +8452,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TORCHIC] =
@@ -8230,6 +8485,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_COMBUSKEN] =
@@ -8262,6 +8518,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_BLAZIKEN] =
@@ -8294,6 +8551,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MUDKIP] =
@@ -8326,6 +8584,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MARSHTOMP] =
@@ -8358,6 +8617,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SWAMPERT] =
@@ -8390,6 +8650,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_POOCHYENA] =
@@ -8422,6 +8683,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MIGHTYENA] =
@@ -8454,6 +8716,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ZIGZAGOON] =
@@ -8486,6 +8749,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_LINOONE] =
@@ -8518,6 +8782,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WURMPLE] =
@@ -8550,6 +8815,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SILCOON] =
@@ -8582,6 +8848,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_BEAUTIFLY] =
@@ -8614,6 +8881,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_CASCOON] =
@@ -8646,6 +8914,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DUSTOX] =
@@ -8678,6 +8947,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LOTAD] =
@@ -8710,6 +8980,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_LOMBRE] =
@@ -8742,6 +9013,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LUDICOLO] =
@@ -8774,6 +9046,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SEEDOT] =
@@ -8806,6 +9079,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NUZLEAF] =
@@ -8838,6 +9112,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SHIFTRY] =
@@ -8870,6 +9145,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_NINCADA] =
@@ -8902,6 +9178,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_NINJASK] =
@@ -8934,6 +9211,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SHEDINJA] =
@@ -8966,6 +9244,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_TAILLOW] =
@@ -8998,6 +9277,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SWELLOW] =
@@ -9030,6 +9310,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SHROOMISH] =
@@ -9062,6 +9343,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_BRELOOM] =
@@ -9094,6 +9376,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SPINDA] =
@@ -9126,6 +9409,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WINGULL] =
@@ -9158,6 +9442,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_PELIPPER] =
@@ -9190,6 +9475,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SURSKIT] =
@@ -9222,6 +9508,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MASQUERAIN] =
@@ -9254,6 +9541,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WAILMER] =
@@ -9286,6 +9574,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WAILORD] =
@@ -9318,6 +9607,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SKITTY] =
@@ -9350,6 +9640,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DELCATTY] =
@@ -9382,6 +9673,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_KECLEON] =
@@ -9414,6 +9706,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_BALTOY] =
@@ -9446,6 +9739,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CLAYDOL] =
@@ -9478,6 +9772,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_NOSEPASS] =
@@ -9510,6 +9805,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_TORKOAL] =
@@ -9542,6 +9838,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SABLEYE] =
@@ -9574,6 +9871,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_BARBOACH] =
@@ -9606,6 +9904,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_WHISCASH] =
@@ -9638,6 +9937,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LUVDISC] =
@@ -9670,6 +9970,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CORPHISH] =
@@ -9702,6 +10003,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CRAWDAUNT] =
@@ -9734,6 +10036,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_FEEBAS] =
@@ -9766,6 +10069,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MILOTIC] =
@@ -9798,6 +10102,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_CARVANHA] =
@@ -9830,6 +10135,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SHARPEDO] =
@@ -9862,6 +10168,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_TRAPINCH] =
@@ -9894,6 +10201,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VIBRAVA] =
@@ -9926,6 +10234,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_FLYGON] =
@@ -9958,6 +10267,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MAKUHITA] =
@@ -9990,6 +10300,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_HARIYAMA] =
@@ -10022,6 +10333,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ELECTRIKE] =
@@ -10054,6 +10366,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MANECTRIC] =
@@ -10086,6 +10399,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_NUMEL] =
@@ -10118,6 +10432,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CAMERUPT] =
@@ -10150,6 +10465,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SPHEAL] =
@@ -10182,6 +10498,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SEALEO] =
@@ -10214,6 +10531,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WALREIN] =
@@ -10246,6 +10564,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_CACNEA] =
@@ -10278,6 +10597,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CACTURNE] =
@@ -10310,6 +10630,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SNORUNT] =
@@ -10342,6 +10663,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GLALIE] =
@@ -10374,6 +10696,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_LUNATONE] =
@@ -10406,6 +10729,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SOLROCK] =
@@ -10438,6 +10762,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_AZURILL] =
@@ -10470,6 +10795,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SPOINK] =
@@ -10502,6 +10828,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_GRUMPIG] =
@@ -10534,6 +10861,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_PLUSLE] =
@@ -10566,6 +10894,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MINUN] =
@@ -10598,6 +10927,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MAWILE] =
@@ -10630,6 +10960,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_MEDITITE] =
@@ -10662,6 +10993,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_MEDICHAM] =
@@ -10694,6 +11026,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SWABLU] =
@@ -10726,6 +11059,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ALTARIA] =
@@ -10758,6 +11092,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_WYNAUT] =
@@ -10790,6 +11125,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_DUSKULL] =
@@ -10822,6 +11158,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_DUSCLOPS] =
@@ -10854,6 +11191,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_ROSELIA] =
@@ -10886,6 +11224,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SLAKOTH] =
@@ -10918,6 +11257,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_VIGOROTH] =
@@ -10950,6 +11290,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SLAKING] =
@@ -10982,6 +11323,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_GULPIN] =
@@ -11014,6 +11356,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_SWALOT] =
@@ -11046,6 +11389,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_TROPIUS] =
@@ -11078,6 +11422,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_WHISMUR] =
@@ -11110,6 +11455,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_LOUDRED] =
@@ -11142,6 +11488,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_EXPLOUD] =
@@ -11174,6 +11521,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_CLAMPERL] =
@@ -11206,6 +11554,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_HUNTAIL] =
@@ -11238,6 +11587,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_GOREBYSS] =
@@ -11270,6 +11620,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ABSOL] =
@@ -11302,6 +11653,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SHUPPET] =
@@ -11334,6 +11686,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_BANETTE] =
@@ -11366,6 +11719,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_SEVIPER] =
@@ -11398,6 +11752,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ZANGOOSE] =
@@ -11430,6 +11785,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_RELICANTH] =
@@ -11462,6 +11818,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_ARON] =
@@ -11494,6 +11851,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LAIRON] =
@@ -11526,6 +11884,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_AGGRON] =
@@ -11558,6 +11917,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_CASTFORM] =
@@ -11590,6 +11950,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_VOLBEAT] =
@@ -11622,6 +11983,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ILLUMISE] =
@@ -11654,6 +12016,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_LILEEP] =
@@ -11686,6 +12049,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_CRADILY] =
@@ -11718,6 +12082,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_ANORITH] =
@@ -11750,6 +12115,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_COMMON,
     },
 
     [SPECIES_ARMALDO] =
@@ -11782,6 +12148,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_UNCOMMON,
     },
 
     [SPECIES_RALTS] =
@@ -11814,6 +12181,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_KIRLIA] =
@@ -11846,6 +12214,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_GARDEVOIR] =
@@ -11878,6 +12247,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_BAGON] =
@@ -11910,6 +12280,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_SHELGON] =
@@ -11942,6 +12313,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_SALAMENCE] =
@@ -11974,6 +12346,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_BELDUM] =
@@ -11986,7 +12359,7 @@ const struct BaseStats gBaseStats[] =
         .baseSpDefense = 60,
         .type1 = TYPE_STEEL,
         .type2 = TYPE_PSYCHIC,
-        .catchRate = 3,
+        .catchRate = 6,
         .expYield = 103,
         .evYield_HP        = 0,
         .evYield_Attack    = 0,
@@ -12006,6 +12379,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_RARE,
     },
 
     [SPECIES_METANG] =
@@ -12038,6 +12412,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_METAGROSS] =
@@ -12070,6 +12445,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_REGIROCK] =
@@ -12102,6 +12478,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_REGICE] =
@@ -12134,6 +12511,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_REGISTEEL] =
@@ -12166,6 +12544,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_KYOGRE] =
@@ -12198,6 +12577,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_GROUDON] =
@@ -12230,6 +12610,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_RAYQUAZA] =
@@ -12262,6 +12643,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_LATIAS] =
@@ -12294,6 +12676,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_LATIOS] =
@@ -12326,6 +12709,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_JIRACHI] =
@@ -12358,6 +12742,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_DEOXYS] =
@@ -12390,6 +12775,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
+        .rarity = RARITY_LEGENDARY,
     },
 
     [SPECIES_CHIMECHO] =
@@ -12422,6 +12808,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_WEAVILE] =
@@ -12448,6 +12835,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MAGNEZONE] =
@@ -12473,6 +12861,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_MAGNET_PULL, ABILITY_STURDY},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_LICKILICKY] =
@@ -12497,6 +12886,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_OWN_TEMPO, ABILITY_OBLIVIOUS},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_RHYPERIOR] =
@@ -12521,6 +12911,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_LIGHTNING_ROD, ABILITY_ROCK_HEAD},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TANGROWTH] =
@@ -12545,6 +12936,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_ELECTIVIRE] =
@@ -12569,6 +12961,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_STATIC, ABILITY_VITAL_SPIRIT},
         .bodyColor = BODY_COLOR_YELLOW,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MAGMORTAR] =
@@ -12593,6 +12986,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_FLAME_BODY, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = TRUE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_TOGEKISS] =
@@ -12618,6 +13012,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_HUSTLE, ABILITY_SERENE_GRACE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = TRUE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_YANMEGA] =
@@ -12642,6 +13037,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_SPEED_BOOST, ABILITY_COMPOUND_EYES},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_GLISCOR] =
@@ -12666,6 +13062,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_HYPER_CUTTER, ABILITY_SAND_VEIL},
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MAMOSWINE] =
@@ -12690,6 +13087,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_OBLIVIOUS, ABILITY_THICK_FAT},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_PORYGON_Z] =
@@ -12714,6 +13112,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_TRACE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_RED,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_GALLADE] =
@@ -12737,6 +13136,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_SYNCHRONIZE, ABILITY_TRACE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_PROBOPASS] =
@@ -12763,6 +13163,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_STURDY, ABILITY_MAGNET_PULL},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_DUSKNOIR] =
@@ -12789,6 +13190,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_PRESSURE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_ROSERADE] =
@@ -12814,6 +13216,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_NATURAL_CURE, ABILITY_POISON_POINT},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_AMBIPOM] =
@@ -12839,6 +13242,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_PURPLE,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_MISMAGIUS] =
@@ -12865,6 +13269,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_HONCHKROW] =
@@ -12890,6 +13295,7 @@ const struct BaseStats gBaseStats[] =
         .safariZoneFleeRate = 0,
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_VERY_RARE,
     },
 
     [SPECIES_FROSLASS] =
@@ -12914,6 +13320,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_INNER_FOCUS, ABILITY_NONE},
         .bodyColor = BODY_COLOR_WHITE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_URSALUNA] =
@@ -12938,6 +13345,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_GUTS, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BROWN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_ANNIHILAPE] =
@@ -12962,6 +13370,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_VITAL_SPIRIT, ABILITY_INNER_FOCUS},
         .bodyColor = BODY_COLOR_GRAY,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_LEAFEON] =
@@ -12977,7 +13386,7 @@ const struct BaseStats gBaseStats[] =
         .catchRate = 45,
         .expYield = 184,
         .evYield_Defense   = 2,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -12986,6 +13395,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_CHLOROPHYLL, ABILITY_NONE},
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_GLACEON] =
@@ -13001,7 +13411,7 @@ const struct BaseStats gBaseStats[] =
         .catchRate = 45,
         .expYield = 184,
         .evYield_SpAttack  = 2,
-        .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 35,
         .friendship = 35,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -13010,6 +13420,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_THICK_FAT, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLUE,
         .noFlip = FALSE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_SYLVEON] =
@@ -13034,6 +13445,7 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_CUTE_CHARM, ABILITY_NONE},
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = TRUE,
+        .rarity = RARITY_SUPER_RARE,
     },
 
     [SPECIES_MISSINGNO] =
@@ -13058,5 +13470,6 @@ const struct BaseStats gBaseStats[] =
         .abilities = {ABILITY_LEVITATE, ABILITY_NONE},
         .bodyColor = BODY_COLOR_BLACK,
         .noFlip = FALSE,
+        .rarity = RARITY_GLITCH
     } 
 };

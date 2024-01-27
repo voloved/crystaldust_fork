@@ -741,6 +741,7 @@ extern const u8 gText_PCDoesntHeal[];
 extern const u8 gText_ToggleRunningWithB[];
 extern const u8 gText_RelearnMovesInMenu[];
 extern const u8 gText_AllowTrainersToRunFromBattle[];
+extern const u8 gText_RandomWildEncounters[];
 
 // Battle Frontier Move Tutors
 extern const u8 gText_Softboiled16BP[];

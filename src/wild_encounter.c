@@ -480,6 +480,56 @@ enum
 #define WILD_CHECK_REPEL    0x1
 #define WILD_CHECK_KEEN_EYE 0x2
 
+static s8 getRandomRarityCategory(s16 minRarity, s16 maxRarity)
+{
+    if (minRarity < RARITY_COMMON)
+        minRarity = RARITY_COMMON;
+    if (maxRarity > NUM_RARITIES)
+        maxRarity = NUM_RARITIES;
+
+    if (minRarity >= maxRarity)
+        return maxRarity;
+    else
+    {
+        u16 range = maxRarity - minRarity + 1;
+        u16 divisor = 1000;
+        u16 check = Random() % divisor;
+        u16 base = divisor / ((1 << (range))  - 1);
+        u32 i;
+        for (i = 0; i < range; i++)
+        {
+            u16 compareVal = ((2 << i) - 1) * base;
+            if (compareVal >= check)
+                break;
+        }
+        return maxRarity - i;
+    }
+}
+
+static u16 getRandomSpecies(u8 minRarity, u8 maxRarity, bool8 allowEvolvedForms)
+{
+    u16 species;
+    do
+    {
+        species = Random() % NUM_SPECIES;
+    } while (species == SPECIES_NONE || species == SPECIES_EGG
+            || (!allowEvolvedForms && GetPreEvolution(species) != SPECIES_NONE)
+            || gBaseStats[species].rarity > maxRarity
+            || gBaseStats[species].rarity < minRarity);
+    return species;
+}
+
+static u16 getRandomWaterSpecies(u8 minRarity, u8 maxRarity, bool8 allowEvolvedForms)
+{
+    u16 species;
+    do
+    {
+        species = getRandomSpecies(minRarity, maxRarity, allowEvolvedForms);
+    } while (gBaseStats[species].type1 != TYPE_WATER
+            && gBaseStats[species].type2 != TYPE_WATER);
+    return species;
+}
+
 static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 area, u8 flags)
 {
     u8 timeOfDay;
@@ -533,6 +583,14 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
             GiveItems_Missingno();
         }
     }
+    else if (FlagGet(FLAG_RANDOMIZE_WILD))
+    {
+        s16 minRarity = gBaseStats[species].rarity;
+        s16 maxRarity = gBaseStats[species].rarity + 1;
+        u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
+        bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
+        species = getRandomSpecies(rarity, rarity, allowEvolved);
+    }
     CreateWildMon(species, level, FALSE);
     return TRUE;
 }
@@ -542,15 +600,26 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u8 timeOfDay;
     u8 wildMonIndex;
     u8 level;
+    u16 species;
 
     RtcCalcLocalTime();
     timeOfDay = GetCurrentTimeOfDay();
 
     wildMonIndex = ChooseWildMonIndex_Fishing(rod);
     level = ChooseWildMonLevel(&wildMonInfo->wildPokemon[timeOfDay][wildMonIndex]);
+    species = wildMonInfo->wildPokemon[timeOfDay][wildMonIndex].species;
 
-    CreateWildMon(wildMonInfo->wildPokemon[timeOfDay][wildMonIndex].species, level, FALSE);
-    return wildMonInfo->wildPokemon[timeOfDay][wildMonIndex].species;
+    if (FlagGet(FLAG_RANDOMIZE_WILD))
+    {
+        s16 minRarity = gBaseStats[species].rarity;
+        s16 maxRarity = gBaseStats[species].rarity + 1;
+        u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
+        bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
+        species = getRandomWaterSpecies(rarity, rarity, allowEvolved);
+    }
+
+    CreateWildMon(species, level, FALSE);
+    return species;
 }
 
 static void GenerateHeadbuttWildMon(const struct WildPokemonInfo *wildMonInfo, bool32 isRare)
