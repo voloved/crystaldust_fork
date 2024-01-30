@@ -4831,7 +4831,12 @@ bool8 ExecuteTableBasedItemEffect(struct Pokemon *mon, u16 item, u8 partyIndex, 
         friendshipChange = itemEffect[itemEffectParam];                                                 \
         friendship = GetMonData(mon, MON_DATA_FRIENDSHIP, NULL);                                        \
         if (friendshipChange > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)                            \
-            friendship += 150 * friendshipChange / 100;                                                 \
+        {                                                                                               \
+            if (EvolvesViaFriendship(GetMonData(mon, MON_DATA_SPECIES, NULL)))                          \
+                friendship += 5 * friendshipChange;                                                     \
+            else                                                                                        \
+                friendship += 150 * friendshipChange / 100;                                             \
+        }                                                                                               \
         else                                                                                            \
             friendship += friendshipChange;                                                             \
         if (friendshipChange > 0)                                                                       \
@@ -5996,6 +6001,17 @@ u16 ModifyStatByNature(u8 nature, u16 n, u8 statIndex)
      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_LEADER        \
      || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION))    \
 
+bool8 EvolvesViaFriendship(u16 species){
+    int i;
+    for (i = 0; i < EVOS_PER_MON; i++){
+        if (gEvolutionTable[species][i].method == EVO_FRIENDSHIP
+         || gEvolutionTable[species][i].method == EVO_FRIENDSHIP_DAY
+         || gEvolutionTable[species][i].method == EVO_FRIENDSHIP_NIGHT)
+         return TRUE;
+    }
+    return FALSE;
+}
+
 void AdjustFriendship(struct Pokemon *mon, u8 event)
 {
     u16 species, heldItem;
@@ -6034,7 +6050,12 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
         {
             s8 mod = sFriendshipEventModifiers[event][friendshipLevel];
             if (mod > 0 && holdEffect == HOLD_EFFECT_FRIENDSHIP_UP)
-                mod = (150 * mod) / 100;
+            {
+                if (EvolvesViaFriendship(GetMonData(mon, MON_DATA_SPECIES, NULL)))
+                    mod = 5 * mod;
+                else
+                    mod = (150 * mod) / 100;
+            } 
             friendship += mod;
             if (mod > 0)
             {
