@@ -585,7 +585,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     }
     else if (FlagGet(FLAG_RANDOMIZE_WILD))
     {
-        s16 minRarity = gBaseStats[species].rarity;
+        s16 minRarity = gBaseStats[species].rarity - 1;
         s16 maxRarity = gBaseStats[species].rarity + 1;
         u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
         bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
@@ -611,7 +611,7 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
 
     if (FlagGet(FLAG_RANDOMIZE_WILD))
     {
-        s16 minRarity = gBaseStats[species].rarity;
+        s16 minRarity = gBaseStats[species].rarity - 1;
         s16 maxRarity = gBaseStats[species].rarity + 1;
         u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
         bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
