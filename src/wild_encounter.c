@@ -513,7 +513,9 @@ static u16 getRandomSpecies(u8 minRarity, u8 maxRarity, bool8 allowEvolvedForms)
     {
         species = Random() % NUM_SPECIES;
     } while (species == SPECIES_NONE || species == SPECIES_EGG
-            || (!allowEvolvedForms && GetPreEvolution(species) != SPECIES_NONE)
+            || (!allowEvolvedForms 
+                && (GetPreEvolution(species) != SPECIES_NONE) 
+                && (gBaseStats[species].rarity > gBaseStats[GetPreEvolution(species)].rarity)) // Filter out baby pokemon
             || gBaseStats[species].rarity > maxRarity
             || gBaseStats[species].rarity < minRarity);
     return species;
