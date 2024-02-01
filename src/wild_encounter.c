@@ -506,29 +506,62 @@ static s8 getRandomRarityCategory(s16 minRarity, s16 maxRarity)
     }
 }
 
-static u16 getRandomSpecies(u8 minRarity, u8 maxRarity, bool8 allowEvolvedForms)
+static bool8 validRandomSpecies(u16 species, u8 rarity, bool8 allowEvolvedForms)
+{
+    if (species != SPECIES_NONE && species != SPECIES_EGG
+        && (allowEvolvedForms || (GetPreEvolution(species) == SPECIES_NONE)
+        || (gBaseStats[GetPreEvolution(species)].rarity > gBaseStats[species].rarity)) // Filter out baby pokemon
+        && gBaseStats[species].rarity == rarity)
+        return TRUE;
+    return FALSE;
+}
+
+static u16 generateRandomSpecies(u8 rarity, bool8 allowEvolvedForms)
 {
     u16 species;
     do
     {
         species = Random() % NUM_SPECIES;
-    } while (species == SPECIES_NONE || species == SPECIES_EGG
-            || (!allowEvolvedForms 
-                && (GetPreEvolution(species) != SPECIES_NONE) 
-                && (gBaseStats[species].rarity > gBaseStats[GetPreEvolution(species)].rarity)) // Filter out baby pokemon
-            || gBaseStats[species].rarity > maxRarity
-            || gBaseStats[species].rarity < minRarity);
+    } while (!validRandomSpecies(species, rarity, allowEvolvedForms));
     return species;
 }
 
-static u16 getRandomWaterSpecies(u8 minRarity, u8 maxRarity, bool8 allowEvolvedForms)
+static u16 getRandomLandSpecies(u8 rarity, bool8 allowEvolvedForms)
+{ // Don't allow mono-water
+    u16 species;
+    do
+    {
+        species = generateRandomSpecies(rarity, allowEvolvedForms);
+    } while (gBaseStats[species].type1 == TYPE_WATER
+            && gBaseStats[species].type2 == TYPE_WATER);
+    return species;
+}
+
+static u16 getRandomWaterSpecies(u8 rarity, bool8 allowEvolvedForms)
 {
     u16 species;
     do
     {
-        species = getRandomSpecies(minRarity, maxRarity, allowEvolvedForms);
+        species = generateRandomSpecies(rarity, allowEvolvedForms);
     } while (gBaseStats[species].type1 != TYPE_WATER
             && gBaseStats[species].type2 != TYPE_WATER);
+    return species;
+}
+
+static u16 getRandomSpecies(u8 rarity, bool8 allowEvolvedForms, u8 area)
+{
+    u16 species;
+    switch (area)
+    {
+    case WILD_AREA_WATER:
+    case WILD_AREA_FISHING:
+        species = getRandomWaterSpecies(rarity, allowEvolvedForms);
+        break;
+    case WILD_AREA_LAND:
+    case WILD_AREA_ROCKS:
+        species = getRandomLandSpecies(rarity, allowEvolvedForms);
+        break;
+    }
     return species;
 }
 
@@ -591,7 +624,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
         s16 maxRarity = gBaseStats[species].rarity + 1;
         u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
         bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
-        species = getRandomSpecies(rarity, rarity, allowEvolved);
+        species = getRandomSpecies(rarity, allowEvolved, area);
     }
     CreateWildMon(species, level, FALSE);
     return TRUE;
@@ -617,7 +650,7 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
         s16 maxRarity = gBaseStats[species].rarity + 1;
         u8 rarity = getRandomRarityCategory(minRarity, maxRarity);
         bool8 allowEvolved = GetPreEvolution(species) != SPECIES_NONE;
-        species = getRandomWaterSpecies(rarity, rarity, allowEvolved);
+        species = getRandomSpecies(rarity, allowEvolved, WILD_AREA_FISHING);
     }
 
     CreateWildMon(species, level, FALSE);
