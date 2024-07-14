@@ -318,7 +318,7 @@ bool32 ShouldDrawRematchPokeballIcon(int index)
     if (index == REMATCH_TABLE_ENTRIES)
         return FALSE;
 
-    return gSaveBlock1Ptr->trainerRematches[index] != 0;
+    return 0; //gSaveBlock1Ptr->trainerRematches[index] != 0;
 }
 
 int GetMatchCallTrainerPic(int index)
@@ -351,29 +351,12 @@ const u8 *GetMatchCallMessageText(int index, u8 *arg1)
         return gText_CallCantBeMadeHere;
 
     if (!state->matchCallEntries[index].isSpecialTrainer)
-        *arg1 = SelectMatchCallMessage(GetTrainerIdxByRematchIdx(state->matchCallEntries[index].headerId), gStringVar4, FALSE);
-    else
+        //*arg1 = SelectMatchCallMessage(GetTrainerIdxByRematchIdx(state->matchCallEntries[index].headerId), gStringVar4, FALSE);
+    	*arg1 = FALSE;
+    	else
         MatchCall_GetMessage(state->matchCallEntries[index].headerId, gStringVar4);
 
     return gStringVar4;
-}
-
-const u8 *GetMatchCallFlavorText(int index, int checkPageEntry)
-{
-    int rematchId;
-    struct Pokenav3Struct *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
-    if (state->matchCallEntries[index].isSpecialTrainer)
-    {
-        rematchId = MatchCall_GetRematchTableIdx(state->matchCallEntries[index].headerId);
-        if (rematchId == REMATCH_TABLE_ENTRIES)
-            return MatchCall_GetOverrideFlavorText(state->matchCallEntries[index].headerId, checkPageEntry);
-    }
-    else
-    {
-        rematchId = state->matchCallEntries[index].headerId;
-    }
-
-    return gMatchCallFlavorTexts[rematchId][checkPageEntry];
 }
 
 u16 GetMatchCallOptionCursorPos(void)
@@ -460,29 +443,6 @@ int GetIndexDeltaOfNextCheckPageUp(int index)
     return 0;
 }
 
-bool32 unref_sub_81CB16C(void)
-{
-    int i;
-
-    for (i = 0; i < REMATCH_TABLE_ENTRIES; i++)
-    {
-        if (IsRematchEntryRegistered(i) && gSaveBlock1Ptr->trainerRematches[i])
-            return TRUE;
-    }
-
-    for (i = 0; i < MC_HEADER_COUNT; i++)
-    {
-        if (MatchCall_GetEnabled(i))
-        {
-            int index = MatchCall_GetRematchTableIdx(i);
-            if (gSaveBlock1Ptr->trainerRematches[index])
-                return TRUE;
-        }
-    }
-
-    return FALSE;
-}
-
 static bool32 sub_81CB1D0(void)
 {
     struct Pokenav3Struct *state = GetSubstructPtr(POKENAV_SUBSTRUCT_MATCH_CALL_MAIN);
@@ -491,7 +451,7 @@ static bool32 sub_81CB1D0(void)
     {
         if (GetMatchCallMapSec(selection) == gMapHeader.regionMapSectionId)
         {
-            if (!gSaveBlock1Ptr->trainerRematches[state->matchCallEntries[selection].headerId])
+            //if (!gSaveBlock1Ptr->trainerRematches[state->matchCallEntries[selection].headerId])
                 return TRUE;
         }
     }

@@ -580,3 +580,4 @@ gSpecials::
 	def_special RooftopSaleShop
 	def_special HasMoreThanOnePokemon
 	def_special PostGameInitPCItems
+	def_special FindPhoneContactNameFromFlag

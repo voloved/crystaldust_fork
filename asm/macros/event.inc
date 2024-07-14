@@ -1847,3 +1847,11 @@
 	setvar VAR_0x8008, \gym
 	call Common_EventScript_SetGymTrainers
 	.endm
+
+	@Registers a new phone contact
+	.macro registerphonecontact contactflag:req
+	setflag \contactflag
+	setvar VAR_0x8003, \contactflag
+	special FindPhoneContactNameFromFlag
+	callstd STD_REGISTER_MATCH_CALL
+	.endm

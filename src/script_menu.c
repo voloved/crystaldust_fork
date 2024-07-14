@@ -29,13 +29,13 @@ static void Task_HandleYesNoInput(u8 taskId);
 static void Task_HandleMultichoiceGridInput(u8 taskId);
 static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress, u8 cursorPos);
 static u8 GetMultichoiceWindowHeight(u8 count);
-static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u8 windowId, u8 multichoiceId);
+static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u32 windowId, u8 multichoiceId);
 static void DrawLinkServicesMultichoiceMenu(u8 multichoiceId);
 static void CreatePCMultichoice(void);
 static void CreateLilycoveSSTidalMultichoice(void);
 static bool8 IsPicboxClosed(void);
 static void CreateStartMenuForPokenavTutorial(void);
-static void InitMultichoiceNoWrap(bool8 ignoreBPress, u8 unusedCount, u8 windowId, u8 multichoiceId);
+static void InitMultichoiceNoWrap(bool8 ignoreBPress, u8 unusedCount, u32 windowId, u8 multichoiceId);
 
 static const union AnimCmd sMuseumFossilAnim0[] = {
     ANIMCMD_FRAME(0, 10),
@@ -137,7 +137,7 @@ static u16 GetLengthWithExpandedPlayerName(const u8 *str)
 static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreBPress, u8 cursorPos)
 {
     int i;
-    u8 windowId;
+    u32 windowId;
     u8 count = sMultichoiceLists[multichoiceId].count;
     const struct MenuAction *actions = sMultichoiceLists[multichoiceId].list;
     int width = 0;
@@ -196,7 +196,7 @@ static u8 GetMultichoiceWindowHeight(u8 count)
 #define tWindowId       data[6]
 #define tMultichoiceId  data[7]
 
-static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u8 windowId, u8 multichoiceId)
+static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u32 windowId, u8 multichoiceId)
 {
     u32 i;
     u8 taskId;
@@ -405,7 +405,7 @@ static void CreatePCMultichoice(void)
     u32 pixelWidth = 0;
     u8 width;
     u8 numChoices;
-    u8 windowId;
+    u32 windowId;
     int i;
 
     for (i = 0; i < ARRAY_COUNT(sPCNameStrings); i++)
@@ -492,7 +492,7 @@ static void CreateLilycoveSSTidalMultichoice(void)
     u8 count;
     u32 pixelWidth;
     u8 width;
-    u8 windowId;
+    u32 windowId;
     u32 i;
     u32 j;
 
@@ -735,12 +735,12 @@ void ForceClearPokemonPicWindow(void)
 u8 CreateWindowFromRect(u8 x, u8 y, u8 width, u8 height)
 {
     struct WindowTemplate template = CreateWindowTemplate(0, x + 1, y + 1, width, height, 15, 100);
-    u8 windowId = AddWindow(&template);
+    u32 windowId = AddWindow(&template);
     PutWindowTilemap(windowId);
     return windowId;
 }
 
-void ClearToTransparentAndRemoveWindow(u8 windowId)
+void ClearToTransparentAndRemoveWindow(u32 windowId)
 {
     ClearStdWindowAndFrameToTransparent(windowId, TRUE);
     RemoveWindow(windowId);
@@ -793,7 +793,7 @@ bool16 ScriptMenu_CreateStartMenuForPokenavTutorial(void)
 
 static void CreateStartMenuForPokenavTutorial(void)
 {
-    u8 windowId = CreateWindowFromRect(21, 0, 7, 18);
+    u32 windowId = CreateWindowFromRect(21, 0, 7, 18);
     SetStandardWindowBorderStyle(windowId, 0);
     AddTextPrinterParameterized(windowId, 2, gText_MenuOptionPokedex, 8, 9, TEXT_SPEED_FF, NULL);
     AddTextPrinterParameterized(windowId, 2, gText_MenuOptionPokemon, 8, 25, TEXT_SPEED_FF, NULL);
@@ -803,14 +803,14 @@ static void CreateStartMenuForPokenavTutorial(void)
     AddTextPrinterParameterized(windowId, 2, gText_MenuOptionSave, 8, 89, TEXT_SPEED_FF, NULL);
     AddTextPrinterParameterized(windowId, 2, gText_MenuOptionOption, 8, 105, TEXT_SPEED_FF, NULL);
     AddTextPrinterParameterized(windowId, 2, gText_MenuOptionExit, 8, 121, TEXT_SPEED_FF, NULL);
-    sub_81983AC(windowId, 1, 0, 9, 16, ARRAY_COUNT(MultichoiceList_ForcedStartMenu), 0);
+    InitMenuNormal(windowId, 1, 0, 9, 16, ARRAY_COUNT(MultichoiceList_ForcedStartMenu), 0);
     InitMultichoiceNoWrap(FALSE, ARRAY_COUNT(MultichoiceList_ForcedStartMenu), windowId, MULTI_FORCED_START_MENU);
     CopyWindowToVram(windowId, 3);
 }
 
 #define tWindowId       data[6]
 
-static void InitMultichoiceNoWrap(bool8 ignoreBPress, u8 unusedCount, u8 windowId, u8 multichoiceId)
+static void InitMultichoiceNoWrap(bool8 ignoreBPress, u8 unusedCount, u32 windowId, u8 multichoiceId)
 {
     u8 taskId;
     sProcessInputDelay = 2;

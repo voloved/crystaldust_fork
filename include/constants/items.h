@@ -509,8 +509,9 @@
 #define ITEM_RAGE_CANDY_BAR 405
 #define ITEM_SLOWPOKE_TAIL 406
 #define ITEM_POKEVIAL 407
+#define ITEM_GB_PLAYER 408
 
-#define ITEMS_COUNT 408
+#define ITEMS_COUNT 409
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // Range of berries given out by various NPCS

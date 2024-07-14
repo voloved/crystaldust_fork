@@ -1,6 +1,7 @@
 #include "global.h"
 #include "trainer_pokemon_sprites.h"
 #include "bg.h"
+#include "constants/flags.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/trainers.h"
@@ -212,12 +213,13 @@ static void Task_NewGameClockSetIntro5(u8);
 static void Task_NewGameClockSetIntro6(u8);
 static void Task_NewGameOakSpeech_Init(u8);
 static void Task_DisplayMainMenuInvalidActionError(u8);
-static void AddOakSpeechObjects(u8);
+static void NewGameOakSpeech_CreateWooperSprite(u8);
+static void NewGameOakSpeech_CreatePlatformSprites(u8);
 static void Task_NewGameOakSpeech_WaitToShowBirch(u8);
 static void NewGameOakSpeech_StartFadeInTarget1OutTarget2(u8, u8);
 static void NewGameOakSpeech_StartFadePlatformOut(u8, u8);
 static void Task_NewGameOakSpeech_WaitForTextToStart(u8);
-static void NewGameOakSpeech_ShowDialogueWindow(u8, u8);
+static void NewGameOakSpeech_ShowDialogueWindow(u32, u32);
 static void Task_NewGameOakSpeech_PrintThisEllipsis(u8);
 static void Task_NewGameOakSpeech_CreatePokeBallToReleaseWooper(u8);
 static void Task_NewGameOakSpeech_PrintIsPokemonWaitForAnimation(u8);
@@ -241,7 +243,7 @@ static void Task_NewGameOakSpeech_WaitToShowGenderMenu(u8);
 static void Task_NewGameOakSpeech_ChooseGender(u8);
 static void NewGameOakSpeech_ShowGenderMenu(void);
 static s8 NewGameOakSpeech_ProcessGenderMenuInput(void);
-static void NewGameOakSpeech_ClearGenderWindow(u8, u8);
+static void NewGameOakSpeech_ClearGenderWindow(u32, u32);
 static void Task_NewGameOakSpeech_WhatsYourName(u8);
 static void Task_NewGameOakSpeech_SlideOutOldGenderSprite(u8);
 static void Task_NewGameOakSpeech_SlideInNewGenderSprite(u8);
@@ -791,7 +793,7 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
     else if (IsBGMStopped()) // coming from title screen, waiting for music to fade
     {
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0x10, 0, 0xFFFF); // fade from white
-        m4aSongNumStart(MUS_MAIN_MENU);
+        m4aSongNumStart(MUS_MAIN_MENU, FlagGet(FLAG_SYS_GBS_ENABLED));
     }
     else    // egads, music is not faded yet!
     {
@@ -1598,6 +1600,8 @@ void Task_NewGameClockSetIntro1(u8 taskId)
         // moved from new_game.c so it doesn't change up the time on us unexpectedly after setting
         if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
             RtcReset();
+        
+        FlagClear(FLAG_SYS_GBS_ENABLED);
 
         gTasks[taskId].data[0] = 15;
         gTasks[taskId].func = Task_NewGameClockSetIntro2;
@@ -1742,7 +1746,8 @@ static void Task_NewGameOakSpeech_Init(u8 taskId)
     LoadPalette(sOakSpeechBgPal, 0, 64);
     gPlttBufferUnfaded[0] = RGB_BLACK;
     gPlttBufferFaded[0] = RGB_BLACK;
-    AddOakSpeechObjects(taskId);
+    NewGameOakSpeech_CreateWooperSprite(taskId);
+    NewGameOakSpeech_CreatePlatformSprites(taskId);
     LoadOakIntroBigSprite(INTRO_OAK, 0);
     BeginNormalPaletteFade(0xFFFFFFFF, 4, 16, 0, 0);
     gTasks[taskId].tSlideOffset = 0;
@@ -2338,7 +2343,7 @@ static void CB2_NewGameOakSpeech_ReturnFromNamingScreen(void)
     ResetSpriteData();
     FreeAllSpritePalettes();
     ResetAllPicSprites();
-    AddOakSpeechObjects(taskId);
+    NewGameOakSpeech_CreatePlatformSprites(taskId);
     LoadOakIntroBigSprite(gSaveBlock2Ptr->playerGender, 0);
 
     for (i = 0; i < 3; i++)
@@ -2385,22 +2390,19 @@ static void SpriteCB_MovePlayerDownWhileShrinking(struct Sprite *sprite)
     sprite->data[0] = y;
 }
 
-static u8 NewGameOakSpeech_CreateWooperSprite(u8 a, u8 b)
+static void NewGameOakSpeech_CreateWooperSprite(u8 taskId)
 {
-    return CreatePicSprite2(SPECIES_WOOPER, SHINY_ODDS, 0, 1, a, b, 14, -1);
-}
-
-void AddOakSpeechObjects(u8 taskId)
-{
-    u32 i;
-    u8 wooperSprite;
-    u8 spriteId;
-
-    wooperSprite = NewGameOakSpeech_CreateWooperSprite(96, 96);
+    u8 wooperSprite = CreatePicSprite2(SPECIES_WOOPER, SHINY_ODDS, 0, 1, 96, 96, 14, -1);
     gSprites[wooperSprite].callback = SpriteCB_Null;
     gSprites[wooperSprite].oam.priority = 0;
     gSprites[wooperSprite].invisible = TRUE;
     gTasks[taskId].tWooperSpriteId = wooperSprite;
+}
+
+static void NewGameOakSpeech_CreatePlatformSprites(u8 taskId)
+{
+    u32 i;
+    u8 spriteId;
 
     LoadCompressedSpriteSheet(&sCompressedSpriteSheet_OakPlatform);
     LoadSpritePalette(&sSpritePalette_OakPlatform);
@@ -2699,7 +2701,7 @@ static void NewGameOakSpeech_ClearGenderWindowTilemap(u8 a, u8 b, u8 c, u8 d, u8
     FillBgTilemapBufferRect(a, 0, b + 0xFF, c + 0xFF, d + 2, e + 2, 2);
 }
 
-static void NewGameOakSpeech_ClearGenderWindow(u8 windowId, u8 copyToVram)
+static void NewGameOakSpeech_ClearGenderWindow(u32 windowId, u32 copyToVram)
 {
     CallWindowFunction(windowId, NewGameOakSpeech_ClearGenderWindowTilemap);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));
@@ -2716,7 +2718,7 @@ void CreateYesNoMenuParameterized(u8 x, u8 y, u16 borderTileNum, u16 windowTileN
     CreateYesNoMenu(&sp, 2, 0, 2, borderTileNum, borderPalette, 0);
 }
 
-static void NewGameOakSpeech_ShowDialogueWindow(u8 windowId, u8 copyToVram)
+static void NewGameOakSpeech_ShowDialogueWindow(u32 windowId, u32 copyToVram)
 {
     CallWindowFunction(windowId, NewGameOakSpeech_CreateDialogueWindowBorder);
     FillWindowPixelBuffer(windowId, PIXEL_FILL(1));

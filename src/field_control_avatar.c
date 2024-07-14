@@ -221,7 +221,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (gRunPreStepEvents)
     {
         gRunPreStepEvents = FALSE;
-        if (TryStartForcedMatchCall())
+        if (TryStartForcedStoryMatchCall())
             return TRUE;
     }
 
@@ -760,7 +760,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         return FALSE;
     }
 
-    IncrementRematchStepCounter();
+    //IncrementRematchStepCounter();
     UpdateFriendshipStepCounter();
     UpdateFarawayIslandStepCounter();
 

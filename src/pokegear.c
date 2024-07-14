@@ -233,7 +233,7 @@ static const struct WindowTemplate sYesNoWindowTemplate = {
     .width = 6,
     .height = 4,
     .paletteNum = 15,
-    .baseBlock = 0x0163,  
+    .baseBlock = 0x0163,
 };
 
 static const struct ListMenuTemplate sPhoneCardListMenuTemplate =
@@ -642,7 +642,7 @@ void CB2_InitPokegear(void)
     ShowBg(0);
     ShowBg(1);
     ShowBg(3);
-    
+
     PlaySE(SE_POKENAV_ON);
     sPokegearStruct.exiting = FALSE;
 }
@@ -851,7 +851,7 @@ static u8 ChangeCardWithDelta(s8 delta, u8 oldCard)
             newCard = oldCard;
             break;
         }
-        
+
         if ((newCard == MapCard && !FlagGet(FLAG_SYS_HAS_MAP_CARD)) ||
             (newCard == RadioCard && !FlagGet(FLAG_SYS_HAS_RADIO_CARD)))
         {
@@ -927,7 +927,7 @@ static void ClearOrDrawTopBar(bool8 clear)
 static void LoadCardBgs(enum CardType newCard)
 {
     HideBg(2);
-    
+
     switch (newCard)
     {
         case ClockCard:
@@ -1058,7 +1058,7 @@ static void LoadClockCard(void)
     AddTextPrinterParameterized2(WIN_DIALOG, 2, gText_PokegearInstructions, 0, NULL, 2, 1, 3);
     AddTextPrinterParameterized3(WIN_TOP, 2, GetStringCenterAlignXOffset(2, dayOfWeek, 0x70), 1, sTextColor, 0, dayOfWeek);
     ScheduleBgCopyTilemapToVram(0);
-    
+
     LoadSpriteSheet(&sSpriteSheet_DigitTiles);
 
     newTask = CreateTask(Task_ClockCard, 0);
@@ -1116,7 +1116,7 @@ static void Task_ClockCard(u8 taskId)
         FillWindowPixelBuffer(WIN_TOP, 0);
         AddTextPrinterParameterized3(WIN_TOP, 2, GetStringCenterAlignXOffset(2, dayOfWeek, 0x70), 1, sTextColor, 0, dayOfWeek);
     }
-    
+
     if (shouldForceUpdate)
     {
         for (i = 0; i < 6; i++)
@@ -1202,13 +1202,13 @@ static void UnloadClockCard(void)
     int i;
 
     ClearStdWindowAndFrameToTransparent(WIN_DIALOG, TRUE);
-    
+
     FillWindowPixelBuffer(WIN_TOP, 0);
     ClearWindowTilemap(WIN_TOP);
     CopyWindowToVram(WIN_TOP, 2);
 
     FreeSpriteTilesByTag(TAG_DIGITS);
-    
+
     for (i = 0; i < 6; i++)
     {
         DestroySprite(&gSprites[gTasks[taskId].data[i + 1]]);
@@ -1576,10 +1576,10 @@ void Task_InitPokegearPhoneCall(u8 taskId)
             RtcCalcLocalTime();
             FillWindowPixelBuffer(gPhoneCallWindowId, 0x11);
             phoneContact = &gPhoneContacts[sPokegearStruct.phoneContactIds[sPokegearStruct.phoneSelectedItem + sPokegearStruct.phoneScrollOffset]];
-            
+
             if (phoneContact->mapNum == gSaveBlock1Ptr->location.mapNum && phoneContact->mapGroup == gSaveBlock1Ptr->location.mapGroup)
                 str = sPhoneCallText_JustGoTalkToThem;
-            else if (!IsPhoneContactAvailable(phoneContact, gLocalTime.dayOfWeek, gLocalTime.hours))
+            else if (!DummiedOut_IsPhoneContactAvailable(phoneContact, gLocalTime.dayOfWeek, gLocalTime.hours))
                 str = sPhoneCallText_NobodyAnswered;
 
             if (str != NULL)
@@ -1708,7 +1708,7 @@ static void LoadRadioCard(void)
 
     int i;
     u8 newTask, spriteId;
-    
+
     ShowHelpBar(gText_RadioCardHelp);
     DrawStdFrameWithCustomTileAndPalette(WIN_DIALOG, FALSE, MENU_FRAME_BASE_TILE_NUM, MENU_FRAME_PALETTE_NUM);
     FillWindowPixelBuffer(WIN_DIALOG, 0x11);
@@ -1887,7 +1887,7 @@ static void UnloadRadioCard(void)
     int i;
 
     ClearStdWindowAndFrameToTransparent(WIN_DIALOG, TRUE);
-    
+
     FillWindowPixelBuffer(WIN_BOTTOM, 0);
     ClearWindowTilemap(WIN_BOTTOM);
     CopyWindowToVram(WIN_BOTTOM, 2);
@@ -1896,7 +1896,7 @@ static void UnloadRadioCard(void)
         Overworld_PlaySpecialMapMusic();
 
     FreeSpriteTilesByTag(TAG_DIGITS);
-    
+
     for (i = 0; i < 5; i++)
     {
         DestroySprite(&gSprites[gTasks[taskId].data[i + 1]]);
@@ -1959,3 +1959,5 @@ static void InitPhoneCardData(void)
 #undef WIN_DIALOG
 #undef WIN_TOP
 #undef WIN_BOTTOM
+
+

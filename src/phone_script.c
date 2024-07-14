@@ -1,4 +1,5 @@
 #include "global.h"
+#include "battle_setup.h"
 #include "day_night.h"
 #include "decoration_inventory.h"
 #include "event_data.h"
@@ -10,6 +11,7 @@
 #include "phone_script.h"
 #include "pokegear.h"
 #include "pokemon_storage_system.h"
+#include "pokenav.h"
 #include "random.h"
 #include "region_map.h"
 #include "rtc.h"
@@ -455,8 +457,15 @@ static void Task_HangupPhoneCall(u8 taskId)
     {
     case 0:
         FillWindowPixelBuffer(gPhoneCallWindowId, PIXEL_FILL(1));
-        AddTextPrinterParameterized5(gPhoneCallWindowId, 2, sHangUpText, 2, 1, 0, NULL, 1, 1);
-        tState++;
+        if(gSpecialVar_Result == PHONE_CALL_FAIL_SILENT)
+        {
+            tState = 2;
+        }
+        else
+        {
+            AddTextPrinterParameterized5(gPhoneCallWindowId, 2, sHangUpText, 2, 1, 0, NULL, 1, 1);
+            tState++;
+        }
         break;
     case 1:
         switch (ctx->data[0])
@@ -751,5 +760,42 @@ bool8 PhoneScrCmd_bufferboxname(struct ScriptContext *ctx)
     u16 boxId = VarGet(ScriptReadHalfword(ctx));
 
     StringCopy(gScriptStringVars[stringVarIndex], GetBoxNamePtr(boxId));
+    return FALSE;
+}
+
+bool8 PhoneScrCmd_istrainerrematchactive(struct ScriptContext *ctx)
+{
+    u32 trainerId = GetTrainerIdxByRematchIdx(gSpecialVar_0x800A);
+
+    if (IsFirstTrainerIdReadyForRematch(gRematchTable, trainerId))
+        ctx->comparisonResult = TRUE;
+    else
+        ctx->comparisonResult = FALSE;
+    
+    return FALSE;
+}
+
+bool8 PhoneScrCmd_checkforcedrematch(struct ScriptContext *ctx)
+{
+    u32 matchCallId = GetTrainerMatchCallId(GetTrainerIdxByRematchIdx(gSpecialVar_0x800A));
+
+    ctx->comparisonResult = FlagGet(gMatchCallTrainers[matchCallId].rematchForcedFlag);
+    
+    return FALSE;
+}
+
+bool8 PhoneScrCmd_setforcedrematch(struct ScriptContext *ctx)
+{
+    u32 matchCallId = GetTrainerMatchCallId(GetTrainerIdxByRematchIdx(gSpecialVar_0x800A));
+
+    FlagSet(gMatchCallTrainers[matchCallId].rematchForcedFlag);
+    
+    return FALSE;
+}
+
+bool8 PhoneScrCmd_isavailableforrematch(struct ScriptContext *ctx)
+{
+    ctx->comparisonResult = IsMatchCallRematchTime(GetTrainerIdxByRematchIdx(gSpecialVar_0x800A));
+    
     return FALSE;
 }

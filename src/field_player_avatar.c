@@ -22,6 +22,7 @@
 #include "task.h"
 #include "tv.h"
 #include "wild_encounter.h"
+#include "match_call.h"
 #include "constants/abilities.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
@@ -82,9 +83,9 @@ static void PlayerNotOnBikeMoving(u8, u16);
 static u8 CheckForPlayerAvatarCollision(u8);
 static u8 sub_808B028(u8);
 static u8 sub_808B164(struct ObjectEvent *, s16, s16, u8, u8);
-static bool8 CanStopSurfing(s16, s16, u8);
-static bool8 ShouldJumpLedge(s16, s16, u8);
-static bool8 TryPushBoulder(s16, s16, u8);
+static bool32 CanStopSurfing(s16, s16, u8);
+static bool32 ShouldJumpLedge(s16, s16, u8);
+static bool32 TryPushBoulder(s16, s16, u8);
 static void CheckAcroBikeCollision(s16, s16, u8, u8 *);
 
 static void DoPlayerAvatarTransition(void);
@@ -727,7 +728,7 @@ static u8 sub_808B028(u8 direction)
 
 u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction, u8 metatileBehavior)
 {
-    u8 collision = GetCollisionAtCoords(objectEvent, x, y, direction);
+    u32 collision = GetCollisionAtCoords(objectEvent, x, y, direction);
     if (collision == COLLISION_ELEVATION_MISMATCH && CanStopSurfing(x, y, direction))
         return COLLISION_STOP_SURFING;
     if (IsPlayerFacingSurfableFishableWater() 
@@ -751,7 +752,8 @@ u8 CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u
     {
         if (CheckForRotatingGatePuzzleCollision(direction, x, y))
             return COLLISION_ROTATING_GATE;
-        CheckAcroBikeCollision(x, y, metatileBehavior, &collision);
+        u8 collision2 = collision;
+        CheckAcroBikeCollision(x, y, metatileBehavior, &collision2);
     }
     return collision;
 }
@@ -769,7 +771,7 @@ static u8 sub_808B164(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 directio
     return collision;
 }
 
-static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
+static bool32 CanStopSurfing(s16 x, s16 y, u8 direction)
 {
     if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
      && MapGridGetZCoordAt(x, y) == 3
@@ -784,7 +786,7 @@ static bool8 CanStopSurfing(s16 x, s16 y, u8 direction)
     }
 }
 
-static bool8 ShouldJumpLedge(s16 x, s16 y, u8 direction)
+static bool32 ShouldJumpLedge(s16 x, s16 y, u8 direction)
 {
     if (GetLedgeJumpDirection(x, y, direction) != DIR_NONE)
         return TRUE;
@@ -792,11 +794,11 @@ static bool8 ShouldJumpLedge(s16 x, s16 y, u8 direction)
         return FALSE;
 }
 
-static bool8 TryPushBoulder(s16 x, s16 y, u8 direction)
+static bool32 TryPushBoulder(s16 x, s16 y, u8 direction)
 {
     if (FlagGet(FLAG_SYS_USE_STRENGTH))
     {
-        u8 objectEventId = GetObjectEventIdByXY(x, y);
+        u32 objectEventId = GetObjectEventIdByXY(x, y);
 
         if (objectEventId != OBJECT_EVENTS_COUNT && gObjectEvents[objectEventId].graphicsId == OBJ_EVENT_GFX_PUSHABLE_BOULDER)
         {
@@ -1287,7 +1289,7 @@ void sub_808BC90(s16 x, s16 y)
     MoveObjectEventToMapCoords(&gObjectEvents[gPlayerAvatar.objectEventId], x, y);
 }
 
-u8 TestPlayerAvatarFlags(u8 flag)
+bool32 TestPlayerAvatarFlags(u8 flag)
 {
     return gPlayerAvatar.flags & flag;
 }
@@ -1320,7 +1322,7 @@ void sub_808BCF4(void)
     }
 }
 
-u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u8 state, u8 gender)
+u16 GetPlayerAvatarGraphicsIdByStateIdAndGender(u32 state, u8 gender)
 {
     return sPlayerAvatarGfxIds[state][gender];
 }
@@ -1340,7 +1342,7 @@ u16 GetRSAvatarGraphicsIdByGender(u8 gender)
     return sRSAvatarGfxIds[gender];
 }
 
-u16 GetPlayerAvatarGraphicsIdByStateId(u8 state)
+u16 GetPlayerAvatarGraphicsIdByStateId(u32 state)
 {
     return GetPlayerAvatarGraphicsIdByStateIdAndGender(state, gPlayerAvatar.gender);
 }
@@ -1790,6 +1792,7 @@ static void Task_WaitStopSurfing(u8 taskId)
 #define tFrameCounter      data[1]
 #define tNumDots           data[2]
 #define tDotsRequired      data[3]
+#define tOutbreakCaught	   data[4]
 #define tRoundsPlayed      data[12]
 #define tMinRoundsRequired data[13]
 #define tPlayerGfxId       data[14]
@@ -1932,6 +1935,11 @@ static bool8 Fishing_CheckForBite(struct Task *task)
     }
     else
     {
+    	if(DoMassOutbreakEncounterTest() && gSaveBlock1Ptr->outbreakWildState == OUTBREAK_FISHING)
+    	{
+    		bite = TRUE;
+    		task->tOutbreakCaught = TRUE;
+    	}
         if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
         {
             u8 ability = GetMonAbility(&gPlayerParty[0]);
@@ -1995,7 +2003,7 @@ static bool8 Fishing_StartEncounter(struct Task *task)
     {
         gPlayerAvatar.preventStep = FALSE;
         ScriptContext2_Disable();
-        FishingWildEncounter(task->tFishingRod);
+        FishingWildEncounter(task->tFishingRod, task->tOutbreakCaught);
         RecordFishingAttemptForTV(TRUE);
         DestroyTask(FindTaskIdByFunc(Task_Fishing));
     }

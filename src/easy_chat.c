@@ -115,6 +115,7 @@ static void ReduceToValidWordSelectColumn(void);
 static bool8 IsSelectedWordIndexInvalid(void);
 static int DidPlayerInputMysteryGiftPhrase(void);
 static int DidPlayerInputMysteryEventPhrase(void);
+static int DidPlayerInputGBPlayerPhrase(void);
 static u16 DidPlayerInputABerryMasterWifePhrase(void);
 static bool8 InitEasyChatScreenControl_(void);
 static void LoadEasyChatPalettes(void);
@@ -199,7 +200,7 @@ static void PrintWordSelectNextRowUp(void);
 static int GetLowerWindowScrollOffset(void);
 static void PrintWordSelectRowsPageDown(void);
 static void PrintWordSelectRowsPageUp(void);
-static void PrintEasyChatTextWithColors(u8, u8, const u8 *, u8, u8, u8, u8, u8, u8);
+static void PrintEasyChatTextWithColors(u32, u8, const u8 *, u8, u8, u8, u8, u8, u8);
 static void ResetLowerWindowScroll(void);
 static void PrintKeyboardGroupNames(void);
 static void PrintKeyboardAlphabet(void);
@@ -692,6 +693,13 @@ static const u16 sMysteryGiftPhrase[NUM_QUESTIONNAIRE_WORDS] = {
     EC_WORD_TOGETHER,
     EC_WORD_WITH,
     EC_WORD_ALL,
+};
+
+static const u16 sGBPlayerPhrase[] = {
+    EC_WORD_GAME,
+    EC_WORD_BOY,
+    EC_WORD_WAS,
+    EC_WORD_BETTER,
 };
 
 static const u16 sBerryMasterWifePhrases[][2] = {
@@ -2962,7 +2970,9 @@ static void SetSpecialEasyChatResult(void)
         FlagSet(FLAG_SYS_CHAT_USED);
         break;
     case EASY_CHAT_TYPE_QUESTIONNAIRE:
-        if (DidPlayerInputMysteryGiftPhrase())
+        if (DidPlayerInputGBPlayerPhrase())
+            gSpecialVar_0x8004 = 3;
+        else if (DidPlayerInputMysteryGiftPhrase())
             gSpecialVar_0x8004 = 2;
         else if (DidPlayerInputMysteryEventPhrase())
             gSpecialVar_0x8004 = 1;
@@ -2987,6 +2997,11 @@ static int DidPlayerInputMysteryEventPhrase(void)
 static int DidPlayerInputMysteryGiftPhrase(void)
 {
     return !IsPhraseDifferentThanPlayerInput(sMysteryGiftPhrase, ARRAY_COUNT(sMysteryGiftPhrase));
+}
+
+static int DidPlayerInputGBPlayerPhrase(void)
+{
+    return !IsPhraseDifferentThanPlayerInput(sGBPlayerPhrase, ARRAY_COUNT(sGBPlayerPhrase));
 }
 
 static u16 DidPlayerInputABerryMasterWifePhrase(void)
@@ -3952,12 +3967,12 @@ static void PrintTitle(void)
     CopyWindowToVram(0, 3);
 }
 
-static void PrintEasyChatText(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16))
+static void PrintEasyChatText(u32 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 speed, void (*callback)(struct TextPrinterTemplate *, u16))
 {
     AddTextPrinterParameterized(windowId, fontId, str, x, y, speed, callback);
 }
 
-static void PrintEasyChatTextWithColors(u8 windowId, u8 fontId, const u8 *str, u8 left, u8 top, u8 speed, u8 bg, u8 fg, u8 shadow)
+static void PrintEasyChatTextWithColors(u32 windowId, u8 fontId, const u8 *str, u8 left, u8 top, u8 speed, u8 bg, u8 fg, u8 shadow)
 {
     u8 color[3];
     color[0] = bg;

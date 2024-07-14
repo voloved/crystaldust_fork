@@ -3582,23 +3582,25 @@ extern const u32 gBattleTerrainPalette_StadiumDrake[];
 extern const u32 gBattleTerrainPalette_StadiumWallace[];
 
 // pokedex
+extern const u16 gPokedexBgJohto_Pal[];
+extern const u16 gPokedexBgNational_Pal[];
+extern const u16 gPokedexCaughtScreenJohto_Pal[];
+extern const u16 gPokedexCaughtScreenNational_Pal[];
 extern const u32 gPokedexInterface_Gfx[];
-extern const u16 gPokedexBgHoenn_Pal[];
 extern const u32 gPokedexMenu_Gfx[];
-extern const u8 gPokedexList_Tilemap[];
+extern const u8 gPokedexListJohto_Tilemap[];
+extern const u8 gPokedexListNational_Tilemap[];
 extern const u8 gPokedexListUnderlay_Tilemap[];
 extern const u8 gPokedexStartMenuMain_Tilemap[];
 extern const u8 gPokedexStartMenuSearchResults_Tilemap[];
 extern const u16 gPokedexSearchResults_Pal[];
-extern const u16 gPokedexBgNational_Pal[];
 extern const u8 gPokedexInfoScreen_Tilemap[];
 extern const u8 gPokedexCryScreen_Tilemap[];
 extern const u8 gPokedexSizeScreen_Tilemap[];
 extern const u8 gPokedexScreenSelectBarMain_Tilemap[];
 extern const u8 gPokedexScreenSelectBarSubmenu_Tilemap[];
-extern const u16 gPokedexCaughtScreen_Pal[];
 extern const u32 gPokedexSearchMenu_Gfx[];
-extern const u32 gPokedexSearchMenuHoenn_Tilemap[];
+extern const u32 gPokedexSearchMenuJohto_Tilemap[];
 extern const u32 gPokedexSearchMenuNational_Tilemap[];
 extern const u16 gPokedexSearchMenu_Pal[];
 
@@ -4216,6 +4218,8 @@ extern const u32 gItemIcon_SlowpokeTail[];
 extern const u32 gItemIconPalette_SlowpokeTail[];
 extern const u32 gItemIcon_PokeVial[];
 extern const u32 gItemIconPalette_PokeVial[];
+extern const u32 gItemIcon_GBPlayer[];
+extern const u32 gItemIconPalette_GBPlayer[];
 
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u32 gItemIconPalette_ReturnToFieldArrow[];
@@ -4399,21 +4403,28 @@ extern const u16 gPokenavRibbonsSummaryBg_Pal[];
 extern const u32 gPokenavRibbonsSummaryBg_Gfx[];
 extern const u32 gPokenavRibbonsSummaryBg_Tilemap[];
 
-extern const u32 gPageInfoTilemap[];
-extern const u32 gUnknown_08D98CC8[];
-extern const u32 gPageSkillsTilemap[];
-extern const u32 gPageBattleMovesTilemap[];
-extern const u32 gPageContestMovesTilemap[];
-extern const u32 gStatusScreenPalette[];
-extern const u16 gUnknown_08D85620[];
-extern const u16 gSummaryScreenWindow_Tilemap[];
-extern const u32 gMoveTypes_Pal[];
-extern const u32 gStatusScreenBitmap[];
+extern const u32 gSummaryScreenTiles[];
+extern const u32 gSummaryScreenBackgroundTilemap[];
+extern const u32 gSummaryScreenPalette[];
+extern const u32 gSummaryScreenPageInfoTilemap[];
+extern const u32 gSummaryScreenPageInfoEggTilemap[];
+extern const u32 gSummaryScreenPageSkillsTilemap[];
+extern const u32 gSummaryScreenPageMovesTilemap[];
+extern const u32 gSummaryScreenPageMoveDetailsTilemap[];
+extern const u32 gSummaryScreenPageContestMovesTilemap[];
+extern const u32 gSummaryScreenPageContestMoveDetailsTilemap[];
 
-extern const u16 gSummaryScreenPowAcc_Tilemap[];
-extern const u16 gSummaryScreenAppealJam_Tilemap[];
+extern const u32 gSummaryExpBar_Tiles[];
+extern const u32 gSummaryHealthBar_Tiles[];
+extern const u16 gExpBarHighHealthBar_Pal[];
+extern const u16 gExpBarMediumHealthBar_Pal[];
+extern const u16 gExpBarLowHealthBar_Pal[];
+
+extern const u32 gShinyIcon_Gfx[];
+extern const u16 gShinyIcon_Pal[];
 
 extern const u32 gMoveTypes_Gfx[];
+extern const u32 gMoveTypes_Pal[];
 extern const u32 gSummaryMoveSelect_Gfx[];
 extern const u32 gSummaryMoveSelect_Pal[];
 extern const u32 gStatusGfx_Icons[];
@@ -5329,12 +5340,18 @@ extern const u32 gHoennTrainerCard_Gfx[];
 extern const u16 gKantoTrainerCard0Star_Pal[];
 extern const u32 gKantoTrainerCard_Gfx[];
 extern const u32 gKantoTrainerCardBg_Tilemap[];
+extern const u16 gJohtoTrainerCard0Star_Pal[];
+extern const u32 gJohtoTrainerCard_Gfx[];
+extern const u32 gJohtoTrainerCardBg_Tilemap[];
 extern const u32 gHoennTrainerCardBack_Tilemap[];
 extern const u32 gKantoTrainerCardBack_Tilemap[];
+extern const u32 gJohtoTrainerCardBack_Tilemap[];
 extern const u32 gHoennTrainerCardFront_Tilemap[];
 extern const u32 gKantoTrainerCardFront_Tilemap[];
+extern const u32 gJohtoTrainerCardFront_Tilemap[];
 extern const u32 gHoennTrainerCardFrontLink_Tilemap[];
 extern const u32 gKantoTrainerCardFrontLink_Tilemap[];
+extern const u32 gJohtoTrainerCardFrontLink_Tilemap[];
 extern const u32 gHoennTrainerCardBg_Tilemap[];
 
 // Frontier Pass
