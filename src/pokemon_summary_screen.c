@@ -466,6 +466,8 @@ enum
     PSS_COLOR_PP_NO_PP,
     PSS_COLOR_FEMALE_GENDER_SYMBOL,
     PSS_COLOR_MALE_GENDER_SYMBOL,
+    PSS_COLOR_NATURE_PLUS,
+    PSS_COLOR_NATURE_MINUS,
 };
 
 static const u8 sTextColors[][3] =
@@ -477,7 +479,9 @@ static const u8 sTextColors[][3] =
     [PSS_COLOR_PP_FEW]               = {0, 8, 9},
     [PSS_COLOR_PP_NO_PP]             = {0, 10, 11},
     [PSS_COLOR_FEMALE_GENDER_SYMBOL] = {0, 12, 13},
-    [PSS_COLOR_MALE_GENDER_SYMBOL]   = {0, 14, 15}
+    [PSS_COLOR_MALE_GENDER_SYMBOL]   = {0, 14, 15},
+    [PSS_COLOR_NATURE_PLUS]          = {0, 4, 5},
+    [PSS_COLOR_NATURE_MINUS]         = {0, 15, 14}
 };
 
 static void (*const sTextPrinterFunctions[])(void) =
@@ -2766,6 +2770,24 @@ static bool8 IsInGamePartnerMon(void)
     return FALSE;
 }
 
+static void PrintTextOnWindowNatureColor(u32 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 nature, u8 statIndex)
+{
+    u8 color;
+    switch (gNatureStatTable[nature][statIndex - 1])
+    {
+    case 1:
+        color = PSS_COLOR_NATURE_PLUS;
+        break;
+    case -1:
+        color = PSS_COLOR_NATURE_MINUS;
+        break;
+    default:
+        color = PSS_COLOR_BLACK_GRAY_SHADOW;
+        break;
+    }
+    PrintTextOnWindow(windowId, gStringVar1, x, y, lineSpacing, color);
+}
+
 static void PrintSkillsPage(void)
 {
     u8 x, i;
@@ -2785,23 +2807,23 @@ static void PrintSkillsPage(void)
 
     ConvertIntToDecimalStringN(gStringVar1, summary->atk, STR_CONV_MODE_LEFT_ALIGN, 3);
     x = GetStringRightAlignXOffset(1, gStringVar1, 69);
-    PrintTextOnWindow(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 22, 0, PSS_COLOR_BLACK_GRAY_SHADOW);
+    PrintTextOnWindowNatureColor(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 22, 0, summary->nature, STAT_ATK);
 
     ConvertIntToDecimalStringN(gStringVar1, summary->def, STR_CONV_MODE_LEFT_ALIGN, 3);
     x = GetStringRightAlignXOffset(1, gStringVar1, 69);
-    PrintTextOnWindow(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 35, 0, PSS_COLOR_BLACK_GRAY_SHADOW);
+    PrintTextOnWindowNatureColor(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 35, 0, summary->nature, STAT_DEF);
 
     ConvertIntToDecimalStringN(gStringVar1, summary->spatk, STR_CONV_MODE_LEFT_ALIGN, 3);
     x = GetStringRightAlignXOffset(1, gStringVar1, 69);
-    PrintTextOnWindow(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 48, 0, PSS_COLOR_BLACK_GRAY_SHADOW);
+    PrintTextOnWindowNatureColor(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 48, 0, summary->nature, STAT_SPATK);
 
     ConvertIntToDecimalStringN(gStringVar1, summary->spdef, STR_CONV_MODE_LEFT_ALIGN, 3);
     x = GetStringRightAlignXOffset(1, gStringVar1, 69);
-    PrintTextOnWindow(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 61, 0, PSS_COLOR_BLACK_GRAY_SHADOW);
+    PrintTextOnWindowNatureColor(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 61, 0, summary->nature, STAT_SPDEF);
 
     ConvertIntToDecimalStringN(gStringVar1, summary->speed, STR_CONV_MODE_LEFT_ALIGN, 3);
     x = GetStringRightAlignXOffset(1, gStringVar1, 69);
-    PrintTextOnWindow(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 74, 0, PSS_COLOR_BLACK_GRAY_SHADOW);
+    PrintTextOnWindowNatureColor(WINDOW_ARR_ID_SKILLS_RIGHT, gStringVar1, x, 74, 0, summary->nature, STAT_SPEED);
 
     ConvertIntToDecimalStringN(gStringVar1, summary->exp, STR_CONV_MODE_RIGHT_ALIGN, 7);
     x = GetStringRightAlignXOffset(1, gStringVar1, 70);
