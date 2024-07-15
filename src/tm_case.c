@@ -1050,10 +1050,11 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
     }
     else
     {
+        u8 category = gBattleMoves[move].category;
         move = ItemIdToBattleMoveId(itemId);
         BlitMenuInfoIcon(5, gBattleMoves[move].type + 1, 0, 0);
         if (!isMoveStatus(move))
-            BlitMenuInfoIcon(5, isMoveSpecial(move) + MENU_INFO_ICON_PHYSICAL, 0, 12);
+            BlitMenuInfoIcon(5, category + MENU_INFO_ICON_PHYSICAL, 0, 12);
         if (gBattleMoves[move].power < 2)
             str = gText_ThreeDashes;
         else
