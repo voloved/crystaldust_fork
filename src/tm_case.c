@@ -1036,7 +1036,7 @@ static void DrawMoveInfoUIMarkers(void)
 static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
 {
     u8 i;
-    u16 move;
+    u16 move, category;
     const u8 * str;
 
     FillWindowPixelRect(5, 0, 0, 0, 40, 48);
@@ -1050,8 +1050,8 @@ static void TMCase_MoveCursor_UpdatePrintedTMInfo(u16 itemId)
     }
     else
     {
-        u8 category = gBattleMoves[move].category;
         move = ItemIdToBattleMoveId(itemId);
+        category = gBattleMoves[move].category;
         BlitMenuInfoIcon(5, gBattleMoves[move].type + 1, 0, 0);
         if (!isMoveStatus(move))
             BlitMenuInfoIcon(5, category + MENU_INFO_ICON_PHYSICAL, 0, 12);

@@ -2156,7 +2156,7 @@ static const u8 gEnergyBallDescription[] = _(
 static const u8 gAcrobaticsDescription[] = _(
     "The user nimbly\n"
     "strikes the target.\n"
-    "Inflicts mass damage\n"
+    "Deals mass damage\n"
     "if no item held.");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
