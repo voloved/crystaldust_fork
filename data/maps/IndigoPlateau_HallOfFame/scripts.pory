@@ -87,7 +87,6 @@ script IndigoPlateau_HallOfFame_EventScript_ResetDefeatedOneOffs {
     if(!flag(FLAG_GS_BALL_EVENT_TRIGGERED))
     {
         setflag(FLAG_GS_BALL_AVAILABLE_FROM_POKECOM_CENTER)
-        setflag(FLAG_GS_BALL_EVENT_TRIGGERED)
     }
     if(!flag(FLAG_CAUGHT_SNORLAX))
     {

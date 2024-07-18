@@ -32,4 +32,50 @@ script CeladonCity_Mansion_3F_EventScript_ReferenceMaterial {
 	end
 }
 
+script CeladonCity_Mansion_3F_EventScript_Manager {
+	msgbox("Developers! Developers!\nDevelopers! Developers!", MSGBOX_NPC)
+	end
+}
+
+script CeladonCity_Mansion_3F_EventScript_Gb_Player {
+	if(flag(FLAG_RECEIVED_GB_PLAYER))
+	{
+		msgbox("GB is a rectangular thing with a\n"
+				"monochrome screen that you used\l"
+				"to play the original {POKEMON}...\l"
+				"Oh, wait! That was a Game Boy!\p"
+				"Turn it on and GB Sounds will let you\n"
+				"hear some nostalgic sounds.\p"
+				"It's a gadget full of wonder!\n"
+				"Try it at various places!\p"
+				"There are some places you won't\n"
+				"hear classic music...\p"
+				"But that's life!", MSGBOX_NPC)
+		end
+	}
+	else
+	{
+		callnative(CountBadges)
+		if(var(VAR_RESULT) == 16)
+		{
+			lock
+			faceplayer
+			msgbox( "I am the Sound Designer!\n"
+					"I composer music.\p"
+					"Wow, you have collected\n"
+					"all of the Kanto Badges already!\l"
+					"That's great!\p"
+					"I'll give you something cool\n"
+					"for that.", MSGBOX_DEFAULT)
+			giveitem(ITEM_GB_PLAYER)
+			setflag(FLAG_RECEIVED_GB_PLAYER)
+			goto(CeladonCity_Mansion_3F_EventScript_Gb_Player)
+		}
+		else
+		{
+			msgbox("I am the Sound Designer!\nI composer music.", MSGBOX_NPC) 
+			end
+		}
+	}
+}
 

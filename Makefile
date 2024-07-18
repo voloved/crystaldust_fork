@@ -46,6 +46,7 @@ RELEASE_ID  ?= 0
 
 ifeq (modern,$(MAKECMDGOALS))
   MODERN := 1
+  $(info Using modern.)
 endif
 
 ifdef debug
