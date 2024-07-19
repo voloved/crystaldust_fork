@@ -1356,8 +1356,14 @@ static void CB2_EndTrainerBattle(void)
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
             if (!InBattlePyramid() && !InTrainerHillChallenge())
             {
+                if (gBattleOutcome == B_OUTCOME_RAN){
+                    FlagSet(FLAG_RAN_FROM_TRAINER);
+                    return;
+                }
+                FlagClear(FLAG_RAN_FROM_TRAINER);
                 SetBattledTrainersFlags();
-                MomTriesToBuySomething();
+                if ((Random() % 50) == 0)
+                    MomTriesToBuySomething();
             }
         }
     }
