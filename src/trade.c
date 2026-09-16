@@ -4630,7 +4630,7 @@ bool8 _GivePlayerSpecialGiftMon(u8 whichSpecialMon)
     }
 }
 
-static bool8 IsMonGiftMon(const struct Pokemon *mon, const struct InGameTrade *trade)
+static bool8 IsMonGiftMon(struct Pokemon *mon, const struct InGameTrade *trade)
 {
     u8 stringBuffer[17];
 
