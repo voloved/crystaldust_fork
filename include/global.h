@@ -137,6 +137,13 @@
 #define DIFFICULTY_HARD      1
 #define DIFFICULTY_EASY      2
 
+// This returns the number of arguments passed to it (up to 8).
+#define NARG_8(...) NARG_8_(_, ##__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0)
+#define NARG_8_(_, a, b, c, d, e, f, g, h, N, ...) N
+
+#define CAT(a, b) CAT_(a, b)
+#define CAT_(a, b) a ## b
+
 struct Coords8
 {
     s8 x;
