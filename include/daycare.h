@@ -19,6 +19,7 @@ bool8 ShouldEggHatch(void);
 u16 GetSelectedMonNicknameAndSpecies(void);
 void GetDaycareMonNicknames(void);
 u8 GetDaycareState(void);
+bool8 EggGroupsOverlap(u16 *eggGroups1, u16 *eggGroups2);
 void SetDaycareCompatibilityString(void);
 bool8 NameHasGenderSymbol(const u8 *name, u8 genderRatio);
 void ShowDaycareLevelMenu(void);

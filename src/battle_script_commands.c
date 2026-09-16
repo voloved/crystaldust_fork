@@ -55,6 +55,11 @@
 #include "constants/rgb.h"
 #include "data.h"
 #include "constants/party_menu.h"
+#include "day_night.h"
+#include "constants/day_night.h"
+#include "field_player_avatar.h"
+#include "fieldmap.h"
+#include "daycare.h"
 
 extern struct MusicPlayerInfo gMPlayInfo_BGM;
 
@@ -9914,6 +9919,15 @@ static void Cmd_handleballthrow(void)
                 {
                     ballMultiplier = 20;
                 }
+                // For fun, if we're heavily underleveled, add a multipler
+                else if (gBattleMons[gBattlerTarget].level >= (gBattleMons[gActiveBattler].level * 4))
+                {
+                    ballMultiplier = 80;
+                }
+                else if (gBattleMons[gBattlerTarget].level >= (gBattleMons[gActiveBattler].level * 2))
+                {
+                    ballMultiplier = 40;
+                }
                 else
                 {
                     ballMultiplier = 10;
@@ -9924,6 +9938,10 @@ static void Cmd_handleballthrow(void)
                 {
                     ballMultiplier = 30;
                 }
+                else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
+                {
+                    ballMultiplier = 20;
+                }
                 else
                 {
                     ballMultiplier = 10;
@@ -9933,6 +9951,10 @@ static void Cmd_handleballthrow(void)
                 if (GetItemEvolutionTargetSpecies(gBattleMons[gBattlerTarget].species, ITEM_MOON_STONE) != SPECIES_NONE)
                 {
                     ballMultiplier = 40;
+                }
+                else if (GetCurrentTimeOfDay() == TIME_NIGHT)
+                {
+                    ballMultiplier = 30;
                 }
                 else
                 {
@@ -9993,6 +10015,8 @@ static void Cmd_handleballthrow(void)
                 u16 speciesTarget = gBattleMons[gBattlerTarget].species;
                 u8 genderAttacker = GetGenderFromSpeciesAndPersonality(speciesAttacker,  gBattleMons[gActiveBattler].personality);
                 u8 genderTarget = GetGenderFromSpeciesAndPersonality(speciesTarget, gBattleMons[gBattlerTarget].personality);
+                u16 eggGroupAttacker[EGG_GROUPS_PER_MON] = {gBaseStats[speciesAttacker].eggGroup1, gBaseStats[speciesAttacker].eggGroup2};
+                u16 eggGroupTarget[EGG_GROUPS_PER_MON] = {gBaseStats[speciesTarget].eggGroup1, gBaseStats[speciesTarget].eggGroup2};
 
                 if (speciesAttacker == speciesTarget
                     && genderAttacker != genderTarget
@@ -10000,6 +10024,13 @@ static void Cmd_handleballthrow(void)
                     && genderTarget != MON_GENDERLESS)
                 {
                     ballMultiplier = 80;
+                }
+                else if (eggGroupAttacker[0] == EGG_GROUP_DITTO || eggGroupTarget[0] == EGG_GROUP_DITTO)
+                {  
+                    ballMultiplier = 60;
+                }
+                else if (EggGroupsOverlap(eggGroupAttacker, eggGroupTarget)) {
+                    ballMultiplier = 40;
                 }
                 else
                 {
